@@ -14,6 +14,7 @@ module.exports = {
 					400: "#F59E0B",
 				}
 			},
+			
 			fontSize: {
 				xs: '0.75rem',
 				sm: '0.875rem',
@@ -25,7 +26,9 @@ module.exports = {
 				'4xl': '2.5rem',
 				'5xl': '4rem'
 			},
-			
+			letterSpacing: {
+				snug: "-.01em"
+			},
 		}
 	},
 };
