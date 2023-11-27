@@ -39,7 +39,7 @@
   <div class="hidden -ml-3.5 sm:block">
     <ul class="tag-tree font-mono text-purple-400 text-lg font-medium">
       <li>
-        <Tag active={activeTag} name="body" />
+        <Tag active={activeTag} name="body" defaultActive={true} />
 
         <ul>
           <li>
@@ -78,8 +78,10 @@
 
   <div
     class="flex -mx-8 scroll-px-6 px-6 pb-8 overflow-scroll snap-x snap-mandatory sm:grid sm:m-0 sm:p-0">
-    {#each data.items as item (item.name)}
-      <Block tag={item.name} active={$activeTag === item.name}>
+    {#each data.items as item, index (item.name)}
+      <Block
+        tag={item.name}
+        active={$activeTag === item.name || ($activeTag === "" && index === 0)}>
         {@html item.content}
       </Block>
     {/each}
