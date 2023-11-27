@@ -8,7 +8,7 @@
     border
     border-purple-400/10
     flex
-    max-h-72
+    max-h-80
     overflow-hidden
     
     relative
@@ -38,6 +38,10 @@
 
   :global(.semantic-element-block p a) {
     @apply underline hover:text-yellow-400 transition-all;
+  }
+
+  :global(.semantic-element-block p code) {
+    @apply p-0.5 bg-purple-400/10 rounded-sm font-mono font-semibold text-purple-400 text-[.875em];
   }
 
   .overflow-background {
