@@ -1,0 +1,1 @@
+Use `<div>` elements when a semantic elements isn’t appropriate. This is usually desired when grouping child elements to control layout and styling.[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div#usage_notes) The `<div>` element is, semantically, the block-level version of `<span>` so treat it similarly but with block level content.

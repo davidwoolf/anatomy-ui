@@ -6,18 +6,13 @@
 
   const classes = derived(active, ($active) => {
     if ($active === name) {
-      return "hover:bg-purple-400/10 p-1 rounded-md transition-all bg-purple-400/10";
+      return "hover:bg-purple-400/10 inline-block p-1 rounded-md transition-all bg-purple-400/10";
     } else {
-      return "hover:bg-purple-400/10 p-1 rounded-md transition-all";
+      return "hover:bg-purple-400/10 inline-block p-1 rounded-md transition-all";
     }
   });
 </script>
 
-<button
-  type="button"
-  class={$classes}
-  on:click={() => {
-    active.set(name);
-  }}>
+<a class={$classes} href="#{name}">
   &lt;{name}&gt;
-</button>
+</a>

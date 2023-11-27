@@ -1,9 +1,10 @@
 import { marked } from 'marked';
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 
-/** @type {import('./$types').PageLoad} */
+/** @type {import('./$types').LayoutServerLoad} */
 export async function load({ fetch, params }) {
-  let items = ["section"];
+  
+  let items = ["body", "header", "nav", "main", "section", "article", "aside", "div", "footer"];
 
   /** @type Array<{name: string, content: string}> */
   let formatted = []
@@ -38,12 +39,12 @@ export async function load({ fetch, params }) {
     }
 
     // note: this is the deprecated way of doing this, but is required to work in SvelteKit
-    marked.setOptions({
-      highlight: function(code, language) {
-        const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
-        return hljs.highlight(code, { language: validLanguage }).value;
-      }
-    });
+    // marked.setOptions({
+    //   highlight: function(code, language) {
+    //     const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+    //     return hljs.highlight(code, { language: validLanguage }).value;
+    //   }
+    // });
 
     formatted = formatted.concat([{
       name: item,
@@ -52,6 +53,7 @@ export async function load({ fetch, params }) {
   }
   
   return {
+    slug: params.slug ?? "body",
     items: formatted,
   };
 }
