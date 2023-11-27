@@ -29,7 +29,7 @@
   </p>
 </SectionHead>
 
-<div class="mt-8">
+<div class="hidden mt-8 sm:block">
   <ProTip>
     <p>click the tags in the interactive DOM tree to learn more</p>
   </ProTip>
