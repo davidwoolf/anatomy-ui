@@ -23,7 +23,7 @@
     sm:max-h-80
     sm:w-auto
 
-    {active ? 'sm:block' : 'sm:hidden'}
+    {active ? 'sm:flex' : 'sm:hidden'}
   ">
   <div class="p-8 overflow-scroll">
     <h2 class="text-lg font-bold">
