@@ -1,4 +1,4 @@
-<div class="section-head max-w-3xl">
+<div class="section-head">
   <slot />
 </div>
 
