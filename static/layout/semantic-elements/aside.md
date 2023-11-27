@@ -1,0 +1,1 @@
+The `<aside>` element in an app interface would most likely be used as a sidebar.[citation](https://html.spec.whatwg.org/multipage/sections.html#the-aside-element). The most important takeaway is that content in the `<aside>` element should be considered mostly separate from the content around it.

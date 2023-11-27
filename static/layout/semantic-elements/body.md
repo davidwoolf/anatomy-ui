@@ -1,0 +1,1 @@
+All flow content can be added to the `<body>` element[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#flow_content), which can only be declared once in an HTML file. Flow content includes presentational elements and things like scripts.
