@@ -1,3 +1,4 @@
+import { next } from '@melt-ui/svelte/internal/helpers';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
@@ -14,9 +15,10 @@ export async function load({ fetch, params }) {
     throw error(500, "something went wrong");
   }
 
-  /** @type Array<{slug: string; title: string; description: string; next: string | undefined; component: string;}> */
+  /** @type Array<{slug: string; title: string; description: string; component: string;}> */
   const sections = await res.json();
   const matchingSection = sections.find(section => section.slug === params.slug);
+  const nextSection = sections.findIndex(section => section.slug === params.slug) + 1;
 
 
   if(!matchingSection) {
@@ -25,5 +27,6 @@ export async function load({ fetch, params }) {
   
   return {
     ...matchingSection,
+    next: sections[nextSection] ? sections[nextSection].slug : undefined,
   }
 }
