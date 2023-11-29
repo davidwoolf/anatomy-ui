@@ -1,33 +1,90 @@
-<script lang="ts">
-  import { derived, writable } from "svelte/store";
-  import type { PageData } from "./$types";
-  export let data: PageData;
-
+<script>
+  import { marked } from "marked";
+  import hljs from "highlight.js";
+  import { writable } from "svelte/store";
   import ProTip from "@components/pro-tip.svelte";
-  import SectionHead from "@components/section-head.svelte";
-  import Tag from "./tag.svelte";
-  import Block from "./block.svelte";
+  import Tag from "@components/tag.svelte";
+  import Block from "@components/block.svelte";
   import { onMount } from "svelte";
 
-  const activeTag = writable("");
+  async function getItems() {
+    let items = [
+      "body",
+      "header",
+      "nav",
+      "main",
+      "section",
+      "article",
+      "aside",
+      "div",
+      "footer",
+    ];
 
-  onMount(() => {
+    /** @type Array<{name: string, content: string}> */
+    let formatted = [];
+
+    for (const item of items) {
+      const res = await fetch(`/layout/semantic-elements/${item}.md`);
+
+      if (res.status !== 200) {
+        continue;
+      }
+      let post = await res.text();
+
+      // grab all of the matching citations
+      const references = post.match(/\[citation\]\((\w|:|\/|\.|-|#)*\)/g);
+
+      /** @type Array<string> */
+      let links = [];
+
+      if (references) {
+        for (let index = 0; index < references.length; index++) {
+          const formattedValue = references[index].replace("citation", String(index + 1));
+
+          // grab the link for later
+          const link = references[index].match(/(https:\/\/)(\w|:|\/|\.|-|#)*/g);
+
+          if (link) {
+            links = links.concat([link[0]]);
+          }
+
+          post = post.replace(references[index], `<sup>${formattedValue}</sup>`);
+        }
+      }
+
+      // note: this is the deprecated way of doing this, but is required to work in SvelteKit
+      marked.setOptions({
+        highlight: function (code, language) {
+          const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
+          return hljs.highlight(code, { language: validLanguage }).value;
+        },
+      });
+
+      formatted = formatted.concat([
+        {
+          name: item,
+          content: marked.parse(post, { mangle: false, headerIds: false }),
+        },
+      ]);
+    }
+
+    return formatted;
+  }
+
+  const activeTag = writable("");
+  const items = writable([{ name: "", content: "" }]);
+
+  onMount(async () => {
     activeTag.set(window.location.hash.replace("#", ""));
 
     history.replaceState = function () {
       activeTag.set(window.location.hash.replace("#", ""));
     };
+
+    const elements = await getItems();
+    items.set(elements);
   });
 </script>
-
-<SectionHead>
-  <h1>Semantic elements</h1>
-  <p>
-    Layout helps define the hierarchy and flow of content in interfaces. While styling
-    does this visually, section level elements including divs, headers, and footers help
-    semantically describe your interface.
-  </p>
-</SectionHead>
 
 <div class="hidden mt-8 sm:block">
   <ProTip>
@@ -78,7 +135,7 @@
 
   <div
     class="flex -mx-8 scroll-px-6 px-6 pb-8 overflow-scroll snap-x snap-mandatory sm:grid sm:m-0 sm:p-0">
-    {#each data.items as item, index (item.name)}
+    {#each $items as item, index (item.name)}
       <Block
         tag={item.name}
         active={$activeTag === item.name || ($activeTag === "" && index === 0)}>

@@ -1,0 +1,35 @@
+<script lang="ts">
+  // components
+  import SemanticElements from "@components/layout/semantic-elements.svelte";
+  import SeparatingConcerns from "@components/layout/separating-concerns.svelte";
+
+  // data
+  import type { PageData } from "./$types";
+  export let data: PageData;
+
+  // layout
+  import Title from "@components/title.svelte";
+  import Description from "@components/description.svelte";
+  import Layout from "@components/layout.svelte";
+  import NextSection from "@components/next-section.svelte";
+
+  const components = { SemanticElements, SeparatingConcerns };
+</script>
+
+<Layout>
+  <Title slot="title">{data.title}</Title>
+
+  <Description slot="description">
+    {data.description}
+  </Description>
+
+  <div slot="sidebar">
+    {#if data.next}
+      <NextSection href={data.next}>Next section</NextSection>
+    {/if}
+  </div>
+
+  <div slot="contents">
+    <svelte:component this={components[data.component]} />
+  </div>
+</Layout>

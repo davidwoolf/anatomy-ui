@@ -1,0 +1,13 @@
+[{
+  "slug": "semantic-elements",
+  "title": "Semantic elements",
+  "description": "Layout helps define the hierarchy and flow of content in interfaces. While styling does this visually, section level elements including divs, headers, and footers help semantically describe your interface.",
+  "next": "separating-concerns",
+  "component": "SemanticElements"
+}, {
+  "slug": "separating-concerns",
+  "title": "Separating concerns",
+  "description": "An important concept for successful layouts is to separate implementation details internally and remove all external layout values from individual components. Another way to think about this is “abstracting layout considerations up the DOM tree”.",
+  "next": "layout-shift",
+  "component": "SeparatingConcerns"
+}]
