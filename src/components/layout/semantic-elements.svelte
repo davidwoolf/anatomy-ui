@@ -86,62 +86,64 @@
   });
 </script>
 
-<div class="hidden mt-8 sm:block">
-  <ProTip>
-    <p>click the tags in the interactive DOM tree to learn more</p>
-  </ProTip>
-</div>
-
-<div class=" gap-12 mt-12 grid-cols-[max-content_1fr] items-center sm:grid">
-  <div class="hidden -ml-3.5 sm:block">
-    <ul class="tag-tree font-mono text-purple-400 text-lg font-medium">
-      <li>
-        <Tag active={activeTag} name="body" defaultActive={true} />
-
-        <ul>
-          <li>
-            <Tag active={activeTag} name="header" />
-            <ul>
-              <li>
-                <Tag active={activeTag} name="nav" />
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Tag active={activeTag} name="main" />
-
-            <ul>
-              <li>
-                <Tag name="section" active={activeTag} />
-              </li>
-              <li>
-                <Tag name="article" active={activeTag} />
-              </li>
-              <li>
-                <Tag name="aside" active={activeTag} />
-              </li>
-              <li>
-                <Tag name="div" active={activeTag} />
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Tag name="footer" active={activeTag} />
-          </li>
-        </ul>
-      </li>
-    </ul>
+<div>
+  <div class="hidden -mt-8 sm:block">
+    <ProTip>
+      <p>click the tags in the interactive DOM tree to learn more</p>
+    </ProTip>
   </div>
 
-  <div
-    class="flex -mx-8 scroll-px-6 px-6 pb-8 overflow-scroll snap-x snap-mandatory sm:grid sm:m-0 sm:p-0">
-    {#each $items as item, index (item.name)}
-      <Block
-        tag={item.name}
-        active={$activeTag === item.name || ($activeTag === "" && index === 0)}>
-        {@html item.content}
-      </Block>
-    {/each}
+  <div class="gap-12 mt-8 grid-cols-[max-content_1fr] items-center sm:grid">
+    <div class="hidden -ml-3.5 sm:block">
+      <ul class="tag-tree font-mono text-purple-400 text-lg font-medium">
+        <li>
+          <Tag active={activeTag} name="body" defaultActive={true} />
+
+          <ul>
+            <li>
+              <Tag active={activeTag} name="header" />
+              <ul>
+                <li>
+                  <Tag active={activeTag} name="nav" />
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Tag active={activeTag} name="main" />
+
+              <ul>
+                <li>
+                  <Tag name="section" active={activeTag} />
+                </li>
+                <li>
+                  <Tag name="article" active={activeTag} />
+                </li>
+                <li>
+                  <Tag name="aside" active={activeTag} />
+                </li>
+                <li>
+                  <Tag name="div" active={activeTag} />
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Tag name="footer" active={activeTag} />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="flex -mx-8 scroll-px-6 px-6 pb-8 overflow-scroll snap-x snap-mandatory sm:grid sm:m-0 sm:p-0">
+      {#each $items as item, index (item.name)}
+        <Block
+          tag={item.name}
+          active={$activeTag === item.name || ($activeTag === "" && index === 0)}>
+          {@html item.content}
+        </Block>
+      {/each}
+    </div>
   </div>
 </div>
 

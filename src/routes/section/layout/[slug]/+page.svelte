@@ -29,7 +29,7 @@
     {/if}
   </div>
 
-  <div slot="contents">
+  <svelte:fragment slot="contents">
     <svelte:component this={components[data.component]} />
-  </div>
+  </svelte:fragment>
 </Layout>
