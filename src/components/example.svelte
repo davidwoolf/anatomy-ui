@@ -11,14 +11,7 @@
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    padding: 1rem;
     inline-size: 100%;
-  }
-
-  @media (min-width: 768px) {
-    .example-container {
-      padding: 3rem;
-    }
   }
 
   @media (min-width: 1024px) {
