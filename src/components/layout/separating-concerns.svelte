@@ -49,8 +49,8 @@
           <p>
             In a design, it may have width, height, margins, padding, and border
             properties defined. But which of them are relevant to the card itself? How do
-            the descendants elements handle their positioning and spacing, themselves or
-            via the parent card?
+            elements handle their positioning and spacing, themselves or via a parent
+            container?
 
             {#if !showAnswer}
               <button
@@ -75,8 +75,9 @@
   </Example>
 </div>
 
-<div class="col-2 py-4 md:py-8 lg:p-8 xl:p-16">
+<div class="col-2 py-4 md:py-8 lg:p-8 xl:p-16 example-answer">
   {#if showAnswer}
+    <h2>Answer</h2>
     <p>
       The card itself controls layout details including <span
         class="border border-purple-400 rounded-md px-1">borders</span>
@@ -89,15 +90,18 @@
         class="rounded-md bg-green-400/10 px-1 text-green-400">spacing</span>
       between elements, and
       <span class="rounded-md bg-blue-400/10 px-1 text-blue-400">max dimensions</span>.
-      Avoid adding ancillary details like dimension constraints and outward spacing to
-      base components to ensure consistent alignment and sizing on every device.
     </p>
 
-    <button
-      type="button"
-      on:click={function () {
-        showAnswer = !showAnswer;
-      }}>Reset card</button>
+    <p>
+      Avoid adding ancillary details like dimension constraints and outward spacing to
+      base components to ensure consistent alignment and sizing on every device.
+
+      <button
+        type="button"
+        on:click={function () {
+          showAnswer = !showAnswer;
+        }}>Reset card</button>
+    </p>
   {/if}
 </div>
 
@@ -253,5 +257,23 @@
     display: block;
     height: 1px;
     width: 100%;
+  }
+
+  .example-answer p:not(:first-child) {
+    margin: 1rem 0 0;
+  }
+
+  .example-answer h2 {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  .example-answer p {
+    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
+    font-size: 1rem;
+    line-height: 145%;
+  }
+  .example-answer p:not(:first-child) {
+    margin: 0.375rem 0 0;
   }
 </style>
