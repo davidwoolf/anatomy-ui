@@ -1,22 +1,70 @@
-<div class="example-container">
-  <slot />
+<script>
+  export let reversed = false;
+</script>
+
+<div class="example">
+  <div class="example-container" style:--layout={reversed ? "5 / -1" : "1 / 9"}>
+    <slot name="preview" />
+  </div>
+
+  <div class="example-text" style:--layout={reversed ? "1 / span 4" : "9 / -1"}>
+    <slot name="description" />
+  </div>
 </div>
 
 <style>
+  .example {
+    align-items: center;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    grid-column: 1 / -1;
+  }
+
+  :global(.example + .example) {
+    margin-top: 4rem;
+  }
+
   .example-container {
     align-items: center;
     background-color: #f1f1f9;
     border-radius: 1rem;
+    box-shadow: 0px 0px 4px 0px rgba(151, 71, 255, 0.12) inset;
     display: flex;
     flex-direction: column;
+    grid-column: var(--layout, 1 / span 7);
     justify-content: center;
-    overflow: hidden;
     inline-size: 100%;
+    overflow: hidden;
   }
 
   @media (min-width: 1024px) {
     .example-container {
       aspect-ratio: 16 / 9;
     }
+  }
+
+  .example-text {
+    grid-column: 8 / -1;
+    grid-column: var(--layout, 8 / -1);
+    grid-row: 1;
+  }
+
+  :global(.example-text h2) {
+    color: #0f172a;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 145%;
+  }
+
+  :global(.example-text p) {
+    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
+    font-size: 1rem;
+    line-height: 145%;
+    margin: 0.25rem 0 0;
+  }
+
+  :global(.example-text p:not(:first-of-type)) {
+    margin: 0.875rem 0 0;
   }
 </style>

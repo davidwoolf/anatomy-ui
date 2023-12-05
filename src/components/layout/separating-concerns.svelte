@@ -4,10 +4,8 @@
   let showAnswer = false;
 </script>
 
-<!-- md:grid lg:grid-cols-[32rem_1fr] xl:grid-cols-[48rem_1fr] items-center -->
-
-<div class="col-1">
-  <Example>
+<Example>
+  <div slot="preview">
     <div class="card-container">
       <div>
         <div class="constraint-highlight" style:--opacity={showAnswer ? 1 : 0} />
@@ -72,38 +70,40 @@
         <div class="constraint-highlight" style:--opacity={showAnswer ? 1 : 0} />
       </div>
     </div>
-  </Example>
-</div>
+  </div>
 
-<div class="col-2 py-4 md:py-8 lg:p-8 xl:p-16 example-answer">
-  {#if showAnswer}
-    <h2>Answer</h2>
-    <p>
-      The card itself controls layout details including <span
-        class="border border-purple-400 rounded-md px-1">borders</span>
-      and <span class="rounded-md bg-purple-400/10 px-1 text-purple-400"> padding</span>,
-      along with the layout of its descendants.
-    </p>
+  <div slot="description">
+    {#if showAnswer}
+      <h2>Recommendations</h2>
 
-    <p>
-      The card’s container manages details including <span
-        class="rounded-md bg-green-400/10 px-1 text-green-400">spacing</span>
-      between elements, and
-      <span class="rounded-md bg-blue-400/10 px-1 text-blue-400">max dimensions</span>.
-    </p>
+      <p>
+        The card itself should generally handle layout details including <span
+          class="border border-purple-400 rounded-md px-1">borders</span>
+        and
+        <span class="rounded-md bg-purple-400/10 px-1 text-purple-400"> padding</span>,
+        along with the layout of its descendants.
+      </p>
 
-    <p>
-      Avoid adding ancillary details like dimension constraints and outward spacing to
-      base components to ensure consistent alignment and sizing on every device.
+      <p>
+        The card’s container manages details including <span
+          class="rounded-md bg-green-400/10 px-1 text-green-400">spacing</span>
+        between elements, and
+        <span class="rounded-md bg-blue-400/10 px-1 text-blue-400">max dimensions</span>.
+      </p>
 
-      <button
-        type="button"
-        on:click={function () {
-          showAnswer = !showAnswer;
-        }}>Reset card</button>
-    </p>
-  {/if}
-</div>
+      <p>
+        Avoid adding ancillary details like dimension constraints and outward spacing to
+        base components to ensure consistent alignment and sizing on every device.
+
+        <button
+          type="button"
+          on:click={function () {
+            showAnswer = !showAnswer;
+          }}>Reset card</button>
+      </p>
+    {/if}
+  </div>
+</Example>
 
 <style>
   .card-container {
@@ -257,23 +257,5 @@
     display: block;
     height: 1px;
     width: 100%;
-  }
-
-  .example-answer p:not(:first-child) {
-    margin: 1rem 0 0;
-  }
-
-  .example-answer h2 {
-    font-size: 1.125rem;
-    font-weight: bold;
-  }
-
-  .example-answer p {
-    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
-    font-size: 1rem;
-    line-height: 145%;
-  }
-  .example-answer p:not(:first-child) {
-    margin: 0.375rem 0 0;
   }
 </style>

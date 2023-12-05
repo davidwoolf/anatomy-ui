@@ -2,6 +2,7 @@
   // components
   import SemanticElements from "@components/layout/semantic-elements.svelte";
   import SeparatingConcerns from "@components/layout/separating-concerns.svelte";
+  import LayoutShift from "@components/layout/layout-shift.svelte";
 
   // data
   import type { PageData } from "./$types";
@@ -13,7 +14,7 @@
   import Layout from "@components/layout.svelte";
   import NextSection from "@components/next-section.svelte";
 
-  const components = { SemanticElements, SeparatingConcerns };
+  const components = { SemanticElements, SeparatingConcerns, LayoutShift };
 </script>
 
 <Layout>
