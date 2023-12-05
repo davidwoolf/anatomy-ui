@@ -1,23 +1,27 @@
 <script>
   import Example from "@components/example.svelte";
+  import Card from "@components/playground/card.svelte";
 
   let showAnswer = false;
 </script>
 
-<Example>
-  <div slot="preview">
+<Example overflow="hidden">
+  <svelte:fragment slot="preview">
     <div class="card-container">
       <div>
         <div class="constraint-highlight" style:--opacity={showAnswer ? 1 : 0} />
       </div>
+
       <div class="py-4 md:py-12">
-        <div class="card disabled" inert />
+        <div inert style:margin-block-start="-8rem">
+          <Card minHeight="8rem" opacity={0.7} />
+        </div>
 
         <div class="outer-dimension-highlight" style:--opacity={showAnswer ? 1 : 0}>
           <span>2rem</span>
         </div>
 
-        <div class="card" style:--border-color={showAnswer ? "#9747ff" : "white"}>
+        <Card border={showAnswer ? "1px solid #9747ff" : "1px solid transparent"}>
           <div
             class="inner-dimension-highlight padding-top"
             style:--opacity={showAnswer ? 1 : 0}>
@@ -58,19 +62,21 @@
                 }}>Reveal the answer.</button>
             {/if}
           </p>
-        </div>
+        </Card>
 
         <div class="outer-dimension-highlight" style:--opacity={showAnswer ? 1 : 0}>
           <span>2rem</span>
         </div>
 
-        <div class="card disabled" inert />
+        <div inert style:margin-block-end="-8rem">
+          <Card minHeight="8rem" opacity={0.7} />
+        </div>
       </div>
       <div>
         <div class="constraint-highlight" style:--opacity={showAnswer ? 1 : 0} />
       </div>
     </div>
-  </div>
+  </svelte:fragment>
 
   <div slot="description">
     {#if showAnswer}
@@ -112,29 +118,6 @@
     grid-template-columns: minmax(1rem, 1fr) minmax(min-content, 32rem) minmax(1rem, 1fr);
     width: 100%;
   }
-  .card {
-    background-color: white;
-    border: 1px solid var(--border-color, white);
-    border-radius: 0.5rem;
-    flex-shrink: 0;
-    max-inline-size: 32rem;
-    overflow: hidden;
-    padding: 2.5rem;
-    position: relative;
-    width: 100%;
-  }
-
-  .card h2 {
-    font-size: 1.125rem;
-    font-weight: bold;
-  }
-
-  .card p {
-    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
-    font-size: 1rem;
-    line-height: 145%;
-    margin: 0.375rem 0 0;
-  }
 
   button {
     all: unset;
@@ -143,7 +126,6 @@
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-
     text-decoration-line: underline;
     text-underline-offset: 0.25rem;
     transition: all 0.2s ease;
@@ -151,18 +133,6 @@
 
   button:hover {
     color: #047857;
-  }
-
-  .card.disabled {
-    border: none;
-    opacity: 0.7;
-  }
-  .card.disabled:first-of-type {
-    margin-block-start: -4rem;
-  }
-
-  .card.disabled:last-of-type {
-    margin-block-end: -4rem;
   }
 
   .inner-dimension-highlight {

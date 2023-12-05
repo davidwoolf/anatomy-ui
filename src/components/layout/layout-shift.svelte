@@ -1,15 +1,37 @@
 <script>
+  import Controls from "@components/editing/controls.svelte";
+  import Control from "@components/editing/control.svelte";
+  import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
   import HtmlCode from "@components/html-code.svelte";
+  let enabledAspectRatio = true;
+
+  /**
+   *
+   * @param {Event} e
+   */
+  function updateAspectRatio(e) {
+    if (!e.target || !("value" in e.target)) {
+      return;
+    }
+
+    if (e.target.value === "disabled") {
+      enabledAspectRatio = false;
+    } else {
+      enabledAspectRatio = true;
+    }
+  }
 </script>
 
 <Example>
-  <div slot="preview">
-    <div class="card">
-      <h2>Title</h2>
-      <p>Description</p>
-    </div>
-  </div>
+  <svelte:fragment slot="preview">
+    <iframe
+      width="392"
+      style:max-width="100%"
+      style:aspect-ratio="1.04 / 1"
+      src="/examples/layout/layout-shift/aspect-ratio?enabledAspectRatio={enabledAspectRatio}"
+      title="Card showing layout shift" />
+  </svelte:fragment>
 
   <div slot="description">
     <h2>Provide media and embed dimensions</h2>
@@ -25,6 +47,15 @@
       It can also be applied to multiple elements in one declaration, since attribute
       values will need to be defined on each element.
     </p>
+
+    <Controls>
+      <Control label="Aspect ratios">
+        <Select on:change={updateAspectRatio}>
+          <option value="enabled">enabled</option>
+          <option value="disabled">disabled</option>
+        </Select>
+      </Control>
+    </Controls>
   </div>
 </Example>
 

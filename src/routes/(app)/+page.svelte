@@ -1,7 +1,3 @@
-<script lang="ts">
-  // import { assets } from "$app/paths";
-</script>
-
 <main class="au-container flex items-end p-32 pb-48 h-screen w-screen">
   <h1 class="overflow-hidden leading-none tracking-tight text-[7.5rem] font-thin">
     <div class="overflow-hidden heading-text pb-4">

@@ -1,4 +1,3 @@
-import { next } from '@melt-ui/svelte/internal/helpers';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */

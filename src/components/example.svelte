@@ -1,9 +1,13 @@
 <script>
   export let reversed = false;
+  export let overflow = "scroll";
 </script>
 
 <div class="example">
-  <div class="example-container" style:--layout={reversed ? "5 / -1" : "1 / 9"}>
+  <div
+    class="example-container"
+    style:--overflow={overflow}
+    style:--layout={reversed ? "5 / -1" : "1 / 9"}>
     <slot name="preview" />
   </div>
 
@@ -17,7 +21,6 @@
     align-items: center;
     display: grid;
     grid-template-columns: subgrid;
-
     grid-column: 1 / -1;
   }
 
@@ -33,14 +36,15 @@
     display: flex;
     flex-direction: column;
     grid-column: var(--layout, 1 / span 7);
-    justify-content: center;
     inline-size: 100%;
-    overflow: hidden;
+    justify-content: center;
+    padding: 1rem;
+    overflow: var(--overflow, scroll);
   }
 
   @media (min-width: 1024px) {
     .example-container {
-      aspect-ratio: 16 / 9;
+      padding: 2rem;
     }
   }
 
