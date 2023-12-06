@@ -1,0 +1,7 @@
+@font-face {
+  font-display: swap;
+  font-family: "Pacifico";
+  src: url("./pacifico.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

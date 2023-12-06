@@ -1,14 +1,10 @@
 <script lang="ts">
-  import "../app.css";
+  import "../../app.css";
 </script>
 
-<div>
-  <header class="" />
+<slot />
 
-  <slot />
-
-  <footer />
-</div>
+<footer />
 
 <style lang="postcss">
   :global(body) {

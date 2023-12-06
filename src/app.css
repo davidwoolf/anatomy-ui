@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes transforms {
+  from {
+    transform: scaleX(80%);
+  }
+
+  to {
+    transform: scaleX(100%);
+  }
+}
+
+@keyframes composites {
+  from {
+    inline-size: 19.2rem;
+  }
+
+  to {
+    inline-size: 24rem;
+  }
+}
