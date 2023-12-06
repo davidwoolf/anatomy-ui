@@ -4,33 +4,55 @@
   import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
   import HtmlCode from "@components/html-code.svelte";
+  import AttributeCode from "@components/attribute-code.svelte";
+  import AspectRatio from "../../routes/examples/layout/layout-shift/aspect-ratio.svelte";
+  import Animations from "../../routes/examples/layout/layout-shift/animations.svelte";
+  let reloadAspectRatio = false;
+  let reloadAnimations = false;
   let enabledAspectRatio = true;
+  let enabledFontFallbacks = true;
+  let enabledTransformAnimations = true;
 
-  /**
-   *
-   * @param {Event} e
-   */
+  /** @param {Event} e */
   function updateAspectRatio(e) {
-    if (!e.target || !("value" in e.target)) {
-      return;
+    if (!e.target || !("value" in e.target)) return;
+    enabledAspectRatio = e.target.value === "disabled" ? false : true;
+    reloadAspectRatio = true;
+  }
+
+  /** @param {Event} e */
+  function updateFontFallbacks(e) {
+    if (!e.target || !("value" in e.target)) return;
+    enabledFontFallbacks = e.target.value === "disabled" ? false : true;
+  }
+
+  /** @param {Event} e */
+  function updateAnimations(e) {
+    if (!e.target || !("value" in e.target)) return;
+    enabledTransformAnimations = e.target.value === "disabled" ? false : true;
+    reloadAnimations = true;
+  }
+
+  $: {
+    if (reloadAspectRatio) {
+      setTimeout(() => {
+        reloadAspectRatio = false;
+      });
     }
 
-    if (e.target.value === "disabled") {
-      enabledAspectRatio = false;
-    } else {
-      enabledAspectRatio = true;
+    if (reloadAnimations) {
+      setTimeout(() => {
+        reloadAnimations = false;
+      });
     }
   }
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <iframe
-      width="392"
-      style:max-width="100%"
-      style:aspect-ratio="1.04 / 1"
-      src="/examples/layout/layout-shift/aspect-ratio?enabledAspectRatio={enabledAspectRatio}"
-      title="Card showing layout shift" />
+    {#if !reloadAspectRatio}
+      <AspectRatio enabled={enabledAspectRatio} />
+    {/if}
   </svelte:fragment>
 
   <div slot="description">
@@ -61,27 +83,71 @@
 
 <Example reversed={true}>
   <div slot="preview">
-    <p>hello</p>
+    <iframe
+      loading="lazy"
+      width="392"
+      style:max-width="100%"
+      style:aspect-ratio="1 / .7"
+      src="/examples/layout/layout-shift/font-fallbacks?enabled={enabledFontFallbacks}"
+      title="Card showing layout shift" />
   </div>
 
   <div slot="description">
     <h2>Font sizing and fallbacks</h2>
 
     <p>
-      If your interface uses custom fonts, it’s recommended to use a font-display value
-      that ensures text is displayed immediately while the custom font loads (if not
-      already cached). This improves metrics like FCP (first contentful paint) and LCP
-      (largest contentful paint). However, it can also create layout shifting since
-      different font values don’t take up the same physical space, even with the same type
-      properties.
+      If your interface uses custom fonts, it’s recommended to use a <AttributeCode
+        >font-display</AttributeCode> value that ensures text is displayed immediately while
+      the custom font loads (if not already cached). This improves metrics like FCP (first
+      contentful paint) and LCP (largest contentful paint). However, it can also create layout
+      shifting since different font values don’t take up the same physical space, even with
+      the same type properties.
     </p>
     <p>
       To solve this, try to provide built-in fallbacks that are optically similar in size
       to your custom fonts. This will decrease layout shift and also prevent jarring text
       swapping experiences.
     </p>
+
+    <Controls>
+      <Control label="Font fallback">
+        <Select on:change={updateFontFallbacks}>
+          <option value="enabled">cursive</option>
+          <option value="disabled">sans serif</option>
+        </Select>
+      </Control>
+    </Controls>
   </div>
 </Example>
 
-<style>
-</style>
+<Example>
+  <svelte:fragment slot="preview">
+    {#if !reloadAnimations}
+      <Animations enabled={enabledTransformAnimations} />
+    {/if}
+  </svelte:fragment>
+
+  <div slot="description">
+    <h2>Implement animations properly</h2>
+
+    <p>
+      Layout shift doesn’t just happen on page and asset load, it can also happen when
+      animating elements using CSS properties that contribute to the overall DOM layout
+      flow.
+    </p>
+    <p>
+      Avoid animating properties like height and width, top and left and margin and
+      padding when possible. Instead, use transform for animations as it doesn’t cause
+      layout re-computations.
+    </p>
+
+    <Controls>
+      <Control label="Transform animations">
+        <Select on:change={updateAnimations}>
+          <option value="enabled">enabled</option>
+          <option value="disabled">disabled</option>
+        </Select>
+      </Control>
+    </Controls>
+  </div>
+</Example>

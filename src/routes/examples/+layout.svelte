@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../../app.css";
+  import "../../embed-reset.css";
 </script>
 
 <slot />

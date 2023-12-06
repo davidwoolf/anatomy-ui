@@ -4,17 +4,9 @@
   import { onMount } from "svelte";
 
   let src = "";
-  let enabledAspectRatio = true;
+  export let enabled = true;
 
   onMount(() => {
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get("enabledAspectRatio") === "true") {
-      enabledAspectRatio = true;
-    } else {
-      enabledAspectRatio = false;
-    }
-
     setTimeout(() => {
       src = `${base}/layout/layout-shift/image.jpeg`;
     }, 500);
@@ -23,12 +15,10 @@
 
 <div class="container">
   <Card maxWidth="24rem">
-    <img
-      {src}
-      alt="A cresting wave"
-      style:aspect-ratio={enabledAspectRatio ? "16 / 9" : "revert"} />
+    <img {src} alt="A cresting wave" style:aspect-ratio={enabled ? "16 / 9" : "revert"} />
 
     <h2>Layout shift in action</h2>
+
     <p>
       Toggle the aspect ratio setting and see how it affects layout shift when an image is
       loaded.

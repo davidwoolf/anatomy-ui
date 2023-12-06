@@ -30,6 +30,7 @@
 
   .example-container {
     align-items: center;
+    aspect-ratio: 16 / 9;
     background-color: #f1f1f9;
     border-radius: 1rem;
     box-shadow: 0px 0px 4px 0px rgba(151, 71, 255, 0.12) inset;
