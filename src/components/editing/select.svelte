@@ -24,10 +24,12 @@
   }
   select {
     all: unset;
+    box-sizing: border-box;
     outline: revert;
     font-size: 0.875rem;
     padding: 0.5rem 1.75rem 0.5rem 0.75rem;
     line-height: 1;
+    width: 100%;
   }
 
   svg {

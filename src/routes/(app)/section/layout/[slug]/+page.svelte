@@ -3,6 +3,7 @@
   import SemanticElements from "@components/layout/semantic-elements.svelte";
   import SeparatingConcerns from "@components/layout/separating-concerns.svelte";
   import LayoutShift from "@components/layout/layout-shift.svelte";
+  import BlockInlineAxes from "@components/layout/block-inline-axes.svelte";
 
   // data
   import type { PageData } from "./$types";
@@ -14,14 +15,19 @@
   import Layout from "@components/layout.svelte";
   import NextSection from "@components/next-section.svelte";
 
-  const components = { SemanticElements, SeparatingConcerns, LayoutShift };
+  const components = {
+    SemanticElements,
+    SeparatingConcerns,
+    LayoutShift,
+    BlockInlineAxes,
+  };
 </script>
 
 <Layout>
   <Title slot="title">{data.title}</Title>
 
   <Description slot="description">
-    {data.description}
+    {@html data.description}
   </Description>
 
   <div slot="sidebar">

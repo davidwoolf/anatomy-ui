@@ -7,6 +7,7 @@
   import AttributeCode from "@components/attribute-code.svelte";
   import AspectRatio from "../../routes/examples/layout/layout-shift/aspect-ratio.svelte";
   import Animations from "../../routes/examples/layout/layout-shift/animations.svelte";
+  import { safelyGetFormEventValue } from "@components/editing/form";
   let reloadAspectRatio = false;
   let reloadAnimations = false;
   let enabledAspectRatio = true;
@@ -15,21 +16,21 @@
 
   /** @param {Event} e */
   function updateAspectRatio(e) {
-    if (!e.target || !("value" in e.target)) return;
-    enabledAspectRatio = e.target.value === "disabled" ? false : true;
+    const value = safelyGetFormEventValue(e);
+    enabledAspectRatio = value === "disabled" ? false : true;
     reloadAspectRatio = true;
   }
 
   /** @param {Event} e */
   function updateFontFallbacks(e) {
-    if (!e.target || !("value" in e.target)) return;
-    enabledFontFallbacks = e.target.value === "disabled" ? false : true;
+    const value = safelyGetFormEventValue(e);
+    enabledFontFallbacks = value === "disabled" ? false : true;
   }
 
   /** @param {Event} e */
   function updateAnimations(e) {
-    if (!e.target || !("value" in e.target)) return;
-    enabledTransformAnimations = e.target.value === "disabled" ? false : true;
+    const value = safelyGetFormEventValue(e);
+    enabledTransformAnimations = value === "disabled" ? false : true;
     reloadAnimations = true;
   }
 

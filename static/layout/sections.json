@@ -16,7 +16,7 @@
 }, {
   "slug": "block-inline-axes",
   "title": "Block and inline axes",
-  "description": "When learning about layout on the web and how elements flow, you will come across the terms “block axis” and “inline axis”. These terms are intentionally named to avoid relating to physical edges (left, right, top, and bottom), because the web is viewed in a myriad of ways.",
+  "description": "When learning about layout on the web and how elements flow, you will come across the terms **block axis** and **inline axis**. Since the web can be viewed in different writing modes and orientations, these names are meant to avoid relating to physical edges such as “top”, “left”, etc.",
   "component": "BlockInlineAxes"
 }, {
   "slug": "box-sizing",
