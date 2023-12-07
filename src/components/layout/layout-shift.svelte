@@ -7,6 +7,8 @@
   import AttributeCode from "@components/attribute-code.svelte";
   import AspectRatio from "../../routes/examples/layout/layout-shift/aspect-ratio.svelte";
   import Animations from "../../routes/examples/layout/layout-shift/animations.svelte";
+  import { safelyGetFormEventValue } from "@components/editing/form";
+  import ExampleText from "@components/example-text.svelte";
   let reloadAspectRatio = false;
   let reloadAnimations = false;
   let enabledAspectRatio = true;
@@ -15,21 +17,21 @@
 
   /** @param {Event} e */
   function updateAspectRatio(e) {
-    if (!e.target || !("value" in e.target)) return;
-    enabledAspectRatio = e.target.value === "disabled" ? false : true;
+    const value = safelyGetFormEventValue(e);
+    enabledAspectRatio = value === "disabled" ? false : true;
     reloadAspectRatio = true;
   }
 
   /** @param {Event} e */
   function updateFontFallbacks(e) {
-    if (!e.target || !("value" in e.target)) return;
-    enabledFontFallbacks = e.target.value === "disabled" ? false : true;
+    const value = safelyGetFormEventValue(e);
+    enabledFontFallbacks = value === "disabled" ? false : true;
   }
 
   /** @param {Event} e */
   function updateAnimations(e) {
-    if (!e.target || !("value" in e.target)) return;
-    enabledTransformAnimations = e.target.value === "disabled" ? false : true;
+    const value = safelyGetFormEventValue(e);
+    enabledTransformAnimations = value === "disabled" ? false : true;
     reloadAnimations = true;
   }
 
@@ -58,17 +60,17 @@
   <div slot="description">
     <h2>Provide media and embed dimensions</h2>
 
-    <p>
+    <ExampleText>
       Use the aspect-ratio CSS property to give media such as images, videos, and embedded
       content like <HtmlCode>iframe</HtmlCode> a concrete size before rendering. While height
       and width attributes directly on media elements have historically been used, the aspect-ratio
       property can inform overall dimensions without explicitly providing width and height
       values that might not translate well in responsive designs.
-    </p>
-    <p>
+    </ExampleText>
+    <ExampleText>
       It can also be applied to multiple elements in one declaration, since attribute
       values will need to be defined on each element.
-    </p>
+    </ExampleText>
 
     <Controls>
       <Control label="Aspect ratios">

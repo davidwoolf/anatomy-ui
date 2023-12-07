@@ -11,22 +11,22 @@
 }, {
   "slug": "layout-shift",
   "title": "Layout shift",
-  "description": "If you’ve done any site profiling in the past, you will probably know the term Cumulative Layout Shift, which measures how much a web page’s layout shifts after initial load and during use. Due to the nature of how web pages are loaded, layout shift isn’t completely avoidable. But it can be minimized.",
+  "description": "If you’ve done any site profiling in the past, you will probably know the term <a href='https://web.dev/articles/cls' target='_blank'>Cumulative Layout Shift</a>, which measures how much a web page’s layout shifts after initial load and during use. Due to the nature of how web pages are loaded, layout shift isn’t completely avoidable. But it can be minimized.",
   "component": "LayoutShift"
 }, {
   "slug": "block-inline-axes",
   "title": "Block and inline axes",
-  "description": "When learning about layout on the web and how elements flow, you will come across the terms “block axis” and “inline axis”. These terms are intentionally named to avoid relating to physical edges (left, right, top, and bottom), because the web is viewed in a myriad of ways.",
+  "description": "When learning about layout on the web and how elements flow, you will come across the terms **block axis** and **inline axis**. Since the web can be viewed in different writing modes and orientations, these names are meant to avoid relating to physical edges such as “top”, “left”, etc.",
   "component": "BlockInlineAxes"
 }, {
   "slug": "box-sizing",
   "title": "Box sizing",
-  "description": "",
+  "description": "The size of elements on the web can be calculated in two ways: using the content box sizing model or the border box sizing model. By default, content box sizing is used to calculate most element’s dimensions, but not all. Table, select, button, and input elements all use border box sizing by default.",
   "component": "BoxSizing"
 }, {
   "slug": "display-modes",
   "title": "Display modes",
-  "description": "",
+  "description": "Elements can set both their external and internal layout modes via the CSS **display** property. External layout values indicate how an element will render alongside sibling elements in a container while internal layout values indicate how descendants of the element will render.",
   "component": "DisplayModes"
 }, {
   "slug": "setting-dimensions",

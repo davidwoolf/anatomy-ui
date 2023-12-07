@@ -19,7 +19,6 @@
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0px 1px 3px 0px rgba(4, 120, 87, 0.1);
-    flex-shrink: 0;
     overflow: hidden;
     padding: 2.5rem;
     position: relative;

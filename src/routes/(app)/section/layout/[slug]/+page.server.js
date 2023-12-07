@@ -1,3 +1,4 @@
+import { marked } from 'marked';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
@@ -26,6 +27,7 @@ export async function load({ fetch, params }) {
   
   return {
     ...matchingSection,
+    description: marked.parse(matchingSection.description, {mangle: false, headerIds: false}),
     next: sections[nextSection] ? sections[nextSection].slug : undefined,
   }
 }
