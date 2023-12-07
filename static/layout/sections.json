@@ -26,7 +26,7 @@
 }, {
   "slug": "display-modes",
   "title": "Display modes",
-  "description": "",
+  "description": "Elements can set both their external and internal layout modes via the CSS **display** property. External layout values indicate how an element will render alongside sibling elements in a container while internal layout values indicate how descendants of the element will render.",
   "component": "DisplayModes"
 }, {
   "slug": "setting-dimensions",

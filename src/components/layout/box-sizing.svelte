@@ -50,13 +50,18 @@
 
 <style>
   .card-wrapper {
-    display: flex;
     gap: 1.5rem;
-    max-width: 80%;
   }
 
-  .card-wrapper div:nth-child(2) {
-    margin-block-start: 6rem;
+  @media (min-width: 1024px) {
+    .card-wrapper {
+      display: flex;
+      max-width: 80%;
+    }
+
+    .card-wrapper div:nth-child(2) {
+      margin-block-start: 6rem;
+    }
   }
 
   .text-wrapper {

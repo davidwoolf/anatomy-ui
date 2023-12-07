@@ -5,6 +5,7 @@
   import LayoutShift from "@components/layout/layout-shift.svelte";
   import BlockInlineAxes from "@components/layout/block-inline-axes.svelte";
   import BoxSizing from "@components/layout/box-sizing.svelte";
+  import DisplayModes from "@components/layout/display-modes.svelte";
 
   // data
   import type { PageData } from "./$types";
@@ -22,6 +23,7 @@
     LayoutShift,
     BlockInlineAxes,
     BoxSizing,
+    DisplayModes,
   };
 </script>
 
