@@ -5,6 +5,7 @@
   import Select from "@components/editing/select.svelte";
   import { safelyGetFormEventValue } from "@components/editing/form";
   import { writable } from "svelte/store";
+  import ExampleText from "@components/example-text.svelte";
 
   const writingMode = writable("horizontal-tb");
 </script>
@@ -30,17 +31,18 @@
   </svelte:fragment>
 
   <div slot="description">
-    <p>
+    <ExampleText>
       In English, text flows from left to right, and top to bottom. The <strong
         >block axis</strong>
       is the vertical axis starting from the top, while the <strong>inline axis</strong> is
       the horizontal axis starting from the left.
-    </p>
-    <p>
+    </ExampleText>
+
+    <ExampleText>
       Changing the writing direction will augment these values, but they are relationally
       tied together. Both the start and end point of axes (along with the axes themselves)
       can be flipped, but they will always be opposite of each other.
-    </p>
+    </ExampleText>
 
     <Controls label="Change settings to see how the axes are affected:">
       <Control label="Writing mode">

@@ -4,6 +4,7 @@
   import SeparatingConcerns from "@components/layout/separating-concerns.svelte";
   import LayoutShift from "@components/layout/layout-shift.svelte";
   import BlockInlineAxes from "@components/layout/block-inline-axes.svelte";
+  import BoxSizing from "@components/layout/box-sizing.svelte";
 
   // data
   import type { PageData } from "./$types";
@@ -20,6 +21,7 @@
     SeparatingConcerns,
     LayoutShift,
     BlockInlineAxes,
+    BoxSizing,
   };
 </script>
 

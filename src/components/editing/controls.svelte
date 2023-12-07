@@ -1,6 +1,6 @@
 <script>
   /** @type {string | undefined} */
-  export let label;
+  export let label = undefined;
 </script>
 
 <form>

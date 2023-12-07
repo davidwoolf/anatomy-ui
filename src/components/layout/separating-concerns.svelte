@@ -1,4 +1,5 @@
 <script>
+  import ExampleText from "@components/example-text.svelte";
   import Example from "@components/example.svelte";
   import Card from "@components/playground/card.svelte";
 
@@ -82,22 +83,22 @@
     {#if showAnswer}
       <h2>Recommendations</h2>
 
-      <p>
+      <ExampleText>
         The card itself should generally handle layout details including <span
           class="border border-purple-400 rounded-md px-1">borders</span>
         and
         <span class="rounded-md bg-purple-400/10 px-1 text-purple-400"> padding</span>,
         along with the layout of its descendants.
-      </p>
+      </ExampleText>
 
-      <p>
+      <ExampleText>
         The card’s container manages details including <span
           class="rounded-md bg-green-400/10 px-1 text-green-400">spacing</span>
         between elements, and
         <span class="rounded-md bg-blue-400/10 px-1 text-blue-400">max dimensions</span>.
-      </p>
+      </ExampleText>
 
-      <p>
+      <ExampleText>
         Avoid adding ancillary details like dimension constraints and outward spacing to
         base components to ensure consistent alignment and sizing on every device.
 
@@ -106,7 +107,7 @@
           on:click={function () {
             showAnswer = !showAnswer;
           }}>Reset card</button>
-      </p>
+      </ExampleText>
     {/if}
   </div>
 </Example>

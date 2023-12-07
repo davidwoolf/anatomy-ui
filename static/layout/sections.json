@@ -21,7 +21,7 @@
 }, {
   "slug": "box-sizing",
   "title": "Box sizing",
-  "description": "",
+  "description": "The size of elements on the web can be calculated in two ways: using the content box sizing model or the border box sizing model. By default, content box sizing is used to calculate most element’s dimensions, but not all. Table, select, button, and input elements all use border box sizing by default.",
   "component": "BoxSizing"
 }, {
   "slug": "display-modes",

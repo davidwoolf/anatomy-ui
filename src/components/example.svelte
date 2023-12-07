@@ -62,13 +62,6 @@
     line-height: 145%;
   }
 
-  :global(.example-text p) {
-    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
-    font-size: 1rem;
-    line-height: 145%;
-    margin: 0.25rem 0 0;
-  }
-
   :global(.example-text p:not(:first-of-type)) {
     margin: 0.875rem 0 0;
   }
