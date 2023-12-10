@@ -36,12 +36,12 @@
 }, {
   "slug": "spacing",
   "title": "Spacing",
-  "description": "",
+  "description": "When creating interfaces, be careful where and when you apply spacing values like padding and margin as values can quickly compound and cause visual misalignments. Think of spacing as a top down setting, ideally applied to container elements and missing from descendants entirely.",
   "component": "Spacing"
 }, {
   "slug": "positioning",
   "title": "Positioning",
-  "description": "",
+  "description": "In addition to spacing properties, elements can augment their place in the DOM by using the **position** property alongside modifier properties such as top, bottom, left, and right. These properties move elements without affecting the placement of siblings or ancestors in the DOM.",
   "component": "Position"
 }, {
   "slug": "aspect-ratios",

@@ -104,7 +104,7 @@
 
 <Example reversed>
   <svelte:fragment slot="preview">
-    <Card maxWidth={fitContent === "enabled" ? "fit-content" : "32rem"}>
+    <Card maxWidth={fitContent === "enabled" ? "fit-content" : "60%"}>
       <h2>Change the bounds</h2>
       <p>
         Toggle the use of the fit-content keyword to see how this card responds. Here is a

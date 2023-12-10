@@ -4,6 +4,7 @@
   export let maxWidth = "32rem";
   export let minHeight = "0";
   export let opacity = 1;
+  export let padding = "40px";
 </script>
 
 <div
@@ -12,7 +13,8 @@
   style:max-inline-size={maxWidth}
   style:min-inline-size={minWidth}
   style:border
-  style:opacity>
+  style:opacity
+  style:padding>
   <slot />
 </div>
 
@@ -22,7 +24,7 @@
     border-radius: 0.5rem;
     box-shadow: 0px 1px 3px 0px rgba(4, 120, 87, 0.1);
     overflow: hidden;
-    padding: 2.5rem;
+
     position: relative;
     width: 100%;
   }

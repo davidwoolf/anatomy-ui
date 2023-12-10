@@ -1,9 +1,12 @@
 <script>
   /** @type {string | number} */
   export let value;
+
+  export let min = 0;
+  export let max = 100000;
 </script>
 
-<input type="number" bind:value />
+<input type="number" bind:value {min} {max} />
 
 <style>
   input {
@@ -15,6 +18,6 @@
     font-size: 0.875rem;
     padding: 0.5rem 0.75rem;
     line-height: 1;
-    width: 100%;
+    min-width: 6rem;
   }
 </style>
