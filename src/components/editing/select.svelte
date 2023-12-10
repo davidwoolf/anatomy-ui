@@ -1,10 +1,14 @@
+<script>
+  /** @type {string} */
+  export let value;
+</script>
+
 <div>
-  <select on:change>
+  <select bind:value>
     <slot />
   </select>
 
   <svg
-    inert
     width="12"
     height="7"
     viewBox="0 0 12 7"

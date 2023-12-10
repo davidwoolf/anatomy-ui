@@ -1,7 +1,6 @@
 <script>
   import Control from "@components/editing/control.svelte";
   import Controls from "@components/editing/controls.svelte";
-  import { safelyGetFormEventValue } from "@components/editing/form";
   import ExampleText from "@components/example-text.svelte";
   import Example from "@components/example.svelte";
   import Select from "@components/editing/select.svelte";
@@ -51,11 +50,7 @@
   <div slot="description">
     <Controls label="Change the layout settings to see different effects">
       <Control label="External layout">
-        <Select
-          on:change={(e) => {
-            const value = safelyGetFormEventValue(e);
-            externalLayout.set(value);
-          }}>
+        <Select bind:value={$externalLayout}>
           <option value="block">block</option>
           <option value="inline">inline</option>
           <option value="none">none</option>
@@ -63,11 +58,7 @@
       </Control>
 
       <Control label="Internal layout">
-        <Select
-          on:change={(e) => {
-            const value = safelyGetFormEventValue(e);
-            internalLayout.set(value);
-          }}>
+        <Select bind:value={$internalLayout}>
           <option value="block">block</option>
           <option value="flex">flex</option>
           <option value="grid">grid</option>

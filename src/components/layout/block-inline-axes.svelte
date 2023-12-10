@@ -4,15 +4,14 @@
   import Example from "@components/example.svelte";
   import Select from "@components/editing/select.svelte";
   import { safelyGetFormEventValue } from "@components/editing/form";
-  import { writable } from "svelte/store";
   import ExampleText from "@components/example-text.svelte";
 
-  const writingMode = writable("horizontal-tb");
+  let writingMode = "horizontal-tb";
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <div class="axes" style:--writingMode={$writingMode}>
+    <div class="axes" style:--writingMode={writingMode}>
       <div class="axis-boundary block-start" />
       <div class="axis-boundary block-end" />
       <div class="axis-boundary inline-start" />
@@ -46,11 +45,7 @@
 
     <Controls label="Change settings to see how the axes are affected:">
       <Control label="Writing mode">
-        <Select
-          on:change={(e) => {
-            const value = safelyGetFormEventValue(e);
-            writingMode.set(value);
-          }}>
+        <Select bind:value={writingMode}>
           <option value="horizontal-tb">horizontal</option>
           <option value="vertical-lr">vertical — left to right</option>
           <option value="vertical-rl">vertical — right to left</option>

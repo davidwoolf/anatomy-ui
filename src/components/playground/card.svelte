@@ -1,5 +1,8 @@
 <script>
   export let border = "none";
+  /** @type {string | number} */
+  export let minWidth = "none";
+  /** @type {string | number} */
   export let maxWidth = "32rem";
   export let minHeight = "0";
   export let opacity = 1;
@@ -8,7 +11,8 @@
 <div
   class="playground--card"
   style:min-block-size={minHeight}
-  style:max-inline-size={maxWidth}
+  style:max-inline-size={typeof maxWidth === "string" ? maxWidth : `${maxWidth}px`}
+  style:min-inline-size={typeof minWidth === "string" ? minWidth : `${minWidth}px`}
   style:border
   style:opacity>
   <slot />
