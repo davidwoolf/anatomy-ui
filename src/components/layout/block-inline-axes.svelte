@@ -3,7 +3,6 @@
   import Controls from "@components/editing/controls.svelte";
   import Example from "@components/example.svelte";
   import Select from "@components/editing/select.svelte";
-  import { safelyGetFormEventValue } from "@components/editing/form";
   import ExampleText from "@components/example-text.svelte";
 
   let writingMode = "horizontal-tb";

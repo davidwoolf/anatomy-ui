@@ -7,7 +7,6 @@
   import AttributeCode from "@components/attribute-code.svelte";
   import AspectRatio from "../../routes/examples/layout/layout-shift/aspect-ratio.svelte";
   import Animations from "../../routes/examples/layout/layout-shift/animations.svelte";
-  import { safelyGetFormEventValue } from "@components/editing/form";
   import ExampleText from "@components/example-text.svelte";
   let reloadAspectRatio = false;
   let reloadAnimations = false;
