@@ -17,7 +17,7 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card {minWidth} {maxWidth}>
+    <Card minWidth="{minWidth}px" maxWidth="{maxWidth}px">
       <h2>Change the bounds</h2>
       <p>Update the minimum and maximum width values to see how this card responds.</p>
     </Card>
