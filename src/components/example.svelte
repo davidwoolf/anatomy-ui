@@ -30,8 +30,7 @@
 
   .example-container {
     align-items: center;
-
-    background-color: #f1f1f9;
+    background-color: var(--color-purple-100);
     border-radius: 1rem;
     box-shadow: 0px 0px 4px 0px rgba(151, 71, 255, 0.12) inset;
     display: flex;
@@ -39,8 +38,9 @@
     grid-column: var(--layout, 1 / span 7);
     inline-size: 100%;
     justify-content: center;
-    padding: 1rem;
     overflow: var(--overflow, scroll);
+    padding: 1rem;
+    position: relative;
   }
 
   @media (min-width: 1024px) {
@@ -57,7 +57,7 @@
   }
 
   :global(.example-text h2) {
-    color: #0f172a;
+    color: var(--color-gray-800);
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 145%;

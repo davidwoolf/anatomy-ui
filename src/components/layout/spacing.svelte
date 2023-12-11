@@ -39,7 +39,7 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card padding="{renderedPadding}px">
+    <Card position="relative" padding="{renderedPadding}px">
       <div class="padding-highlight padding-top" style:--size="{renderedPadding}px">
         <span>padding {renderedPadding}px</span>
       </div>

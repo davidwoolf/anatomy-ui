@@ -22,7 +22,11 @@
           <span>2rem</span>
         </div>
 
-        <Card border={showAnswer ? "1px solid #9747ff" : "1px solid transparent"}>
+        <Card
+          position="relative"
+          border={showAnswer
+            ? "1px solid var(--color-purple-400)"
+            : "1px solid transparent"}>
           <div
             class="inner-dimension-highlight padding-top"
             style:--opacity={showAnswer ? 1 : 0}>
@@ -123,7 +127,7 @@
   button {
     all: unset;
     overflow: revert;
-    color: #9747ff;
+    color: var(--color-purple-400);
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
@@ -133,12 +137,12 @@
   }
 
   button:hover {
-    color: #047857;
+    color: var(--color-green-400);
   }
 
   .inner-dimension-highlight {
     align-items: center;
-    background-color: color-mix(in srgb, #9747ff, #fff 80%);
+    background-color: color-mix(in srgb, var(--color-purple-400), #fff 80%);
     display: flex;
     justify-content: center;
     opacity: var(--opacity, 0);
@@ -148,7 +152,7 @@
 
   .outer-dimension-highlight {
     align-items: center;
-    background-color: color-mix(in srgb, #047857, #fff 80%);
+    background-color: color-mix(in srgb, var(--color-green-400), #fff 80%);
     display: flex;
     block-size: var(--height, 2rem);
     flex: 0 0 2rem;
@@ -214,7 +218,7 @@
 
   .constraint-highlight {
     align-items: center;
-    border: 1px solid #0138dd;
+    border: 1px solid var(--color-blue-400);
     border-block-start: none;
     border-block-end: none;
     display: flex;
@@ -222,8 +226,9 @@
     opacity: var(--opacity, 0);
     transition: all 0.2s ease;
   }
+
   .constraint-highlight:before {
-    background-color: #0138dd;
+    background-color: var(--color-blue-400);
     content: "";
     display: block;
     height: 1px;

@@ -1,3 +1,13 @@
-<code
-  class="p-0.5 bg-purple-400/10 rounded-sm font-mono font-semibold text-purple-400 text-[.875em]"
-  >&lt;<slot />&gt;</code>
+<code>&lt;<slot />&gt;</code>
+
+<style>
+  code {
+    background-color: color-mix(in srgb, var(--color-purple-400), white 90%);
+    border-radius: 0.125rem;
+    color: var(--color-purple-400);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 0.125rem;
+  }
+</style>

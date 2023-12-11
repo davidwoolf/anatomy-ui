@@ -1,9 +1,59 @@
-<header class="h-16 md:h-20 border-b flex items-center ml-8 md:ml-16 lg:ml-20 2xl:ml-32">
-  <span class="text-xl md:text-2xl tracking-snug">The Anatomy of Everyday UI</span>
+<header>
+  <span>The Anatomy of Everyday UI</span>
 </header>
 
 <main>
-  <article class="p-8 md:p-16 lg:p-20 2xl:p-32 2xl:py-20">
+  <article>
     <slot />
   </article>
 </main>
+
+<style>
+  header {
+    align-items: center;
+    border-block-end: 1px solid var(--color-gray-200);
+    display: flex;
+    height: 4rem;
+    margin-inline-start: 2rem;
+  }
+
+  header span {
+    font-size: var(--font-size-xl);
+    letter-spacing: -0.01em;
+  }
+
+  article {
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    header {
+      margin-inline-start: 4rem;
+      height: 5rem;
+    }
+
+    article {
+      padding: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    header {
+      margin-inline-start: 5rem;
+    }
+
+    article {
+      padding: 5rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    header {
+      margin-inline-start: 8rem;
+    }
+
+    article {
+      padding: 5rem 8rem;
+    }
+  }
+</style>

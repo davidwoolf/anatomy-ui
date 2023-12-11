@@ -5,6 +5,11 @@
   export let minHeight = "0";
   export let opacity = 1;
   export let padding = "40px";
+  export let position = "static";
+  export let top = "0px";
+  export let right = "0px";
+  export let bottom = "0px";
+  export let left = "0px";
 </script>
 
 <div
@@ -14,7 +19,12 @@
   style:min-inline-size={minWidth}
   style:border
   style:opacity
-  style:padding>
+  style:padding
+  style:position
+  style:top
+  style:right
+  style:bottom
+  style:left>
   <slot />
 </div>
 
@@ -24,7 +34,6 @@
     border-radius: 0.5rem;
     box-shadow: 0px 1px 3px 0px rgba(4, 120, 87, 0.1);
     overflow: hidden;
-
     position: relative;
     width: 100%;
   }
@@ -43,7 +52,7 @@
   }
 
   :global(.playground--card p) {
-    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
+    color: color-mix(in srgb, var(--color-gray-400), white 20%);
     font-size: 1rem;
     line-height: 145%;
     margin: 0.25rem 0 0;
