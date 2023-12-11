@@ -10,6 +10,8 @@
 
   let starterPosition = "static";
   let starterOffset = [null, null, null, null];
+
+  let fixedSticky = "fixed";
 </script>
 
 <Example>
@@ -85,12 +87,30 @@
   <div slot="description">
     <h2>Fixed and sticky positions</h2>
 
-    <ExampleText />
+    <ExampleText>
+      Applying <AttributeCode>fixed</AttributeCode> as the position property’s value will place
+      the element relative to the window, regardless of any parent’s
+      <AttributeCode>position: relative</AttributeCode> value. It also ignores scroll positioning.
+    </ExampleText>
+
+    <ExampleText>
+      Applying <AttributeCode>sticky</AttributeCode> as the position property’s value will
+      make an element act like it’s fixed once it hits the top of the viewport. The element’s
+      dimensions are also calculated as part of the normal DOM, eliminating the need to calculate
+      offset padding for other items. One thing to note is that sticky elements are scoped
+      to the closest element with the overflow property applied.
+      <sup>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/position#values"
+          target="_blank">1</a>
+      </sup>
+    </ExampleText>
 
     <Controls>
-      <Control label="Item">
-        <Select>
-          <option value="value">value</option>
+      <Control label="Position">
+        <Select bind:value={fixedSticky}>
+          <option value="fixed">fixed</option>
+          <option value="sticky">sticky</option>
         </Select>
       </Control>
     </Controls>

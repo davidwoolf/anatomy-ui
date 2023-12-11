@@ -58,12 +58,12 @@
 
   :global(.example-text h2) {
     color: var(--color-gray-800);
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
     line-height: 145%;
   }
 
-  :global(.example-text p:not(:first-of-type)) {
+  :global(.example-text p) {
     margin: 0.875rem 0 0;
   }
 </style>
