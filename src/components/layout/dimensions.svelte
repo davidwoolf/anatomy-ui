@@ -1,6 +1,5 @@
 <script>
   import Control from "@components/editing/control.svelte";
-  import Controls from "@components/editing/controls.svelte";
   import ExampleText from "@components/example-text.svelte";
   import Example from "@components/example.svelte";
   import Select from "@components/editing/select.svelte";

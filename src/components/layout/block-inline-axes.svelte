@@ -1,6 +1,5 @@
 <script>
   import Control from "@components/editing/control.svelte";
-  import Controls from "@components/editing/controls.svelte";
   import Example from "@components/example.svelte";
   import Select from "@components/editing/select.svelte";
   import ExampleText from "@components/example-text.svelte";
@@ -10,25 +9,39 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <div class="axes" style:--writingMode={writingMode}>
-      <div class="axis-boundary block-start" />
-      <div class="axis-boundary block-end" />
-      <div class="axis-boundary inline-start" />
-      <div class="axis-boundary inline-end" />
+    <div class="axes-container">
+      <div class="axes" style:--writingMode={writingMode}>
+        <div class="axis-boundary block-start" />
+        <div class="axis-boundary block-end" />
+        <div class="axis-boundary inline-start" />
+        <div class="axis-boundary inline-end" />
 
-      <div class="block-axis">
-        <span>block axis start</span>
+        <div class="block-axis">
+          <span>block axis start</span>
+        </div>
+
+        <div class="inline-axis">
+          <span>inline axis start</span>
+        </div>
+
+        <div class="circle" inert aria-hidden />
       </div>
-
-      <div class="inline-axis">
-        <span>inline axis start</span>
-      </div>
-
-      <div class="circle" inert aria-hidden />
     </div>
   </svelte:fragment>
 
+  <svelte:fragment slot="preview-controls">
+    <Control label="Writing mode">
+      <Select bind:value={writingMode}>
+        <option value="horizontal-tb">horizontal</option>
+        <option value="vertical-lr">vertical — left to right</option>
+        <option value="vertical-rl">vertical — right to left</option>
+      </Select>
+    </Control>
+  </svelte:fragment>
+
   <div slot="description">
+    <h2>Writing mode</h2>
+
     <ExampleText>
       In English, text flows from left to right, and top to bottom. The <strong
         >block axis</strong>
@@ -41,23 +54,18 @@
       tied together. Both the start and end point of axes (along with the axes themselves)
       can be flipped, but they will always be opposite of each other.
     </ExampleText>
-
-    <Controls label="Change settings to see how the axes are affected:">
-      <Control label="Writing mode">
-        <Select bind:value={writingMode}>
-          <option value="horizontal-tb">horizontal</option>
-          <option value="vertical-lr">vertical — left to right</option>
-          <option value="vertical-rl">vertical — right to left</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
 <style>
+  .axes-container {
+    aspect-ratio: 4 / 3;
+    inline-size: 100%;
+    padding: 1rem;
+  }
   .axes {
-    block-size: max(60%, 8rem);
-    inline-size: max(60%, 8rem);
+    block-size: 100%;
+    inline-size: 100%;
     position: relative;
     writing-mode: var(--writingMode, inherit);
   }
@@ -69,26 +77,55 @@
 
   .axis-boundary.block-start {
     block-size: 1px;
-    inset-block-start: 1.5rem;
-    inset-inline: -1.5rem;
+    inset-block-start: 1rem;
+    inset-inline: -1rem;
   }
 
   .axis-boundary.block-end {
     block-size: 1px;
-    inset-block-end: 1.5rem;
-    inset-inline: -1.5rem;
+    inset-block-end: 1rem;
+    inset-inline: -1rem;
   }
 
   .axis-boundary.inline-start {
-    inset-inline-start: 1.5rem;
-    inset-block: -1.5rem;
+    inset-inline-start: 1rem;
+    inset-block: -1rem;
     inline-size: 1px;
   }
 
   .axis-boundary.inline-end {
-    inset-inline-end: 1.5rem;
-    inset-block: -1.5rem;
+    inset-inline-end: 1rem;
+    inset-block: -1rem;
     inline-size: 1px;
+  }
+
+  @media (min-width: 768px) {
+    .axes-container {
+      aspect-ratio: unset;
+      block-size: max(80%, 8rem);
+      inline-size: max(80%, 8rem);
+      padding: 0;
+    }
+
+    .axis-boundary.block-start {
+      inset-block-start: 1.5rem;
+      inset-inline: -1.5rem;
+    }
+
+    .axis-boundary.block-end {
+      inset-block-end: 1.5rem;
+      inset-inline: -1.5rem;
+    }
+
+    .axis-boundary.inline-start {
+      inset-inline-start: 1.5rem;
+      inset-block: -1.5rem;
+    }
+
+    .axis-boundary.inline-end {
+      inset-inline-end: 1.5rem;
+      inset-block: -1.5rem;
+    }
   }
 
   span {

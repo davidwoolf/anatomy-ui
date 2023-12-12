@@ -42,6 +42,9 @@
     font-size: 0.875rem;
     padding: 0.5rem 1.75rem 0.5rem 0.75rem;
     line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 100%;
   }
 

@@ -14,10 +14,6 @@
       </div>
 
       <div class="py-4 md:py-12">
-        <div inert style:margin-block-start="-8rem">
-          <Card minHeight="8rem" opacity={0.7} />
-        </div>
-
         <div class="outer-dimension-highlight" style:--opacity={showAnswer ? 1 : 0}>
           <span>2rem</span>
         </div>
@@ -58,23 +54,11 @@
             properties defined. But which of them are relevant to the card itself? How do
             elements handle their positioning and spacing, themselves or via a parent
             container?
-
-            {#if !showAnswer}
-              <button
-                type="button"
-                on:click={function () {
-                  showAnswer = true;
-                }}>Reveal the answer.</button>
-            {/if}
           </p>
         </Card>
 
         <div class="outer-dimension-highlight" style:--opacity={showAnswer ? 1 : 0}>
           <span>2rem</span>
-        </div>
-
-        <div inert style:margin-block-end="-8rem">
-          <Card minHeight="8rem" opacity={0.7} />
         </div>
       </div>
       <div>
@@ -83,36 +67,39 @@
     </div>
   </svelte:fragment>
 
+  <svelte:fragment slot="preview-controls">
+    <button
+      type="button"
+      on:click={function (e) {
+        e.preventDefault();
+
+        showAnswer = !showAnswer;
+      }}>{showAnswer ? "Reset card" : "Show recommendations"}</button>
+  </svelte:fragment>
+
   <div slot="description">
-    {#if showAnswer}
+    <div class="recommendations" style:--display={showAnswer ? "block" : "none"}>
       <h2>Recommendations</h2>
 
       <ExampleText>
         The card itself should generally handle layout details including <span
-          class="border border-purple-400 rounded-md px-1">borders</span>
+          class="borders">borders</span>
         and
-        <span class="rounded-md bg-purple-400/10 px-1 text-purple-400"> padding</span>,
-        along with the layout of its descendants.
+        <span class="padding"> padding</span>, along with the layout of its descendants.
       </ExampleText>
 
       <ExampleText>
-        The card’s container manages details including <span
-          class="rounded-md bg-green-400/10 px-1 text-green-400">spacing</span>
+        The card’s container manages details including <span class="spacing"
+          >spacing</span>
         between elements, and
-        <span class="rounded-md bg-blue-400/10 px-1 text-blue-400">max dimensions</span>.
+        <span class="dimensions">max dimensions</span>.
       </ExampleText>
 
       <ExampleText>
         Avoid adding ancillary details like dimension constraints and outward spacing to
         base components to ensure consistent alignment and sizing on every device.
-
-        <button
-          type="button"
-          on:click={function () {
-            showAnswer = !showAnswer;
-          }}>Reset card</button>
       </ExampleText>
-    {/if}
+    </div>
   </div>
 </Example>
 
@@ -129,6 +116,7 @@
     overflow: revert;
     color: var(--color-purple-400);
     cursor: pointer;
+    display: none;
     font-size: 1rem;
     font-weight: 500;
     text-decoration-line: underline;
@@ -140,26 +128,23 @@
     color: var(--color-green-400);
   }
 
-  .inner-dimension-highlight {
+  .inner-dimension-highlight,
+  .outer-dimension-highlight {
     align-items: center;
-    background-color: color-mix(in srgb, var(--color-purple-400), #fff 80%);
     display: flex;
     justify-content: center;
-    opacity: var(--opacity, 0);
+  }
+
+  .inner-dimension-highlight {
+    background-color: color-mix(in srgb, var(--color-purple-400), #fff 80%);
     position: absolute;
-    transition: all 0.5s ease;
   }
 
   .outer-dimension-highlight {
-    align-items: center;
     background-color: color-mix(in srgb, var(--color-green-400), #fff 80%);
-    display: flex;
     block-size: var(--height, 2rem);
     flex: 0 0 2rem;
-    justify-content: center;
     max-inline-size: 32rem;
-    opacity: var(--opacity, 0);
-    transition: all 0.5s ease;
     inline-size: 100%;
   }
 
@@ -223,8 +208,6 @@
     border-block-end: none;
     display: flex;
     height: 2rem;
-    opacity: var(--opacity, 0);
-    transition: all 0.2s ease;
   }
 
   .constraint-highlight:before {
@@ -233,5 +216,48 @@
     display: block;
     height: 1px;
     width: 100%;
+  }
+
+  .borders,
+  .padding,
+  .spacing {
+    border-radius: 0.25rem;
+    padding: 0 1px;
+  }
+
+  .borders {
+    border: 1px solid var(--color-purple-400);
+  }
+
+  .padding {
+    background-color: color-mix(in srgb, var(--color-purple-400), white 90%);
+    color: var(--color-purple-400);
+  }
+
+  .spacing {
+    background-color: color-mix(in srgb, var(--color-green-400), white 90%);
+    color: var(--color-green-400);
+  }
+
+  .dimensions {
+    background-color: color-mix(in srgb, var(--color-blue-400), white 90%);
+    color: var(--color-blue-400);
+  }
+
+  @media (min-width: 1024px) {
+    button {
+      display: block;
+    }
+
+    .inner-dimension-highlight,
+    .outer-dimension-highlight,
+    .constraint-highlight {
+      opacity: var(--opacity, 0);
+      transition: all 0.5s ease;
+    }
+
+    .recommendations {
+      display: var(--display, block);
+    }
   }
 </style>

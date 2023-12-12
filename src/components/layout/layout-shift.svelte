@@ -1,5 +1,4 @@
 <script>
-  import Controls from "@components/editing/controls.svelte";
   import Control from "@components/editing/control.svelte";
   import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
@@ -44,6 +43,15 @@
     {/if}
   </svelte:fragment>
 
+  <svelte:fragment slot="preview-controls">
+    <Control label="Aspect ratios">
+      <Select bind:value={enabledAspectRatio}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
+  </svelte:fragment>
+
   <div slot="description">
     <h2>Provide media and embed dimensions</h2>
 
@@ -58,15 +66,6 @@
       It can also be applied to multiple elements in one declaration, since attribute
       values will need to be defined on each element.
     </ExampleText>
-
-    <Controls>
-      <Control label="Aspect ratios">
-        <Select bind:value={enabledAspectRatio}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
@@ -84,6 +83,15 @@
       title="Card showing layout shift" />
   </div>
 
+  <svelte:fragment slot="preview-controls">
+    <Control label="Font fallback">
+      <Select bind:value={enabledFontFallbacks}>
+        <option value="enabled">cursive</option>
+        <option value="disabled">sans serif</option>
+      </Select>
+    </Control>
+  </svelte:fragment>
+
   <div slot="description">
     <h2>Font sizing and fallbacks</h2>
 
@@ -100,15 +108,6 @@
       to your custom fonts. This will decrease layout shift and also prevent jarring text
       swapping experiences.
     </p>
-
-    <Controls>
-      <Control label="Font fallback">
-        <Select bind:value={enabledFontFallbacks}>
-          <option value="enabled">cursive</option>
-          <option value="disabled">sans serif</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
@@ -117,6 +116,15 @@
     {#if !reloadAnimations}
       <Animations enabled={enabledTransformAnimations === "enabled" ? true : false} />
     {/if}
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Transform animations">
+      <Select bind:value={enabledTransformAnimations}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -132,14 +140,5 @@
       padding when possible. Instead, use transform for animations as it doesn’t cause
       layout re-computations.
     </p>
-
-    <Controls>
-      <Control label="Transform animations">
-        <Select bind:value={enabledTransformAnimations}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>

@@ -229,7 +229,6 @@
     display: flex;
     justify-content: center;
     max-inline-size: 32rem;
-    transition: all 0.5s ease;
     width: 100%;
   }
 
