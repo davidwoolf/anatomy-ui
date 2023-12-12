@@ -1,7 +1,6 @@
 <script>
   import AttributeCode from "@components/attribute-code.svelte";
   import Control from "@components/editing/control.svelte";
-  import Controls from "@components/editing/controls.svelte";
   import Number from "@components/editing/number.svelte";
   import Range from "@components/editing/range.svelte";
   import ExampleText from "@components/example-text.svelte";
@@ -32,8 +31,6 @@
       <div class="padding-highlight padding-bottom" style:--size="{$padding[0]}px">
         <span>padding {$padding[0]}px</span>
       </div>
-
-      <h2>This card has padding</h2>
 
       <p>
         Base components sometimes need to handle padding, especially when visual
@@ -69,8 +66,6 @@
 <Example reversed>
   <svelte:fragment slot="preview">
     <Card>
-      <h2>This card’s parent has margins</h2>
-
       <p>
         Avoid applying margins to base components. Instead, set it on a layout components
         that wrap your base components.
@@ -82,8 +77,6 @@
     </div>
 
     <Card>
-      <h2>This card’s parent has margins</h2>
-
       <p>
         It's highly recommended that margin is applied from one direction per axis–usually
         the top and left.
@@ -111,9 +104,10 @@
 <Example>
   <svelte:fragment slot="preview">
     <Card>
-      <h2>This card’s parent has gaps</h2>
-
-      <p>Apply gaps to containers that use flex and grid layouts.</p>
+      <p>
+        Apply gaps to containers that use flex and grid layouts. Gaps cannot be less than
+        zero, therefore negative offsets still require using the margin property.
+      </p>
     </Card>
 
     <div class="gap-highlight" style:--size="{$gap[0]}px">
@@ -121,11 +115,9 @@
     </div>
 
     <Card>
-      <h2>This card’s parent has gaps</h2>
-
       <p>
-        Gaps cannot be less than zero, therefore negative offsets still require using the
-        margin property.
+        Apply gaps to containers that use flex and grid layouts. Gaps cannot be less than
+        zero, therefore negative offsets still require using the margin property.
       </p>
     </Card>
   </svelte:fragment>

@@ -12,12 +12,10 @@
 <div
   class="container"
   style:inline-size={enabled ? "100%" : "19.2rem"}
-  style:transform={enabled ? "scaleX(80%)" : "scaleX(100%)"}
+  style:transform={enabled ? "scale(80%)" : "scale(100%)"}
   style:animation-name={enabled ? "transforms" : "composites"}>
   <Card maxWidth="24rem">
     <img {src} alt="A cresting wave" />
-
-    <h2>Animation shift in action</h2>
 
     <p>
       Toggle the transform animations setting and see how it affects layout shift when an

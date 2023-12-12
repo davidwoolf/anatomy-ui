@@ -31,7 +31,6 @@
     grid-column: 1 / -1;
     margin-block-start: 2.5rem;
     margin-inline-end: -1.5rem;
-
     padding: 0 1.5rem 3rem 0;
   }
 
@@ -66,6 +65,8 @@
     justify-content: space-between;
     gap: 1rem;
     padding: 0.25rem 0.5rem;
+    overflow: scroll;
+    max-width: 100%;
   }
 
   .example-text {

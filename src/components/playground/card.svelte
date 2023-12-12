@@ -6,14 +6,15 @@
   export let opacity = 1;
   export let padding = "40px";
   export let position = "static";
-  export let top = "0px";
-  export let right = "0px";
-  export let bottom = "0px";
-  export let left = "0px";
+  export let top = "initial";
+  export let right = "initial";
+  export let bottom = "initial";
+  export let left = "initial";
 </script>
 
 <div
   class="playground--card"
+  inert
   style:min-block-size={minHeight}
   style:max-inline-size={maxWidth}
   style:min-inline-size={minWidth}
@@ -52,7 +53,8 @@
   }
 
   :global(.playground--card p) {
-    color: color-mix(in srgb, var(--color-gray-400), white 20%);
+    color: var(--color-gray-300);
+    font-family: var(--font-placeholder);
     font-size: 1rem;
     line-height: 145%;
     margin: 0.25rem 0 0;

@@ -19,8 +19,11 @@
 <Example>
   <svelte:fragment slot="preview">
     <Card minWidth="{minWidth}px" maxWidth="{maxWidth ?? 640}px">
-      <h2>Change the bounds</h2>
-      <p>Update the minimum and maximum width values to see how this card responds.</p>
+      <p>
+        Use max-height, max-width, min-height, and min-width to set upper and lower
+        constraints on an element’s dimensions. When using both constraints, the minimum
+        value will be used over the maximum value if its larger.
+      </p>
     </Card>
   </svelte:fragment>
 
@@ -36,17 +39,17 @@
 
   <div slot="description">
     <h2>Setting upper and lower bounds</h2>
-    <ExampleText
-      >Use max-height, max-width, min-height, and min-width to set upper and lower
+    <ExampleText>
+      Use max-height, max-width, min-height, and min-width to set upper and lower
       constraints on an element’s dimensions. When using both constraints, the minimum
-      value will be used over the maximum value if its larger.</ExampleText>
+      value will be used over the maximum value if its larger.
+    </ExampleText>
   </div>
 </Example>
 
 <Example reversed>
   <svelte:fragment slot="preview">
     <Card minWidth={maxContent === "enabled" ? "max-content" : "0px"}>
-      <h2>Change the bounds</h2>
       <p>
         Toggle the use of the max-content keyword to see how this card responds. Here is a
         lot of additional text to show how elements can break out of their parent
@@ -56,7 +59,7 @@
   </svelte:fragment>
 
   <svelte:fragment slot="preview-controls">
-    <Control label="Max-content keyword">
+    <Control label="Max-content">
       <Select bind:value={maxContent}>
         <option value="enabled">enabled</option>
         <option value="disabled">disabled</option>
@@ -78,13 +81,12 @@
 <Example>
   <svelte:fragment slot="preview">
     <Card maxWidth={minContent === "enabled" ? "min-content" : "32rem"}>
-      <h2>Change the bounds</h2>
       <p>Toggle the use of the min-content keyword to see how this card responds.</p>
     </Card>
   </svelte:fragment>
 
   <svelte:fragment slot="preview-controls">
-    <Control label="Min-content keyword">
+    <Control label="Min-content">
       <Select bind:value={minContent}>
         <option value="enabled">enabled</option>
         <option value="disabled">disabled</option>
@@ -106,7 +108,6 @@
 <Example reversed>
   <svelte:fragment slot="preview">
     <Card maxWidth={fitContent === "enabled" ? "fit-content" : "max(60%, 20rem)"}>
-      <h2>Change the bounds</h2>
       <p>
         Toggle the use of the fit-content keyword to see how this card responds. Here is a
         lot of additional text to show how fit-content will prevent elements from breaking
@@ -116,7 +117,7 @@
   </svelte:fragment>
 
   <svelte:fragment slot="preview-controls">
-    <Control label="Fit-content keyword">
+    <Control label="Fit-content">
       <Select bind:value={fitContent}>
         <option value="enabled">enabled</option>
         <option value="disabled">disabled</option>

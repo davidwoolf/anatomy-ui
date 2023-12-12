@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities; */
 
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Inter:wght@100&family=Pacifico&display=swap');
+
 :root {
   --color-gray-200: #e5e7eb;
   --color-gray-300: #C6C6E7;
@@ -25,15 +27,16 @@
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-placeholder: "Flow Circular", sans-serif;
 }
 
 @keyframes transforms {
   from {
-    transform: scaleX(80%);
+    transform: scale(80%);
   }
 
   to {
-    transform: scaleX(100%);
+    transform: scale(100%);
   }
 }
 

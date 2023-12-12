@@ -17,8 +17,6 @@
   <Card maxWidth="24rem">
     <img {src} alt="A cresting wave" style:aspect-ratio={enabled ? "16 / 9" : "revert"} />
 
-    <h2>Layout shift in action</h2>
-
     <p>
       Toggle the aspect ratio setting and see how it affects layout shift when an image is
       loaded.
