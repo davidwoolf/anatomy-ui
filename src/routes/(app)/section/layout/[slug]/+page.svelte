@@ -9,6 +9,7 @@
   import Dimensions from "@components/layout/dimensions.svelte";
   import Spacing from "@components/layout/spacing.svelte";
   import Position from "@components/layout/position.svelte";
+  import Stacking from "@components/layout/stacking.svelte";
   import AspectRatios from "@components/layout/aspect-ratios.svelte";
   import FlexLayout from "@components/layout/flex-layout.svelte";
   import GridLayout from "@components/layout/grid-layout.svelte";
@@ -36,6 +37,7 @@
     Dimensions,
     Spacing,
     Position,
+    Stacking,
     AspectRatios,
     FlexLayout,
     GridLayout,

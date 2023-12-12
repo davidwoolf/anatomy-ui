@@ -1,5 +1,14 @@
+<script>
+  import Nav from "./nav.svelte";
+
+  /** @type {import("./$types").LayoutData} */
+  export let data;
+</script>
+
 <header>
   <span>The Anatomy of Everyday UI</span>
+
+  <Nav {data} />
 </header>
 
 <main>
@@ -13,8 +22,10 @@
     align-items: center;
     border-block-end: 1px solid var(--color-gray-200);
     display: flex;
+    justify-content: space-between;
     height: 4rem;
     margin-inline-start: 1.5rem;
+    padding-inline-end: 1.5rem;
   }
 
   header span {
@@ -31,6 +42,7 @@
     header {
       margin-inline-start: 4rem;
       height: 5rem;
+      padding-inline-end: 4rem;
     }
 
     header span {
@@ -45,6 +57,7 @@
   @media (min-width: 1024px) {
     header {
       margin-inline-start: 5rem;
+      padding-inline-end: 5rem;
     }
 
     article {
@@ -55,6 +68,7 @@
   @media (min-width: 1536px) {
     header {
       margin-inline-start: 8rem;
+      padding-inline-end: 8rem;
     }
 
     article {

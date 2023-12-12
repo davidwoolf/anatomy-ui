@@ -1,12 +1,9 @@
 <script>
   import { base } from "$app/paths";
   import Card from "@components/playground/card.svelte";
-  import { onMount } from "svelte";
 
   let src = `${base}/layout/layout-shift/image.jpeg`;
   export let enabled = true;
-
-  onMount(() => {});
 </script>
 
 <div

@@ -53,10 +53,10 @@
 
   .example-preview {
     align-items: center;
+    block-size: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    block-size: 100%;
     order: 2;
   }
 
