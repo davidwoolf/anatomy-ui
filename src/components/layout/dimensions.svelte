@@ -8,8 +8,10 @@
   import AttributeCode from "@components/attribute-code.svelte";
   import Card from "@components/playground/card.svelte";
 
-  let minWidth = 240;
-  let maxWidth = 320;
+  /** @type {number | null} */
+  let minWidth = null;
+  /** @type {number | null} */
+  let maxWidth = null;
   let maxContent = "disabled";
   let minContent = "disabled";
   let fitContent = "disabled";
@@ -17,10 +19,20 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card minWidth="{minWidth}px" maxWidth="{maxWidth}px">
+    <Card minWidth="{minWidth}px" maxWidth="{maxWidth ?? 640}px">
       <h2>Change the bounds</h2>
       <p>Update the minimum and maximum width values to see how this card responds.</p>
     </Card>
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Min width">
+      <Number bind:value={minWidth} placeholder="120" />
+    </Control>
+
+    <Control label="Max width">
+      <Number bind:value={maxWidth} placeholder="320" />
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -29,22 +41,12 @@
       >Use max-height, max-width, min-height, and min-width to set upper and lower
       constraints on an element’s dimensions. When using both constraints, the minimum
       value will be used over the maximum value if its larger.</ExampleText>
-
-    <Controls>
-      <Control label="Minimum width">
-        <Number bind:value={minWidth} />
-      </Control>
-
-      <Control label="Maximum width">
-        <Number bind:value={maxWidth} />
-      </Control>
-    </Controls>
   </div>
 </Example>
 
 <Example reversed>
   <svelte:fragment slot="preview">
-    <Card minWidth={maxContent === "enabled" ? "max-content" : "none"}>
+    <Card minWidth={maxContent === "enabled" ? "max-content" : "0px"}>
       <h2>Change the bounds</h2>
       <p>
         Toggle the use of the max-content keyword to see how this card responds. Here is a
@@ -52,6 +54,15 @@
         containers with this keyword.
       </p>
     </Card>
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Max-content keyword">
+      <Select bind:value={maxContent}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -62,15 +73,6 @@
       width is the width when the text doesn’t have to wrap to a new line. Be careful with
       max-content as it will cause elements to break out of their containing box.
     </ExampleText>
-
-    <Controls>
-      <Control label="Max-content keyword">
-        <Select bind:value={maxContent}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
@@ -82,6 +84,15 @@
     </Card>
   </svelte:fragment>
 
+  <svelte:fragment slot="preview-controls">
+    <Control label="Min-content keyword">
+      <Select bind:value={minContent}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
+  </svelte:fragment>
+
   <div slot="description">
     <h2>Intrinsic keywords: min-content</h2>
     <ExampleText>
@@ -90,21 +101,12 @@
       of a single word. Note that this doesn’t mean one word per line; if two subsequent words
       are smaller in width than the largest word, they will sit on the same line.
     </ExampleText>
-
-    <Controls>
-      <Control label="Min-content keyword">
-        <Select bind:value={minContent}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
 <Example reversed>
   <svelte:fragment slot="preview">
-    <Card maxWidth={fitContent === "enabled" ? "fit-content" : "60%"}>
+    <Card maxWidth={fitContent === "enabled" ? "fit-content" : "max(60%, 20rem)"}>
       <h2>Change the bounds</h2>
       <p>
         Toggle the use of the fit-content keyword to see how this card responds. Here is a
@@ -112,6 +114,15 @@
         out of their parent containers with this keyword.
       </p>
     </Card>
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Fit-content keyword">
+      <Select bind:value={fitContent}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -122,14 +133,5 @@
       filling up to the container if necessary, but stopping beforehand if the content is
       smaller than the container.
     </ExampleText>
-
-    <Controls>
-      <Control label="Fit-content keyword">
-        <Select bind:value={fitContent}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>

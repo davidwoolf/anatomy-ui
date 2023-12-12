@@ -6,7 +6,7 @@
     border-radius: 0.125rem;
     color: var(--color-purple-400);
     font-family: var(--font-mono);
-    font-size: var(--font-size-sm);
+    font-size: 0.875em;
     font-weight: 600;
     padding: 0.125rem;
   }

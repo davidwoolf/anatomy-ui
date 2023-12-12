@@ -4,6 +4,7 @@
 
 :root {
   --color-gray-200: #e5e7eb;
+  --color-gray-300: #C6C6E7;
   --color-gray-800: #1f2937;
   --color-purple-100: #F1F1F9;
   --color-purple-400: #9747FF;
@@ -13,8 +14,9 @@
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
+  --font-size-md: 1.0625rem;
   --font-size-lg: 1.125rem;
-  --font-size-xl: 1.3125rem;
+  --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.75rem;
   --font-size-4xl: 2.5rem;

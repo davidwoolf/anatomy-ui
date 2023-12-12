@@ -8,7 +8,13 @@
     class="example-container"
     style:--overflow={overflow}
     style:--layout={reversed ? "5 / -1" : "1 / 9"}>
-    <slot name="preview" />
+    <div class="example-preview">
+      <slot name="preview" />
+    </div>
+
+    <div class="example-controls">
+      <slot name="preview-controls" />
+    </div>
   </div>
 
   <div class="example-text" style:--layout={reversed ? "1 / span 4" : "9 / -1"}>
@@ -19,13 +25,14 @@
 <style>
   .example {
     align-items: center;
+    border-block-end: 1px solid var(--color-gray-200);
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
-  }
+    margin-block-start: 2.5rem;
+    margin-inline-end: -1.5rem;
 
-  :global(.example + .example) {
-    margin-top: 4rem;
+    padding: 0 1.5rem 3rem 0;
   }
 
   .example-container {
@@ -33,21 +40,32 @@
     background-color: var(--color-purple-100);
     border-radius: 1rem;
     box-shadow: 0px 0px 4px 0px rgba(151, 71, 255, 0.12) inset;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-rows: max-content 1fr;
+    grid-template-columns: 1fr;
     grid-column: var(--layout, 1 / span 7);
     inline-size: 100%;
     justify-content: center;
-    overflow: var(--overflow, scroll);
-    padding: 1rem;
+    margin-block-start: 1.5rem;
+    padding: 0.75rem;
     position: relative;
   }
 
-  @media (min-width: 1024px) {
-    .example-container {
-      aspect-ratio: 16 / 9;
-      padding: 2rem;
-    }
+  .example-preview {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    block-size: 100%;
+    order: 2;
+  }
+
+  .example-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .example-text {
@@ -58,12 +76,55 @@
 
   :global(.example-text h2) {
     color: var(--color-gray-800);
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     font-weight: 600;
     line-height: 145%;
   }
 
-  :global(.example-text p) {
+  :global(.example-text p:first-of-type) {
+    margin: 0.25rem 0 0;
+  }
+
+  :global(.example-text p:not(:first-of-type)) {
     margin: 0.875rem 0 0;
+  }
+
+  @media (min-width: 640px) {
+    .example-controls {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .example-container {
+      aspect-ratio: 16 / 9;
+      grid-template-rows: 1fr max-content;
+      padding: 1.5rem;
+    }
+
+    .example-preview {
+      order: 1;
+      overflow: var(--overflow, scroll);
+    }
+
+    .example-controls {
+      order: 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .example {
+      border: none;
+      margin-top: 4rem;
+      padding: 0;
+    }
+
+    .example-container {
+      margin-block-start: 0;
+    }
+
+    :global(.example-text h2) {
+      font-size: var(--font-size-xl);
+    }
   }
 </style>

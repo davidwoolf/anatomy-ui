@@ -25,7 +25,7 @@
     border: 2px solid var(--color-purple-400);
     border-radius: 9999px;
     display: flex;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-base);
     font-weight: 500;
     gap: 1rem;
     min-width: max-content;
@@ -47,5 +47,11 @@
 
   a:hover svg {
     color: white;
+  }
+
+  @media (min-width: 768px) {
+    a {
+      font-size: var(--font-size-xl);
+    }
   }
 </style>

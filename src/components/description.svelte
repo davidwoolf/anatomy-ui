@@ -4,15 +4,25 @@
 
 <style>
   .layout--description {
-    color: color-mix(in srgb, var(--color-gray-800), white 20%);
-    margin: 0.5rem 0 0;
-    font-size: var(--font-size-lg);
+    border-block-end: 1px solid var(--color-gray-200);
+    color: color-mix(in srgb, var(--color-gray-800), white 30%);
+    margin: 0.75rem -1.5rem 0 0;
+    padding: 0 1.5rem 3rem 0;
+    font-size: var(--font-size-md);
+    line-height: 145%;
+  }
+
+  @media (min-width: 768px) {
+    .layout--description {
+      margin: 1.5rem 0 0;
+      font-size: var(--font-size-xl);
+    }
   }
 
   @media (min-width: 1024px) {
     .layout--description {
-      margin: 1.5rem 0 0;
-      /* font-size: 1.3125rem; */
+      border: none;
+      padding: 0;
     }
   }
 

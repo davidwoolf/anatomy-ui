@@ -11,11 +11,9 @@
 <style>
   label {
     align-items: center;
-    border-block-start: 1px solid #e7e8ea;
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
-    padding: 0.875rem 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
   }
 
   span {
@@ -23,5 +21,6 @@
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 145%;
+    min-width: max-content;
   }
 </style>

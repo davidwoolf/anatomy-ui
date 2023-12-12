@@ -4,18 +4,15 @@
 
 <style>
   h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
     letter-spacing: -0.01em;
     line-height: 1;
-    font-weight: normal;
+    font-weight: 300;
   }
 
   @media (min-width: 768px) {
-    /* md:text-4xl */
-  }
-
-  @media (min-width: 1024px) {
-    /* lg:font-light
-  lg:text-5xl */
+    h1 {
+      font-size: var(--font-size-5xl);
+    }
   }
 </style>

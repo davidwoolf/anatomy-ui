@@ -3,57 +3,34 @@
   import Control from "@components/editing/control.svelte";
   import Controls from "@components/editing/controls.svelte";
   import Number from "@components/editing/number.svelte";
+  import Range from "@components/editing/range.svelte";
   import ExampleText from "@components/example-text.svelte";
   import Example from "@components/example.svelte";
   import Card from "@components/playground/card.svelte";
+  import { writable } from "svelte/store";
 
-  /**
-   *
-   * @param {number} value
-   * @param {number} min
-   * @param {number} max
-   */
-  function clampValue(value, min, max) {
-    if (value < min) {
-      return min;
-    }
-
-    if (value > max) {
-      return max;
-    }
-
-    return value;
-  }
-
-  let padding = 40;
-  let renderedPadding = 40;
-  let margin = 40;
-  let renderedMargin = 40;
-  let gap = 40;
-  let renderedGap = 40;
-
-  $: renderedPadding = clampValue(padding, 10, 60);
-  $: renderedMargin = clampValue(margin, 10, 100);
-  $: renderedGap = clampValue(gap, 10, 100);
+  let padding = writable([40]);
+  let margin = writable([40]);
+  let gap = writable([40]);
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card position="relative" padding="{renderedPadding}px">
-      <div class="padding-highlight padding-top" style:--size="{renderedPadding}px">
-        <span>padding {renderedPadding}px</span>
+    <Card position="relative" padding="{$padding[0]}px">
+      <div class="padding-highlight padding-top" style:--size="{$padding[0]}px">
+        <span>padding {$padding[0]}px</span>
       </div>
 
-      <div class="padding-highlight padding-left" style:--size="{renderedPadding}px">
-        <span>padding {renderedPadding}px</span>
+      <div class="padding-highlight padding-left" style:--size="{$padding[0]}px">
+        <span>padding {$padding[0]}px</span>
       </div>
 
-      <div class="padding-highlight padding-right" style:--size="{renderedPadding}px">
-        <span>padding {renderedPadding}px</span>
+      <div class="padding-highlight padding-right" style:--size="{$padding[0]}px">
+        <span>padding {$padding[0]}px</span>
       </div>
 
-      <div class="padding-highlight padding-bottom" style:--size="{renderedPadding}px">
-        <span>padding {renderedPadding}px</span>
+      <div class="padding-highlight padding-bottom" style:--size="{$padding[0]}px">
+        <span>padding {$padding[0]}px</span>
       </div>
 
       <h2>This card has padding</h2>
@@ -65,19 +42,27 @@
     </Card>
   </svelte:fragment>
 
+  <svelte:fragment slot="preview-controls">
+    <Control label="Padding">
+      <Range value={padding} min={10} max={60} />
+    </Control>
+  </svelte:fragment>
+
   <div slot="description">
     <h2>Padding</h2>
 
     <ExampleText>
       The <AttributeCode>padding</AttributeCode> property affects the interior layout of an
-      element. Avoid adding padding to base components that don't visually require it.
+      element. Base components sometimes need to handle padding, especially when visual properties
+      like background colors, borders, and shadows are applied, but avoid adding padding to
+      ones that don't require it.
     </ExampleText>
 
-    <Controls>
+    <!-- <Controls>
       <Control label="Padding">
         <Number bind:value={padding} min={10} max={60} />
       </Control>
-    </Controls>
+    </Controls> -->
   </div>
 </Example>
 
@@ -92,8 +77,8 @@
       </p>
     </Card>
 
-    <div class="margin-highlight" style:--size="{renderedMargin}px">
-      <span>margin: {renderedMargin}px</span>
+    <div class="margin-highlight" style:--size="{$margin[0]}px">
+      <span>margin: {$margin[0]}px</span>
     </div>
 
     <Card>
@@ -106,6 +91,12 @@
     </Card>
   </svelte:fragment>
 
+  <svelte:fragment slot="preview-controls">
+    <Control label="Margin">
+      <Range value={margin} min={10} max={60} />
+    </Control>
+  </svelte:fragment>
+
   <div slot="description">
     <h2>Margin</h2>
 
@@ -114,12 +105,6 @@
       an element. When using margin to control spacing, apply values from one axis direction
       (usually the top and/or left).
     </ExampleText>
-
-    <Controls>
-      <Control label="Margin">
-        <Number bind:value={margin} min={10} max={100} />
-      </Control>
-    </Controls>
   </div>
 </Example>
 
@@ -131,8 +116,8 @@
       <p>Apply gaps to containers that use flex and grid layouts.</p>
     </Card>
 
-    <div class="gap-highlight" style:--size="{renderedGap}px">
-      <span>gap: {renderedGap}px</span>
+    <div class="gap-highlight" style:--size="{$gap[0]}px">
+      <span>gap: {$gap[0]}px</span>
     </div>
 
     <Card>
@@ -143,6 +128,12 @@
         margin property.
       </p>
     </Card>
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Gap">
+      <Range value={gap} min={10} max={60} />
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -159,12 +150,6 @@
       The gap property can not be less than <AttributeCode>0</AttributeCode>, so using
       margin may be required in those situations.
     </ExampleText>
-
-    <Controls>
-      <Control label="Gap">
-        <Number bind:value={gap} min={0} max={50} />
-      </Control>
-    </Controls>
   </div>
 </Example>
 
@@ -175,7 +160,6 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    transition: all 0.5s ease;
   }
 
   .padding-highlight span,
