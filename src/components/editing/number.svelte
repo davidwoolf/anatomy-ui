@@ -22,6 +22,12 @@
     font-size: 0.875rem;
     padding: 0.5rem 0.75rem;
     line-height: 1;
-    min-width: 3rem;
+    width: 4rem;
+  }
+
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 </style>

@@ -47,7 +47,7 @@
   </svelte:fragment>
 
   <svelte:fragment slot="preview-controls">
-    <Control label="External">
+    <Control label="Outside">
       <Select bind:value={$externalLayout}>
         <option value="block">block</option>
         <option value="inline">inline</option>
@@ -55,7 +55,7 @@
       </Select>
     </Control>
 
-    <Control label="Internal">
+    <Control label="Inside">
       <Select bind:value={$internalLayout}>
         <option value="block">block</option>
         <option value="flex">flex</option>

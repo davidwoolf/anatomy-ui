@@ -12,7 +12,7 @@
   label {
     align-items: center;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: space-between;
   }
 
@@ -22,5 +22,11 @@
     font-weight: 500;
     line-height: 145%;
     min-width: max-content;
+  }
+
+  @media (min-width: 640px) {
+    label {
+      gap: 1rem;
+    }
   }
 </style>

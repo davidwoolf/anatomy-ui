@@ -63,7 +63,7 @@
   .example-controls {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 0.25rem 0.5rem;
     overflow: scroll;
     max-width: 100%;
@@ -92,6 +92,7 @@
 
   @media (min-width: 640px) {
     .example-controls {
+      gap: 1rem;
       justify-content: flex-start;
     }
   }
