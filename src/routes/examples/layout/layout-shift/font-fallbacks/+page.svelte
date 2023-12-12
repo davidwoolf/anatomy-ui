@@ -26,14 +26,14 @@
       style:--family={enabled ? '"Pacifico", cursive' : '"Pacifico", sans-serif'}>
       <h2>Font fallbacks in action</h2>
 
-      <p>
+      <span>
         Toggle the font fallback setting and see how it affects layout shift once fonts
         are loaded.
-      </p>
+      </span>
 
-      <p>The result here can seem small, but is compounded with lots of text.</p>
+      <span>The result here can seem small, but is compounded with lots of text.</span>
 
-      <p>Fonts are loaded 1 second after the preview.</p>
+      <span>Fonts are loaded 1 second after the preview.</span>
     </div>
   </Card>
 </div>
@@ -49,11 +49,12 @@
   }
 
   h2,
-  p {
+  span {
+    display: block;
     font-family: inherit;
   }
 
-  p {
+  span {
     margin-block-start: 0.5rem;
   }
 </style>

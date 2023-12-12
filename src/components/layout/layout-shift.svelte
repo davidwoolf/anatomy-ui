@@ -95,19 +95,20 @@
   <div slot="description">
     <h2>Font sizing and fallbacks</h2>
 
-    <p>
+    <ExampleText>
       If your interface uses custom fonts, it’s recommended to use a <AttributeCode
         >font-display</AttributeCode> value that ensures text is displayed immediately while
       the custom font loads (if not already cached). This improves metrics like FCP (first
       contentful paint) and LCP (largest contentful paint). However, it can also create layout
       shifting since different font values don’t take up the same physical space, even with
       the same type properties.
-    </p>
-    <p>
+    </ExampleText>
+
+    <ExampleText>
       To solve this, try to provide built-in fallbacks that are optically similar in size
       to your custom fonts. This will decrease layout shift and also prevent jarring text
       swapping experiences.
-    </p>
+    </ExampleText>
   </div>
 </Example>
 
@@ -130,15 +131,15 @@
   <div slot="description">
     <h2>Implement animations properly</h2>
 
-    <p>
+    <ExampleText>
       Layout shift doesn’t just happen on page and asset load, it can also happen when
       animating elements using CSS properties that contribute to the overall DOM layout
       flow.
-    </p>
-    <p>
+    </ExampleText>
+    <ExampleText>
       Avoid animating properties like height and width, top and left and margin and
       padding when possible. Instead, use transform for animations as it doesn’t cause
       layout re-computations.
-    </p>
+    </ExampleText>
   </div>
 </Example>
