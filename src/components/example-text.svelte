@@ -4,8 +4,14 @@
 
 <style>
   p {
-    color: color-mix(in srgb, rgb(31, 41, 55), white 20%);
-    font-size: 1rem;
+    color: color-mix(in srgb, var(--color-gray-800), white 20%);
+    font-size: var(--font-size-sm);
     line-height: 145%;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: var(--font-size-base);
+    }
   }
 </style>

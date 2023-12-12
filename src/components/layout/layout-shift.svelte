@@ -1,5 +1,4 @@
 <script>
-  import Controls from "@components/editing/controls.svelte";
   import Control from "@components/editing/control.svelte";
   import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
@@ -7,42 +6,29 @@
   import AttributeCode from "@components/attribute-code.svelte";
   import AspectRatio from "../../routes/examples/layout/layout-shift/aspect-ratio.svelte";
   import Animations from "../../routes/examples/layout/layout-shift/animations.svelte";
-  import { safelyGetFormEventValue } from "@components/editing/form";
   import ExampleText from "@components/example-text.svelte";
   let reloadAspectRatio = false;
   let reloadAnimations = false;
-  let enabledAspectRatio = true;
-  let enabledFontFallbacks = true;
-  let enabledTransformAnimations = true;
-
-  /** @param {Event} e */
-  function updateAspectRatio(e) {
-    const value = safelyGetFormEventValue(e);
-    enabledAspectRatio = value === "disabled" ? false : true;
-    reloadAspectRatio = true;
-  }
-
-  /** @param {Event} e */
-  function updateFontFallbacks(e) {
-    const value = safelyGetFormEventValue(e);
-    enabledFontFallbacks = value === "disabled" ? false : true;
-  }
-
-  /** @param {Event} e */
-  function updateAnimations(e) {
-    const value = safelyGetFormEventValue(e);
-    enabledTransformAnimations = value === "disabled" ? false : true;
-    reloadAnimations = true;
-  }
+  let enabledAspectRatio = "enabled";
+  let enabledFontFallbacks = "enabled";
+  let enabledTransformAnimations = "enabled";
 
   $: {
-    if (reloadAspectRatio) {
+    // hacky way to remount a component
+    if (enabledAspectRatio) {
+      reloadAspectRatio = true;
+
       setTimeout(() => {
         reloadAspectRatio = false;
       });
     }
+  }
 
-    if (reloadAnimations) {
+  $: {
+    // hacky way to remount a component
+    if (enabledTransformAnimations) {
+      reloadAnimations = true;
+
       setTimeout(() => {
         reloadAnimations = false;
       });
@@ -53,8 +39,17 @@
 <Example>
   <svelte:fragment slot="preview">
     {#if !reloadAspectRatio}
-      <AspectRatio enabled={enabledAspectRatio} />
+      <AspectRatio enabled={enabledAspectRatio === "enabled" ? true : false} />
     {/if}
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Aspect ratios">
+      <Select bind:value={enabledAspectRatio}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -71,15 +66,6 @@
       It can also be applied to multiple elements in one declaration, since attribute
       values will need to be defined on each element.
     </ExampleText>
-
-    <Controls>
-      <Control label="Aspect ratios">
-        <Select on:change={updateAspectRatio}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
@@ -90,9 +76,21 @@
       width="392"
       style:max-width="100%"
       style:aspect-ratio="1 / .7"
-      src="/examples/layout/layout-shift/font-fallbacks?enabled={enabledFontFallbacks}"
+      src="/examples/layout/layout-shift/font-fallbacks?enabled={enabledFontFallbacks ===
+      'enabled'
+        ? true
+        : false}"
       title="Card showing layout shift" />
   </div>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Font fallback">
+      <Select bind:value={enabledFontFallbacks}>
+        <option value="enabled">cursive</option>
+        <option value="disabled">sans serif</option>
+      </Select>
+    </Control>
+  </svelte:fragment>
 
   <div slot="description">
     <h2>Font sizing and fallbacks</h2>
@@ -110,23 +108,23 @@
       to your custom fonts. This will decrease layout shift and also prevent jarring text
       swapping experiences.
     </p>
-
-    <Controls>
-      <Control label="Font fallback">
-        <Select on:change={updateFontFallbacks}>
-          <option value="enabled">cursive</option>
-          <option value="disabled">sans serif</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>
 
 <Example>
   <svelte:fragment slot="preview">
     {#if !reloadAnimations}
-      <Animations enabled={enabledTransformAnimations} />
+      <Animations enabled={enabledTransformAnimations === "enabled" ? true : false} />
     {/if}
+  </svelte:fragment>
+
+  <svelte:fragment slot="preview-controls">
+    <Control label="Transform animations">
+      <Select bind:value={enabledTransformAnimations}>
+        <option value="enabled">enabled</option>
+        <option value="disabled">disabled</option>
+      </Select>
+    </Control>
   </svelte:fragment>
 
   <div slot="description">
@@ -142,14 +140,5 @@
       padding when possible. Instead, use transform for animations as it doesn’t cause
       layout re-computations.
     </p>
-
-    <Controls>
-      <Control label="Transform animations">
-        <Select on:change={updateAnimations}>
-          <option value="enabled">enabled</option>
-          <option value="disabled">disabled</option>
-        </Select>
-      </Control>
-    </Controls>
   </div>
 </Example>

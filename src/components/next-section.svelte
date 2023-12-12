@@ -3,29 +3,11 @@
   export let href;
 </script>
 
-<a
-  {href}
-  class="
-    border-2
-    border-purple-400
-    flex
-    font-medium
-    group
-    items-baseline
-    gap-4
-    min-w-max
-    px-6
-    py-3
-    rounded-full
-    text-xl
-    transition-all
-    hover:bg-purple-400
-    hover:text-white">
+<a {href}>
   <slot />
 
   <svg
     aria-hidden
-    class="text-purple-400 relative top-px group-hover:text-white transition-all"
     width="20"
     height="17"
     viewBox="0 0 20 17"
@@ -36,3 +18,40 @@
       fill="currentcolor" />
   </svg>
 </a>
+
+<style>
+  a {
+    align-items: baseline;
+    border: 2px solid var(--color-purple-400);
+    border-radius: 9999px;
+    display: flex;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    gap: 1rem;
+    min-width: max-content;
+    padding: 0.75rem 1.5rem;
+    transition: all 75ms ease;
+  }
+
+  a:hover {
+    background-color: var(--color-purple-400);
+    color: white;
+  }
+
+  svg {
+    color: var(--color-purple-400);
+    position: relative;
+    inset-block-start: 1px;
+    transition: all 75ms ease;
+  }
+
+  a:hover svg {
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    a {
+      font-size: var(--font-size-xl);
+    }
+  }
+</style>

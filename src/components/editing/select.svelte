@@ -1,27 +1,40 @@
+<script>
+  /** @type {string} */
+  export let value;
+</script>
+
 <div>
-  <select on:change>
+  <select bind:value>
     <slot />
   </select>
 
   <svg
-    inert
     width="12"
     height="7"
     viewBox="0 0 12 7"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
-    <path opacity="0.5" d="M1.08691 0.5L6.08691 5.5L11.0869 0.5" stroke="black" />
+    <path
+      d="M0.664062 0.5L5.66406 5.5L10.6641 0.5"
+      stroke="currentcolor"
+      stroke-linecap="round" />
   </svg>
 </div>
 
 <style>
   div {
-    all: unset;
-    outline: revert;
-    border: 1px solid #0f172a;
-    border-radius: 0.25rem;
+    background: linear-gradient(
+        180deg,
+        rgba(241, 241, 249, 0) 0%,
+        rgba(241, 241, 249, 0.3) 100%
+      ),
+      #fff;
+    box-shadow: 0px 1px 2px 0px rgba(151, 71, 255, 0.11);
+    border: 1px solid rgba(42, 0, 97, 0.12);
+    border-radius: 0.375rem;
     position: relative;
   }
+
   select {
     all: unset;
     box-sizing: border-box;
@@ -29,16 +42,20 @@
     font-size: 0.875rem;
     padding: 0.5rem 1.75rem 0.5rem 0.75rem;
     line-height: 1;
+    min-width: 6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 100%;
   }
 
   svg {
-    position: absolute;
-    inset-inline-end: 0.75rem;
-    inset-block-start: 50%;
     block-size: 6px;
+    color: var(--color-purple-400);
     inline-size: 11px;
+    inset-block-start: 50%;
+    inset-inline-end: 0.75rem;
+    position: absolute;
     transform: translateY(-50%);
-    z-index: -1;
   }
 </style>

@@ -29,7 +29,6 @@
 
   .layout-contents {
     grid-column: 1 / -1;
-    margin: 1rem 0 0;
   }
 
   .layout-aside {
@@ -38,6 +37,7 @@
     grid-column: 9 / -1;
     grid-row: 2;
     justify-content: center;
+    padding: 2.5rem 0 0;
   }
 
   @media (min-width: 1024px) {
@@ -51,7 +51,10 @@
       align-items: center;
       display: grid;
       grid-template-columns: subgrid;
-      margin: 4rem 0 0;
+    }
+
+    .layout-aside {
+      padding: 0;
     }
   }
 

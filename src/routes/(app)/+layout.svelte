@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../../embed-reset.css";
   import "../../app.css";
 </script>
 
@@ -6,9 +7,10 @@
 
 <footer />
 
-<style lang="postcss">
+<style>
   :global(body) {
     -webkit-font-smoothing: antialiased;
-    @apply text-gray-800;
+    color: var(--color-gray-800);
+    font-family: var(--font-sans);
   }
 </style>

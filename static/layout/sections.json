@@ -29,35 +29,40 @@
   "description": "Elements can set both their external and internal layout modes via the CSS **display** property. External layout values indicate how an element will render alongside sibling elements in a container while internal layout values indicate how descendants of the element will render.",
   "component": "DisplayModes"
 }, {
-  "slug": "setting-dimensions",
-  "title": "Setting dimensions",
-  "description": "",
-  "component": "SettingDimensions"
+  "slug": "dimensions",
+  "title": "Explicit vs implicit dimensions",
+  "description": "Most components should not have an opinion about their width or height–including maximum and minimum values. Dimensional constraints should be applied top down–either via the device, container layouts, or a combination of both. There are exceptions such as icons, which generally have standard sizes.",
+  "component": "Dimensions"
 }, {
   "slug": "spacing",
   "title": "Spacing",
-  "description": "",
+  "description": "When creating interfaces, be careful where and when you apply spacing values like padding and margin as values can quickly compound and cause visual misalignments. Think of spacing as a top down setting, ideally applied to container elements and missing from descendants entirely.",
   "component": "Spacing"
 }, {
-  "slug": "positioning-elements",
-  "title": "Positioning elements",
-  "description": "",
-  "component": "PositioningElements"
+  "slug": "positioning",
+  "title": "Positioning",
+  "description": "In addition to spacing properties, elements can augment their place in the DOM by using the **position** property alongside modifier properties such as top, bottom, left, and right. These properties move elements without affecting the placement of siblings or ancestors in the DOM.",
+  "component": "Position"
+}, {
+  "slug": "stacking",
+  "title": "Stacking elements",
+  "description": "Elements can be stacked on top of each other in a third, virtual \"z axis\", using the **z-index** property, which accepts any positive or negative number. While there isn’t a true z axis in the DOM, the rendered values using the z-index property convey a third dimension.",
+  "component": "Stacking"
 }, {
   "slug": "aspect-ratios",
   "title": "Aspect ratios",
   "description": "",
   "component": "AspectRatios"
 }, {
-  "slug": "flexible-layouts",
-  "title": "Flexible layouts",
+  "slug": "flex-layout",
+  "title": "Flex layouts",
   "description": "",
-  "component": "FlexLayouts"
+  "component": "FlexLayout"
 }, {
-  "slug": "grid-layouts",
-  "title": "Grid layouts",
+  "slug": "grid-layout",
+  "title": "Grid layout",
   "description": "",
-  "component": "GridLayouts"
+  "component": "GridLayout"
 }, {
   "slug": "viewport-units",
   "title": "Viewport units",

@@ -11,14 +11,14 @@
 <style>
   .pro-tip {
     align-items: center;
-    color: #047857;
+    color: var(--color-green-400);
     display: flex;
     gap: 0.75rem;
   }
 
   :global(.pro-tip > p) {
     color: inherit;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
   }
 </style>

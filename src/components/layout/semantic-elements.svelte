@@ -1,6 +1,5 @@
 <script>
   import { marked } from "marked";
-  import hljs from "highlight.js";
   import { writable } from "svelte/store";
   import ProTip from "@components/pro-tip.svelte";
   import Tag from "@components/tag.svelte";
@@ -52,14 +51,6 @@
         }
       }
 
-      // note: this is the deprecated way of doing this, but is required to work in SvelteKit
-      marked.setOptions({
-        highlight: function (code, language) {
-          const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
-          return hljs.highlight(code, { language: validLanguage }).value;
-        },
-      });
-
       formatted = formatted.concat([
         {
           name: item,
@@ -93,9 +84,9 @@
     </ProTip>
   </div>
 
-  <div class="gap-12 mt-8 grid-cols-[max-content_1fr] items-center sm:grid">
+  <div class="container">
     <div class="hidden -ml-3.5 sm:block">
-      <ul class="tag-tree font-mono text-purple-400 text-lg font-medium">
+      <ul class="tag-tree">
         <li>
           <Tag active={activeTag} name="body" defaultActive={true} />
 
@@ -134,8 +125,7 @@
       </ul>
     </div>
 
-    <div
-      class="flex -mx-8 scroll-px-6 px-6 pb-8 overflow-scroll snap-x snap-mandatory sm:grid sm:m-0 sm:p-0">
+    <div class="block-container">
       {#each $items as item, index (item.name)}
         <Block
           tag={item.name}
@@ -148,6 +138,16 @@
 </div>
 
 <style lang="postcss">
+  .container {
+    margin-block-start: 2rem;
+  }
+
+  .tag-tree {
+    color: var(--color-purple-400);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+  }
   .tag-tree ul {
     @apply border-l-2 border-gray-200 ml-3.5 pl-2;
   }
@@ -173,5 +173,29 @@
     top-3
     -mr-3
     w-5;
+  }
+
+  .block-container {
+    display: flex;
+    margin-inline: -2rem;
+    scroll-padding: 0 1.5rem;
+    padding: 0 1.5rem 2rem;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      align-items: center;
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: max-content 1fr;
+    }
+
+    .block-container {
+      margin: 0;
+      display: grid;
+      padding: 0;
+    }
   }
 </style>

@@ -3,84 +3,90 @@
   export let tag: string;
 </script>
 
-<div
-  class="
-    semantic-element-block
-    border
-    border-purple-400/10
-    flex
-    grow
-    max-h-96
-    ml-2
-    overflow-hidden
-    relative
-    rounded-lg
-    shadow-sm
-    shrink-0
-    snap-start
-    w-11/12
-    
-    sm:max-h-80
-    sm:w-auto
-
-    {active ? 'sm:flex' : 'sm:hidden'}
-  ">
-  <div class="p-8 overflow-scroll">
-    <h2 class="text-lg font-bold">
-      the
-      <span class="font-mono text-purple-400 font-semibold">
-        &lt;{tag}&gt;
-      </span>
-      element
-    </h2>
+<div class="container" style:--display={active ? "flex" : "hidden"}>
+  <div class="contents">
+    <h2>the <span>&lt;{tag}&gt;</span> element</h2>
     <slot />
   </div>
 
-  <div class="absolute bottom-0 left-0 right-0 h-8 overflow-background" inert />
+  <div class="overflow-background" inert />
 </div>
 
-<style lang="postcss">
-  :global(.semantic-element-block p) {
-    @apply mt-3
-    text-gray-800/80
-    text-base;
+<style>
+  .container {
+    border: 1px solid color-mix(in srgb, var(--color-purple-400), white 90%);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex: 1 0;
+    inline-size: 91.666667%;
+    max-block-size: 24rem;
+    margin-inline-start: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: start;
   }
 
-  :global(.semantic-element-block ul) {
-    @apply list-disc list-inside mt-3
-    text-gray-800/80
-    text-base;
+  .contents {
+    overflow: scroll;
+    padding: 2rem;
   }
 
-  :global(.semantic-element-block p a) {
-    @apply underline hover:text-yellow-400 transition-all;
+  .contents h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
   }
 
-  :global(.semantic-element-block p code) {
-    @apply p-0.5 bg-purple-400/10 rounded-sm font-mono font-semibold text-purple-400 text-[.875em];
+  .contents h2 span {
+    color: var(--color-purple-400);
+    font-family: var(--font-mono);
+    font-size: 600;
   }
 
-  :global(.semantic-element-block pre) {
-    @apply mt-3 text-sm;
+  @media (min-width: 640px) {
+    .container {
+      display: var(--display, flex);
+      inline-size: auto;
+      max-block-size: 20rem;
+    }
   }
 
-  :global(.hljs-tag, .hljs-keyword, .hljs-built_in, .hljs-params) {
-    @apply text-gray-400;
+  :global(.container p, .container ul) {
+    color: color-mix(in srgb, var(--color-gray-800), white 20%);
+    font-size: var(--font-size-base);
+    margin-block-start: 0.75rem;
   }
 
-  :global(.hljs-comment) {
-    @apply text-gray-500;
+  :global(.container ul) {
+    list-style: disc;
+    list-style-position: inside;
   }
 
-  :global(.hljs-name, .hljs-attr, .hljs-selector-tag) {
-    @apply text-green-400;
+  :global(.container p a) {
+    text-decoration: underline;
+    transition: all 75ms ease;
   }
 
-  :global(.hljs-title, .hljs-string, .hljs-attribute) {
-    @apply text-yellow-400;
+  :global(.container p a:hover) {
+    color: var(--color-yellow-400);
+  }
+
+  :global(.container p code) {
+    background-color: color-mix(in srgb, var(--color-purple-400), white 90%);
+    border-radius: 0.125rem;
+    color: var(--color-purple-400);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 0.125rem;
   }
 
   .overflow-background {
     background: linear-gradient(to top, white, rgb(255 255 255 / 0));
+    block-size: 2rem;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    position: absolute;
   }
 </style>
