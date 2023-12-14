@@ -18,7 +18,7 @@
   </svelte:fragment>
 
   <div slot="description">
-    <h2>Rules</h2>
+    <h2>Stacking rules</h2>
 
     <ExampleText>
       In order for <AttributeCode>z-index</AttributeCode> to have any affect, an element must
@@ -67,7 +67,7 @@
   <svelte:fragment slot="preview-controls" />
 
   <div slot="description">
-    <h2>Strategies</h2>
+    <h2>Stacking strategies</h2>
 
     <ExampleText>
       The <AttributeCode>z-index</AttributeCode> value can be zero, any negative number, or

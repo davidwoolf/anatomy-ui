@@ -48,17 +48,13 @@
 </script>
 
 <Layout>
-  <Title slot="title">{data.title}</Title>
+  <svelte:fragment slot="head">
+    <Title>{data.title}</Title>
 
-  <Description slot="description">
-    {@html data.description}
-  </Description>
-
-  <div slot="sidebar">
-    {#if data.next}
-      <NextSection href={data.next}>Next section</NextSection>
-    {/if}
-  </div>
+    <Description>
+      {@html data.description}
+    </Description>
+  </svelte:fragment>
 
   <svelte:fragment slot="contents">
     <svelte:component this={components[data.component]} />

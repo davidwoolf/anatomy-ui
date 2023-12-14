@@ -18,8 +18,19 @@
   class="trigger"
   {...$trigger}
   use:trigger
-  aria-label="Update dimensions">
-  <span>Menu</span>
+  aria-label="Open navigation">
+  <svg
+    width="26"
+    height="19"
+    viewBox="0 0 26 19"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M1 1.5H25M25 9.5H6.6M25 17.5H1"
+      stroke="#0F172A"
+      stroke-width="1.5"
+      stroke-linecap="round" />
+  </svg>
 </button>
 
 {#if $open}
