@@ -1,0 +1,10 @@
+[{
+  "title": "Content box sizing",
+  "text": "Context box sizing adds explicit widths and heights in addition to padding and border width. Therefore, a 100px wide box with 20px of left padding and 20px of right padding will by 140px wide."
+}, {
+  "title": "Border box sizing",
+  "text": "Border box sizing calculates padding and border widths within the defined width and height. Therefore, a 100px wide box with 20px of left padding and 20px of right padding will by 100px wide."
+}, {
+  "title": "Recommendation",
+  "text": "Turn on border box sizing for all elements if possible. Every element’s dimensions will be calculated the same, and explicit calculations will be easier as padding and border width values won’t unintentionally increase the width and height of elements."
+}]

@@ -57,5 +57,6 @@
     inset-inline-end: 0.75rem;
     position: absolute;
     transform: translateY(-50%);
+    pointer-events: none;
   }
 </style>

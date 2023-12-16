@@ -55,27 +55,6 @@
     max-width: 100%;
   }
 
-  /* .example-text {
-    grid-column: 8 / -1;
-    grid-column: var(--layout, 8 / -1);
-    grid-row: 1;
-  }
-
-  :global(.example-text h2) {
-    color: var(--color-gray-800);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    line-height: 145%;
-  }
-
-  :global(.example-text p:first-of-type) {
-    margin: 0.25rem 0 0;
-  }
-
-  :global(.example-text p:not(:first-of-type)) {
-    margin: 0.875rem 0 0;
-  } */
-
   @media (min-width: 640px) {
     .controls {
       gap: 1rem;
@@ -95,6 +74,7 @@
     }
 
     .controls {
+      overflow: visible;
       order: 2;
     }
   }

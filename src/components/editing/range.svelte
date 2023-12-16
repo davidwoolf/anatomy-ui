@@ -57,7 +57,7 @@
   }
 
   .track-fill {
-    background-color: var(--color-purple-400);
+    background-color: var(--color-gray-800);
     height: 100%;
   }
 
@@ -68,7 +68,7 @@
         rgba(241, 241, 249, 0.3) 100%
       ),
       #fff;
-    border: 2px solid var(--color-purple-400);
+    border: 2px solid var(--color-gray-800);
     box-shadow: 0px 2px 3px rgba(151, 71, 255, 0.18);
     display: block;
     border-radius: 9999px;

@@ -8,8 +8,6 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.01em;
-    position: sticky;
-    inset-block-start: 4rem;
   }
 
   @media (min-width: 768px) {
