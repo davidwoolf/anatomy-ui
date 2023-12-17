@@ -12,12 +12,12 @@
 <style>
   div {
     /* necessary to offset required row gap on small devices */
-    margin: -0.75rem 0;
+    margin: 2.25rem 0;
   }
 
   @media (min-width: 1024px) {
     div {
-      margin: 0;
+      margin: 6rem 0;
     }
   }
 </style>

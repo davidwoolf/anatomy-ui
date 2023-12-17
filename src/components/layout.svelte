@@ -28,6 +28,10 @@
     grid-column: 1 / -1;
   }
 
+  .layout-separator {
+    margin: 3rem 0;
+  }
+
   @media (min-width: 1024px) {
     .layout {
       display: grid;
@@ -42,7 +46,10 @@
       align-items: center;
       display: grid;
       grid-template-columns: subgrid;
-      /* margin-block-start: 6rem; */
+    }
+
+    .layout-separator {
+      margin: 6rem 0;
     }
   }
 </style>

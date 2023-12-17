@@ -28,7 +28,7 @@
     font-size: var(--font-size-base);
     font-weight: 500;
     gap: 1rem;
-    min-width: max-content;
+    width: max-content;
     padding: 0.75rem 1.5rem;
     transition: all 75ms ease;
   }
