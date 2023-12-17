@@ -5,7 +5,7 @@
 <style>
   div {
     display: grid;
-
+    row-gap: 0.75rem;
     grid-template-columns: 1fr;
   }
 

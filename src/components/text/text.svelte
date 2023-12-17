@@ -2,7 +2,6 @@
   export let size = "normal";
 </script>
 
-<!-- style:--align={align === "top" || align === "bottom" ? `flex-${align}` : align} -->
 <div
   class="component--text"
   style:--paragraph-size={size === "large"
@@ -17,6 +16,7 @@
     font-size: var(--font-size-lg);
     font-weight: 600;
     line-height: 110%;
+    text-wrap: balance;
   }
 
   :global(.component--text p) {
@@ -26,8 +26,22 @@
     line-height: 145%;
   }
 
+  :global(.component--text h2 + p) {
+    margin-block-start: 0.5rem;
+  }
+
   :global(.component--text p + p) {
     margin-block-start: 0.75rem;
+  }
+
+  :global(.component--text code) {
+    background-color: color-mix(in srgb, var(--color-gray-300), white 70%);
+    color: var(--color-gray-800);
+    border-radius: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    font-weight: 600;
+    padding: 0.125rem;
   }
 
   @media (min-width: 768px) {

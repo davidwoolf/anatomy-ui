@@ -9,6 +9,7 @@
     font-size: var(--font-size-lg);
     line-height: 135%;
     max-inline-size: 54rem;
+    text-wrap: balance;
   }
 
   @media (min-width: 768px) {

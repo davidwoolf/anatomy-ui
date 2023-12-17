@@ -1,6 +1,6 @@
 <script lang="ts">
   // components
-  import SemanticElements from "@components/layout/semantic-elements.svelte";
+  // import SemanticElements from "@components/layout/semantic-elements.svelte";
 
   import SpacingPadding from "@examples/layout/spacing/padding.svelte";
   import SpacingMargin from "@examples/layout/spacing/margin.svelte";
@@ -56,8 +56,6 @@
     SpacingPadding,
     SpacingMargin,
     SpacingGap,
-
-    SemanticElements,
   };
 </script>
 
