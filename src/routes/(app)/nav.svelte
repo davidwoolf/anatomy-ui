@@ -1,5 +1,6 @@
 <script>
   import Separator from "@components/separator.svelte";
+  import { onMount } from "svelte";
 
   /** @type {HTMLDialogElement} */
   let panel;
@@ -8,12 +9,19 @@
   function openPanel() {
     panel.showModal();
     expanded = true;
+    document.body.style.overflow = "hidden";
   }
 
   function closePanel() {
     panel.close();
-    expanded = false;
   }
+
+  onMount(function () {
+    panel.addEventListener("close", () => {
+      expanded = false;
+      document.body.style.overflow = "auto";
+    });
+  });
 </script>
 
 <button
@@ -103,9 +111,10 @@
     height: 100dvh;
     overflow: scroll;
     margin: 0 0 0 auto;
-    padding: 3rem;
+    padding: 2rem;
     transform: translateX(100%);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-width: 90vw;
     width: 30rem;
   }
 
@@ -119,9 +128,9 @@
 
   nav {
     display: flex;
-    block-size: calc(100% - 6rem);
+    block-size: calc(100% - 5rem);
     flex-direction: column;
-    margin-block-start: 3rem;
+    margin-block-start: 2rem;
   }
 
   a {
@@ -150,17 +159,28 @@
   .close-menu {
     align-items: center;
     background: rgba(198, 198, 231, 0.2);
+    block-size: 3rem;
     border-radius: 100%;
     display: flex;
-    height: 3rem;
+    inline-size: 3rem;
     justify-content: center;
     margin-inline-start: auto;
     outline: none;
-    width: 3rem;
   }
 
   .close-menu:focus-visible {
     box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(198, 198, 231, 0.8);
+  }
+
+  @media (min-width: 768px) {
+    dialog {
+      padding: 3rem;
+    }
+
+    nav {
+      block-size: calc(100% - 6rem);
+      margin-block-start: 3rem;
+    }
   }
 
   @keyframes fadeIn {
