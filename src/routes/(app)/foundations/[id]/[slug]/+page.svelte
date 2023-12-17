@@ -1,7 +1,6 @@
 <script lang="ts">
   // components
-  // import SemanticElements from "@components/layout/semantic-elements.svelte";
-
+  import SemanticElements from "@examples/layout/semantic-elements.svelte";
   import SpacingPadding from "@examples/layout/spacing/padding.svelte";
   import SpacingMargin from "@examples/layout/spacing/margin.svelte";
   import SpacingGap from "@examples/layout/spacing/gap.svelte";
@@ -39,6 +38,7 @@
   import Spacer from "@components/grid/spacer.svelte";
 
   const components = {
+    SemanticElements,
     AnimationJank,
     BlockInlineAxes,
     FontFallbacks,
@@ -75,20 +75,30 @@
           <Separator />
         {/if}
 
-        <Column column="1" span="3">
-          <Heading>{row.title}</Heading>
-        </Column>
-
-        <Column column="5" span="9">
-          <Text size="large">
-            {@html row.text}
-          </Text>
-
+        {#if row.width && row.width === "full"}
           {#if row.component}
-            <Spacer />
             <svelte:component this={components[row.component]} />
           {/if}
-        </Column>
+        {:else}
+          {#if row.title}
+            <Column column="1" span="3">
+              <Heading>{row.title}</Heading>
+            </Column>
+          {/if}
+
+          <Column column="5" span="9">
+            {#if row.text}
+              <Text size="large">
+                {@html row.text}
+              </Text>
+            {/if}
+
+            {#if row.component}
+              <Spacer />
+              <svelte:component this={components[row.component]} />
+            {/if}
+          </Column>
+        {/if}
 
         {#if row.sections}
           {#each row.sections as section, index}

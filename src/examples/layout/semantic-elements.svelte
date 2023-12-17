@@ -1,10 +1,12 @@
 <script>
   import { marked } from "marked";
   import { writable } from "svelte/store";
-  import ProTip from "@components/pro-tip.svelte";
-  import Tag from "@components/tag.svelte";
-  import Block from "@components/block.svelte";
   import { onMount } from "svelte";
+  import Grid from "@components/grid/grid.svelte";
+  import Separator from "@components/grid/separator.svelte";
+  import Column from "@components/grid/column.svelte";
+  import Heading from "@components/text/heading.svelte";
+  import Text from "@components/text/text.svelte";
 
   async function getItems() {
     let items = [
@@ -77,67 +79,25 @@
   });
 </script>
 
-<div>
-  <div class="hidden -mt-8 sm:block">
-    <ProTip>
-      <p>click the tags in the interactive DOM tree to learn more</p>
-    </ProTip>
-  </div>
+<Grid>
+  {#each $items as item, index (item.name)}
+    {#if index !== 0}
+      <Separator />
+    {/if}
 
-  <div class="container">
-    <div class="hidden -ml-3.5 sm:block">
-      <ul class="tag-tree">
-        <li>
-          <Tag active={activeTag} name="body" defaultActive={true} />
+    <Column column="1" span="3">
+      <Heading>{item.name}</Heading>
+    </Column>
 
-          <ul>
-            <li>
-              <Tag active={activeTag} name="header" />
-              <ul>
-                <li>
-                  <Tag active={activeTag} name="nav" />
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Tag active={activeTag} name="main" />
+    <Column column="5" span="9">
+      <Text size="large">
+        {@html item.content}
+      </Text>
+    </Column>
+  {/each}
+</Grid>
 
-              <ul>
-                <li>
-                  <Tag name="section" active={activeTag} />
-                </li>
-                <li>
-                  <Tag name="article" active={activeTag} />
-                </li>
-                <li>
-                  <Tag name="aside" active={activeTag} />
-                </li>
-                <li>
-                  <Tag name="div" active={activeTag} />
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Tag name="footer" active={activeTag} />
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="block-container">
-      {#each $items as item, index (item.name)}
-        <Block
-          tag={item.name}
-          active={$activeTag === item.name || ($activeTag === "" && index === 0)}>
-          {@html item.content}
-        </Block>
-      {/each}
-    </div>
-  </div>
-</div>
-
-<style lang="postcss">
+<!-- <style lang="postcss">
   .container {
     margin-block-start: 2rem;
   }
@@ -198,4 +158,4 @@
       padding: 0;
     }
   }
-</style>
+</style> -->

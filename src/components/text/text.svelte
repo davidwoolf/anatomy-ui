@@ -19,11 +19,23 @@
     text-wrap: balance;
   }
 
-  :global(.component--text p) {
+  :global(.component--text p, .component--text ul, .component--text ol) {
     color: color-mix(in srgb, var(--color-gray-800), white 20%);
     font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 145%;
+  }
+
+  :global(.component--text ul, .component--text ol) {
+    margin-block: 0.75rem;
+  }
+
+  :global(.component--text ul li) {
+    margin-block-start: 0.5rem;
+  }
+
+  :global(.component--text ul li:before) {
+    content: "– ";
   }
 
   :global(.component--text h2 + p) {
@@ -45,7 +57,7 @@
   }
 
   @media (min-width: 768px) {
-    :global(.component--text p) {
+    :global(.component--text p, .component--text ul, .component--text ol) {
       font-size: var(--paragraph-size);
     }
   }

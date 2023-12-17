@@ -21,7 +21,7 @@ export async function load({ fetch, params, parent }) {
 
   
  
-  /** @type Array<{ title: string; text: string; component?: string; sections?: Array<{ title: string; text: string; component?: string; }> }> */
+  /** @type Array<{ title?: string; text?: string; component?: string; width?: string; sections?: Array<{ title: string; text: string; component?: string; }> }> */
   const content = await res.json();
   
   return {
@@ -29,7 +29,7 @@ export async function load({ fetch, params, parent }) {
     description: marked.parse(matchingSection.description, {mangle: false, headerIds: false}),
     content: content.map(item => ({
       ...item,
-      text: marked.parse(item.text, {mangle: false, headerIds: false}),
+      text: marked.parse(item.text ? item.text : "", {mangle: false, headerIds: false}),
       sections: item.sections ? item.sections.map(section => ({
         ...section,
         text: marked.parse(section.text, {mangle: false, headerIds: false}),
