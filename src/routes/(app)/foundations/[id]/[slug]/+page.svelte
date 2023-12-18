@@ -1,23 +1,4 @@
 <script lang="ts">
-  // components
-  import SpacingPadding from "@examples/layout/spacing/padding.svelte";
-  import SpacingMargin from "@examples/layout/spacing/margin.svelte";
-  import SpacingGap from "@examples/layout/spacing/gap.svelte";
-  import DimensionsBounds from "@examples/layout/dimensions/bounds.svelte";
-  import MaxContentSizing from "@examples/layout/dimensions/max-content.svelte";
-  import MinContentSizing from "@examples/layout/dimensions/min-content.svelte";
-  import FitContentSizing from "@examples/layout/dimensions/fit-content.svelte";
-  import DisplayModes from "@examples/layout/display-modes.svelte";
-  import BlockInlineAxes from "@examples/layout/block-inline-axes.svelte";
-  import AnimationJank from "@examples/layout/layout-shift/animation.svelte";
-  import FontFallbacks from "@examples/layout/layout-shift/font-fallbacks.svelte";
-  import MediaEmbeds from "@examples/layout/layout-shift/media-embeds.svelte";
-  import SeparatingConcerns from "@examples/layout/separating-concerns.svelte";
-  import StaticRelativeAbsolute from "@examples/layout/position/static-relative-absolute.svelte";
-  import FixedSticky from "@examples/layout/position/fixed-sticky.svelte";
-  import StackingStrategies from "@examples/layout/position/stacking-strategies.svelte";
-  import StackingRules from "@examples/layout/position/stacking-rules.svelte";
-
   // data
   import type { PageData } from "./$types";
   export let data: PageData;
@@ -26,7 +7,6 @@
   import Title from "@components/title.svelte";
   import Description from "@components/description.svelte";
   import Layout from "@components/layout.svelte";
-  import NextSection from "@components/next-section.svelte";
   import Grid from "@components/grid/grid.svelte";
   import Column from "@components/grid/column.svelte";
   import Heading from "@components/text/heading.svelte";
@@ -35,87 +15,169 @@
   import Row from "@components/grid/row.svelte";
   import Box from "@components/box.svelte";
   import Spacer from "@components/grid/spacer.svelte";
-
-  const components = {
-    AnimationJank,
-    BlockInlineAxes,
-    FontFallbacks,
-    MediaEmbeds,
-    SeparatingConcerns,
-    StaticRelativeAbsolute,
-    FixedSticky,
-    StackingRules,
-    StackingStrategies,
-    DimensionsBounds,
-    MaxContentSizing,
-    MinContentSizing,
-    FitContentSizing,
-    DisplayModes,
-    SpacingPadding,
-    SpacingMargin,
-    SpacingGap,
-  };
 </script>
 
-<Layout>
-  <svelte:fragment slot="head">
-    <Title>{data.title}</Title>
+<div class="breadcrumbs">
+  <ul>
+    <li>Foundations</li>
+    <li class="breadcrumb--divider" aria-hidden>/</li>
+    <li>{data.id}</li>
+    <li class="breadcrumb--divider" aria-hidden>/</li>
+    <li class="breadcrumb--current">{data.title}</li>
+  </ul>
+</div>
 
-    <Description>
-      {@html data.description}
-    </Description>
-  </svelte:fragment>
+<article>
+  <Layout>
+    <svelte:fragment slot="head">
+      <Title>{data.title}</Title>
 
-  <svelte:fragment slot="contents">
-    <Grid>
-      {#each data.content as row, index (index)}
-        {#if index !== 0}
-          <Separator />
-        {/if}
-        <Column column="1" span="3">
-          <Heading>{row.title}</Heading>
-        </Column>
+      <Description>
+        {@html data.description}
+      </Description>
 
-        <Column column="5" span="9">
-          <Text size="large">
-            {#if row.text}
-              {@html row.text}
-            {/if}
-          </Text>
+      <a class="next-section" href={data.next}>
+        next section
+        <svg
+          width="12"
+          height="9"
+          viewBox="0 0 12 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1 4.5H10.6M10.6 4.5L6.45882 0.5M10.6 4.5L6.45882 8.5"
+            stroke="currentcolor"
+            stroke-linecap="round" />
+        </svg>
+      </a>
+    </svelte:fragment>
 
-          {#if row.component}
-            <Spacer />
-            <svelte:component this={components[row.component]} />
+    <svelte:fragment slot="contents">
+      <Grid>
+        {#each data.content as row, index (index)}
+          {#if index !== 0}
+            <Separator />
           {/if}
-        </Column>
-        <!-- {/if} -->
+          <Column column="1" span="3">
+            <Heading>{row.title}</Heading>
+          </Column>
 
-        {#if row.sections}
-          {#each row.sections as section, index}
-            <Spacer />
+          <Column column="5" span="9">
+            <Text size="large">
+              {#if row.text}
+                {@html row.text}
+              {/if}
+            </Text>
 
-            <Row>
-              <Column column={index % 2 === 0 ? "9" : "1"} span="4">
-                <Box
-                  paddingLeading={index % 2 === 0 ? "3rem" : "0"}
-                  paddingTrailing={index % 2 === 0 ? "0" : "3rem"}>
-                  <Text>
-                    <h2>{section.title}</h2>
+            {#if row.component}
+              <Spacer />
+              {#await import(/* @vite-ignore */ `../../../../../../src/examples/layout/${row.component}`) then module}
+                <svelte:component this={module.default} />
+              {/await}
+            {/if}
+          </Column>
+          <!-- {/if} -->
 
-                    {@html section.text}
-                  </Text>
-                </Box>
-              </Column>
+          {#if row.sections}
+            {#each row.sections as section, index}
+              <Spacer />
 
-              <Column column={index % 2 === 0 ? "1" : "5"} span="8">
-                {#if section.component}
-                  <svelte:component this={components[section.component]} />
-                {/if}
-              </Column>
-            </Row>
-          {/each}
-        {/if}
-      {/each}
-    </Grid>
-  </svelte:fragment>
-</Layout>
+              <Row>
+                <Column column={index % 2 === 0 ? "9" : "1"} span="4">
+                  <Box
+                    paddingLeading={index % 2 === 0 ? "3rem" : "0"}
+                    paddingTrailing={index % 2 === 0 ? "0" : "3rem"}>
+                    <Text>
+                      <h2>{section.title}</h2>
+
+                      {@html section.text}
+                    </Text>
+                  </Box>
+                </Column>
+
+                <Column column={index % 2 === 0 ? "1" : "5"} span="8">
+                  {#if section.component}
+                    {#await import(/* @vite-ignore */ `../../../../../../src/examples/layout/${section.component}`) then module}
+                      <svelte:component this={module.default} />
+                    {/await}
+                  {/if}
+                </Column>
+              </Row>
+            {/each}
+          {/if}
+        {/each}
+      </Grid>
+    </svelte:fragment>
+  </Layout>
+</article>
+
+<style>
+  .breadcrumbs {
+    display: flex;
+    font-size: 0.875rem;
+    padding: 0.25rem 1.5rem 0;
+  }
+
+  .breadcrumbs ul {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li {
+    opacity: 0.6;
+    text-transform: capitalize;
+  }
+
+  .breadcrumbs .breadcrumb--divider {
+    opacity: 0.3;
+  }
+
+  .breadcrumbs .breadcrumb--current {
+    opacity: 1;
+    text-transform: revert;
+  }
+
+  .next-section {
+    align-items: center;
+    border: 2px solid color-mix(in srgb, var(--color-gray-300), white 50%);
+    border-radius: 9999px;
+    display: flex;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    gap: 0.5rem;
+    margin: 2rem 0 0;
+    width: max-content;
+    padding: 0.5rem 1rem;
+    transition: all 75ms ease;
+  }
+
+  .next-section:hover {
+    background-color: color-mix(in srgb, var(--color-gray-300), white 50%);
+  }
+
+  article {
+    padding: 3rem 1.5rem;
+    margin: 0 auto;
+    max-width: 90rem;
+  }
+
+  @media (min-width: 768px) {
+    article {
+      padding: 6rem 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .breadcrumbs {
+      padding: 0.25rem 2rem 0;
+    }
+
+    .next-section {
+      margin: 2rem auto 0;
+    }
+
+    article {
+      padding: 6rem;
+    }
+  }
+</style>

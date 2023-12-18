@@ -1,13 +1,13 @@
 [{
   "title": "Media and embedded content",
   "text": "Use the `aspect-ratio` property in CSS to give media such as images, videos, and embedded content like `<iframe>` a concrete size before rendering. While height and width attributes directly on media elements have historically been used, the aspect-ratio property can inform overall dimensions without explicitly providing width and height values that might not translate well in responsive designs.\n\nIt can also be applied to multiple elements in one declaration, since attribute values will need to be defined on each element.",
-  "component": "MediaEmbeds"
+  "component": "layout-shift/media-embeds.svelte"
 }, {
   "title": "Font sizing and fallbacks",
   "text": "If your interface uses custom fonts, it’s recommended to use a `font-display` value that ensures text is displayed immediately while the custom font loads (if not already cached). This improves metrics like FCP (first contentful paint) and LCP (largest contentful paint). However, it can also create layout shifting since different font values don’t take up the same physical space, even with the same type properties.\n\nTo solve this, try to provide built-in fallbacks that are optically similar in size to your custom fonts. This will decrease layout shift and also prevent jarring text swapping experiences.",
-  "component": "FontFallbacks"
+  "component": "layout-shift/font-fallbacks.svelte"
 }, {
   "title": "Animations",
   "text": "Layout shift doesn’t just happen on page and asset load, it can also happen when animating elements using CSS properties that contribute to the overall DOM layout flow.\n\nAvoid animating properties like height and width, top and left and margin and padding when possible. Instead, use transform for animations as it doesn’t cause layout re-computations.",
-  "component": "AnimationJank"
+  "component": "layout-shift/animation.svelte"
 }]
