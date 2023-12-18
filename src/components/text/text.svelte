@@ -1,12 +1,4 @@
-<script>
-  export let size = "normal";
-</script>
-
-<div
-  class="component--text"
-  style:--paragraph-size={size === "large"
-    ? "var(--font-size-lg)"
-    : "var(--font-size-base)"}>
+<div class="component--text">
   <slot />
 </div>
 
@@ -20,7 +12,7 @@
   }
 
   :global(.component--text p, .component--text ul, .component--text ol) {
-    color: color-mix(in srgb, var(--color-gray-800), white 20%);
+    color: color-mix(in srgb, var(--color-gray-800), white 30%);
     font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 145%;
@@ -87,8 +79,11 @@
   }
 
   @media (min-width: 768px) {
+    :global(.component--text h2) {
+      font-size: var(--font-size-xl);
+    }
     :global(.component--text p, .component--text ul, .component--text ol) {
-      font-size: var(--paragraph-size);
+      font-size: var(--font-size-lg);
     }
   }
 </style>

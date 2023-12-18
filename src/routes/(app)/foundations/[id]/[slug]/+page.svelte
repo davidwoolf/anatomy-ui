@@ -36,20 +36,22 @@
         {@html data.description}
       </Description>
 
-      <a class="next-section" href={data.next}>
-        next section
-        <svg
-          width="12"
-          height="9"
-          viewBox="0 0 12 9"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M1 4.5H10.6M10.6 4.5L6.45882 0.5M10.6 4.5L6.45882 8.5"
-            stroke="currentcolor"
-            stroke-linecap="round" />
-        </svg>
-      </a>
+      {#if data.next}
+        <a class="next-section" href={data.next}>
+          next section
+          <svg
+            width="12"
+            height="9"
+            viewBox="0 0 12 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1 4.5H10.6M10.6 4.5L6.45882 0.5M10.6 4.5L6.45882 8.5"
+              stroke="currentcolor"
+              stroke-linecap="round" />
+          </svg>
+        </a>
+      {/if}
     </svelte:fragment>
 
     <svelte:fragment slot="contents">
@@ -63,7 +65,7 @@
           </Column>
 
           <Column column="5" span="9">
-            <Text size="large">
+            <Text>
               {#if row.text}
                 {@html row.text}
               {/if}
@@ -71,12 +73,11 @@
 
             {#if row.component}
               <Spacer />
-              {#await import(/* @vite-ignore */ `../../../../../../src/examples/layout/${row.component}`) then module}
+              {#await import(/* @vite-ignore */ `../../../../../../src/examples/${data.id}/${row.component}`) then module}
                 <svelte:component this={module.default} />
               {/await}
             {/if}
           </Column>
-          <!-- {/if} -->
 
           {#if row.sections}
             {#each row.sections as section, index}
@@ -97,8 +98,10 @@
 
                 <Column column={index % 2 === 0 ? "1" : "5"} span="8">
                   {#if section.component}
-                    {#await import(/* @vite-ignore */ `../../../../../../src/examples/layout/${section.component}`) then module}
+                    {#await import(/* @vite-ignore */ `../../../../../../src/examples/${data.id}/${section.component}`) then module}
                       <svelte:component this={module.default} />
+                    {:catch error}
+                      <p style="color: red">Cannot find example</p>
                     {/await}
                   {/if}
                 </Column>
