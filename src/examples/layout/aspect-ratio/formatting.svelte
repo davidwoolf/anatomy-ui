@@ -22,9 +22,6 @@
   <svelte:fragment slot="preview">
     <Image height="auto" width="10rem" ratio={code[0].value[0].value} />
 
-    <CSSEditor
-      selector="img"
-      value={code}
-      on:update={({ detail }) => (code = detail.text)} />
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

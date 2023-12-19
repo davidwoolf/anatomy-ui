@@ -31,22 +31,17 @@
       ],
     },
   ];
-
-  $: console.log({ code });
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
     <div class="container" style:align-items={code[0].value[0].value}>
-      <Image height="auto" width="8rem" ratio="1 / 1" />
+      <Image height="auto" width="8rem" ratio={code[1].value[0].value} />
 
       <div />
     </div>
 
-    <CSSEditor
-      selector="div"
-      value={code}
-      on:update={({ detail }) => (code = detail.text)} />
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
 

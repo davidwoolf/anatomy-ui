@@ -63,6 +63,7 @@
     .container {
       aspect-ratio: 16 / 9;
       flex-direction: row;
+      min-height: fit-content;
       /* grid-template-rows: 1fr max-content; */
     }
 

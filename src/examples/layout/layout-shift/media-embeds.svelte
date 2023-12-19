@@ -1,19 +1,39 @@
 <script>
-  import Control from "@components/editing/control.svelte";
-  import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
-  import AspectRatio from "../../../routes/examples/layout/layout-shift/aspect-ratio.svelte";
-  let reload = false;
-  let enabled = "enabled";
+  import CSSEditor from "@components/css-editor.svelte";
+  import Card from "@components/card.svelte";
+  import { base } from "$app/paths";
 
-  // hacky way to remount a component
+  let reload = false;
+
+  let code = [
+    {
+      selector: "img",
+      value: [
+        {
+          property: "aspect-ratio",
+          value: "1 / 1",
+          type: "select",
+          options: ["1 / 1", "auto"],
+        },
+      ],
+    },
+  ];
+
+  let src = `${base}/assets/image.png`;
+
+  // hacky way to remount components
   $: {
-    if (enabled) {
+    if (code) {
+      src = "";
       reload = true;
 
       setTimeout(() => {
         reload = false;
       });
+      setTimeout(() => {
+        src = `${base}/assets/image.png`;
+      }, 500);
     }
   }
 </script>
@@ -21,16 +41,16 @@
 <Example>
   <svelte:fragment slot="preview">
     {#if !reload}
-      <AspectRatio enabled={enabled === "enabled" ? true : false} />
+      <Card
+        padding="3rem"
+        width="20rem"
+        image={src}
+        aspectRatio={code[0].value[0].value} />
     {/if}
-  </svelte:fragment>
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Aspect ratios">
-      <Select bind:value={enabled}>
-        <option value="enabled">enabled</option>
-        <option value="disabled">disabled</option>
-      </Select>
-    </Control>
+    <CSSEditor
+      allowCopying={false}
+      value={code}
+      on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

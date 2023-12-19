@@ -1,30 +1,37 @@
 <script>
-  import Control from "@components/editing/control.svelte";
-  import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
-  let enabledFontFallbacks = "enabled";
+  import CSSEditor from "@components/css-editor.svelte";
+
+  let code = [
+    {
+      selector: "div",
+      value: [
+        {
+          property: "font-family",
+          value: "cursive",
+          type: "select",
+          options: ["cursive", "sans-serif"],
+        },
+      ],
+    },
+  ];
 </script>
 
-<Example reversed={true}>
+<Example>
   <div slot="preview">
     <iframe
       loading="lazy"
-      width="392"
-      style:max-width="100%"
-      style:aspect-ratio="1 / .7"
-      src="/examples/layout/layout-shift/font-fallbacks?enabled={enabledFontFallbacks ===
-      'enabled'
+      width="500px"
+      style:aspect-ratio="1 / 1"
+      src="/examples/layout/layout-shift/font-fallbacks?enabled={code[0].value[0]
+        .value === 'cursive'
         ? true
         : false}"
       title="Card showing layout shift" />
-  </div>
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Font fallback">
-      <Select bind:value={enabledFontFallbacks}>
-        <option value="enabled">cursive</option>
-        <option value="disabled">sans serif</option>
-      </Select>
-    </Control>
-  </svelte:fragment>
+    <CSSEditor
+      allowCopying={false}
+      value={code}
+      on:update={({ detail }) => (code = detail.text)} />
+  </div>
 </Example>

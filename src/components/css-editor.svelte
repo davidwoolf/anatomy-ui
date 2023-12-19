@@ -3,7 +3,8 @@
   import EditorItem from "./editor-item.svelte";
 
   const dispatch = createEventDispatcher();
-  export let selector = "[selector]";
+
+  export let allowCopying = true;
 
   /** @type {{
    *  selector: string;
@@ -73,14 +74,17 @@
 </script>
 
 <div class="container">
-  {#each value as item}
+  {#each value as item, index}
+    {#if index !== 0}
+      <div class="spacer" />
+    {/if}
     <span class="selector">{`${item.selector} {`}</span>
 
     <div class="fields">
       {#each item.value as value}
         <EditorItem label={value.property}>
           {#if value.type === "static"}
-            <span class="static">{value.value}</span><span class="terminator">;</span>
+            <span class="static">{value.value}</span>
           {:else if value.type === "text"}
             <input
               type="text"
@@ -89,9 +93,9 @@
               on:input={(e) => {
                 // @ts-expect-error
                 handleInput(e.target.value, item.selector, value.property);
-              }} /><span class="terminator">;</span>
+              }} />
           {:else if value.type === "select"}
-            <div class="select" style:width="{value.value.length * 9 + 28}px">
+            <div class="select" style:width="{value.value.length * 9 + 16}px">
               <select
                 value={value.value}
                 on:change={(e) => {
@@ -116,18 +120,19 @@
                   stroke-linecap="round" />
               </svg>
             </div>
-            <span class="terminator">;</span>
           {/if}
         </EditorItem>
       {/each}
     </div>
 
-    <span class="selector">{`}`}</span>
+    <span class="selector end">{`}`}</span>
   {/each}
 
-  <button type="button" class="copy-code" on:click={generateCode}>
-    {copied ? "copied!" : "copy code"}
-  </button>
+  {#if allowCopying}
+    <button type="button" class="copy-code" on:click={generateCode}>
+      {copied ? "copied!" : "copy code"}
+    </button>
+  {/if}
 </div>
 
 <style>
@@ -149,8 +154,8 @@
     opacity: 0.5;
   }
 
-  .terminator {
-    opacity: 0.5;
+  .spacer {
+    height: 0.5rem;
   }
 
   .static {
@@ -161,6 +166,7 @@
   input {
     appearance: none;
     border-radius: 0.25rem;
+    font-size: inherit;
     line-height: 145%;
     outline: none;
     text-decoration: underline;
@@ -185,9 +191,7 @@
 
   .select {
     background: #fff;
-    box-shadow: 0px 1px 2px 0px rgba(151, 71, 255, 0.11);
-    border: 1px solid rgba(42, 0, 97, 0.12);
-    border-radius: 0.375rem;
+    border-bottom: 1px solid var(--color-gray-300);
     position: relative;
     min-width: 4rem;
   }
@@ -196,13 +200,11 @@
     appearance: none;
     box-sizing: border-box;
     font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
+    font-size: inherit;
     line-height: 1;
     overflow: hidden;
-    padding: 0 1.375rem 0 0.375rem;
-    text-overflow: ellipsis;
+    padding: 0 1rem 0 0;
     outline: none;
-    white-space: nowrap;
     width: 100%;
   }
 
@@ -211,7 +213,7 @@
     color: var(--color-gray-800);
     inline-size: 11px;
     inset-block-start: 50%;
-    inset-inline-end: 0.5rem;
+    inset-inline-end: 0;
     margin-block-start: 1px;
     opacity: 0.6;
     position: absolute;

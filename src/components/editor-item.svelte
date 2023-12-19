@@ -18,5 +18,6 @@
   span {
     color: var(--color-green-400);
     margin-inline-end: 0.375rem;
+    width: max-content;
   }
 </style>

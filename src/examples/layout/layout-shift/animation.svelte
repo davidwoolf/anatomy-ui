@@ -1,36 +1,52 @@
 <script>
-  import Control from "@components/editing/control.svelte";
-  import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
-  import Animations from "../../../routes/examples/layout/layout-shift/animations.svelte";
-  let reloadAnimations = false;
-  let enabledTransformAnimations = "enabled";
+  import CSSEditor from "@components/css-editor.svelte";
+  import Card from "@components/card.svelte";
 
-  // hacky way to remount a component
-  $: {
-    if (enabledTransformAnimations) {
-      reloadAnimations = true;
-
-      setTimeout(() => {
-        reloadAnimations = false;
-      });
-    }
-  }
+  let code = [
+    {
+      selector: "div",
+      value: [
+        {
+          property: "animation-name",
+          value: "transform",
+          type: "select",
+          options: ["transform", "width"],
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    {#if !reloadAnimations}
-      <Animations enabled={enabledTransformAnimations === "enabled" ? true : false} />
-    {/if}
-  </svelte:fragment>
+    <div
+      class="container"
+      style:inline-size={code[0].value[0].value === "transform" ? "100%" : "19.2rem"}
+      style:transform={code[0].value[0].value === "transform"
+        ? "scale(80%)"
+        : "scale(100%)"}
+      style:animation-name={code[0].value[0].value === "transform"
+        ? "transforms"
+        : "composites"}>
+      <Card padding="3rem" width="22rem" />
+    </div>
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Transform animations">
-      <Select bind:value={enabledTransformAnimations}>
-        <option value="enabled">enabled</option>
-        <option value="disabled">disabled</option>
-      </Select>
-    </Control>
+    <CSSEditor
+      allowCopying={false}
+      value={code}
+      on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
+
+<style>
+  .container {
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    display: flex;
+    justify-content: center;
+  }
+</style>

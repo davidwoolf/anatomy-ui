@@ -35,7 +35,6 @@
       width={code[0].value[2].value} />
 
     <CSSEditor
-      selector="img"
       value={code}
       on:update={(event) => {
         console.log(event.detail.text);

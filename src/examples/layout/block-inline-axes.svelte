@@ -1,128 +1,54 @@
 <script>
-  import Control from "@components/editing/control.svelte";
   import Example from "@components/example.svelte";
-  import Select from "@components/editing/select.svelte";
+  import CSSEditor from "@components/css-editor.svelte";
+  import Card from "@components/card.svelte";
 
-  let writingMode = "horizontal-tb";
+  let code = [
+    {
+      selector: "div",
+      value: [
+        {
+          property: "writing-mode",
+          value: "horizontal-tb",
+          type: "select",
+          options: ["horizontal-tb", "vertical-lr", "vertical-rl"],
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <div class="axes-container">
-      <div class="axes" style:--writingMode={writingMode}>
-        <div class="axis-boundary block-start" />
-        <div class="axis-boundary block-end" />
-        <div class="axis-boundary inline-start" />
-        <div class="axis-boundary inline-end" />
-
-        <div class="block-axis">
-          <span>block axis start</span>
-        </div>
-
-        <div class="inline-axis">
-          <span>inline axis start</span>
-        </div>
-
-        <div class="circle" inert aria-hidden />
+    <div class="container" style:writing-mode={code[0].value[0].value}>
+      <div class="block-axis">
+        <span>block axis</span>
       </div>
-    </div>
-  </svelte:fragment>
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Writing mode">
-      <Select bind:value={writingMode}>
-        <option value="horizontal-tb">horizontal</option>
-        <option value="vertical-lr">vertical — left to right</option>
-        <option value="vertical-rl">vertical — right to left</option>
-      </Select>
-    </Control>
+      <div class="inline-axis">
+        <span>inline axis</span>
+      </div>
+      <Card width="24rem" />
+    </div>
+
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
 
 <style>
-  .axes-container {
-    aspect-ratio: 4 / 3;
-    inline-size: 100%;
-    padding: 1rem;
-  }
-  .axes {
-    block-size: 100%;
-    inline-size: 100%;
+  .container {
+    padding-block-end: 8rem;
+    padding-inline-start: 8rem;
     position: relative;
-    writing-mode: var(--writingMode, inherit);
-  }
-
-  .axis-boundary {
-    background-color: #9747ff;
-    position: absolute;
-  }
-
-  .axis-boundary.block-start {
-    block-size: 1px;
-    inset-block-start: 1rem;
-    inset-inline: -1rem;
-  }
-
-  .axis-boundary.block-end {
-    block-size: 1px;
-    inset-block-end: 1rem;
-    inset-inline: -1rem;
-  }
-
-  .axis-boundary.inline-start {
-    inset-inline-start: 1rem;
-    inset-block: -1rem;
-    inline-size: 1px;
-  }
-
-  .axis-boundary.inline-end {
-    inset-inline-end: 1rem;
-    inset-block: -1rem;
-    inline-size: 1px;
-  }
-
-  @media (min-width: 768px) {
-    .axes-container {
-      aspect-ratio: unset;
-      block-size: max(80%, 8rem);
-      inline-size: max(80%, 8rem);
-      padding: 0;
-    }
-
-    .axis-boundary.block-start {
-      inset-block-start: 1.5rem;
-      inset-inline: -1.5rem;
-    }
-
-    .axis-boundary.block-end {
-      inset-block-end: 1.5rem;
-      inset-inline: -1.5rem;
-    }
-
-    .axis-boundary.inline-start {
-      inset-inline-start: 1.5rem;
-      inset-block: -1.5rem;
-    }
-
-    .axis-boundary.inline-end {
-      inset-inline-end: 1.5rem;
-      inset-block: -1.5rem;
-    }
   }
 
   span {
-    background: white;
-    border: 1px solid #9747ff;
-    border-radius: 0.25rem;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-    color: #9747ff;
-    content: "block axis";
     display: block;
-    font-size: 0.75rem;
+    color: var(--color-gray-800);
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
     font-weight: 500;
     line-height: 1;
-    padding: 0.5rem 0.75rem;
-    text-align: center;
     min-inline-size: max-content;
   }
 

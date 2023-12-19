@@ -2,31 +2,23 @@
   import Example from "@components/example.svelte";
   import CSSEditor from "@components/css-editor.svelte";
   import Card from "@components/card.svelte";
+  import { afterUpdate, onMount } from "svelte";
 
   let code = [
     {
-      selector: ".container",
+      selector: "*",
       value: [
         {
-          property: "max-width",
-          value: "420px",
-          type: "text",
+          property: "box-sizing",
+          value: "border-box",
+          type: "select",
+          options: ["border-box", "content-box"],
         },
       ],
     },
     {
       selector: ".card",
       value: [
-        {
-          property: "column-gap",
-          value: "24px",
-          type: "text",
-        },
-        {
-          property: "row-gap",
-          value: "12px",
-          type: "text",
-        },
         {
           property: "padding",
           value: "24px",
@@ -35,26 +27,35 @@
       ],
     },
   ];
+
+  /** @type {HTMLDivElement} */
+  let box;
+  /** @type {number} */
+  let width = 0;
+
+  afterUpdate(() => {
+    console.log("here");
+    if (box) {
+      width = box.getBoundingClientRect().width;
+    }
+  });
 </script>
 
-<Example overflow="hidden">
+<Example>
   <svelte:fragment slot="preview">
-    <div class="container" style:max-width={code[0].value[0].value}>
-      <div class="width">
-        <span>
-          {code[0].value[0].value}
-        </span>
+    <div>
+      <div class="box-sizing-container" style:--box-sizing={code[0].value[0].value}>
+        <div bind:this={box}>
+          <Card
+            width="24rem"
+            padding={code[1].value[0].value}
+            showHighlights={["padding"]} />
+        </div>
       </div>
 
-      <Card
-        showHighlights={true}
-        padding={code[1].value[2].value}
-        columnGap={code[1].value[0].value}
-        rowGap={code[1].value[1].value} />
-
       <div class="width">
         <span>
-          {code[0].value[0].value}
+          {width}px
         </span>
       </div>
     </div>
@@ -64,12 +65,9 @@
 </Example>
 
 <style>
-  .container {
-    max-width: 24rem;
-    width: 100%;
+  :global(.box-sizing-container *) {
+    box-sizing: var(--box-sizing);
   }
-
-  /* highlights */
 
   .width {
     align-items: center;

@@ -1,7 +1,5 @@
 <script>
   import { base } from "$app/paths";
-  import Card from "@components/playground/card.svelte";
-  import { onMount } from "svelte";
 
   /** @type {string} */
   export let ratio;

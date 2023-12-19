@@ -37,8 +37,8 @@
       </Description>
 
       {#if data.next}
-        <a class="next-section" href={data.next}>
-          next section
+        <a class="next-section" href={data.next.slug}>
+          {data.next.title}
           <svg
             width="12"
             height="9"

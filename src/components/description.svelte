@@ -7,7 +7,7 @@
     color: color-mix(in srgb, var(--color-gray-800), white 40%);
     margin: 0.75rem auto 0;
     font-size: var(--font-size-lg);
-    line-height: 135%;
+    line-height: 145%;
     max-inline-size: 54rem;
     text-wrap: balance;
   }

@@ -15,7 +15,7 @@
     "component": "aspect-ratio/min-max.svelte"
   }, {
     "title": "Flex containers",
-    "text": "Elements inside of a a flex container can also have their `aspect-ratio` values omitted if alignment values aren’t explicitly defined. By default, flex containers align items to the top and bottom of the container, overriding aspect ratio values.\n\nChange the alignment value to see how aspect ratios can be used in flex containers.",
+    "text": "Elements inside of a a flex container can also have their `aspect-ratio` values omitted if alignment values aren’t explicitly defined. By default, flex containers align items to the top and bottom of the container, overriding aspect ratio values.",
     "component": "aspect-ratio/flex.svelte"
   }]
 }]

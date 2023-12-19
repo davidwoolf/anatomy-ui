@@ -101,6 +101,6 @@ export async function load({ fetch, params, parent }) {
         })) : undefined,
       }
     })),
-    next: sections[nextSection] ? sections[nextSection].slug : undefined,
+    next: sections[nextSection] ? sections[nextSection] : undefined,
   }
 }

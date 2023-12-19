@@ -4,8 +4,7 @@
   "component": "layout-shift/media-embeds.svelte"
 }, {
   "title": "Font sizing and fallbacks",
-  "text": "If your interface uses custom fonts, it’s recommended to use a `font-display` value that ensures text is displayed immediately while the custom font loads (if not already cached). This improves metrics like FCP (first contentful paint) and LCP (largest contentful paint). However, it can also create layout shifting since different font values don’t take up the same physical space, even with the same type properties.\n\nTo solve this, try to provide built-in fallbacks that are optically similar in size to your custom fonts. This will decrease layout shift and also prevent jarring text swapping experiences.",
-  "component": "layout-shift/font-fallbacks.svelte"
+  "file": "font-sizing.md"
 }, {
   "title": "Animations",
   "text": "Layout shift doesn’t just happen on page and asset load, it can also happen when animating elements using CSS properties that contribute to the overall DOM layout flow.\n\nAvoid animating properties like height and width, top and left and margin and padding when possible. Instead, use transform for animations as it doesn’t cause layout re-computations.",

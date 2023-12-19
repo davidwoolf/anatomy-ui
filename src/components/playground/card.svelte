@@ -4,6 +4,7 @@
   export let maxWidth = "32rem";
   export let minHeight = "0";
   export let opacity = 1;
+  export let margin = "0";
   export let padding = "40px";
   export let position = "static";
   export let top = "initial";
@@ -19,6 +20,7 @@
   style:min-inline-size={minWidth}
   style:border
   style:opacity
+  style:margin
   style:padding
   style:position
   style:top
@@ -30,9 +32,9 @@
 
 <style>
   .playground--card {
-    background-color: white;
+    background-color: var(--color-gray-800);
     border-radius: 0.5rem;
-    box-shadow: 0px 1px 3px 0px rgba(4, 120, 87, 0.1);
+    color: white;
     overflow: scroll;
     position: relative;
     width: 100%;
@@ -52,9 +54,8 @@
   }
 
   :global(.playground--card p) {
-    color: var(--color-gray-300);
-    font-family: var(--font-placeholder);
-    font-size: 1rem;
+    color: white;
+    font-size: var(--font-size-sm);
     line-height: 145%;
     margin: 0.25rem 0 0;
   }

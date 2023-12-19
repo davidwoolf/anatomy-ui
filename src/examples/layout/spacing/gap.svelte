@@ -1,39 +1,45 @@
 <script>
-  import Control from "@components/editing/control.svelte";
-  import Number from "@components/editing/number.svelte";
-  import Range from "@components/editing/range.svelte";
   import Example from "@components/example.svelte";
   import Card from "@components/playground/card.svelte";
-  import { writable } from "svelte/store";
+  import CSSEditor from "@components/css-editor.svelte";
 
-  let gap = writable([40]);
+  let code = [
+    {
+      selector: ".container",
+      value: [
+        {
+          property: "gap",
+          value: "40px",
+          type: "text",
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card>
-      <p>
-        Apply gaps to containers that use flex and grid layouts. Gaps cannot be less than
-        zero, therefore negative offsets still require using the margin property.
-      </p>
-    </Card>
+    <div>
+      <Card maxWidth="24rem">
+        <p>
+          In the spring he sailed for Athens, and arrived at the island of Ios, now Ino,
+          where he fell extremely ill, and died.
+        </p>
+      </Card>
 
-    <div class="gap-highlight" style:--size="{$gap[0]}px">
-      <span>gap: {$gap[0]}px</span>
+      <div class="gap-highlight" style:--size={code[0].value[0].value}>
+        <span>gap: {code[0].value[0].value}</span>
+      </div>
+
+      <Card maxWidth="24rem">
+        <p>
+          In the spring he sailed for Athens, and arrived at the island of Ios, now Ino,
+          where he fell extremely ill, and died.
+        </p>
+      </Card>
     </div>
 
-    <Card>
-      <p>
-        Apply gaps to containers that use flex and grid layouts. Gaps cannot be less than
-        zero, therefore negative offsets still require using the margin property.
-      </p>
-    </Card>
-  </svelte:fragment>
-
-  <svelte:fragment slot="preview-controls">
-    <Control label="Gap">
-      <Range value={gap} min={10} max={60} />
-    </Control>
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
 

@@ -48,9 +48,6 @@
       minWidth={code[0].value[3].value}
       maxWidth={code[0].value[4].value} />
 
-    <CSSEditor
-      selector="img"
-      value={code}
-      on:update={({ detail }) => (code = detail.text)} />
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
