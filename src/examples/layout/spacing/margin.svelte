@@ -1,6 +1,6 @@
 <script>
   import Example from "@components/example.svelte";
-  import Card from "@components/playground/card.svelte";
+  import Card from "@components/card.svelte";
   import CSSEditor from "@components/css-editor.svelte";
 
   let code = [
@@ -31,12 +31,7 @@
   <svelte:fragment slot="preview">
     <div>
       <div class="item" style:margin="0 0 {code[0].value[0].value}">
-        <Card maxWidth="24rem">
-          <p>
-            In the spring he sailed for Athens, and arrived at the island of Ios, now Ino,
-            where he fell extremely ill, and died.
-          </p>
-        </Card>
+        <Card width="24rem" />
 
         <div class="margin-highlight bottom" style:--size={code[0].value[0].value}>
           <span>margin-bottom: {code[0].value[0].value}</span>
@@ -47,12 +42,7 @@
         <div class="margin-highlight top" style:--size={code[1].value[0].value}>
           <span>margin-top: {code[1].value[0].value}</span>
         </div>
-        <Card maxWidth="24rem">
-          <p>
-            In the spring he sailed for Athens, and arrived at the island of Ios, now Ino,
-            where he fell extremely ill, and died.
-          </p>
-        </Card>
+        <Card width="24rem" />
       </div>
     </div>
 
@@ -66,7 +56,8 @@
   }
   .margin-highlight {
     align-items: center;
-    background-color: color-mix(in srgb, var(--color-green-400), #fff 80%);
+    background: url("/assets/lines.png");
+    background-size: 500px auto;
     block-size: var(--size, 2.5rem);
     display: flex;
     justify-content: center;

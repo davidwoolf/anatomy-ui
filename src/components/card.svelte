@@ -11,6 +11,7 @@
   export let image = `${base}/assets/image.png`;
   export let padding = "24px";
   export let rowGap = "12px";
+  export let height = "auto";
   export let width = "auto";
   /** @type {("padding" | "gaps")[]} */
   export let showHighlights = [];
@@ -29,6 +30,7 @@
   style:font-family={fontFamily}
   style:padding
   style:inline-size={width}
+  style:block-size={height}
   style:background-image={showHighlights.includes("padding")
     ? `url(${outline})`
     : "none"}>
@@ -86,7 +88,7 @@
     border-radius: 1rem;
     container-type: inline-size;
     position: relative;
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 
   .card {
@@ -94,6 +96,8 @@
     display: grid;
     overflow: hidden;
     text-align: center;
+    block-size: 100%;
+    inline-size: 100%;
   }
 
   .card img {

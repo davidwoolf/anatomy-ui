@@ -1,6 +1,6 @@
 <script>
   import Example from "@components/example.svelte";
-  import Image from "./image.svelte";
+  import Image from "@components/image.svelte";
   import CSSEditor from "@components/css-editor.svelte";
 
   let code = [

@@ -2,7 +2,7 @@
   import Example from "@components/example.svelte";
   import CSSEditor from "@components/css-editor.svelte";
   import Card from "@components/card.svelte";
-  import { afterUpdate, onMount } from "svelte";
+  import { afterUpdate } from "svelte";
 
   let code = [
     {

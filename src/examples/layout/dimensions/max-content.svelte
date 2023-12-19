@@ -1,29 +1,27 @@
 <script>
-  import Control from "@components/editing/control.svelte";
   import Example from "@components/example.svelte";
-  import Select from "@components/editing/select.svelte";
-  import Card from "@components/playground/card.svelte";
+  import CSSEditor from "@components/css-editor.svelte";
+  import SimpleCard from "@components/simple-card.svelte";
 
-  let maxContent = "disabled";
+  let code = [
+    {
+      selector: ".card",
+      value: [
+        {
+          property: "width",
+          value: "24rem",
+          type: "select",
+          options: ["24rem", "max-content"],
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card minWidth={maxContent === "enabled" ? "max-content" : "0px"}>
-      <p>
-        Toggle the use of the max-content keyword to see how this card responds. Here is a
-        lot of additional text to show how elements can break out of their parent
-        containers with this keyword.
-      </p>
-    </Card>
-  </svelte:fragment>
+    <SimpleCard width={code[0].value[0].value} />
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Max-content">
-      <Select bind:value={maxContent}>
-        <option value="enabled">enabled</option>
-        <option value="disabled">disabled</option>
-      </Select>
-    </Control>
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

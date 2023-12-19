@@ -2,7 +2,7 @@
   import { base } from "$app/paths";
 
   /** @type {string} */
-  export let ratio;
+  export let ratio = "auto";
   export let useOriginalDimensions = false;
   export let height = "auto";
   export let width = "auto";
@@ -10,8 +10,8 @@
   export let maxHeight = "none";
   export let minWidth = "none";
   export let maxWidth = "none";
+  export let src = `${base}/assets/image.png`;
 
-  const src = `${base}/assets/image.png`;
   let combinedRatio = "auto";
 
   $: {
@@ -25,7 +25,7 @@
 
 <img
   {src}
-  alt="A cresting wave"
+  alt="Placeholder for examples"
   style:aspect-ratio={combinedRatio}
   style:min-width={minWidth}
   style:max-width={maxWidth}

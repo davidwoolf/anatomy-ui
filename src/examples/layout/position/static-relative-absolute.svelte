@@ -2,64 +2,62 @@
   import Control from "@components/editing/control.svelte";
   import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
-  import Card from "@components/playground/card.svelte";
+  import Card from "@components/card.svelte";
   import Number from "@components/editing/number.svelte";
+  import CSSEditor from "@components/css-editor.svelte";
 
   let starterPosition = "static";
   /** @type {string | number | null}*/
   let offset = null;
+
+  let code = [
+    {
+      selector: ".card",
+      value: [
+        {
+          property: "position",
+          value: "static",
+          type: "select",
+          options: ["static", "relative", "absolute"],
+        },
+        {
+          property: "top",
+          value: "0",
+          type: "text",
+        },
+        {
+          property: "left",
+          value: "0",
+          type: "text",
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example offset>
   <svelte:fragment slot="preview">
-    <div
-      class="absolute-relative"
-      style:--aspect-ratio={starterPosition === "absolute" ? "1 / 1" : "initial"}
-      style:--overflow={starterPosition === "absolute" ? "hidden" : "initial"}>
-      <Card
-        position={starterPosition}
-        top={starterPosition !== "static" ? `${offset}px` : "unset"}
-        left={starterPosition !== "static" ? `${offset}px` : "unset"}>
-        <p>
-          The default value of the position property is , which ignores inset properties
-          such as and , along with stacking values for the property. The default value of
-          the position property is , which ignores inset properties such as and , along
-          with stacking values for the property.
-        </p>
-      </Card>
+    <div class="container">
+      <div
+        style:position={code[0].value[0].value}
+        style:left={code[0].value[1].value}
+        style:top={code[0].value[2].value}
+        style:inline-size="100%">
+        <Card />
+      </div>
     </div>
-  </svelte:fragment>
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Position">
-      <Select bind:value={starterPosition}>
-        <option value="static">static</option>
-        <option value="relative">relative</option>
-        <option value="absolute">absolute</option>
-      </Select>
-    </Control>
-
-    <Control label="Offset">
-      <Number bind:value={offset} placeholder="0" />
-    </Control>
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
 
 <style>
-  .absolute-relative {
-    aspect-ratio: var(--aspect-ratio);
-    align-items: center;
-    block-size: 100%;
-    display: flex;
-    justify-content: center;
-    inline-size: 100%;
-    overflow: var(--overflow);
+  .container {
+    border: 1px dashed var(--color-gray-300);
+    inline-size: 24rem;
+    max-inline-size: 100%;
+    min-block-size: 12rem;
     position: relative;
-  }
-
-  @media (min-width: 1024px) {
-    .absolute-relative {
-      aspect-ratio: unset;
-    }
+    overflow: hidden;
   }
 </style>

@@ -1,33 +1,56 @@
 <script>
-  import Control from "@components/editing/control.svelte";
   import Example from "@components/example.svelte";
-  import Number from "@components/editing/number.svelte";
-  import Card from "@components/playground/card.svelte";
+  import CSSEditor from "@components/css-editor.svelte";
+  import Card from "@components/card.svelte";
 
-  /** @type {number | null} */
-  let minWidth = null;
-  /** @type {number | null} */
-  let maxWidth = null;
+  let code = [
+    {
+      selector: ".container",
+      value: [
+        {
+          property: "min-width",
+          value: "0",
+          type: "text",
+        },
+        {
+          property: "min-height",
+          value: "0",
+          type: "text",
+        },
+        {
+          property: "max-width",
+          value: "none",
+          type: "text",
+        },
+        {
+          property: "max-height",
+          value: "none",
+          type: "text",
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card minWidth="{minWidth}px" maxWidth="{maxWidth ?? 640}px">
-      <p>
-        Use max-height, max-width, min-height, and min-width to set upper and lower
-        constraints on an element’s dimensions. When using both constraints, the minimum
-        value will be used over the maximum value if its larger.
-      </p>
-    </Card>
-  </svelte:fragment>
+    <div
+      class="container"
+      style:min-width={code[0].value[0].value}
+      style:min-height={code[0].value[1].value}
+      style:max-width={code[0].value[2].value}
+      style:max-height={code[0].value[3].value}
+      style:width="24rem">
+      <Card width="100%" height="100%" />
+    </div>
 
-  <svelte:fragment slot="preview-controls">
-    <Control label="Min width">
-      <Number bind:value={minWidth} placeholder="120" />
-    </Control>
-
-    <Control label="Max width">
-      <Number bind:value={maxWidth} placeholder="320" />
-    </Control>
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
+
+<style>
+  .container {
+    border: 1px dashed var(--color-gray-300);
+    overflow: hidden;
+  }
+</style>

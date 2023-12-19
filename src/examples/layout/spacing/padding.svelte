@@ -1,6 +1,6 @@
 <script>
   import Example from "@components/example.svelte";
-  import Card from "@components/playground/card.svelte";
+  import Card from "@components/card.svelte";
   import CSSEditor from "@components/css-editor.svelte";
 
   let code = [
@@ -9,7 +9,7 @@
       value: [
         {
           property: "padding",
-          value: "40px",
+          value: "24px",
           type: "text",
         },
       ],
@@ -19,28 +19,7 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card position="relative" maxWidth="18rem" padding={code[0].value[0].value}>
-      <div class="padding-highlight padding-top" style:--size={code[0].value[0].value}>
-        <span>padding</span>
-      </div>
-
-      <div class="padding-highlight padding-left" style:--size={code[0].value[0].value}>
-        <span>padding</span>
-      </div>
-
-      <div class="padding-highlight padding-right" style:--size={code[0].value[0].value}>
-        <span>padding</span>
-      </div>
-
-      <div class="padding-highlight padding-bottom" style:--size={code[0].value[0].value}>
-        <span>padding</span>
-      </div>
-
-      <p>
-        In the spring he sailed for Athens, and arrived at the island of Ios, now Ino,
-        where he fell extremely ill, and died.
-      </p>
-    </Card>
+    <Card width="24rem" showHighlights={["padding"]} padding={code[0].value[0].value} />
 
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
