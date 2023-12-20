@@ -1,0 +1,20 @@
+[{
+  "title": "Media queries",
+  "text": "Media queries check values from the browser context itself. This means targeting a minimum width and height will apply to the entire browser, not the component these values are being applied to.\n\nWhen using media queries, build up instead of down. What is laid out on a small device will (usually) work on a large device. While this doesn’t mean a small layout will look great on desktop, it will at least function. This also means that it’s usually easier to work on progressive enhancements for larger and larger screen sizes, rather than spending time fixing visual bugs because a desktop interface doesn’t function on a phone.\n\nLet go of the notion that interfaces will be pixel perfect at every size. Instead, pick a few common, relatively evenly spaced sizes and ensure things look great there."
+}, {
+  "title": "Container queries",
+  "text": "Media query values for properties like width and height come from the overall browser, not isolated sections. This makes media queries less useful when targeting layout details for base components that may be shown in a variety of contexts. Container queries are a newer feature that can be used for this exact purpose.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries)\n\nOther than being based on a container and not the entire viewport, they work in a similar manner to media queries."
+}, {
+  "title": "Constraint functions",
+  "text": "CSS provides three functions to constrain sizing: `min()`, `max()`, and `clamp()`. For min and max, multiple  values can be added, and whatever value equates to the the smallest or largest will be used. In addition, these functions can be combined and nested to add more complex logic.",
+  "sections": [{
+    "title": "min()",
+    "text": "The `min()` function uses the smallest _computed_ value passed in. This makes more sense when working with dynamic units such as `vw` and `%`. In addition, values can be other functions including `max()` and `min()` itself."
+  }, {
+    "title": "max()",
+    "text": "The `max()` function uses the largest computed value passed in, and works exactly like `min()` with regards to dynamic units and functions as values."
+  }, {
+    "title": "clamp()",
+    "text": "The `clamp()` function provides the ability to set a dynamic value, with upper and lower constraints. Before it was available, complex `min(max())` nesting was required to achieve the same functionality, but this function makes that logic much easier to understand at a glance.\n\n_Fun fact: the `clamp()` function actually resolves to a nested `max()` and `min()` declaration.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp#return_value)_"
+  }]
+}]

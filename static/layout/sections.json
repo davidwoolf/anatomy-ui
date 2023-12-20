@@ -1,81 +1,49 @@
 [{
   "slug": "semantic-elements",
   "title": "Semantic elements",
-  "description": "Layout helps define the hierarchy and flow of content in interfaces. While styling does this visually, section level elements including divs, headers, and footers help semantically describe your interface.",
-  "component": "SemanticElements"
+  "description": "Layout helps define the hierarchy and flow of content in interfaces. While styling does this visually, section level elements including divs, headers, and footers help semantically describe your interface."
 }, {
   "slug": "separating-concerns",
   "title": "Separating concerns",
-  "description": "An important concept for successful layouts is to separate implementation details internally and remove all external layout values from individual components. Another way to think about this is “abstracting layout considerations up the DOM tree”.",
-  "component": "SeparatingConcerns"
+  "description": "An important concept for successful layouts is to separate implementation details internally and remove all external layout values from individual components. Another way to think about this is “abstracting layout considerations up the DOM tree”."
 }, {
   "slug": "layout-shift",
   "title": "Layout shift",
-  "description": "If you’ve done any site profiling in the past, you will probably know the term <a href='https://web.dev/articles/cls' target='_blank'>Cumulative Layout Shift</a>, which measures how much a web page’s layout shifts after initial load and during use. Due to the nature of how web pages are loaded, layout shift isn’t completely avoidable. But it can be minimized.",
-  "component": "LayoutShift"
+  "description": "If you’ve done any site profiling in the past, you will probably know the term <a href='https://web.dev/articles/cls' target='_blank'>Cumulative Layout Shift</a>, which measures how much a web page’s layout shifts after initial load and during use. Due to the nature of how web pages are loaded, layout shift isn’t completely avoidable. But it can be minimized."
 }, {
   "slug": "block-inline-axes",
   "title": "Block and inline axes",
-  "description": "When learning about layout on the web and how elements flow, you will come across the terms **block axis** and **inline axis**. Since the web can be viewed in different writing modes and orientations, these names are meant to avoid relating to physical edges such as “top”, “left”, etc.",
-  "component": "BlockInlineAxes"
+  "description": "When learning about layout on the web and how elements flow, you will come across the terms **block axis** and **inline axis**. Since the web can be viewed in different writing modes and orientations, these names are meant to avoid relating to physical edges such as “top”, “left”, etc."
 }, {
   "slug": "box-sizing",
   "title": "Box sizing",
-  "description": "The size of elements on the web can be calculated in two ways: using the content box sizing model or the border box sizing model. By default, content box sizing is used to calculate most element’s dimensions, but not all. Table, select, button, and input elements all use border box sizing by default.",
-  "component": "BoxSizing"
+  "description": "The size of elements on the web can be calculated in two ways: using the content box sizing model or the border box sizing model. By default, content box sizing is used to calculate most element’s dimensions, but not all. Table, select, button, and input elements all use border box sizing by default."
 }, {
   "slug": "display-modes",
   "title": "Display modes",
-  "description": "Elements can set both their external and internal layout modes via the CSS **display** property. External layout values indicate how an element will render alongside sibling elements in a container while internal layout values indicate how descendants of the element will render.",
-  "component": "DisplayModes"
+  "description": "Elements can set both their external and internal layout modes via the CSS **display** property. External layout values indicate how an element will render alongside sibling elements in a container while internal layout values indicate how descendants of the element will render."
 }, {
   "slug": "dimensions",
   "title": "Explicit vs implicit dimensions",
-  "description": "Most components should not have an opinion about their width or height–including maximum and minimum values. Dimensional constraints should be applied top down–either via the device, container layouts, or a combination of both. There are exceptions such as icons, which generally have standard sizes.",
-  "component": "Dimensions"
+  "description": "Most components should not have an opinion about their width or height–including maximum and minimum values. Dimensional constraints should be applied top down–either via the device, container layouts, or a combination of both. There are exceptions such as icons, which generally have standard sizes."
 }, {
   "slug": "spacing",
   "title": "Spacing",
-  "description": "When creating interfaces, be careful where and when you apply spacing values like padding and margin as values can quickly compound and cause visual misalignments. Think of spacing as a top down setting, ideally applied to container elements and missing from descendants entirely.",
-  "component": "Spacing"
+  "description": "When creating interfaces, be careful where and when you apply spacing values like padding and margin as values can quickly compound and cause visual misalignments. Think of spacing as a top down setting, ideally applied to container elements and missing from descendants entirely."
 }, {
-  "slug": "positioning",
-  "title": "Positioning",
-  "description": "In addition to spacing properties, elements can augment their place in the DOM by using the **position** property alongside modifier properties such as top, bottom, left, and right. These properties move elements without affecting the placement of siblings or ancestors in the DOM.",
-  "component": "Position"
-}, {
-  "slug": "stacking",
-  "title": "Stacking elements",
-  "description": "Elements can be stacked on top of each other in a third, virtual \"z axis\", using the **z-index** property, which accepts any positive or negative number. While there isn’t a true z axis in the DOM, the rendered values using the z-index property convey a third dimension.",
-  "component": "Stacking"
+  "slug": "position",
+  "title": "Position",
+  "description": "In addition to spacing properties, elements can augment their place in the DOM by using the **position** property alongside modifier properties such as top, bottom, left, and right. These properties move elements without affecting the placement of siblings or ancestors in the DOM."
 }, {
   "slug": "aspect-ratios",
   "title": "Aspect ratios",
-  "description": "",
-  "component": "AspectRatios"
+  "description": "In the past, a mix of percentage based padding, absolute positioning, and nested divs were required to constrain sizing based on a ratio. With the **aspect-ratio** property, element sizing can be constrained to a ratio, making explicit dimension rules more flexible in responsive browsers."
 }, {
-  "slug": "flex-layout",
-  "title": "Flex layouts",
-  "description": "",
-  "component": "FlexLayout"
+  "slug": "flexible-layout",
+  "title": "Flexible layouts",
+  "description": "Flexible layouts align elements to one axis and distribute space based on a variety of factors. Learn how to effectively create, augment, and control flex containers in your interfaces below."
 }, {
   "slug": "grid-layout",
-  "title": "Grid layout",
-  "description": "",
-  "component": "GridLayout"
-}, {
-  "slug": "viewport-units",
-  "title": "Viewport units",
-  "description": "",
-  "component": "ViewportUnits"
-}, {
-  "slug": "responsive-queries",
-  "title": "Responsive queries",
-  "description": "",
-  "component": "ResponsiveQueries"
-}, {
-  "slug": "logical-properties",
-  "title": "Logical properties",
-  "description": "",
-  "component": "LogicalProperties"
+  "title": "Grid layouts",
+  "description": "Grid layouts create two dimensional layouts on the block and inline axes. Grid layouts come with many of their own specialty properties and values, including fractional units, CSS functions, auto flow hints, and more."
 }]

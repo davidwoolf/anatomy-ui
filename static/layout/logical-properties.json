@@ -1,0 +1,4 @@
+{
+  "title": "Logical properties",
+  "text": "Terms like `height`, `width`, `top`, and `left` start to become confusing when interfaces are used in different languages. They can also create visual inconsistencies when the block and inline axes are flipped. To address this, CSS now supports a set of properties called “logical properties” which map to existing properties like margin and padding, but now conform to the start, end and orientation of the document’s axes.\n\nWhile this creates a huge number of new properties, they are consistently applied based on the axes and position. A full list is provided below."
+}

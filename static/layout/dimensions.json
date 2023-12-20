@@ -1,0 +1,21 @@
+[{
+  "title": "Setting upper and lower bounds",
+  "text": "Use max-height, max-width, min-height, and min-width to set upper and lower constraints on an element’s dimensions. When using both constraints, the minimum value will be used over the maximum value if its larger.",
+  "component": "dimensions/bounds.svelte"
+}, {
+  "title": "Intrinsic keywords",
+  "text": "CSS includes enumerated sizing values, otherwise known as **intrinsic keywords**. They are `max-content`, `min-content`, and `fit-content`. The values can be used with width and height (including their min/max counterparts), `grid-template-columns` and `grid-template-rows`.",
+  "sections": [{
+    "title": "max-content",
+    "text": "The `max-content` value represents the maximum theoretical size based on the property and content. Think of a line a text: the maximum theoretical width is the width when the text doesn’t have to wrap to a new line. Be careful with max-content as it will cause elements to break out of their containing box.",
+    "component": "dimensions/max-content.svelte"
+  }, {
+    "title": "min-content",
+    "text": "The `min-content` value represents the minimum theoretical size without distorting the content. For a line of text, this would be the largest width of a single word. Note that this doesn’t mean one word per line; if two subsequent words are smaller in width than the largest word, they will sit on the same line.",
+    "component": "dimensions/min-content.svelte"
+  }, {
+    "title": "fit-content",
+    "text": "The `fit-content` value uses a combination of `min-content` and `max-content`, filling up to the container if necessary, but stopping beforehand if the content is smaller than the container.",
+    "component": "dimensions/fit-content.svelte"
+  }]
+}]

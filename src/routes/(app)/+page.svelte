@@ -1,76 +1,97 @@
-<main class="au-container flex items-end p-32 pb-48 h-screen w-screen">
-  <h1 class="overflow-hidden leading-none tracking-tight text-[7.5rem] font-thin">
-    <div class="overflow-hidden heading-text pb-4">
-      <span>The Anatomy</span>
-    </div>
-    <span class="line block border-b-2 border-yellow-400" />
-    <div class="overflow-hidden heading-text pb-4">
-      <span> of Everyday UI</span>
-    </div>
-    <span class="line block border-b-2 border-yellow-400" />
-  </h1>
-</main>
+<script>
+  import NextSection from "@components/next-section.svelte";
+</script>
+
+<section>
+  <h1>The anatomy of everyday UI</h1>
+
+  <p>Gain deeper knowledge to making interfaces for the web</p>
+
+  <div>
+    <NextSection href="/foundations">Foundations</NextSection>
+  </div>
+</section>
 
 <style>
-  .au-container {
-    background: linear-gradient(to right, white 127px, rgb(0 0 0 / 0.08) 1px);
-    background-size: 128px 100%;
+  section {
+    align-items: center;
+    height: calc(100dvh - 51px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
   }
 
-  .line {
-    animation: slideIn;
+  h1 {
+    animation: fadeUp;
     animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     animation-iteration-count: 1;
-    animation-duration: 1s;
-    animation-delay: 0.125s;
-    animation-fill-mode: forwards;
-    transform: translateX(-100%);
-  }
-
-  .line:last-of-type {
+    animation-duration: 1.75s;
     animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+    font-size: var(--font-size-4xl);
+    font-weight: 600;
+    letter-spacing: -0.0175em;
+    line-height: 1;
+    opacity: 0;
   }
 
-  .heading-text span {
-    animation: slideUp;
-    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  p {
+    animation: fadeIn;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-duration: 1.1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    color: color-mix(in srgb, var(--color-gray-800), white 40%);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    margin: 1rem 0 0;
+    opacity: 0;
+    line-height: 125%;
+  }
+
+  div {
+    animation: fadeIn;
+    animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-duration: 1s;
-    animation-delay: 0.125s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
-    display: block;
-    transform: translateY(100%);
+    margin: 3rem 0 0;
+    opacity: 0;
   }
 
-  .heading-text:last-of-type span {
-    animation-delay: 0.25s;
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
+  @media (min-width: 788px) {
+    h1 {
+      font-size: var(--font-size-6xl);
     }
 
-    to {
-      transform: translateX(0);
+    p {
+      font-size: var(--font-size-2xl);
     }
   }
 
-  @keyframes slideUp {
+  @keyframes fadeUp {
     from {
+      opacity: 0;
       transform: translateY(100%);
     }
 
     to {
+      opacity: 1;
       transform: translateY(0);
     }
   }
 
-  @media (prefers-reduced-motion) {
-    .line,
-    .heading-text span {
-      transform: translate3d(0, 0, 0);
-      animation: none;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
     }
   }
 </style>

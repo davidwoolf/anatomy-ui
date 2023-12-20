@@ -42,7 +42,7 @@
     font-size: 0.875rem;
     padding: 0.5rem 1.75rem 0.5rem 0.75rem;
     line-height: 1;
-    min-width: 6rem;
+    min-width: 4rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -51,11 +51,13 @@
 
   svg {
     block-size: 6px;
-    color: var(--color-purple-400);
+    color: var(--color-gray-800);
     inline-size: 11px;
     inset-block-start: 50%;
     inset-inline-end: 0.75rem;
+    opacity: 0.6;
     position: absolute;
     transform: translateY(-50%);
+    pointer-events: none;
   }
 </style>
