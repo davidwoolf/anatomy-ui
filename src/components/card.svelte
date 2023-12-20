@@ -86,6 +86,7 @@
     background-color: white;
     background-size: 500px auto;
     border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-gray-300), white 60%);
     container-type: inline-size;
     position: relative;
     max-inline-size: 100%;
@@ -102,7 +103,7 @@
 
   .card img {
     border-radius: 0.5rem;
-    margin: 0 auto;
+    margin-inline: auto;
     max-inline-size: 10rem;
     inline-size: 100%;
   }

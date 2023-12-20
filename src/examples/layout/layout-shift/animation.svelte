@@ -8,7 +8,7 @@
       selector: "div",
       value: [
         {
-          property: "animation-name",
+          property: "animation",
           value: "transform",
           type: "select",
           options: ["transform", "width"],

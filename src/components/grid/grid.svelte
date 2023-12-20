@@ -10,7 +10,7 @@
     width: 100%;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     div {
       grid-auto-flow: dense;
       grid-template-columns: subgrid;

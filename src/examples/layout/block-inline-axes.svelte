@@ -28,7 +28,7 @@
       <div class="inline-axis">
         <span>inline axis</span>
       </div>
-      <Card width="24rem" />
+      <Card width="18rem" />
     </div>
   </svelte:fragment>
 
@@ -39,14 +39,14 @@
 
 <style>
   .container {
-    padding-block-end: 8rem;
-    padding-inline-start: 8rem;
+    padding-inline: 8rem;
+    padding-block: 6rem;
     position: relative;
   }
 
   span {
     display: block;
-    color: var(--color-gray-800);
+    color: var(--color-purple-400);
     font-family: var(--font-mono);
     font-size: 0.5rem;
     font-weight: 500;
@@ -59,18 +59,18 @@
     inset-inline-start: 50%;
     inset-block: 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     position: absolute;
     inline-size: 1px;
   }
 
   .block-axis span {
-    margin-block-start: 1rem;
+    padding-inline-start: 0.5rem;
   }
 
   .inline-axis {
-    align-items: center;
+    align-items: flex-start;
     border-block-end: 1px dashed #9747ff;
     block-size: 1px;
     display: flex;
@@ -80,6 +80,6 @@
   }
 
   .inline-axis span {
-    margin-inline-start: 1rem;
+    padding-block-start: 0.5rem;
   }
 </style>

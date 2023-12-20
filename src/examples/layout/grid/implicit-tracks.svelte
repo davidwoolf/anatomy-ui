@@ -16,12 +16,12 @@
         },
         {
           property: "grid-auto-rows",
-          value: "auto",
+          value: "4rem",
           type: "text",
         },
         {
           property: "grid-auto-columns",
-          value: "auto",
+          value: "4rem",
           type: "text",
         },
       ],
@@ -37,12 +37,8 @@
       autoFlow={code[0].value[0].value}
       implicitRowSize={code[0].value[1].value}
       implicitColumnSize={code[0].value[2].value}
-      gap=".25rem">
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-    </GridSandbox>
+      items={4}
+      gap=".25rem" />
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

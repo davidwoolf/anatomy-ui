@@ -71,8 +71,8 @@
 
   .width {
     align-items: center;
-    border-block-start: 1px solid var(--color-yellow-400);
-    color: var(--color-yellow-400);
+    border-block-start: 1px solid var(--color-purple-400);
+    color: var(--color-purple-400);
     display: flex;
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
@@ -83,7 +83,7 @@
   }
 
   .width span {
-    background-color: white;
+    background-color: var(--color-gray-100);
     padding: 0 1rem;
   }
 </style>

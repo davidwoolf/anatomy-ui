@@ -32,14 +32,16 @@
     margin: 3rem 0;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
+    .layout-head {
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 1280px) {
     .layout {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-    }
-
-    .layout-head {
-      text-align: center;
     }
 
     .layout-contents {

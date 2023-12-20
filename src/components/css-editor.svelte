@@ -242,7 +242,7 @@
     pointer-events: none;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .container {
       font-size: var(--font-size-sm);
     }

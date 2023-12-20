@@ -16,6 +16,7 @@
     font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 145%;
+    max-width: 65ch;
   }
 
   :global(.component--text ul, .component--text ol) {

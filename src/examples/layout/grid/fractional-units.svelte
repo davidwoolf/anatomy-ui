@@ -9,6 +9,11 @@
       selector: ".grid-container",
       value: [
         {
+          property: "grid-auto-rows",
+          value: "4rem",
+          type: "static",
+        },
+        {
           property: "grid-template-columns",
           value: "1fr 1fr",
           type: "select",
@@ -31,14 +36,13 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <div style:width={code[0].value[2].value}>
+    <div style:width={code[0].value[3].value}>
       <GridSandbox
         rows="auto"
-        columns={code[0].value[0].value}
-        gap={code[0].value[1].value}>
-        <GridItem />
-        <GridItem />
-      </GridSandbox>
+        implicitRowSize={code[0].value[0].value}
+        columns={code[0].value[1].value}
+        gap={code[0].value[2].value}
+        items={6} />
     </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">

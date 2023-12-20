@@ -10,12 +10,12 @@
       value: [
         {
           property: "grid-template-columns",
-          value: "4rem 4rem",
+          value: "8rem 8rem",
           type: "text",
         },
         {
           property: "grid-template-rows",
-          value: "2rem 2rem",
+          value: "6rem 6rem",
           type: "text",
         },
       ],
@@ -25,16 +25,7 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox
-      columns={code[0].value[0].value}
-      rows={code[0].value[1].value}
-      gap=".25rem">
-      {#each code[0].value[1].value.split(" ") as _row}
-        {#each code[0].value[0].value.split(" ") as _column}
-          <GridItem />
-        {/each}
-      {/each}
-    </GridSandbox>
+    <GridSandbox columns={code[0].value[0].value} rows={code[0].value[1].value} />
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
