@@ -30,7 +30,8 @@
       <GridItem>&nbsp;item content</GridItem>
       <GridItem />
     </GridSandbox>
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

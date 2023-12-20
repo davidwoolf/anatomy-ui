@@ -22,7 +22,8 @@
 </script>
 
 <Example>
-  <svelte:fragment slot="preview">
+  <svelte:fragment slot="preview" />
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
