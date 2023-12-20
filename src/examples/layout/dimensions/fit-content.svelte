@@ -21,7 +21,8 @@
 <Example>
   <svelte:fragment slot="preview">
     <SimpleCard width={code[0].value[0].value} />
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

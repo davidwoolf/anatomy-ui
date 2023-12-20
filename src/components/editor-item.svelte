@@ -10,14 +10,15 @@
 
 <style>
   label {
-    align-items: center;
+    align-items: baseline;
     display: flex;
+    flex-wrap: wrap;
     padding-inline-start: 1rem;
   }
 
   span {
     color: var(--color-green-400);
     margin-inline-end: 0.375rem;
-    width: max-content;
+    min-width: max-content;
   }
 </style>

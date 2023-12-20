@@ -1,14 +1,8 @@
 <script>
-  import Control from "@components/editing/control.svelte";
-  import Select from "@components/editing/select.svelte";
   import Example from "@components/example.svelte";
   import Card from "@components/card.svelte";
   import Number from "@components/editing/number.svelte";
   import CSSEditor from "@components/css-editor.svelte";
-
-  let starterPosition = "static";
-  /** @type {string | number | null}*/
-  let offset = null;
 
   let code = [
     {
@@ -35,7 +29,7 @@
   ];
 </script>
 
-<Example offset>
+<Example>
   <svelte:fragment slot="preview">
     <div class="container">
       <div
@@ -46,7 +40,8 @@
         <Card />
       </div>
     </div>
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

@@ -47,7 +47,7 @@
       </div>
 
       <Card
-        showHighlights={true}
+        showHighlights={["padding", "gaps"]}
         padding={code[1].value[2].value}
         columnGap={code[1].value[0].value}
         rowGap={code[1].value[1].value} />
@@ -58,15 +58,16 @@
         </span>
       </div>
     </div>
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
 
 <style>
   .container {
-    max-width: 24rem;
-    width: 100%;
+    width: 24rem;
+    max-width: 100%;
   }
 
   /* highlights */
@@ -85,7 +86,7 @@
   }
 
   .width span {
-    background-color: white;
+    background-color: var(--color-gray-100);
     padding: 0 1rem;
   }
 </style>

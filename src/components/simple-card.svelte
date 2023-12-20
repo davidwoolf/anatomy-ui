@@ -13,7 +13,7 @@
 
 <style>
   .card {
-    background-color: var(--color-gray-100);
+    background-color: white;
     border-radius: 1rem;
     padding: 1.5rem;
     text-align: left;

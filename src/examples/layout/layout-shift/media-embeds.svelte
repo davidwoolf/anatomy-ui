@@ -47,7 +47,9 @@
         image={src}
         aspectRatio={code[0].value[0].value} />
     {/if}
+  </svelte:fragment>
 
+  <svelte:fragment slot="controls">
     <CSSEditor
       allowCopying={false}
       value={code}

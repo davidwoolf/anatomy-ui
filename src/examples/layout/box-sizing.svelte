@@ -34,7 +34,6 @@
   let width = 0;
 
   afterUpdate(() => {
-    console.log("here");
     if (box) {
       width = box.getBoundingClientRect().width;
     }
@@ -59,7 +58,8 @@
         </span>
       </div>
     </div>
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

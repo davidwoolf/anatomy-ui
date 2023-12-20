@@ -84,7 +84,7 @@
       {#each item.value as value}
         <EditorItem label={value.property}>
           {#if value.type === "static"}
-            <span class="static">{value.value}</span>
+            <span class="static">{@html value.value.split("\n").join("<br />")}</span>
           {:else if value.type === "text"}
             <input
               type="text"
@@ -94,6 +94,14 @@
                 // @ts-expect-error
                 handleInput(e.target.value, item.selector, value.property);
               }} />
+          {:else if value.type === "textarea"}
+            <textarea
+              style:height="{value.value.split("\n").length * 20.5}px"
+              size={value.value.length >= 3 ? value.value.length : 3}
+              on:input={(e) => {
+                // @ts-expect-error
+                handleInput(e.target.value, item.selector, value.property);
+              }}>{value.value}</textarea>
           {:else if value.type === "select"}
             <div class="select" style:width="{value.value.length * 9 + 16}px">
               <select
@@ -161,25 +169,38 @@
   .static {
     cursor: not-allowed;
     opacity: 0.7;
+    min-width: max-content;
   }
 
-  input {
+  input,
+  textarea {
     appearance: none;
-    border-radius: 0.25rem;
+    border-radius: 0;
     font-size: inherit;
     line-height: 145%;
     outline: none;
+    /* margin-block-start: 0.225rem; */
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
     text-decoration-color: var(--color-gray-300);
     transition: color 75ms ease;
     width: auto;
   }
 
   input:hover,
-  input:focus-visible {
+  input:focus-visible,
+  textarea:hover,
+  textarea:focus-visible {
     color: var(--color-purple-400);
-    text-underline-offset: 4px;
+  }
+
+  textarea {
+    border-block-end: 1px solid var(--color-gray-300);
+    outline: none;
+    resize: none;
+    text-decoration: none;
+    white-space: nowrap;
+    width: max-content;
   }
 
   .copy-code {
@@ -193,7 +214,7 @@
     background: #fff;
     border-bottom: 1px solid var(--color-gray-300);
     position: relative;
-    min-width: 4rem;
+    min-inline-size: 4rem;
   }
 
   .select select {
@@ -201,11 +222,11 @@
     box-sizing: border-box;
     font-family: var(--font-mono);
     font-size: inherit;
-    line-height: 1;
+    inline-size: 100%;
+    line-height: 145%;
     overflow: hidden;
-    padding: 0 1rem 0 0;
     outline: none;
-    width: 100%;
+    padding: 0 1rem 0 0;
   }
 
   .select svg {

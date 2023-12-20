@@ -33,13 +33,8 @@
       ratio={code[0].value[0].value}
       height={code[0].value[1].value}
       width={code[0].value[2].value} />
-
-    <CSSEditor
-      value={code}
-      on:update={(event) => {
-        console.log(event.detail.text);
-
-        code = event.detail.text;
-      }} />
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

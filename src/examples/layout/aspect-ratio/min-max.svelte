@@ -47,7 +47,8 @@
       maxHeight={code[0].value[2].value}
       minWidth={code[0].value[3].value}
       maxWidth={code[0].value[4].value} />
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

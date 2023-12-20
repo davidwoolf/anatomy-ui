@@ -1,28 +1,33 @@
 <script>
-  import Control from "@components/editing/control.svelte";
   import Example from "@components/example.svelte";
-  import Select from "@components/editing/select.svelte";
+  import CSSEditor from "@components/css-editor.svelte";
 
-  let fixedSticky = "sticky";
+  let code = [
+    {
+      selector: "header",
+      value: [
+        {
+          property: "position",
+          value: "sticky",
+          type: "select",
+          options: ["sticky", "fixed"],
+        },
+      ],
+    },
+  ];
 </script>
 
-<Example offset>
+<Example>
   <svelte:fragment slot="preview">
     <div class="sticky-fixed">
       <iframe
         loading="lazy"
-        src="/examples/layout/position/sticky-fixed?type={fixedSticky}"
+        src="/examples/layout/position/sticky-fixed?type={code[0].value[0].value}"
         title="Card showing sticky and fixed positions" />
     </div>
   </svelte:fragment>
-
-  <svelte:fragment slot="preview-controls">
-    <Control label="Position">
-      <Select bind:value={fixedSticky}>
-        <option value="fixed">fixed</option>
-        <option value="sticky">sticky</option>
-      </Select>
-    </Control>
+  <svelte:fragment slot="controls">
+    <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
 

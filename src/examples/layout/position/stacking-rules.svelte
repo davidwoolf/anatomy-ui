@@ -38,7 +38,9 @@
         <Image src="{base}/assets/image2.png" width="8rem" />
       </div>
     </div>
+  </svelte:fragment>
 
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

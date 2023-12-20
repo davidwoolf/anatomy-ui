@@ -43,7 +43,8 @@
       style:width="24rem">
       <Card width="100%" height="100%" />
     </div>
-
+  </svelte:fragment>
+  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

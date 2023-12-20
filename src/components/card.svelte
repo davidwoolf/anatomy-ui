@@ -83,7 +83,7 @@
 
 <style>
   .card-wrapper {
-    background-color: var(--color-gray-100);
+    background-color: white;
     background-size: 500px auto;
     border-radius: 1rem;
     container-type: inline-size;
@@ -92,7 +92,7 @@
   }
 
   .card {
-    background-color: var(--color-gray-100);
+    background-color: white;
     display: grid;
     overflow: hidden;
     text-align: center;
@@ -158,7 +158,7 @@
 
   .padding span {
     align-items: center;
-    background-color: var(--color-gray-100);
+    background-color: white;
     color: var(--color-green-400);
     display: flex;
     font-family: var(--font-mono);

@@ -1,15 +1,24 @@
 <script>
-  import Example from "@components/example.svelte";
-  import Card from "@components/card.svelte";
   import CSSEditor from "@components/css-editor.svelte";
+  import Example from "@components/example.svelte";
 
   let code = [
     {
-      selector: "div",
+      selector: ".empty-item",
       value: [
         {
-          property: "padding",
-          value: "24px",
+          property: "flex",
+          value: "0 0 auto",
+          type: "text",
+        },
+      ],
+    },
+    {
+      selector: ".offset-item",
+      value: [
+        {
+          property: "margin-left",
+          value: "0",
           type: "text",
         },
       ],
@@ -19,10 +28,6 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <Card width="24rem" showHighlights={["padding"]} padding={code[0].value[0].value} />
-  </svelte:fragment>
-
-  <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>

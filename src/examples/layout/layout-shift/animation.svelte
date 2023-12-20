@@ -31,7 +31,9 @@
         : "composites"}>
       <Card padding="3rem" width="22rem" />
     </div>
+  </svelte:fragment>
 
+  <svelte:fragment slot="controls">
     <CSSEditor
       allowCopying={false}
       value={code}
