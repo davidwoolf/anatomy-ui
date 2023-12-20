@@ -1,21 +1,17 @@
 [{
   "title": "Static, relative, and absolute positions",
   "text": "The default value of the position property is `static`, which ignores inset properties such as top and left, along with stacking values for the z-index property.\n\nThe value `relative` will move the element relative to its current position, but without affecting other items around it. In contrast, the value `absolute` will move the element relative to the nearest ancestor that has position: relative. If no ancestor has this value, the element will be placed relative to the entire window.",
-  "component": "position/static-relative-absolute.svelte"
+  "component": "static-relative-absolute"
 }, {
   "title": "Fixed and sticky positions",
   "text": "Applying `fixed` as the position property’s value will place the element relative to the window, regardless of any parent’s `position: relative` value. It also ignores scroll positioning.\n\nApplying `sticky` as the position property’s value will make an element act like it’s fixed once it hits the top of the viewport. The element’s dimensions are also calculated as part of the normal DOM, eliminating the need to calculate offset padding for other items. One thing to note is that sticky elements are scoped to the closest element with the overflow property applied.<sup>[1](https://developer.mozilla.org/en-US/docs/Web/CSS/position#values)</sup>",
-  "component": "position/fixed-sticky.svelte"
+  "component": "fixed-sticky"
 }, {
   "title": "Stacking elements",
   "text": "Elements can be stacked on top of each other in a third, virtual \"z axis\", using the `z-index` property, which accepts any positive or negative number. While there isn’t a true z axis in the DOM, the rendered values using the z-index property convey a third dimension.",
   "sections": [{
     "title": "Rules",
     "text": "In order for `z-index` to have any affect, an element must have a `position` value other than `static`, or the element must be a direct descendant of a flex or grid container.\n\nStack values are scoped to the nearest ancestor that includes a valid `position` property, meaning that they can’t be positioned higher or lower than that ancestor’s position. Confusingly, this doesn't apply to flex or grid layout descendants don't conform to this rule, so be careful applying `z-index` in those containers.",
-    "component": "position/stacking-rules.svelte"
-  }, {
-    "title": "Strategies",
-    "text": "The `z-index` value can be zero, any negative number, or any positive number. This creates issues where elements compete with each other by setting high values like 9999999999 to ensure they are at the top of the stack. To avoid this, click through the following scenarios.",
-    "component": "position/stacking-strategies.svelte"
+    "component": "stacking-rules"
   }]
 }]

@@ -1,21 +1,21 @@
 [{
   "title": "Formatting ratios",
   "text": "Ratios are formatted as `[width] / [height]`, where the height can be inferred as `1` if the `/ [height]` part is omitted. The `aspect-ratio` property can also include an `auto` value, which is useful when you want to start with a placeholder ratio for an item with unknown size–like an image. The explicit ratio size–let's say `16 / 9` in this case–will be used until the item is loaded and after that happens, the item’s calculated dimensions will be used.\n\n",
-  "component": "aspect-ratio/formatting.svelte"
+  "component": "formatting"
 }, {
   "title": "Constraints",
   "text": "The `aspect-ratio` property may be ignored when used in combination with other layout constraints (or lack thereof). Height, width, upper and lower bounds, and flex constraints all affect how aspect ratios will be applied.",
   "sections": [{
     "title": "Width and height",
     "text": "If both an explicit `width` and `height` are defined, any defined aspect ratio value will not be applied. However, if either an explicit width or height (both not both) are defined, the aspect ratio will be calculated from that value.",
-    "component": "aspect-ratio/width-height.svelte"
+    "component": "width-height"
   }, {
     "title": "Maximum and minimum bounds",
     "text": "Just like `width` and `height`, applying `max-width`, `max-height`, `min-width`, and `min-height` to an element with a defined aspect ratio will override the ratio once it hits the maximum or minimum constraint. This can be very useful when sizing elements whose dimensions are based on a percentage or viewport units.",
-    "component": "aspect-ratio/min-max.svelte"
+    "component": "min-max"
   }, {
     "title": "Flex containers",
     "text": "Elements inside of a a flex container can also have their `aspect-ratio` values omitted if alignment values aren’t explicitly defined. By default, flex containers align items to the top and bottom of the container, overriding aspect ratio values.",
-    "component": "aspect-ratio/flex.svelte"
+    "component": "flex"
   }]
 }]

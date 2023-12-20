@@ -2,9 +2,6 @@
   import Nav from "./nav.svelte";
   import "../../embed-reset.css";
   import "../../app.css";
-
-  /** @type {import("./$types").LayoutData} */
-  export let data;
 </script>
 
 <header>
