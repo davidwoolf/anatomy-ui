@@ -13,6 +13,11 @@
           value: '"header header nav"\n"body body body"\n"footer footer footer"',
           type: "static",
         },
+        {
+          property: "width",
+          value: "12rem",
+          type: "text",
+        },
       ],
     },
     {
@@ -49,27 +54,20 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox
-      columns="1fr 1fr 1fr"
-      rows="1fr 1fr 1fr"
-      areas={code[0].value[0].value}
-      gap=".25rem">
-      <div
-        style:grid-column-start={code[1].value[0].value}
-        style:grid-column-end={code[1].value[1].value}
-        style:grid-row-start={code[1].value[2].value}
-        style:grid-row-end={code[1].value[3].value}>
-        <GridItem />
-      </div>
-
-      <div style:grid-area="body">
-        <GridItem />
-      </div>
-
-      <div style:grid-area="footer">
-        <GridItem />
-      </div>
-    </GridSandbox>
+    <div style:width={code[0].value[1].value}>
+      <GridSandbox
+        columns="repeat(3, 1fr)"
+        rows="repeat(3, 4rem)"
+        areas={code[0].value[0].value}>
+        <div
+          style:grid-column-start={code[1].value[0].value}
+          style:grid-column-end={code[1].value[1].value}
+          style:grid-row-start={code[1].value[2].value}
+          style:grid-row-end={code[1].value[3].value}>
+          <GridItem><span>.item</span></GridItem>
+        </div>
+      </GridSandbox>
+    </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

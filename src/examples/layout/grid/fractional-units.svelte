@@ -26,23 +26,70 @@
         },
         {
           property: "width",
-          value: "128px",
+          value: "8rem",
           type: "text",
         },
       ],
     },
   ];
+
+  /**
+   *
+   * @param {string} value
+   */
+  function getTracks(value) {
+    return value.split(" ");
+  }
+
+  let rows = ["", "", ""];
+  let columns = getTracks(code[0].value[1].value);
+
+  $: {
+    columns = getTracks(code[0].value[1].value);
+  }
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
     <div style:width={code[0].value[3].value}>
       <GridSandbox
-        rows="auto"
         implicitRowSize={code[0].value[0].value}
         columns={code[0].value[1].value}
-        gap={code[0].value[2].value}
-        items={6} />
+        gap={code[0].value[2].value}>
+        {#each rows as _row, rowIndex}
+          {#each columns as _column, columnIndex}
+            <GridItem
+              columnBefore={(() => {
+                if (rowIndex === 0) {
+                  return `${columnIndex + 1}`;
+                }
+              })()}
+              rowBefore={(function () {
+                if (columnIndex === 0 && rowIndex !== 0) {
+                  return `${rowIndex + 1}`;
+                }
+              })()}
+              columnAfter={(function () {
+                if (rowIndex === 0) {
+                  if (columnIndex === columns.length - 1) {
+                    return `${columnIndex + 2}`;
+                  }
+                }
+              })()}
+              rowAfter={(function () {
+                if (columnIndex === 0) {
+                  if (rowIndex === rows.length - 1) {
+                    return `${rowIndex + 2}`;
+                  }
+                }
+              })()}
+              hideRightBorder={code[0].value[2].value.replace(/\D/g, "") !== "0" ||
+                columnIndex === columns.length - 1}
+              hideBottomBorder={code[0].value[2].value.replace(/\D/g, "") !== "0" ||
+                rowIndex === rows.length - 1} />
+          {/each}
+        {/each}
+      </GridSandbox>
     </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">

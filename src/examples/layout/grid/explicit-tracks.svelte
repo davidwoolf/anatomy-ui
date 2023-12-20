@@ -21,11 +21,66 @@
       ],
     },
   ];
+
+  /**
+   *
+   * @param {string} value
+   */
+  function getTracks(value) {
+    /* handle repeat function */
+    // const repeats = value.findAll(/repeat\(\d,\s*\S*\)/g);
+    // const normalizedValue = value.split(/^[repeat\(\d,\s*\S*\)]/g).map((value) => {
+    //   console.log({ value });
+    // });
+
+    return value.split(" ");
+    // .map(item => {
+    //   if(item.includes(''))
+    // });
+  }
+
+  let rows = getTracks(code[0].value[1].value);
+  let columns = getTracks(code[0].value[0].value);
+
+  $: {
+    rows = getTracks(code[0].value[1].value);
+    columns = getTracks(code[0].value[0].value);
+  }
 </script>
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox columns={code[0].value[0].value} rows={code[0].value[1].value} />
+    <GridSandbox columns={code[0].value[0].value} rows={code[0].value[1].value}>
+      {#each rows as _row, rowIndex}
+        {#each columns as _column, columnIndex}
+          <GridItem
+            columnBefore={(() => {
+              if (rowIndex === 0) {
+                return `${columnIndex + 1}`;
+              }
+            })()}
+            rowBefore={(function () {
+              if (columnIndex === 0 && rowIndex !== 0) {
+                return `${rowIndex + 1}`;
+              }
+            })()}
+            columnAfter={(function () {
+              if (rowIndex === 0) {
+                if (columnIndex === columns.length - 1) {
+                  return `${columnIndex + 2}`;
+                }
+              }
+            })()}
+            rowAfter={(function () {
+              if (columnIndex === 0) {
+                if (rowIndex === rows.length - 1) {
+                  return `${rowIndex + 2}`;
+                }
+              }
+            })()} />
+        {/each}
+      {/each}
+    </GridSandbox>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

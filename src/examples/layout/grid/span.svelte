@@ -9,9 +9,19 @@
       selector: ".grid-container",
       value: [
         {
+          property: "grid-auto-rows",
+          value: "4rem",
+          type: "static",
+        },
+        {
           property: "grid-template-columns",
           value: "1fr 1fr 1fr",
           type: "static",
+        },
+        {
+          property: "width",
+          value: "12rem",
+          type: "text",
         },
       ],
     },
@@ -31,16 +41,38 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox columns={code[0].value[0].value} gap=".25rem">
-      <div style:grid-column={code[1].value[0].value}>
+    <div style:width={code[0].value[2].value}>
+      <GridSandbox
+        implicitRowSize={code[0].value[0].value}
+        columns={code[0].value[1].value}>
+        <div style:grid-column={code[1].value[0].value}>
+          <GridItem
+            columnBefore="1"
+            columnAfter={(() => {
+              if (
+                code[1].value[0].value === "1 / span 3" ||
+                code[1].value[0].value === "1 / -1"
+              ) {
+                return "4";
+              }
+            })()} />
+        </div>
+        <GridItem
+          columnBefore={(() => {
+            if (code[1].value[0].value === "1") {
+              return "2";
+            }
+
+            if (code[1].value[0].value === "1 / span 2") {
+              return "3";
+            }
+          })()} />
         <GridItem />
-      </div>
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-    </GridSandbox>
+        <GridItem />
+        <GridItem />
+        <GridItem />
+      </GridSandbox>
+    </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

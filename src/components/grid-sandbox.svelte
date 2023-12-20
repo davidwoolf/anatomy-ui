@@ -1,40 +1,11 @@
 <script>
-  import GridItem from "@components/grid-sandbox-item.svelte";
-
   export let areas = "none";
   export let autoFlow = "row";
   export let columns = "1fr";
   export let gap = "0px";
   export let implicitColumnSize = "auto";
   export let implicitRowSize = "auto";
-  export let rows = "1fr";
-  /** @type {number | undefined} */
-  export let items = undefined;
-
-  /**
-   *
-   * @param {string} value
-   */
-  function getTracks(value) {
-    /* handle repeat function */
-    // const repeats = value.findAll(/repeat\(\d,\s*\S*\)/g);
-    // const normalizedValue = value.split(/^[repeat\(\d,\s*\S*\)]/g).map((value) => {
-    //   console.log({ value });
-    // });
-
-    return value.split(" ");
-    // .map(item => {
-    //   if(item.includes(''))
-    // });
-  }
-
-  let rowValues = getTracks(rows);
-  let columnValues = getTracks(columns);
-
-  $: {
-    rowValues = getTracks(rows);
-    columnValues = getTracks(columns);
-  }
+  export let rows = "initial";
 </script>
 
 <div class="preview">
@@ -49,47 +20,7 @@
     style:grid-auto-flow={autoFlow}
     style:grid-template-areas={areas}
     style:gap>
-    {#if items}
-      {#each Array.from(Array(items)) as item, index}
-        <GridItem
-          hideRightBorder={autoFlow === "row" ||
-            index === Array.from(Array(items)).length - 1}
-          hideBottomBorder={autoFlow === "column" ||
-            index === Array.from(Array(items)).length - 1} />
-      {/each}
-    {:else}
-      {#each rowValues as _row, rowIndex}
-        {#each columnValues as _column, columnIndex}
-          <GridItem
-            hideRightBorder={columnIndex === columnValues.length - 1}
-            hideBottomBorder={rowIndex === rowValues.length - 1}
-            columnBefore={(() => {
-              if (rowIndex === 0) {
-                return `${columnIndex + 1}`;
-              }
-            })()}
-            rowBefore={(function () {
-              if (columnIndex === 0 && rowIndex !== 0) {
-                return `${rowIndex + 1}`;
-              }
-            })()}
-            columnAfter={(function () {
-              if (rowIndex === 0) {
-                if (columnIndex === columnValues.length - 1) {
-                  return `${columnIndex + 2}`;
-                }
-              }
-            })()}
-            rowAfter={(function () {
-              if (columnIndex === 0) {
-                if (rowIndex === rowValues.length - 1) {
-                  return `${rowIndex + 2}`;
-                }
-              }
-            })()} />
-        {/each}
-      {/each}
-    {/if}
+    <slot />
   </div>
 </div>
 
@@ -99,7 +30,12 @@
   }
 
   .container {
-    border: 1px solid var(--color-purple-400);
+    border-block-start: 1px solid var(--color-purple-400);
+    border-inline-start: 1px solid var(--color-purple-400);
+    background-color: var(--color-purple-400);
+    /* background-image: url("/assets/lines-purple.png"); */
+    /* background-size: 300px auto; */
+
     counter-reset: section;
     display: grid;
     width: 100%;

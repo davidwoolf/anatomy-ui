@@ -15,13 +15,18 @@
         },
         {
           property: "grid-template-rows",
-          value: "repeat(3, 1fr)",
+          value: "repeat(3, 4rem)",
           type: "static",
         },
         {
           property: "grid-template-areas",
-          value: '"header header header"\n"body body body"\n"footer footer footer"',
+          value: '"header header nav"\n"body body body"\n"footer footer footer"',
           type: "textarea",
+        },
+        {
+          property: "width",
+          value: "12rem",
+          type: "text",
         },
       ],
     },
@@ -30,23 +35,34 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox
-      columns={code[0].value[0].value}
-      rows={code[0].value[1].value}
-      areas={code[0].value[2].value}
-      gap=".25rem">
-      <div style:grid-area="header">
-        <GridItem />
-      </div>
+    <div style:width={code[0].value[3].value}>
+      <GridSandbox
+        columns={code[0].value[0].value}
+        rows={code[0].value[1].value}
+        areas={code[0].value[2].value}>
+        <div style:grid-area="header">
+          <GridItem>
+            <span>header</span>
+          </GridItem>
+        </div>
 
-      <div style:grid-area="body">
-        <GridItem />
-      </div>
+        <div style:grid-area="nav">
+          <GridItem><span>nav</span></GridItem>
+        </div>
 
-      <div style:grid-area="footer">
-        <GridItem />
-      </div>
-    </GridSandbox>
+        <div style:grid-area="body">
+          <GridItem>
+            <span>body</span>
+          </GridItem>
+        </div>
+
+        <div style:grid-area="footer">
+          <GridItem>
+            <span>footer</span>
+          </GridItem>
+        </div>
+      </GridSandbox>
+    </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

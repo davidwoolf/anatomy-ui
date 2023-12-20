@@ -1,6 +1,4 @@
 <script>
-  export let hideRightBorder = false;
-  export let hideBottomBorder = false;
   /** @type {string | undefined} */
   export let columnBefore = undefined;
   /** @type {string | undefined} */
@@ -11,14 +9,7 @@
   export let rowAfter = undefined;
 </script>
 
-<div
-  class="item"
-  style:border-inline-end={hideRightBorder
-    ? "none"
-    : "1px dashed var(--color-purple-400)"}
-  style:border-block-end={hideBottomBorder
-    ? "none"
-    : "1px dashed var(--color-purple-400)"}>
+<div class="item">
   <slot />
 
   {#if columnBefore}
@@ -48,15 +39,15 @@
 
 <style>
   .item {
-    align-items: center;
-    display: flex;
+    border-inline-end: 1px solid var(--color-purple-400);
+    border-block-end: 1px solid var(--color-purple-400);
+    background-color: var(--color-gray-100);
+    color: var(--color-purple-400);
     font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    line-height: 1;
-    justify-content: center;
-    padding: 0.25rem;
-    position: relative;
+    font-size: var(--font-size-xxs);
     height: 100%;
+    position: relative;
+    padding: 0.5rem;
   }
 
   .item span {
@@ -65,8 +56,8 @@
     border: 1px solid var(--color-purple-400);
     border-radius: 100%;
     block-size: 1.5rem;
-    color: var(--color-purple-400);
     display: flex;
+
     inline-size: 1.5rem;
     justify-content: center;
     position: absolute;

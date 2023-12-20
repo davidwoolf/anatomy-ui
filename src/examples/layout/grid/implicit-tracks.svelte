@@ -36,9 +36,19 @@
       columns="initial"
       autoFlow={code[0].value[0].value}
       implicitRowSize={code[0].value[1].value}
-      implicitColumnSize={code[0].value[2].value}
-      items={4}
-      gap=".25rem" />
+      implicitColumnSize={code[0].value[2].value}>
+      {#if code[0].value[0].value === "row"}
+        <GridItem columnBefore="1" />
+        <GridItem rowBefore="2" />
+        <GridItem rowBefore="3" />
+        <GridItem rowBefore="4" rowAfter="5" />
+      {:else}
+        <GridItem columnBefore="1" />
+        <GridItem columnBefore="2" />
+        <GridItem columnBefore="3" />
+        <GridItem columnBefore="4" columnAfter="5" />
+      {/if}
+    </GridSandbox>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

@@ -9,15 +9,20 @@
       selector: ".grid-container",
       value: [
         {
+          property: "grid-auto-rows",
+          value: "8rem",
+          type: "static",
+        },
+        {
           property: "grid-template-columns",
           value: "min-content 1fr",
           type: "select",
-          options: [
-            "min-content 1fr",
-            "max-content 1fr",
-            "fit-content 1fr",
-            "minmax(min-content, 1fr) 1fr",
-          ],
+          options: ["min-content 1fr", "max-content 1fr", "minmax(min-content, 1fr) 1fr"],
+        },
+        {
+          property: "width",
+          value: "8rem",
+          type: "text",
         },
       ],
     },
@@ -26,10 +31,20 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox rows="auto" columns={code[0].value[0].value} gap=".25rem">
-      <GridItem>&nbsp;item content</GridItem>
-      <GridItem />
-    </GridSandbox>
+    <div style:width={code[0].value[2].value}>
+      <GridSandbox
+        implicitRowSize={code[0].value[0].value}
+        columns={code[0].value[1].value}>
+        <GridItem columnBefore="1" rowAfter="2" hideBottomBorder={true}>
+          <span>content in column one</span>
+        </GridItem>
+        <GridItem
+          columnBefore="2"
+          columnAfter="3"
+          hideRightBorder={true}
+          hideBottomBorder={true} />
+      </GridSandbox>
+    </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
