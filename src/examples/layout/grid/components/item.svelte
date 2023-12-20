@@ -45,6 +45,7 @@
     color: var(--color-purple-400);
     font-family: var(--font-mono);
     font-size: var(--font-size-xxs);
+    font-weight: 500;
     height: 100%;
     position: relative;
     padding: 0.5rem;
@@ -57,7 +58,6 @@
     border-radius: 100%;
     block-size: 1.5rem;
     display: flex;
-
     inline-size: 1.5rem;
     justify-content: center;
     position: absolute;

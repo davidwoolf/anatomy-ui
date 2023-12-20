@@ -1,8 +1,8 @@
 <script>
   import CSSEditor from "@components/css-editor.svelte";
   import Example from "@components/example.svelte";
-  import GridSandbox from "@components/grid-sandbox.svelte";
-  import GridItem from "@components/grid-sandbox-item.svelte";
+  import Grid from "./components/grid.svelte";
+  import Item from "./components/item.svelte";
 
   let code = [
     {
@@ -50,10 +50,10 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <GridSandbox columns={code[0].value[0].value} rows={code[0].value[1].value}>
+    <Grid columns={code[0].value[0].value} rows={code[0].value[1].value}>
       {#each rows as _row, rowIndex}
         {#each columns as _column, columnIndex}
-          <GridItem
+          <Item
             columnBefore={(() => {
               if (rowIndex === 0) {
                 return `${columnIndex + 1}`;
@@ -80,7 +80,7 @@
             })()} />
         {/each}
       {/each}
-    </GridSandbox>
+    </Grid>
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />

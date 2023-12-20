@@ -15,12 +15,12 @@
           options: ["static", "relative", "absolute"],
         },
         {
-          property: "top",
+          property: "left",
           value: "0",
           type: "text",
         },
         {
-          property: "left",
+          property: "top",
           value: "0",
           type: "text",
         },
@@ -36,7 +36,7 @@
         style:position={code[0].value[0].value}
         style:left={code[0].value[1].value}
         style:top={code[0].value[2].value}
-        style:inline-size="100%">
+        style:inline-size="90%">
         <Card />
       </div>
     </div>
@@ -49,9 +49,12 @@
 <style>
   .container {
     border: 1px dashed var(--color-gray-300);
-    inline-size: 24rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    inline-size: 32rem;
     max-inline-size: 100%;
-    min-block-size: 12rem;
+    block-size: 26rem;
     position: relative;
     overflow: hidden;
   }

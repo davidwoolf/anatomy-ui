@@ -15,6 +15,7 @@
   .card {
     background-color: white;
     border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-gray-300), white 60%);
     padding: 1.5rem;
     text-align: left;
   }

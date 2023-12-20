@@ -46,8 +46,4 @@
   "slug": "grid-layout",
   "title": "Grid layouts",
   "description": "Grid layouts create two dimensional layouts on the block and inline axes. Grid layouts come with many of their own specialty properties and values, including fractional units, CSS functions, auto flow hints, and more."
-}, {
-  "slug": "responsive-queries",
-  "title": "Responsive queries",
-  "description": "Layout values can respond to the overall browser context in multiple ways. In addition to flex and grid layouts, aspect ratios, and minimum and maximum bounds there are tools available to clamp sizes, along with explicity overriding values at specific sizes."
 }]

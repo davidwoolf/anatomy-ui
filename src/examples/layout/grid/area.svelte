@@ -1,8 +1,8 @@
 <script>
   import CSSEditor from "@components/css-editor.svelte";
   import Example from "@components/example.svelte";
-  import GridSandbox from "@components/grid-sandbox.svelte";
-  import GridItem from "@components/grid-sandbox-item.svelte";
+  import Grid from "./components/grid.svelte";
+  import Item from "./components/item.svelte";
 
   let code = [
     {
@@ -36,32 +36,32 @@
 <Example>
   <svelte:fragment slot="preview">
     <div style:width={code[0].value[3].value}>
-      <GridSandbox
+      <Grid
         columns={code[0].value[0].value}
         rows={code[0].value[1].value}
         areas={code[0].value[2].value}>
         <div style:grid-area="header">
-          <GridItem>
+          <Item>
             <span>header</span>
-          </GridItem>
+          </Item>
         </div>
 
         <div style:grid-area="nav">
-          <GridItem><span>nav</span></GridItem>
+          <Item><span>nav</span></Item>
         </div>
 
         <div style:grid-area="body">
-          <GridItem>
+          <Item>
             <span>body</span>
-          </GridItem>
+          </Item>
         </div>
 
         <div style:grid-area="footer">
-          <GridItem>
+          <Item>
             <span>footer</span>
-          </GridItem>
+          </Item>
         </div>
-      </GridSandbox>
+      </Grid>
     </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">

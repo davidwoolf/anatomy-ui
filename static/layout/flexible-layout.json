@@ -19,15 +19,7 @@
     "component": "flex/shrink.svelte"
   }]
 }, {
-  "title": "Changing direction",
-  "text": "",
-  "component": "flex/direction.svelte"
-}, {
   "title": "Pushing elements",
-  "text": "When flex containers aren’t set to have their descendants fill the entire container, you can push elements away from each other using either the margin property or by including an empty element with `flex: 1 1 auto`. Adding empty elements for styling decisions like this should be avoided when possible.",
+  "text": "When flex containers aren’t set to have their descendants fill the entire container, you can push elements away from each other using either the `margin` property or by including an empty element with `flex: 1 1 auto`. Adding empty elements for styling decisions like this should be avoided when possible.",
   "component": "flex/push.svelte"
-}, {
-  "title": "Wrapping to multiple lines",
-  "text": "",
-  "component": "flex/wrap.svelte"
 }]

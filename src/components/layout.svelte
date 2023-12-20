@@ -25,7 +25,6 @@
   .layout-head,
   .layout-contents,
   .layout-separator {
-    grid-column: 1 / -1;
   }
 
   .layout-separator {
@@ -40,14 +39,10 @@
 
   @media (min-width: 1280px) {
     .layout {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
     }
 
     .layout-contents {
       align-items: center;
-      display: grid;
-      grid-template-columns: subgrid;
     }
 
     .layout-separator {

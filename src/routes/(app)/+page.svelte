@@ -5,10 +5,10 @@
 <section>
   <h1>The anatomy of everyday UI</h1>
 
-  <p>Learn the fundamentals of making interfaces for the web</p>
+  <p>Gain deeper knowledge to making interfaces for the web</p>
 
   <div>
-    <NextSection href="/foundations/layout/semantic-elements">Foundations</NextSection>
+    <NextSection href="/foundations">Foundations</NextSection>
   </div>
 </section>
 

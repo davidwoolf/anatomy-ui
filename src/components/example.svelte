@@ -30,7 +30,7 @@
     flex-direction: column;
     inline-size: 100%;
     justify-content: center;
-    padding: 3rem;
+    padding: 0.75rem;
     position: relative;
     overflow: scroll;
   }
@@ -50,6 +50,10 @@
   @media (min-width: 768px) {
     .controls {
       padding: 2rem;
+    }
+
+    .canvas {
+      padding: 3rem;
     }
   }
 

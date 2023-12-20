@@ -13,8 +13,7 @@
   @media (min-width: 1280px) {
     div {
       grid-auto-flow: dense;
-      grid-template-columns: subgrid;
-      grid-column: 1 / -1;
+      grid-template-columns: repeat(12, 1fr);
       row-gap: 0;
     }
   }

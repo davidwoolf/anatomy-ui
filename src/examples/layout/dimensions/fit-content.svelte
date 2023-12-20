@@ -9,9 +9,9 @@
       value: [
         {
           property: "width",
-          value: "24rem",
+          value: "18rem",
           type: "select",
-          options: ["24rem", "fit-content"],
+          options: ["18rem", "fit-content"],
         },
       ],
     },

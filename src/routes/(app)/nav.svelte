@@ -62,36 +62,56 @@
     </svg>
   </button>
   <nav class="menu">
-    <a data-sveltekit-reload href="/foundations/layout/semantic-elements"
-      ><span>Layout</span></a>
+    <a data-sveltekit-reload href="/foundations/layout/semantic-elements">Layout</a>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Typography</span></a>
+    <div>
+      Typography
+      <span class="coming-soon">Coming soon</span>
+    </div>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Color and light</span></a>
+    <div>
+      Color and light
+      <span class="coming-soon">Coming soon</span>
+    </div>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Animation</span></a>
+    <div>
+      Animation
+      <span class="coming-soon">Coming soon</span>
+    </div>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Media</span></a>
+    <div>
+      Media
+      <span class="coming-soon">Coming soon</span>
+    </div>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Forms</span></a>
+    <div>
+      Forms
+      <span class="coming-soon">Coming soon</span>
+    </div>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Sizing</span></a>
+    <div>
+      Sizing
+      <span class="coming-soon">Coming soon</span>
+    </div>
 
     <Separator />
 
-    <a data-sveltekit-reload href="/foundations/layout"><span>Extras</span></a>
+    <div>
+      Extras
+      <span class="coming-soon">Coming soon</span>
+    </div>
   </nav>
 </dialog>
 
@@ -133,7 +153,8 @@
     margin-block-start: 2rem;
   }
 
-  a {
+  nav a,
+  nav div {
     align-items: center;
     display: flex;
     color: var(--color-gray-800);
@@ -144,12 +165,13 @@
     outline: none;
   }
 
-  a span {
-    transition: transform 0.5s 0.075s ease;
+  nav div {
+    opacity: 0.5;
   }
 
-  a:hover span {
-    transform: translateX(1rem);
+  nav span {
+    font-size: 1rem;
+    margin: 0 0 0 auto;
   }
 
   a:focus-visible {

@@ -19,9 +19,9 @@
 
 <div class="breadcrumbs">
   <ul>
-    <li>Foundations</li>
+    <li><a href="/foundations">Foundations</a></li>
     <li class="breadcrumb--divider" aria-hidden>/</li>
-    <li>{data.id}</li>
+    <li><a href="/foundations">{data.id}</a></li>
     <li class="breadcrumb--divider" aria-hidden>/</li>
     <li class="breadcrumb--current">{data.title}</li>
   </ul>

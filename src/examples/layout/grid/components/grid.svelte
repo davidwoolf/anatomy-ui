@@ -33,10 +33,6 @@
     border-block-start: 1px solid var(--color-purple-400);
     border-inline-start: 1px solid var(--color-purple-400);
     background-color: var(--color-purple-400);
-    /* background-image: url("/assets/lines-purple.png"); */
-    /* background-size: 300px auto; */
-
-    counter-reset: section;
     display: grid;
     width: 100%;
   }
