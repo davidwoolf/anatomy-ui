@@ -77,6 +77,14 @@
   import Box from "@components/box.svelte";
   import Spacer from "@components/grid/spacer.svelte";
   import Breadcrumbs from "@components/breadcrumbs.svelte";
+
+  function getTitle() {
+    return `[Foundations] Issue with page: "${data.title}"`;
+  }
+
+  function getDescription() {
+    return `--- url: https://anatomyui.com/foundations/${data.id}/${data.slug} ---`;
+  }
 </script>
 
 <div class="breadcrumbs">
@@ -184,6 +192,16 @@
             {/each}
           {/if}
         {/each}
+
+        <Separator />
+
+        <Column column="1" span="12">
+          <a
+            class="report-issue"
+            target="_blank"
+            href={`https://github.com/davidwoolf/anatomy-everyday-ui-site/issues/new?title=${getTitle()}&body=${getDescription()}&labels=documentation`}
+            >report issue</a>
+        </Column>
       </Grid>
     </svelte:fragment>
   </Layout>
@@ -216,6 +234,14 @@
     padding: 3rem 1.5rem;
     margin: 0 auto;
     max-width: 90rem;
+  }
+
+  .report-issue {
+    font-size: var(--font-size-sm);
+    display: block;
+    opacity: 0.6;
+    text-align: center;
+    text-decoration: underline;
   }
 
   @media (min-width: 768px) {
