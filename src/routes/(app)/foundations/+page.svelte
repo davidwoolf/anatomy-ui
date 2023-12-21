@@ -27,9 +27,9 @@
         <p>
           Well defined layouts on the web are no easy task. Many decisions, across
           multiple components, need to sync up for proper alignment, spacing, and
-          hierarchy on devices ranging from phones to televisions. In addition,
-          semantically accurate elements need to be properly used for screen readers and
-          search engine crawlers—sometimes in a specific order.
+          hierarchy on devices big and small. In addition, semantically accurate elements
+          need to be properly used for screen readers and search engine crawlers—sometimes
+          in a specific order.
         </p>
       </Text>
       <div class="nav">
@@ -47,7 +47,11 @@
 
     <Column column="5" span="12">
       <Text>
-        <p>Coming soon</p>
+        <p>
+          Text is a crucial part of any interface, and the web comes with an immense
+          number of tags, styling choices, and recommendations when it comes to handling
+          text.
+        </p>
       </Text>
     </Column>
 
