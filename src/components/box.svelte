@@ -14,7 +14,7 @@
 </div>
 
 <style>
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     div {
       padding-inline-start: var(--paddingLeading);
       padding-inline-end: var(--paddingTrailing);

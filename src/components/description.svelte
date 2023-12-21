@@ -28,6 +28,6 @@
   }
 
   :global(.layout--description a:hover) {
-    text-decoration-color: var(--color-purple-400);
+    text-decoration: none;
   }
 </style>

@@ -24,13 +24,15 @@
 
   .canvas {
     background-color: var(--color-gray-100);
+    aspect-ratio: 1 / 1;
     align-items: center;
     block-size: 100%;
     display: flex;
     flex-direction: column;
     inline-size: 100%;
+    min-block-size: fit-content;
     justify-content: center;
-    padding: 0.75rem;
+    padding: 1rem;
     position: relative;
     overflow: scroll;
   }
@@ -45,6 +47,14 @@
     padding: 1rem;
     position: relative;
     z-index: 1;
+  }
+
+  @media (min-width: 480px) {
+    .canvas {
+      aspect-ratio: unset;
+      min-block-size: unset;
+      padding: 3rem;
+    }
   }
 
   @media (min-width: 768px) {

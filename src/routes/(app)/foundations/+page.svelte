@@ -3,10 +3,6 @@
   import type { PageData } from "./$types";
   export let data: PageData;
 
-  // layout
-  import Title from "@components/title.svelte";
-
-  import Layout from "@components/layout.svelte";
   import Grid from "@components/grid/grid.svelte";
   import Column from "@components/grid/column.svelte";
   import Heading from "@components/text/heading.svelte";
@@ -22,9 +18,11 @@
 
 <article>
   <Grid>
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Layout</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>
           Well defined layouts on the web are no easy task. Many decisions, across
@@ -34,9 +32,6 @@
           search engine crawlers—sometimes in a specific order.
         </p>
       </Text>
-    </Column>
-
-    <Column column="8" span="12">
       <div class="nav">
         {#each data.sections as section}
           <a href="/foundations/layout/{section.slug}">{section.title}</a>
@@ -46,9 +41,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Typography</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -56,9 +53,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Color and light</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -66,9 +65,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Animation</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -76,9 +77,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Media</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -86,9 +89,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Forms</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -96,9 +101,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Sizing</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -106,9 +113,11 @@
 
     <Separator />
 
-    <Column column="1" span="6">
+    <Column column="1" span="3">
       <Heading>Extras</Heading>
+    </Column>
 
+    <Column column="5" span="12">
       <Text>
         <p>Coming soon</p>
       </Text>
@@ -134,10 +143,10 @@
   }
 
   .nav {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     padding-block-start: 2.75rem;
-    gap: 0.5rem;
+    gap: 0.5rem 2rem;
   }
 
   .nav a {
@@ -149,6 +158,10 @@
     text-decoration-color: var(--color-gray-300);
   }
 
+  .nav a:hover {
+    text-decoration: none;
+  }
+
   article {
     padding: 3rem 1.5rem;
     margin: 0 auto;
@@ -156,6 +169,10 @@
   }
 
   @media (min-width: 768px) {
+    .nav {
+      grid-template-columns: 1fr 1fr;
+    }
+
     article {
       padding: 6rem 4rem;
     }

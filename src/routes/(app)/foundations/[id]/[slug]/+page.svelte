@@ -54,7 +54,7 @@
     "grid-layout": {
       "explicit-tracks": import("@examples/layout/grid/explicit-tracks.svelte"),
       "implicit-tracks": import("@examples/layout/grid/implicit-tracks.svelte"),
-      "fractional-units": import("@examples/layout/grid/fractional-units.svelte"),
+      "flexible-units": import("@examples/layout/grid/flexible-units.svelte"),
       keywords: import("@examples/layout/grid/keywords.svelte"),
       repeat: import("@examples/layout/grid/repeat.svelte"),
       span: import("@examples/layout/grid/span.svelte"),
@@ -76,16 +76,24 @@
   import Row from "@components/grid/row.svelte";
   import Box from "@components/box.svelte";
   import Spacer from "@components/grid/spacer.svelte";
+  import Breadcrumbs from "@components/breadcrumbs.svelte";
 </script>
 
 <div class="breadcrumbs">
-  <ul>
-    <li><a href="/foundations">Foundations</a></li>
-    <li class="breadcrumb--divider" aria-hidden>/</li>
-    <li><a href="/foundations">{data.id}</a></li>
-    <li class="breadcrumb--divider" aria-hidden>/</li>
-    <li class="breadcrumb--current">{data.title}</li>
-  </ul>
+  <Breadcrumbs
+    items={[
+      {
+        label: "Foundations",
+        link: "/foundations",
+      },
+      {
+        label: data.id,
+        link: "/foundations",
+      },
+      {
+        label: data.title,
+      },
+    ]} />
 </div>
 
 <article>
@@ -159,6 +167,8 @@
                   </Box>
                 </Column>
 
+                <Spacer />
+
                 <Column column={index % 2 === 0 ? "1" : "5"} span="8">
                   {#if section.component}
                     {#await examples[data.slug][section.component] then module}
@@ -181,28 +191,7 @@
 
 <style>
   .breadcrumbs {
-    display: flex;
-    font-size: 0.875rem;
     padding: 0.25rem 1.5rem 0;
-  }
-
-  .breadcrumbs ul {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .breadcrumbs li {
-    opacity: 0.6;
-    text-transform: capitalize;
-  }
-
-  .breadcrumbs .breadcrumb--divider {
-    opacity: 0.3;
-  }
-
-  .breadcrumbs .breadcrumb--current {
-    opacity: 1;
-    text-transform: revert;
   }
 
   .next-section {
@@ -233,15 +222,15 @@
     article {
       padding: 6rem 4rem;
     }
+
+    .next-section {
+      margin: 2rem auto 0;
+    }
   }
 
   @media (min-width: 1024px) {
     .breadcrumbs {
       padding: 0.25rem 2rem 0;
-    }
-
-    .next-section {
-      margin: 2rem auto 0;
     }
 
     article {

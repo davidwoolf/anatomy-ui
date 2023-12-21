@@ -1,10 +1,25 @@
-{
+[{
   "title": "Logical properties",
   "text": "Terms like `height`, `width`, `top`, and `left` start to become confusing when interfaces are used in different languages. They can also create visual inconsistencies when the block and inline axes are flipped. To address this, CSS now supports a set of properties called “logical properties” which map to existing properties like margin and padding, but now conform to the start, end and orientation of the document’s axes.\n\nWhile this creates a huge number of new properties, they are consistently applied based on the axes and position. A full list is provided below."
-}
+},
 
 {
   "title": "Strategies",
   "text": "The `z-index` value can be zero, any negative number, or any positive number. This creates issues where elements compete with each other by setting high values like 9999999999 to ensure they are at the top of the stack. To avoid this, click through the following scenarios.",
   "component": "stacking-strategies"
-}
+}, 
+
+{
+  "title": "Constraint functions",
+  "text": "CSS provides three functions to constrain sizing: `min()`, `max()`, and `clamp()`. For min and max, multiple  values can be added, and whatever value equates to the the smallest or largest will be used. In addition, these functions can be combined and nested to add more complex logic.",
+  "sections": [{
+    "title": "min()",
+    "text": "The `min()` function uses the smallest _computed_ value passed in. This makes more sense when working with dynamic units such as `vw` and `%`. In addition, values can be other functions including `max()` and `min()` itself."
+  }, {
+    "title": "max()",
+    "text": "The `max()` function uses the largest computed value passed in, and works exactly like `min()` with regards to dynamic units and functions as values."
+  }, {
+    "title": "clamp()",
+    "text": "The `clamp()` function provides the ability to set a dynamic value, with upper and lower constraints. Before it was available, complex `min(max())` nesting was required to achieve the same functionality, but this function makes that logic much easier to understand at a glance.\n\n_Fun fact: the `clamp()` function actually resolves to a nested `max()` and `min()` declaration.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp#return_value)_"
+  }]
+}]
