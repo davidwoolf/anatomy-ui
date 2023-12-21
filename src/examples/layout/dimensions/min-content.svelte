@@ -9,9 +9,9 @@
       value: [
         {
           property: "width",
-          value: "24rem",
+          value: "auto",
           type: "select",
-          options: ["24rem", "min-content"],
+          options: ["auto", "min-content"],
         },
       ],
     },

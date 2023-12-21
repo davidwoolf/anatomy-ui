@@ -1,9 +1,9 @@
-<div>
+<section class="grid">
   <slot />
-</div>
+</section>
 
 <style>
-  div {
+  .grid {
     display: grid;
     row-gap: 0.75rem;
     grid-template-columns: 100%;
@@ -11,7 +11,7 @@
   }
 
   @media (min-width: 1280px) {
-    div {
+    .grid {
       grid-auto-flow: dense;
       grid-template-columns: repeat(12, 1fr);
       row-gap: 0;

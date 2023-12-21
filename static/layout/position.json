@@ -4,7 +4,7 @@
   "component": "static-relative-absolute"
 }, {
   "title": "Fixed and sticky positions",
-  "text": "Applying `fixed` as the position property’s value will place the element relative to the window, regardless of any parent’s `position: relative` value. It also ignores scroll positioning.\n\nApplying `sticky` as the position property’s value will make an element act like it’s fixed once it hits the top of the viewport. The element’s dimensions are also calculated as part of the normal DOM, eliminating the need to calculate offset padding for other items. One thing to note is that sticky elements are scoped to the closest element with the overflow property applied.<sup>[1](https://developer.mozilla.org/en-US/docs/Web/CSS/position#values)</sup>",
+  "text": "Applying `fixed` as the position property’s value will place the element relative to the window, regardless of any parent’s `position: relative` value. It also ignores scroll positioning.\n\nApplying `sticky` as the position property’s value will make an element act like it’s fixed once it hits the top of the viewport. The element’s dimensions are also calculated as part of the normal DOM, eliminating the need to calculate offset padding for other items. One thing to note is that sticky elements are scoped to the closest element with the overflow property applied.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/position#values)",
   "component": "fixed-sticky"
 }, {
   "title": "Stacking elements",

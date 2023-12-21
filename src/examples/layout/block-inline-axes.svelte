@@ -39,8 +39,8 @@
 
 <style>
   .container {
-    padding-inline: 8rem;
-    padding-block: 6rem;
+    padding-inline: 4rem;
+    padding-block: 2rem;
     position: relative;
   }
 
@@ -57,7 +57,7 @@
   .block-axis {
     border-inline-end: 1px dashed #9747ff;
     inset-inline-start: 50%;
-    inset-block: 3rem;
+    inset-block: 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -75,7 +75,7 @@
     block-size: 1px;
     display: flex;
     inset-block-start: 50%;
-    inset-inline: 3rem;
+    inset-inline: 0;
     position: absolute;
   }
 
