@@ -1,0 +1,3 @@
+In interfaces, lists are commonly used for grouping links in a navigation block. When the order isn't necessarily important, individual list items (which use the `<li>` element), can be wrapped in a `<ul>` or (if each item is interactive) a `<menu>` element.
+
+The core difference between `<menu>` and `<nav>` is that `<menu>` is **not** for site navigation. It's a little reductive, but the rule of thumb is to use `<menu>` when grouping a list of buttons and `<nav>` when grouping a list of links.

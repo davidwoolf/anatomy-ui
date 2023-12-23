@@ -32,11 +32,13 @@
           in a specific order.
         </p>
       </Text>
-      <div class="nav">
-        {#each data.sections as section}
-          <a href="/foundations/layout/{section.slug}">{section.title}</a>
+      <ul class="nav">
+        {#each data.layout as section}
+          <li>
+            <a href="/foundations/layout/{section.slug}">{section.title}</a>
+          </li>
         {/each}
-      </div>
+      </ul>
     </Column>
 
     <Separator />
@@ -48,11 +50,19 @@
     <Column column="5" span="12">
       <Text>
         <p>
-          Text is a crucial part of any interface, and the web comes with an immense
+          Typography is a crucial part of any interface, and the web comes with an immense
           number of tags, styling choices, and recommendations when it comes to handling
           text.
         </p>
       </Text>
+
+      <ul class="nav">
+        {#each data.typography as section}
+          <li>
+            <a href="/foundations/typography/{section.slug}">{section.title}</a>
+          </li>
+        {/each}
+      </ul>
     </Column>
 
     <Separator />
@@ -147,19 +157,29 @@
   }
 
   .nav {
-    display: grid;
-    grid-template-columns: 1fr;
+    column-count: 1;
+    column-gap: 2rem;
     padding-block-start: 2.75rem;
-    gap: 0.5rem 2rem;
+  }
+
+  .nav li {
+    break-inside: avoid;
   }
 
   .nav a {
+    display: inline-block;
     font-size: var(--font-size-xl);
     font-weight: 500;
+    padding: 0.5rem 0;
     text-decoration: underline;
     text-underline-offset: 5px;
     text-decoration-thickness: 1px;
     text-decoration-color: var(--color-gray-300);
+  }
+
+  .nav span {
+    break-inside: avoid;
+    display: block;
   }
 
   .nav a:hover {
@@ -174,7 +194,7 @@
 
   @media (min-width: 768px) {
     .nav {
-      grid-template-columns: 1fr 1fr;
+      column-count: 2;
     }
 
     article {

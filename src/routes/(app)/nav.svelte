@@ -66,10 +66,7 @@
 
     <Separator />
 
-    <div>
-      Typography
-      <span class="coming-soon">Coming soon</span>
-    </div>
+    <a data-sveltekit-reload href="/foundations/typography/headings">Typography</a>
 
     <Separator />
 

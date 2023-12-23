@@ -11,6 +11,14 @@
     text-wrap: balance;
   }
 
+  :global(.component--text h3) {
+    color: var(--color-gray-800);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    line-height: 110%;
+    text-wrap: balance;
+  }
+
   :global(.component--text p, .component--text ul, .component--text ol) {
     color: color-mix(in srgb, var(--color-gray-800), white 30%);
     font-size: var(--font-size-base);
@@ -31,8 +39,12 @@
     content: "– ";
   }
 
-  :global(.component--text h2 + p) {
+  :global(.component--text h2 + p, .component--text h3 + p) {
     margin-block-start: 0.5rem;
+  }
+
+  :global(.component--text p + h2, .component--text p + h3) {
+    margin-block-start: 1.25rem;
   }
 
   :global(.component--text p + p) {
@@ -54,7 +66,11 @@
     font-weight: 500;
   }
 
-  :global(.component--text p > code) {
+  :global(
+      .component--text h2 > code,
+      .component--text h3 > code,
+      .component--text p > code
+    ) {
     background-color: color-mix(in srgb, var(--color-gray-300), white 70%);
     color: var(--color-gray-800);
     border-radius: 0.25rem;
@@ -100,7 +116,12 @@
       font-size: var(--font-size-xl);
     }
 
-    :global(.component--text p, .component--text ul, .component--text ol) {
+    :global(
+        .component--text h3,
+        .component--text p,
+        .component--text ul,
+        .component--text ol
+      ) {
       font-size: var(--font-size-lg);
     }
   }

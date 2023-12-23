@@ -62,6 +62,9 @@
       "excluded-area": import("@examples/layout/grid/excluded-area.svelte"),
       "span-areas": import("@examples/layout/grid/span-areas.svelte"),
     },
+    text: {
+      "emphasis-importance": import("@examples/text/emphasis-importance.svelte"),
+    },
   };
 
   // layout
@@ -113,7 +116,7 @@
         {@html data.description}
       </Description>
 
-      {#if data.next}
+      {#if data.next && !data.next?.hidden}
         <a class="next-section" href={data.next.slug}>
           {data.next.title}
           <svg

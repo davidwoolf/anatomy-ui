@@ -37,7 +37,7 @@
   ];
 </script>
 
-<Example overflow="hidden">
+<Example>
   <svelte:fragment slot="preview">
     <div class="container" style:max-width={code[0].value[0].value}>
       <div class="width">

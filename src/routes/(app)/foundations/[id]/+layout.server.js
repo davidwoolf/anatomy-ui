@@ -16,7 +16,7 @@ export async function load({ fetch, params }) {
     throw error(500, "something went wrong");
   }
 
-  /** @type Array<{slug: string; title: string; description: string;}> */
+  /** @type Array<{slug: string; title: string; description: string; hidden?: boolean;}> */
   const sections = await res.json();
   
   return {
