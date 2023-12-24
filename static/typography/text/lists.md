@@ -1,3 +1,4 @@
-In interfaces, lists are commonly used for grouping links in a navigation block. When the order isn't necessarily important, individual list items (which use the `<li>` element), can be wrapped in a `<ul>` or (if each item is interactive) a `<menu>` element.
+Lists of items can be grouped using the `<li>` tag for each items, along with a required parent element for either undorered `<ul>` lists or ordered `<ol>` lists.[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) In addition, the `<menu>` tag can be used to wrap list items and is considered the same as a `<ul>`, except it’s semantically meant for interactive groups of items.
 
-The core difference between `<menu>` and `<nav>` is that `<menu>` is **not** for site navigation. It's a little reductive, but the rule of thumb is to use `<menu>` when grouping a list of buttons and `<nav>` when grouping a list of links.
+The main difference between `<menu>` and `<nav>` is that `<menu>` is **not** for site navigation. As a rule of thumb, use `<menu>` when grouping a list of buttons and `<nav>` when grouping a list of links.
+

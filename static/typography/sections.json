@@ -22,11 +22,6 @@
   "description": "",
   "hidden": true
 }, {
-  "slug": "sizing-type",
-  "title": "Sizing type",
-  "description": "",
-  "hidden": true
-}, {
   "slug": "overflow",
   "title": "Overflow",
   "description": "",

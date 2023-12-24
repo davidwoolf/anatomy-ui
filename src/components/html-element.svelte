@@ -12,10 +12,10 @@
   /** @type {string} */
   export let tag;
 
-  /** @type {Record<string | number, Nodes> | { text: string }} */
+  /** @type {Record<string | number, Nodes> | { text: string } | undefined} */
   export let value;
 
-  let entries = Object.entries(value);
+  let entries = typeof value === "object" ? Object.entries(value) : [];
 </script>
 
 <div class="element">
@@ -38,7 +38,7 @@
             });
           }} />
       </div>
-    {:else}
+    {:else if node.nodes}
       <div class="inner-element">
         <HTMLElement
           tag={node.tag}
@@ -56,6 +56,12 @@
               },
             });
           }} />
+      </div>
+    {:else}
+      <div class="inner-element">
+        <span class="selector">
+          <span class="keyword">{"<"}</span>{node.tag}<span class="keyword">{" />"}</span>
+        </span>
       </div>
     {/if}
   {/each}

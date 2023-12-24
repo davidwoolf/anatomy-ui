@@ -64,6 +64,8 @@
     },
     text: {
       "emphasis-importance": import("@examples/text/emphasis-importance.svelte"),
+      lists: import("@examples/text/lists.svelte"),
+      labels: import("@examples/text/labels.svelte"),
     },
   };
 

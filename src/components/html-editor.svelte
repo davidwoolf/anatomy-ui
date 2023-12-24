@@ -19,19 +19,29 @@
   let copied = false;
   let entries = Object.entries(value);
 
-  async function generateCode() {
-    // const text = value
-    //   .map(
-    //     (selector) =>
-    //       `${selector.selector} {\n\t${selector.value
-    //         .map((item) => `${item.property}: ${item.value};`)
-    //         .join("\n\t")}\n}`
-    //   )
-    //   .join("\n\n");
-    // try {
-    //   await navigator.clipboard.writeText(text);
-    //   copied = true;
-    // } catch (err) {}
+  /**
+   *
+   * @param {Record<string | number, Node>} value
+   */
+  function generateCode(value) {
+    let text = "";
+    const entries = Object.entries(value);
+
+    entries.forEach(([_, node]) => {
+      if (node.text) {
+        text = text + `${node.text}\n`;
+      } else {
+        if (node.nodes) {
+          text = text + `<${node.tag}>\n`;
+          text = text + `${generateCode(node.nodes)}`;
+          text = text + `</${node.tag}>\n`;
+        } else {
+          text = text + `<${node.tag} />\n`;
+        }
+      }
+    });
+
+    return text;
   }
 
   $: {
@@ -67,7 +77,17 @@
   {/each}
 
   {#if allowCopying}
-    <button type="button" class="copy-code" on:click={generateCode}>
+    <button
+      type="button"
+      class="copy-code"
+      on:click={async () => {
+        const text = generateCode(value);
+
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (err) {}
+      }}>
       {copied ? "copied!" : "copy code"}
     </button>
   {/if}

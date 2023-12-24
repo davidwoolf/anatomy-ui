@@ -28,9 +28,14 @@
     line-height: 1;
   }
 
-  :global(.simple-card p) {
+  :global(.simple-card p, .simple-card li) {
     font-size: var(--font-size-sm);
     line-height: 145%;
+  }
+
+  :global(.simple-card ul) {
+    list-style: disc;
+    list-style-position: inside;
   }
 
   :global(.simple-card h2 + p) {
