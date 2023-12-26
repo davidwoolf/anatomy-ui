@@ -24,10 +24,10 @@
   input {
     appearance: none;
     border-radius: 0;
+    color: var(--color-gray-800);
     font-size: inherit;
     line-height: 145%;
     outline: none;
-    /* margin-block-start: 0.225rem; */
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-color: var(--color-gray-300);

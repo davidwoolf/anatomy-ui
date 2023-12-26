@@ -1,14 +1,20 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+
   /** @type {string} */
   export let value;
 </script>
 
 <textarea
   style:height="{value.split("\n").length * 20.5}px"
+  bind:value
   on:input={(e) => {
-    // @ts-expect-error
-    // handleInput(e.target.value, item.selector, value.property);
-  }}>{value}</textarea>
+    dispatch("update", {
+      // @ts-expect-error
+      text: e.target.value,
+    });
+  }} />
 
 <style>
   textarea {
@@ -19,9 +25,6 @@
     line-height: 145%;
     outline: none;
     resize: none;
-    text-decoration-color: var(--color-gray-300);
-    text-decoration: underline;
-    text-underline-offset: 4px;
     transition: color 75ms ease;
     white-space: nowrap;
     inline-size: max-content;

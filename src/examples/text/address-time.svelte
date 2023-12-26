@@ -1,57 +1,45 @@
 <script>
-  import { getNode } from "@components/editor/utils";
   import Example from "@components/example.svelte";
-  import HTMLEditor from "@components/html-editor.svelte";
+  import HTMLEditor from "@components/editor/html/html.svelte";
   import SimpleCard from "@components/simple-card.svelte";
-  import { derived, writable } from "svelte/store";
 
   /**
-   * @typedef Node
+   * @typedef Nodes
    * @property {string} [tag]
-   * @property {{ name: string; value: string; type: string}[]} [attributes]
    * @property {string} [text]
-   * @property {Record<string | number, Node>} [nodes]
+   * @property {"text" | "textarea"} [editable]
+   * @property {{ name: string; value: string; editable: "text"}[]} [attributes]
+   * @property {Nodes[]} [nodes]
    * */
 
-  const code = writable(
-    /** @type {Record<string | number, Node>} */ {
-      1: {
-        tag: "address",
-        nodes: {
-          1: {
-            text: "123 Beeker Street",
-          },
-        },
-      },
-      2: {
-        tag: "time",
-        nodes: {
-          1: {
-            text: "Jan 1, 2049 at 00:00",
-          },
-        },
-        attributes: [
-          {
-            name: "datetime",
-            value: "2049-01-01T00:00:00",
-            type: "text",
-          },
-        ],
-      },
-    }
-  );
-
-  const values = derived([code], function ([code]) {
-    return [
-      getNode("1.nodes.1.text", code, "123 Beeker Street"),
-      getNode("2.nodes.1.text", code, "Jan 1, 2049 at 00:00"),
-      getNode("2.nodes.1.attributes", code, [
+  /** @type {Nodes[]} */
+  let code = [
+    {
+      tag: "address",
+      nodes: [
         {
-          value: "2049-01-01T00:00:00",
+          text: "123 Beeker Street",
+          editable: "textarea",
         },
-      ]),
-    ];
-  });
+      ],
+    },
+    {
+      tag: "time",
+      attributes: [
+        {
+          name: "datetime",
+          value: "2049-01-01T00:00:00",
+          editable: "text",
+        },
+      ],
+      nodes: [
+        {
+          text: "Jan 1, 2049 at 00:00",
+          editable: "text",
+        },
+      ],
+    },
+  ];
 </script>
 
 <Example>
@@ -59,30 +47,16 @@
     <SimpleCard>
       Address
       <address>
-        {$values[0]}
+        {code[0].nodes[0].text}
       </address>
 
       Time
-      <time datetime={$values[2][0].value}>
-        {$values[1]}
+      <time datetime={code[1].attributes[0].value}>
+        {code[1].nodes[0].text}
       </time>
     </SimpleCard>
   </svelte:fragment>
   <svelte:fragment slot="controls">
-    <HTMLEditor value={$code} on:update={({ detail }) => code.set(detail.text)} />
+    <HTMLEditor value={code} on:update={({ detail }) => (code = detail.text)} />
   </svelte:fragment>
 </Example>
-
-<style>
-  span {
-    display: block;
-    font-size: var(--font-size-sm);
-  }
-
-  input {
-    border: 1px solid var(--color-gray-300);
-    border-radius: 0.25rem;
-    font-size: var(--font-size-sm);
-    padding: 0 0.5rem;
-  }
-</style>
