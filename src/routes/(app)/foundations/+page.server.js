@@ -2,20 +2,41 @@ import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, }) {
-  const res = await fetch(`/layout/sections.json`);
+  const sections = ["layout", "typography"];
 
-  if (res.status === 404) {
-    throw error(404, "file not found");
-  }
+  /** 
+   * @typedef {Object} Section
+   * @property {string} slug
+   * @property {string} title
+   * @property {string} description
+   * @property {boolean?} hidden
+   */
 
-  if (res.status !== 200) {
-    throw error(500, "something went wrong");
-  }
- 
-  /** @type Array<{ slug: string; title: string; description: string; }> */
-  const sections = await res.json();
+  /** @type {Record<string, Section[]>} */
+  let data = {};
 
-  return {
-    sections,
-  }
+  sections.forEach(async section => {
+    const res = await fetch(`/${section}/sections.json`);
+
+    if (res.status === 404) {
+      throw error(404, "file not found");
+    }
+  
+    if (res.status !== 200) {
+      throw error(500, "something went wrong");
+    }
+
+    /** @type {Section[]} */
+    const body =  await res.json();
+
+    data[section] = body.filter(item => item?.hidden ? false : true)
+  })
+
+  return data;
+  // {
+  //   sections: {
+  //     /** @type Array<{ slug: string; title: string; description: string; }> */
+  //     layout: await layout.json(),
+  //   },
+  // }
 }

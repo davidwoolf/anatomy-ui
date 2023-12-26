@@ -97,7 +97,6 @@
           {:else if value.type === "textarea"}
             <textarea
               style:height="{value.value.split("\n").length * 20.5}px"
-              size={value.value.length >= 3 ? value.value.length : 3}
               on:input={(e) => {
                 // @ts-expect-error
                 handleInput(e.target.value, item.selector, value.property);

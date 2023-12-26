@@ -13,12 +13,12 @@
 
 <style>
   .container {
-    border-radius: 0.75rem;
-    border: 1px solid rgba(198, 198, 231, 0.5);
+    border-block: 1px solid rgba(198, 198, 231, 0.5);
     display: grid;
     grid-template-rows: auto auto;
     overflow: hidden;
     position: relative;
+    margin-inline: -1.5rem;
     max-width: 52rem;
   }
 
@@ -39,21 +39,33 @@
 
   .controls {
     background-color: white;
+    border-block-start: 1px solid rgba(198, 198, 231, 0.5);
     block-size: 100%;
-    box-shadow: -1px -1px 4px 0px rgba(151, 71, 255, 0.12);
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
     position: relative;
+    overflow: scroll;
     z-index: 1;
   }
 
   @media (min-width: 480px) {
+    .container {
+      border-radius: 0.75rem;
+      border: 1px solid rgba(198, 198, 231, 0.5);
+      margin-inline: 0;
+    }
+
     .canvas {
       aspect-ratio: unset;
       min-block-size: unset;
       padding: 3rem;
+    }
+
+    .controls {
+      border-block-start: none;
+      border-inline-start: 1px solid rgba(198, 198, 231, 0.5);
     }
   }
 

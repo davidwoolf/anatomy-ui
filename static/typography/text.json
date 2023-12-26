@@ -1,0 +1,26 @@
+[{
+  "title": "Paragraphs",
+  "text": "The `<p>` tag is a block level element that encompasses a run of any length of text and can include links, images, break lines, and more.[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) Avoid using blank `<p>` elements for spacing as screen readers will announce the element."
+}, {
+  "title": "Lists",
+  "file": "lists.md",
+  "component": "lists"
+}, {
+  "title": "Labels",
+  "file": "labels.md",
+  "component": "labels"
+}, {
+  "title": "Addresses and dates",
+  "file": "addresses-dates.md",
+  "component": "address-time"
+}, {
+  "title": "Empaphsis and importance",
+  "file": "emphasis-importance.md",
+  "component": "emphasis-importance"
+}, {
+  "title": "Bold and italic",
+  "file": "b-i.md"
+}, {
+  "title": "Spans",
+  "text": "The `<span>` element is an inline version of the generic `<div>` block element and while it is a useful text wrapping element, it should be used as a last resort if a more semantic text element isn't appropriate.\n\nThe `<span>` element is however, perfect for when you need to style a block of text within a paragraph but it has no other semantic meaning that would warrant using `<em>`, `<strong>`, etc."
+}]

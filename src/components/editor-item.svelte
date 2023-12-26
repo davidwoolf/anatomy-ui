@@ -1,10 +1,12 @@
 <script>
-  /** @type {string} */
-  export let label;
+  /** @type {string | undefined} */
+  export let label = undefined;
 </script>
 
 <label>
-  <span>{label}:</span>
+  {#if label}
+    <span>{label}:</span>
+  {/if}
   <slot />
 </label>
 

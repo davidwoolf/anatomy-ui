@@ -62,6 +62,12 @@
       "excluded-area": import("@examples/layout/grid/excluded-area.svelte"),
       "span-areas": import("@examples/layout/grid/span-areas.svelte"),
     },
+    text: {
+      "emphasis-importance": import("@examples/text/emphasis-importance.svelte"),
+      lists: import("@examples/text/lists.svelte"),
+      labels: import("@examples/text/labels.svelte"),
+      "address-time": import("@examples/text/address-time.svelte"),
+    },
   };
 
   // layout
@@ -113,7 +119,7 @@
         {@html data.description}
       </Description>
 
-      {#if data.next}
+      {#if data.next && !data.next?.hidden}
         <a class="next-section" href={data.next.slug}>
           {data.next.title}
           <svg
