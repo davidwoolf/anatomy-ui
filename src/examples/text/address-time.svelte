@@ -16,35 +16,40 @@
   const code = writable(
     /** @type {Record<string | number, Node>} */ {
       1: {
-        tag: "label",
+        tag: "address",
         nodes: {
           1: {
-            tag: "span",
-            nodes: {
-              1: {
-                text: "First name:",
-              },
-            },
-          },
-          2: {
-            tag: "input",
-            attributes: [
-              {
-                name: "type",
-                value: "text",
-                type: "text",
-              },
-            ],
+            text: "123 Beeker Street",
           },
         },
+      },
+      2: {
+        tag: "time",
+        nodes: {
+          1: {
+            text: "Jan 1, 2049 at 00:00",
+          },
+        },
+        attributes: [
+          {
+            name: "datetime",
+            value: "2049-01-01T00:00:00",
+            type: "text",
+          },
+        ],
       },
     }
   );
 
   const values = derived([code], function ([code]) {
     return [
-      getNode("1.nodes.1.nodes.1.text", code, "First name"),
-      getNode("1.nodes.2.attributes", code, []),
+      getNode("1.nodes.1.text", code, "123 Beeker Street"),
+      getNode("2.nodes.1.text", code, "Jan 1, 2049 at 00:00"),
+      getNode("2.nodes.1.attributes", code, [
+        {
+          value: "2049-01-01T00:00:00",
+        },
+      ]),
     ];
   });
 </script>
@@ -52,10 +57,15 @@
 <Example>
   <svelte:fragment slot="preview">
     <SimpleCard>
-      <label>
-        <span>{$values[0]}</span>
-        <input type={$values[1][0].value} placeholder="John Doe..." />
-      </label>
+      Address
+      <address>
+        {$values[0]}
+      </address>
+
+      Time
+      <time datetime={$values[2][0].value}>
+        {$values[1]}
+      </time>
     </SimpleCard>
   </svelte:fragment>
   <svelte:fragment slot="controls">

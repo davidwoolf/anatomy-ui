@@ -39,8 +39,8 @@
 
   .controls {
     background-color: white;
+    border-block-start: 1px solid rgba(198, 198, 231, 0.5);
     block-size: 100%;
-    box-shadow: -1px -1px 4px 0px rgba(151, 71, 255, 0.12);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,6 +61,11 @@
       aspect-ratio: unset;
       min-block-size: unset;
       padding: 3rem;
+    }
+
+    .controls {
+      border-block-start: none;
+      border-inline-start: 1px solid rgba(198, 198, 231, 0.5);
     }
   }
 

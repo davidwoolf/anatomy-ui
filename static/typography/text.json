@@ -11,7 +11,8 @@
   "component": "labels"
 }, {
   "title": "Addresses and dates",
-  "file": "addresses-dates.md"
+  "file": "addresses-dates.md",
+  "component": "address-time"
 }, {
   "title": "Empaphsis and importance",
   "file": "emphasis-importance.md",

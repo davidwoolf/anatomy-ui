@@ -1,12 +1,12 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import EditorItem from "./editor-item.svelte";
   import HTMLElement from "./html-element.svelte";
 
   /**
    * @typedef Node
    * @property {string} [tag]
    * @property {string} [text]
+   * @property {{ name: string; value: string; type: string}[]} [attributes]
    * @property {Record<string | number, Node>} [nodes]
    * */
 
@@ -72,6 +72,7 @@
           },
         });
       }}
+      attributes={node.attributes}
       tag={node.tag}
       value={node.nodes} />
   {/each}

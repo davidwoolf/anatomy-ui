@@ -9,7 +9,7 @@
  *
  * @param {string} selector
  * @param {Record<string | number, Node>} code
- * @param {string} fallback
+ * @param {unknown} fallback
  */
 export function getNode(selector, code, fallback) {
   let selectors = selector.split(".");
@@ -23,7 +23,7 @@ export function getNode(selector, code, fallback) {
     }
   });
 
-  if (typeof filtered === "string") {
+  if (typeof filtered === "string" || Array.isArray(filtered)) {
     return filtered;
   }
 

@@ -12,7 +12,7 @@
 <input
   type="text"
   {size}
-  {value}
+  bind:value
   on:input={(e) => {
     dispatch("update", {
       // @ts-expect-error
