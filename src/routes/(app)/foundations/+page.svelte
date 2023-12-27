@@ -177,11 +177,6 @@
     text-decoration-color: var(--color-gray-300);
   }
 
-  .nav span {
-    break-inside: avoid;
-    display: block;
-  }
-
   .nav a:hover {
     text-decoration: none;
   }
