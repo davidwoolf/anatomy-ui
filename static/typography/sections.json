@@ -1,39 +1,42 @@
-[{
-  "slug": "headings",
-  "title": "Headings",
-  "description": "Headings provide structure and natural segmentation to your content and are an important semantic device for understanding the structure of a page."
-}, {
-  "slug": "text",
-  "title": "Text",
-  "description": "In virtually every interface, displaying information via text is the core feature–and doing this semantically can require many different elements."
-}, {
-  "slug": "links-buttons",
-  "title": "Links and buttons",
-  "description": "",
-  "hidden": true
-}, {
-  "slug": "sizing-type",
-  "title": "Sizing type",
-  "description": "",
-  "hidden": true
-}, {
-  "slug": "tracking-leading",
-  "title": "Tracking and leading",
-  "description": "",
-  "hidden": true
-}, {
-  "slug": "overflow",
-  "title": "Overflow",
-  "description": "",
-  "hidden": true
-}, {
-  "slug": "custom-typefaces",
-  "title": "Custom typefaces",
-  "description": "",
-  "hidden": true
-}, {
-  "slug": "internationalization",
-  "title": "Internationalization",
-  "description": "",
-  "hidden": true
-}]
+[
+  {
+    "slug": "headings",
+    "title": "Headings",
+    "description": "Headings provide structure and natural segmentation to your content and are an important semantic device for understanding the structure of a page."
+  },
+  {
+    "slug": "text",
+    "title": "Text",
+    "description": "In virtually every interface, displaying information via text is the core feature–and doing this semantically can require many different elements."
+  },
+  {
+    "slug": "links-buttons",
+    "title": "Links and buttons",
+    "description": "Link and button tags are used to perform actions by interface actors. However, they are semantically different and should be chosen based on separate requirements."
+  },
+  {
+    "slug": "sizing-type",
+    "title": "Sizing type",
+    "description": "There are many different units that can be used to size and constrain type–from static pixels to typographic units based on characters in the typeface."
+  },
+  {
+    "slug": "tracking-leading",
+    "title": "Tracking and leading",
+    "description": "Also known as letter spacing and line height—tracking and leading values are the kinds of details that (when applied correctly) take interface typography to the next level."
+  },
+  {
+    "slug": "text-overflow",
+    "title": "Text overflow",
+    "description": "Real content almost always breaks typographic layouts in static designs. Setting guards using text overflow properties helps keep things looking consistent."
+  },
+  {
+    "slug": "custom-typefaces",
+    "title": "Custom typefaces",
+    "description": "It’s common for interfaces to use custom typefaces for branding and conveying a certain mood but they come at a cost. Avoid long load times and text shifting with these strategies."
+  },
+  {
+    "slug": "internationalization",
+    "title": "Internationalization",
+    "description": "True internationalization requires different content provided in different languages, but there are some easy to follow rules to ensure interfaces look their best everywhere."
+  }
+]

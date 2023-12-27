@@ -69,7 +69,8 @@
   :global(
       .component--text h2 > code,
       .component--text h3 > code,
-      .component--text p > code
+      .component--text p > code,
+      .component--text li > code
     ) {
     background-color: color-mix(in srgb, var(--color-gray-300), white 70%);
     color: var(--color-gray-800);

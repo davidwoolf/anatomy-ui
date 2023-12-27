@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Encoding",
+    "file": "encoding.md"
+  },
+  {
+    "title": "Text direction and orientation",
+    "file": "direction.md"
+  },
+  {
+    "title": "Multiple language support",
+    "file": "multiple-languages.md"
+  }
+]
