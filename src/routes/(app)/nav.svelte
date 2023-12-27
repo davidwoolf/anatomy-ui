@@ -70,24 +70,9 @@
 
     <Separator />
 
-    <div>
+    <a data-sveltekit-reload href="/foundations/color-light/spaces-gamuts">
       Color and light
-      <span class="coming-soon">Coming soon</span>
-    </div>
-
-    <Separator />
-
-    <div>
-      Animation
-      <span class="coming-soon">Coming soon</span>
-    </div>
-
-    <Separator />
-
-    <div>
-      Media
-      <span class="coming-soon">Coming soon</span>
-    </div>
+    </a>
 
     <Separator />
 
@@ -107,6 +92,20 @@
 
     <div>
       Extras
+      <span class="coming-soon">Coming soon</span>
+    </div>
+
+    <Separator />
+
+    <div>
+      Animation
+      <span class="coming-soon">Coming soon</span>
+    </div>
+
+    <Separator />
+
+    <div>
+      Media
       <span class="coming-soon">Coming soon</span>
     </div>
   </nav>

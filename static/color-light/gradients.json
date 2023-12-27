@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Linear gradients",
+    "file": "linear-gradients.md"
+  },
+  {
+    "title": "Radial gradients",
+    "file": "radial-gradients.md"
+  },
+  {
+    "title": "Conic gradients",
+    "file": "conic-gradients.md"
+  },
+  {
+    "title": "Repeating gradients",
+    "file": "repeating-gradients.md"
+  },
+  {
+    "title": "Multiple gradients",
+    "file": "multiple-gradients.md"
+  },
+  {
+    "title": "Gradients and color spaces",
+    "file": "color-spaces.md"
+  }
+]

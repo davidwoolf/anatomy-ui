@@ -1,0 +1,1 @@
+Short and long hue calculations take the polar space color value’s angle on the color wheel and finds the shortest or longest route, either in a clockwise or counter-clockwise direction.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/hue-interpolation-method#shorter)

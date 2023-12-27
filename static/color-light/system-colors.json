@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Current color",
+    "file": "current-color.md"
+  },
+  {
+    "title": "System keywords",
+    "file": "system-colors.md"
+  },
+  {
+    "title": "Color scheme preferences",
+    "file": "system-preferences.md"
+  }
+]

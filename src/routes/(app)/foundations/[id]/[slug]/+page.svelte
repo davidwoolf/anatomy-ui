@@ -101,7 +101,7 @@
         link: "/foundations",
       },
       {
-        label: data.id,
+        label: data.id.replaceAll("-", " "),
         link: "/foundations",
       },
       {
@@ -205,8 +205,9 @@
           <a
             class="report-issue"
             target="_blank"
-            href={`https://github.com/davidwoolf/anatomy-everyday-ui-site/issues/new?title=${getTitle()}&body=${getDescription()}&labels=documentation`}
-            >report issue</a>
+            href={`https://github.com/davidwoolf/anatomy-everyday-ui-site/issues/new?title=${getTitle()}&body=${getDescription()}&labels=documentation`}>
+            report issue
+          </a>
         </Column>
       </Grid>
     </svelte:fragment>
