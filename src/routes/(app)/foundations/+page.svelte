@@ -72,32 +72,21 @@
 
     <Column column="5" span="12">
       <Text>
-        <p>Coming soon</p>
+        <p>
+          Color and light provide personality, depth, and tactility to interfaces. With
+          multiple color spaces, powerful gradient and composition filter functions,
+          element shadows, and inter-color interactions, the possibilities for color on
+          the web are now endless.
+        </p>
       </Text>
-    </Column>
 
-    <Separator />
-
-    <Column column="1" span="3">
-      <Heading>Animation</Heading>
-    </Column>
-
-    <Column column="5" span="12">
-      <Text>
-        <p>Coming soon</p>
-      </Text>
-    </Column>
-
-    <Separator />
-
-    <Column column="1" span="3">
-      <Heading>Media</Heading>
-    </Column>
-
-    <Column column="5" span="12">
-      <Text>
-        <p>Coming soon</p>
-      </Text>
+      <ul class="nav">
+        {#each data["color-light"] as section}
+          <li>
+            <a href="/foundations/color-light/{section.slug}">{section.title}</a>
+          </li>
+        {/each}
+      </ul>
     </Column>
 
     <Separator />
@@ -128,6 +117,30 @@
 
     <Column column="1" span="3">
       <Heading>Extras</Heading>
+    </Column>
+
+    <Column column="5" span="12">
+      <Text>
+        <p>Coming soon</p>
+      </Text>
+    </Column>
+
+    <Separator />
+
+    <Column column="1" span="3">
+      <Heading>Animation</Heading>
+    </Column>
+
+    <Column column="5" span="12">
+      <Text>
+        <p>Coming soon</p>
+      </Text>
+    </Column>
+
+    <Separator />
+
+    <Column column="1" span="3">
+      <Heading>Media</Heading>
     </Column>
 
     <Column column="5" span="12">

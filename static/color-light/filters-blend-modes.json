@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Filters",
+    "file": "filters.md"
+  },
+  {
+    "title": "Animation and interpolation",
+    "file": "animation.md"
+  },
+  {
+    "title": "Backdrop filters",
+    "file": "backdrop-filters.md"
+  },
+  {
+    "title": "Blend modes",
+    "file": "blend-modes.md"
+  }
+]

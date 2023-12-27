@@ -67,10 +67,10 @@
   }
 
   :global(
-      .component--text h2 > code,
-      .component--text h3 > code,
-      .component--text p > code,
-      .component--text li > code
+      .component--text h2 code,
+      .component--text h3 code,
+      .component--text p code,
+      .component--text li code
     ) {
     background-color: color-mix(in srgb, var(--color-gray-300), white 70%);
     color: var(--color-gray-800);
@@ -108,7 +108,7 @@
     color: color-mix(in srgb, var(--color-gray-300), black 20%);
   }
 
-  :global(.hljs-title, .hljs-string) {
+  :global(.hljs-title, .hljs-string, .hljs-built_in) {
     color: var(--color-purple-400);
   }
 

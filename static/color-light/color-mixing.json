@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Mixing colors",
+    "file": "mixing-colors.md"
+  },
+  {
+    "title": "Percentage values",
+    "file": "percentage-values.md"
+  },
+  {
+    "title": "Alpha channels",
+    "file": "alpha-channels.md"
+  }
+]
