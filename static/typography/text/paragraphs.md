@@ -1,0 +1,1 @@
+The `<p>` tag is a block level element that encompasses a run of any length of text and can include links, images, break lines, and more.[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) Avoid using blank `<p>` elements for spacing as screen readers will announce the element.

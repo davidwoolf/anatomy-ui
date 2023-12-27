@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Trimming single line text",
+    "file": "single-line.md"
+  },
+  {
+    "title": "Trimming multiple lines of text",
+    "file": "multiple-lines.md"
+  }
+]

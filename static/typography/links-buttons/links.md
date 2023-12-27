@@ -1,0 +1,1 @@
+When creating links to other pages (or sections within the same page), use the `<a>` tag. While it’s common to extend this tag with JavaScript to perform an animation or load in content without reloading the page, if the action is navigation based, it’s best to stick with `<a>` (and ensure those navigation actions still work without JavaScript).
