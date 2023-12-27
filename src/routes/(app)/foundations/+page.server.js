@@ -15,7 +15,7 @@ export async function load({ fetch }) {
   /** @type {Record<string, Section[]>} */
   let data = {};
 
-  sections.forEach(async (section) => {
+  for (const section of sections) {
     const res = await fetch(`/${section}/sections.json`);
 
     if (res.status === 404) {
@@ -36,7 +36,7 @@ export async function load({ fetch }) {
 
       return true;
     });
-  });
+  }
 
   return data;
 }
