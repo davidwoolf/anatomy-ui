@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "title": "Types of buttons",
+    "file": "types.md"
+  },
+  {
+    "title": "Form submissions",
+    "file": "submit.md"
+  },
+  {
+    "title": "Form validation",
+    "file": "validation.md"
+  },
+  {
+    "title": "Content restrictions",
+    "file": "content-restrictions.md"
+  },
+  {
+    "title": "Styling and interactivity",
+    "sections": [
+      {
+        "title": "Strategies",
+        "text": "The `all: unset` property overrides an element’s implicitly, explicitly, and inherited styles, completely removing any button styling included from the operating system, browser, or document styles (this includes focus states). \n\nAlternaltively, the `appearance: none` property will remove core operating system button styling, but generally keep padding, backgrounds, borders, and focus states."
+      },
+      {
+        "title": "Focus state",
+        "text": "Buttons should include an outline when focused via a keyboard. When using `all: unset`, default focus states can be re-added by including `outline: revert` _after_ `all: unset`.\n\nAdditionally, custom outlines can be added using the `:focus-visible` pseudo selector to prevent them from being shown when a button is clicked by a mouse."
+      },
+      {
+        "title": "Affordances",
+        "text": "By default, buttons do not use `cursor: pointer` on mouse over as links do. The reasoning is that links generally have weak affordance when compared to buttons. However, for buttons that have weak affordance (where the design cannot be changed), adding `cursor: pointer` is recommended."
+      }
+    ]
+  },
+  {
+    "title": "Omitting labels",
+    "file": "missing-text.md"
+  },
+  {
+    "title": "Disabled states",
+    "file": "disabled-states.md"
+  },
+  {
+    "title": "Stateful buttons",
+    "file": "stateful.md"
+  },
+  {
+    "title": "Custom elements",
+    "file": "custom-elements.md"
+  }
+]

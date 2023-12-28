@@ -1,0 +1,3 @@
+Only submit buttons can trigger a form's validation process. This is referred to as "constraint validation" in the [W3C working draft](https://www.w3.org/TR/2011/WD-html5-20110525/association-of-controls-and-forms.html#barred-from-constraint-validation). This means other buttons within a form will not inadvertently trigger form validation for child fields.
+
+Additionally, the `formnovalidate` boolean attribute can be added to control whether form validation happens or not. However, if the button's parent `<form>` tag includes a `novalidate` attribute and the button includes `formnovalidate="false"`, validation will still be skipped. This can be confusing since other `form*` attributes on the submit button *will* override the parent `<form>` value of the same type.

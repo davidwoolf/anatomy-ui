@@ -109,9 +109,11 @@
             <a href="/foundations/forms/{section.slug}">{section.title}</a>
           </li>
         {/each}
-
-        <li>more coming soon</li>
       </ul>
+
+      <Text>
+        <p>more coming soon</p>
+      </Text>
     </Column>
 
     <Separator />
@@ -134,9 +136,11 @@
             <a href="/foundations/sizing/{section.slug}">{section.title}</a>
           </li>
         {/each}
-
-        <li>more coming soon</li>
       </ul>
+
+      <Text>
+        <p>more coming soon</p>
+      </Text>
     </Column>
 
     <Separator />
