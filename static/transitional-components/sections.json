@@ -2,7 +2,7 @@
   {
     "slug": "dialogs",
     "title": "Dialogs",
-    "description": "Dialogs can refer to either a concept (like modals and popovers), the dialog element, or a pattern implementable with HTML, CSS, and Javascript."
+    "description": "Dialogs are an overarching concept that can be narrowed to modals and popovers. Additionally, a dialog element exists to abstract common patterns usually implemented with a combination of HTML, CSS, and Javascript."
   },
   {
     "slug": "modals",

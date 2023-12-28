@@ -119,6 +119,7 @@
     font-size: 0.875em;
     font-weight: 600;
     padding: 0.125rem;
+    white-space: nowrap;
   }
 
   :global(.component--text pre) {
