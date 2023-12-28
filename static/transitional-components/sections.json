@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "dialogs",
+    "title": "Dialogs",
+    "description": "Dialogs can refer to either a concept (like modals and popovers), the dialog element, or a pattern implementable with HTML, CSS, and Javascript."
+  },
+  {
+    "slug": "modals",
+    "title": "Modals",
+    "description": ""
+  },
+  {
+    "slug": "popovers",
+    "title": "Popovers",
+    "description": ""
+  },
+  {
+    "slug": "menus",
+    "title": "Menus",
+    "description": ""
+  },
+  {
+    "slug": "tooltips",
+    "title": "Tooltips",
+    "description": ""
+  },
+  {
+    "slug": "disclosures-accordions",
+    "title": "Disclosures and accordions",
+    "description": ""
+  }
+]

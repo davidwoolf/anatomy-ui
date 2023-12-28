@@ -76,24 +76,16 @@
 
     <Separator />
 
-    <div>
-      Forms
-      <span class="coming-soon">Coming soon</span>
-    </div>
+    <a data-sveltekit-reload href="/foundations/forms/buttons">Forms</a>
 
     <Separator />
 
-    <div>
-      Sizing
-      <span class="coming-soon">Coming soon</span>
-    </div>
-
+    <a data-sveltekit-reload href="/foundations/sizing/viewport-units">Sizing</a>
     <Separator />
 
-    <div>
-      Extras
-      <span class="coming-soon">Coming soon</span>
-    </div>
+    <a data-sveltekit-reload href="/foundations/transitional-components/dialogs">
+      Transitional components
+    </a>
 
     <Separator />
 

@@ -2,7 +2,14 @@ import { error } from "@sveltejs/kit";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
-  const sections = ["layout", "typography", "color-light"];
+  const sections = [
+    "layout",
+    "typography",
+    "color-light",
+    "forms",
+    "sizing",
+    "transitional-components",
+  ];
 
   /**
    * @typedef {Object} Section
