@@ -3,73 +3,6 @@
   import type { PageData } from "./$types";
   export let data: PageData;
 
-  const examples = {
-    "aspect-ratios": {
-      formatting: import("@examples/layout/aspect-ratio/formatting.svelte"),
-      "width-height": import("@examples/layout/aspect-ratio/width-height.svelte"),
-      "min-max": import("@examples/layout/aspect-ratio/min-max.svelte"),
-      flex: import("@examples/layout/aspect-ratio/flex.svelte"),
-    },
-    "separating-concerns": {
-      "separating-concerns": import("@examples/layout/separating-concerns.svelte"),
-    },
-    "layout-shift": {
-      "media-embeds": import("@examples/layout/layout-shift/media-embeds.svelte"),
-      animation: import("@examples/layout/layout-shift/animation.svelte"),
-    },
-    "block-inline-axes": {
-      "block-inline-axes": import("@examples/layout/block-inline-axes.svelte"),
-    },
-    "box-sizing": {
-      "box-sizing": import("@examples/layout/box-sizing.svelte"),
-    },
-    "display-modes": {
-      "display-modes": import("@examples/layout/display-modes.svelte"),
-    },
-    dimensions: {
-      bounds: import("@examples/layout/dimensions/bounds.svelte"),
-      "max-content": import("@examples/layout/dimensions/max-content.svelte"),
-      "min-content": import("@examples/layout/dimensions/min-content.svelte"),
-      "fit-content": import("@examples/layout/dimensions/fit-content.svelte"),
-    },
-    spacing: {
-      padding: import("@examples/layout/spacing/padding.svelte"),
-      margin: import("@examples/layout/spacing/margin.svelte"),
-      gap: import("@examples/layout/spacing/gap.svelte"),
-    },
-    position: {
-      "static-relative-absolute": import(
-        "@examples/layout/position/static-relative-absolute.svelte"
-      ),
-      "fixed-sticky": import("@examples/layout/position/fixed-sticky.svelte"),
-      "stacking-rules": import("@examples/layout/position/stacking-rules.svelte"),
-    },
-    "flexible-layout": {
-      constraints: import("@examples/layout/flex/constraints.svelte"),
-      basis: import("@examples/layout/flex/basis.svelte"),
-      grow: import("@examples/layout/flex/grow.svelte"),
-      shrink: import("@examples/layout/flex/shrink.svelte"),
-      push: import("@examples/layout/flex/push.svelte"),
-    },
-    "grid-layout": {
-      "explicit-tracks": import("@examples/layout/grid/explicit-tracks.svelte"),
-      "implicit-tracks": import("@examples/layout/grid/implicit-tracks.svelte"),
-      "flexible-units": import("@examples/layout/grid/flexible-units.svelte"),
-      keywords: import("@examples/layout/grid/keywords.svelte"),
-      repeat: import("@examples/layout/grid/repeat.svelte"),
-      span: import("@examples/layout/grid/span.svelte"),
-      area: import("@examples/layout/grid/area.svelte"),
-      "excluded-area": import("@examples/layout/grid/excluded-area.svelte"),
-      "span-areas": import("@examples/layout/grid/span-areas.svelte"),
-    },
-    text: {
-      "emphasis-importance": import("@examples/text/emphasis-importance.svelte"),
-      lists: import("@examples/text/lists.svelte"),
-      labels: import("@examples/text/labels.svelte"),
-      "address-time": import("@examples/text/address-time.svelte"),
-    },
-  };
-
   // layout
   import Title from "@components/title.svelte";
   import Description from "@components/description.svelte";
@@ -83,6 +16,7 @@
   import Box from "@components/box.svelte";
   import Spacer from "@components/grid/spacer.svelte";
   import Breadcrumbs from "@components/breadcrumbs.svelte";
+  import Component from "@components/component.svelte";
 
   function getTitle() {
     return `[Foundations] Issue with page: "${data.title}"`;
@@ -156,11 +90,8 @@
 
             {#if row.component}
               <Spacer />
-              {#await examples[data.slug][row.component] then module}
-                {#if module}
-                  <svelte:component this={module.default} />
-                {/if}
-              {/await}
+
+              <Component name={row.component} path={data.id} id={data.slug} />
             {/if}
           </Column>
 
@@ -185,13 +116,7 @@
 
                 <Column column={index % 2 === 0 ? "1" : "5"} span="8">
                   {#if section.component}
-                    {#await examples[data.slug][section.component] then module}
-                      {#if module}
-                        <svelte:component this={module.default} />
-                      {/if}
-                    {:catch}
-                      <p style="color: red">Cannot find example</p>
-                    {/await}
+                    <Component name={section.component} path={data.id} id={data.slug} />
                   {/if}
                 </Column>
               </Row>

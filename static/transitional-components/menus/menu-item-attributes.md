@@ -1,0 +1,1 @@
+Items in the menu list itself should include either `role="menuitem"`, `role="menuitemcheckbox"`, or `role="menuitemradio"` depending on what the item does. For a binary state (checked or unchecked) use the `menuitemcheckbox` value. For a list of options where one is valid and required, use the `menuitemradio` value.

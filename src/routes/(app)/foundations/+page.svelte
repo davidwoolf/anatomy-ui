@@ -97,7 +97,22 @@
 
     <Column column="5" span="12">
       <Text>
-        <p>Coming soon</p>
+        <p>
+          Forms are the core feature set that separates static sites from interactive
+          applications–if implemented correctly.
+        </p>
+      </Text>
+
+      <ul class="nav">
+        {#each data["forms"] as section}
+          <li>
+            <a href="/foundations/forms/{section.slug}">{section.title}</a>
+          </li>
+        {/each}
+      </ul>
+
+      <Text>
+        <p>more coming soon</p>
       </Text>
     </Column>
 
@@ -109,20 +124,49 @@
 
     <Column column="5" span="12">
       <Text>
-        <p>Coming soon</p>
+        <p>
+          Sizing elements, components, and entire pages can seem a daunting task on the
+          web–and many units, functions, and ratio values exist to help do just that.
+        </p>
+      </Text>
+
+      <ul class="nav">
+        {#each data["sizing"] as section}
+          <li>
+            <a href="/foundations/sizing/{section.slug}">{section.title}</a>
+          </li>
+        {/each}
+      </ul>
+
+      <Text>
+        <p>more coming soon</p>
       </Text>
     </Column>
 
     <Separator />
 
     <Column column="1" span="3">
-      <Heading>Extras</Heading>
+      <Heading>Transitional components</Heading>
     </Column>
 
     <Column column="5" span="12">
       <Text>
-        <p>Coming soon</p>
+        <p>
+          Transitional components are a common interaction pattern, but are usually hard
+          to implement correctly while accounting for flexible design systems and
+          accessibility concerns.
+        </p>
       </Text>
+
+      <ul class="nav">
+        {#each data["transitional-components"] as section}
+          <li>
+            <a href="/foundations/transitional-components/{section.slug}">
+              {section.title}
+            </a>
+          </li>
+        {/each}
+      </ul>
     </Column>
 
     <Separator />

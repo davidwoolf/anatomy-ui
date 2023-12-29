@@ -19,12 +19,48 @@
     text-wrap: balance;
   }
 
-  :global(.component--text p, .component--text ul, .component--text ol) {
+  :global(
+      .component--text p,
+      .component--text li,
+      .component--text th,
+      .component--text td
+    ) {
     color: color-mix(in srgb, var(--color-gray-800), white 30%);
     font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 145%;
-    max-width: 65ch;
+    max-inline-size: 65ch;
+  }
+
+  :global(.component--text table) {
+    background-color: white;
+    border: 1px solid color-mix(in srgb, var(--color-gray-300), white 60%);
+    box-shadow: 0 1px 2px 0px rgba(151, 71, 255, 0.12);
+    border-collapse: separate;
+    border-radius: 0.5rem;
+    inline-size: 100%;
+    table-layout: auto;
+    text-align: left;
+  }
+
+  :global(.component--text th, .component--text td) {
+    border-block-end: 1px solid color-mix(in srgb, var(--color-gray-300), white 60%);
+    color: color-mix(in srgb, var(--color-gray-800), white 30%);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    line-height: 145%;
+    padding: 0.5rem;
+    max-inline-size: 65ch;
+    vertical-align: baseline;
+  }
+
+  :global(.component--text th) {
+    color: var(--color-gray-800);
+    font-weight: 600;
+  }
+
+  :global(.component--text tbody tr:last-child td) {
+    border-block-end: none;
   }
 
   :global(.component--text ul, .component--text ol) {
@@ -39,15 +75,18 @@
     content: "– ";
   }
 
-  :global(.component--text h2 + p, .component--text h3 + p) {
+  /* all headings followed by block level content */
+  :global(.component--text :not(ul, ol, table, p) + :not(h2, h3)) {
     margin-block-start: 0.5rem;
   }
 
-  :global(.component--text p + h2, .component--text p + h3) {
+  /* all block level content followed by headings */
+  :global(.component--text :not(h2, h3) + :not(ul, ol, table, p)) {
     margin-block-start: 1.25rem;
   }
 
-  :global(.component--text p + p) {
+  /* all block level content followed by block level content */
+  :global(.component--text :not(h2, h3) + :not(h2, h3)) {
     margin-block-start: 0.75rem;
   }
 
@@ -70,7 +109,8 @@
       .component--text h2 code,
       .component--text h3 code,
       .component--text p code,
-      .component--text li code
+      .component--text li code,
+      .component--text td code
     ) {
     background-color: color-mix(in srgb, var(--color-gray-300), white 70%);
     color: var(--color-gray-800);
@@ -79,6 +119,7 @@
     font-size: 0.875em;
     font-weight: 600;
     padding: 0.125rem;
+    white-space: nowrap;
   }
 
   :global(.component--text pre) {
@@ -93,7 +134,7 @@
     margin: 0.75rem 0;
     padding: 1.5rem;
     overflow: scroll;
-    width: 100%;
+    inline-size: 100%;
   }
 
   :global(.hljs-tag, .hljs-keyword, .hljs-built_in, .hljs-params) {
@@ -117,12 +158,7 @@
       font-size: var(--font-size-xl);
     }
 
-    :global(
-        .component--text h3,
-        .component--text p,
-        .component--text ul,
-        .component--text ol
-      ) {
+    :global(.component--text h3, .component--text p, .component--text li) {
       font-size: var(--font-size-lg);
     }
   }

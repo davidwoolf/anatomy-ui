@@ -4,6 +4,8 @@
 
   /** @type {HTMLDialogElement} */
   let panel;
+  /** @type {HTMLDivElement} */
+  let container;
   let expanded = false;
 
   function openPanel() {
@@ -12,14 +14,40 @@
     document.body.style.overflow = "hidden";
   }
 
+  /**
+   * This doesn't actually close the panel, but
+   * kicks off a close animation which will call the dialog's .close()
+   * function in the `container.addEventListener("animationend")` call below
+   */
   function closePanel() {
-    panel.close();
+    expanded = false;
   }
 
   onMount(function () {
+    panel.addEventListener("click", (e) => {
+      /**
+       * enables dismissal when clicking the backdrop, which is technically
+       * a part of the dialog itself. A sub container contains the styling of the "panel"
+       * and clicking inside causes this logic to be false
+       */
+      if (e.target === panel) {
+        expanded = false;
+      }
+    });
+
+    /**
+     * The close function is called on escape and on the
+     * containers `animationend`
+     */
     panel.addEventListener("close", () => {
       expanded = false;
       document.body.style.overflow = "auto";
+    });
+
+    container.addEventListener("animationend", () => {
+      if (!expanded) {
+        panel.close();
+      }
     });
   });
 </script>
@@ -46,100 +74,107 @@
   </svg>
 </button>
 
-<dialog id="site-navigation" class="hidden" bind:this={panel}>
-  <button class="close-menu" on:click={closePanel} aria-label="Close site navigation">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none">
-      <path
-        d="M1 1L13 13M13 1L1 13"
-        stroke="#0F172A"
-        stroke-width="1.5"
-        stroke-linecap="round" />
-    </svg>
-  </button>
-  <nav class="menu">
-    <a data-sveltekit-reload href="/foundations/layout/semantic-elements">Layout</a>
+<dialog id="site-navigation" bind:this={panel}>
+  <div
+    class="container"
+    bind:this={container}
+    style:animation-name={expanded ? "slideIn" : "slideOut"}
+    style:animation-duration={expanded ? "0.6s" : "0.4s"}
+    style:animation-timing-function={expanded ? "cubic-bezier(0.25, 1, 0.5, 1)" : "ease"}>
+    <button class="close-menu" on:click={closePanel} aria-label="Close site navigation">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none">
+        <path
+          d="M1 1L13 13M13 1L1 13"
+          stroke="#0F172A"
+          stroke-width="1.5"
+          stroke-linecap="round" />
+      </svg>
+    </button>
+    <nav class="menu">
+      <a data-sveltekit-reload href="/foundations/layout/semantic-elements">Layout</a>
 
-    <Separator />
+      <Separator />
 
-    <a data-sveltekit-reload href="/foundations/typography/headings">Typography</a>
+      <a data-sveltekit-reload href="/foundations/typography/headings">Typography</a>
 
-    <Separator />
+      <Separator />
 
-    <a data-sveltekit-reload href="/foundations/color-light/spaces-gamuts">
-      Color and light
-    </a>
+      <a data-sveltekit-reload href="/foundations/color-light/spaces-gamuts">
+        Color and light
+      </a>
 
-    <Separator />
+      <Separator />
 
-    <div>
-      Forms
-      <span class="coming-soon">Coming soon</span>
-    </div>
+      <a data-sveltekit-reload href="/foundations/forms/buttons">Forms</a>
 
-    <Separator />
+      <Separator />
 
-    <div>
-      Sizing
-      <span class="coming-soon">Coming soon</span>
-    </div>
+      <a data-sveltekit-reload href="/foundations/sizing/viewport-units">Sizing</a>
+      <Separator />
 
-    <Separator />
+      <a data-sveltekit-reload href="/foundations/transitional-components/dialogs">
+        Transitional components
+      </a>
 
-    <div>
-      Extras
-      <span class="coming-soon">Coming soon</span>
-    </div>
+      <Separator />
 
-    <Separator />
+      <div>
+        Animation
+        <span class="coming-soon">Coming soon</span>
+      </div>
 
-    <div>
-      Animation
-      <span class="coming-soon">Coming soon</span>
-    </div>
+      <Separator />
 
-    <Separator />
-
-    <div>
-      Media
-      <span class="coming-soon">Coming soon</span>
-    </div>
-  </nav>
+      <div>
+        Media
+        <span class="coming-soon">Coming soon</span>
+      </div>
+    </nav>
+  </div>
 </dialog>
 
 <style>
   dialog {
     /* resets */
-    max-height: unset;
-    max-width: unset;
-    /* styles */
-    animation: slideIn;
-    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-    animation-iteration-count: 1;
-    animation-duration: 0.6s;
-    animation-fill-mode: forwards;
-    background-color: white;
-    box-shadow: -1px 0px 26px -7px rgba(15, 23, 42, 0.15);
-    height: 100dvh;
-    overflow: scroll;
-    margin: 0 0 0 auto;
-    padding: 2rem;
-    transform: translateX(100%);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    max-width: 90vw;
-    width: 30rem;
+    background-color: unset;
+    block-size: 100vh;
+    inline-size: 100vw;
+    inset: 0;
+    margin: 0;
+    overflow: hidden;
+    max-block-size: unset;
+    max-inline-size: unset;
+    padding: 0;
   }
 
   dialog::backdrop {
-    animation: fadeIn;
+    animation-name: fadeIn;
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
+  }
+
+  .container {
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: white;
+    box-shadow: -1px 0px 26px -7px rgba(15, 23, 42, 0.15);
+    height: 100dvh;
+    position: absolute;
+    right: 0;
+    max-width: 90vw;
+    overflow: scroll;
+    padding: 2rem;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 30rem;
   }
 
   nav {
@@ -191,7 +226,7 @@
   }
 
   @media (min-width: 768px) {
-    dialog {
+    .container {
       padding: 3rem;
     }
 
@@ -208,16 +243,6 @@
 
     to {
       opacity: 1s;
-    }
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-    }
-
-    to {
-      transform: translateX(0);
     }
   }
 </style>

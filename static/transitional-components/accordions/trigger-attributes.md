@@ -1,0 +1,3 @@
+The trigger element that controls opening the accordion item (in this case, a button) should include the `aria-controls="accordion-content-id"` attributes (where “accordion-content-1” matches the `id` attribute on the dialog itself) along with the `aria-expanded` attribute, which should be set to `true` or `false` depending on if the accordion item is open or not.
+
+The trigger should conform to the button role by using a standard `<button>` or an element with `role="button"`.[citation](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/) Additionally, the button should be wrapped in an appropriate heading element.

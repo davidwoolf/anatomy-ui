@@ -1,0 +1,1 @@
+For contextual menus, the trigger that controls opening the menu should include the `aria-haspopup="menu"` and `aria-controls="menu-id"` attributes (where “menu-id” matches the `id` attribute on the menu itself). In addition, the `aria-expanded` attribute should be set to `true` or `false` depending on if the menu is open or not.
