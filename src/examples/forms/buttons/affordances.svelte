@@ -2,9 +2,6 @@
   import Example from "@components/example.svelte";
   import CSSEditor from "@components/css-editor.svelte";
 
-  /** @type {HTMLButtonElement} */
-  let button;
-
   let code = [
     {
       selector: "button",
@@ -23,7 +20,7 @@
 <Example>
   <svelte:fragment slot="preview">
     <div class="container">
-      <button bind:this={button} style:cursor={code[0].value[0].value}>button</button>
+      <button style:cursor={code[0].value[0].value}>button</button>
     </div>
   </svelte:fragment>
   <svelte:fragment slot="controls">

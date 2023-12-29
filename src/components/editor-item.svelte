@@ -14,7 +14,7 @@
   label {
     align-items: baseline;
     display: flex;
-    flex-wrap: wrap;
+
     padding-inline-start: 1rem;
   }
 

@@ -161,10 +161,8 @@
   }
 
   .container {
-    animation-duration: 0.6s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     background-color: white;
     box-shadow: -1px 0px 26px -7px rgba(15, 23, 42, 0.15);
     height: 100dvh;

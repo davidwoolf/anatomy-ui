@@ -54,6 +54,7 @@
     .container {
       border-radius: 0.75rem;
       border: 1px solid rgba(198, 198, 231, 0.5);
+      box-shadow: 0 1px 2px 0px rgba(151, 71, 255, 0.12);
       margin-inline: 0;
     }
 

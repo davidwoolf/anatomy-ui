@@ -84,7 +84,16 @@
         affordances: import("@examples/forms/buttons/affordances.svelte"),
       },
     },
-    "color-light": {},
+    "color-light": {
+      gradients: {
+        "repeating-functions": import(
+          "@examples/color-light/gradients/repeating-functions.svelte"
+        ),
+        "repeating-tiling": import(
+          "@examples/color-light/gradients/repeating-tiling.svelte"
+        ),
+      },
+    },
     "transitional-components": {},
     sizing: {},
   };
