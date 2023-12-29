@@ -13,7 +13,19 @@
   },
   {
     "title": "Repeating gradients",
-    "file": "repeating-gradients.md"
+    "file": "repeating-gradients.md",
+    "sections": [
+      {
+        "title": "Repeating functions",
+        "text": "The power of the `repeating-*` functions is that they doesn’t tile the computed gradient, they extend out until the entire image area is filled. The tricky part is that, if your initial gradient values fill the image area, nothing will repeat.",
+        "component": "repeating-functions"
+      },
+      {
+        "title": "Tiling",
+        "text": "Gradients are simply computed images that (when applied as a background) can be controlled with all existing CSS background properties. Just like any other time you use `background-repeat`, you’re creating a tiling effect. And since repeating gradients are also computed images, you can combine both functions and tiling together for some interesting affects.",
+        "component": "repeating-tiling"
+      }
+    ]
   },
   {
     "title": "Multiple gradients",
