@@ -17,18 +17,22 @@
   },
   {
     "title": "Styling and interactivity",
+    "file": "styling.md",
     "sections": [
       {
-        "title": "Strategies",
-        "text": "The `all: unset` property overrides an element’s implicitly, explicitly, and inherited styles, completely removing any button styling included from the operating system, browser, or document styles (this includes focus states). \n\nAlternaltively, the `appearance: none` property will remove core operating system button styling, but generally keep padding, backgrounds, borders, and focus states."
+        "title": "Resetting styles",
+        "text": "The `all` property can remove or re-apply an element’s implicitly, explicitly, and/or inherited styles from the operating system and browser (this includes focus states). \n\nAdditionally, the `appearance: none` property's value will remove core operating system button styling, but generally keep padding, backgrounds, borders, and focus states.",
+        "component": "strategies"
       },
       {
         "title": "Focus state",
-        "text": "Buttons should include an outline when focused via a keyboard. When using `all: unset`, default focus states can be re-added by including `outline: revert` _after_ `all: unset`.\n\nAdditionally, custom outlines can be added using the `:focus-visible` pseudo selector to prevent them from being shown when a button is clicked by a mouse."
+        "text": "Buttons should include an outline when focused via a keyboard. When using `all: unset`, default focus states can be re-added by including `outline: revert` _after_ `all: unset`.\n\nAdditionally, custom outlines can be added using the `:focus-visible` pseudo selector to prevent them from being shown when a button is clicked by a mouse.",
+        "component": "focus-state"
       },
       {
         "title": "Affordances",
-        "text": "By default, buttons do not use `cursor: pointer` on mouse over as links do. The reasoning is that links generally have weak affordance when compared to buttons. However, for buttons that have weak affordance (where the design cannot be changed), adding `cursor: pointer` is recommended."
+        "text": "By default, buttons do not use `cursor: pointer` on mouse over as links do. The reasoning is that links generally have weak affordance when compared to buttons. However, for buttons that have weak affordance (where the design cannot be changed), adding `cursor: pointer` is recommended.",
+        "component": "affordances"
       }
     ]
   },
@@ -41,8 +45,12 @@
     "file": "disabled-states.md"
   },
   {
-    "title": "Stateful buttons",
-    "file": "stateful.md"
+    "title": "Popups",
+    "file": "popups.md"
+  },
+  {
+    "title": "Toggles",
+    "file": "toggles.md"
   },
   {
     "title": "Custom elements",

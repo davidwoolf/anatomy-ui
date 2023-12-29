@@ -100,7 +100,9 @@
               on:input={(e) => {
                 // @ts-expect-error
                 handleInput(e.target.value, item.selector, value.property);
-              }}>{value.value}</textarea>
+              }}>
+              {value.value}
+            </textarea>
           {:else if value.type === "select"}
             <div class="select" style:width="{value.value.length * 9 + 16}px">
               <select
@@ -178,7 +180,6 @@
     font-size: inherit;
     line-height: 145%;
     outline: none;
-    /* margin-block-start: 0.225rem; */
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-color: var(--color-gray-300);
@@ -191,6 +192,7 @@
   textarea:hover,
   textarea:focus-visible {
     color: var(--color-purple-400);
+    outline: revert;
   }
 
   textarea {
@@ -226,6 +228,10 @@
     overflow: hidden;
     outline: none;
     padding: 0 1rem 0 0;
+  }
+
+  .select select:focus-visible {
+    outline: revert;
   }
 
   .select svg {
