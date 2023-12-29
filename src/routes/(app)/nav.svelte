@@ -14,18 +14,31 @@
     document.body.style.overflow = "hidden";
   }
 
+  /**
+   * This doesn't actually close the panel, but
+   * kicks off a close animation which will call the dialog's .close()
+   * function in the `container.addEventListener("animationend")` call below
+   */
   function closePanel() {
     expanded = false;
-    // panel.close();
   }
 
   onMount(function () {
     panel.addEventListener("click", (e) => {
+      /**
+       * enables dismissal when clicking the backdrop, which is technically
+       * a part of the dialog itself. A sub container contains the styling of the "panel"
+       * and clicking inside causes this logic to be false
+       */
       if (e.target === panel) {
         expanded = false;
       }
     });
 
+    /**
+     * The close function is called on escape and on the
+     * containers `animationend`
+     */
     panel.addEventListener("close", () => {
       expanded = false;
       document.body.style.overflow = "auto";
@@ -37,10 +50,6 @@
       }
     });
   });
-
-  $: {
-    console.log(expanded);
-  }
 </script>
 
 <button
