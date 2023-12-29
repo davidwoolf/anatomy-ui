@@ -1,0 +1,1 @@
+Each panel containing the tab’s contents should include the `role="tabpanel"` attribute, an `aria-labelledby` value pointing to the id of the related tab navigation button, and a `tabindex` of `0` if the tab is active or `-1` if the tab is inactive. Additionally, the `hidden` attribute should be set to `true` or `false` based on the same parameters as `tabindex`

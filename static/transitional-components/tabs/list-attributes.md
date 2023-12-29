@@ -1,0 +1,1 @@
+The container of tabs should include the `role="tablist"` attribute, along with an `aria-orientation` attribute containing either `vertical` or `horizontal`, depending on the layout of tabs (see the interactivity section for why this matters). An additional `aria-label` describing the overall purpose of the set of tabs is recommended.

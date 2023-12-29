@@ -1,0 +1,1 @@
+The modal itself should include the `aria-labelledby` and `aria-describedby` attributes, both matching title and description element’s `id` attribute values within the modal itself. This applies when using the `<dialog>` element as the modal container, but also other elements that have the role of `dialog` or `alertdialog`.
