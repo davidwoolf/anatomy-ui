@@ -139,6 +139,10 @@
   </Layout>
 </article>
 
+<svelte:head>
+  <title>{data.title} — Foundations | The anatomy of everyday UI</title>
+</svelte:head>
+
 <style>
   .breadcrumbs {
     padding: 0.25rem 1.5rem 0;

@@ -5,7 +5,7 @@
 </script>
 
 <header>
-  <a href="/">The Anatomy of Everyday UI</a>
+  <a href="/">The anatomy of everyday UI</a>
 
   <Nav />
 </header>

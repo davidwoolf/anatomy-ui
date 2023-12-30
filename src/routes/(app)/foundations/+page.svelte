@@ -195,6 +195,10 @@
   </Grid>
 </article>
 
+<svelte:head>
+  <title>Foundations — The anatomy of everyday UI</title>
+</svelte:head>
+
 <style>
   .breadcrumbs {
     display: flex;

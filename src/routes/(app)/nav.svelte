@@ -23,6 +23,24 @@
     expanded = false;
   }
 
+  /**
+   *
+   * @param {HTMLAnchorElement} _node
+   */
+  function dismissPanel(_node) {
+    function handleClick() {
+      expanded = false;
+    }
+
+    document.addEventListener("click", handleClick, true);
+
+    return {
+      destroy() {
+        document.removeEventListener("click", handleClick, true);
+      },
+    };
+  }
+
   onMount(function () {
     panel.addEventListener("click", (e) => {
       /**
@@ -79,7 +97,7 @@
     class="container"
     bind:this={container}
     style:animation-name={expanded ? "slideIn" : "slideOut"}
-    style:animation-duration={expanded ? "0.6s" : "0.4s"}
+    style:--animation-duration={expanded ? "0.6s" : "0.4s"}
     style:animation-timing-function={expanded ? "cubic-bezier(0.25, 1, 0.5, 1)" : "ease"}>
     <button class="close-menu" on:click={closePanel} aria-label="Close site navigation">
       <svg
@@ -96,28 +114,28 @@
       </svg>
     </button>
     <nav class="menu">
-      <a data-sveltekit-reload href="/foundations/layout/semantic-elements">Layout</a>
+      <a use:dismissPanel href="/foundations/layout/semantic-elements">Layout</a>
 
       <Separator />
 
-      <a data-sveltekit-reload href="/foundations/typography/headings">Typography</a>
+      <a use:dismissPanel href="/foundations/typography/headings">Typography</a>
 
       <Separator />
 
-      <a data-sveltekit-reload href="/foundations/color-light/spaces-gamuts">
+      <a use:dismissPanel href="/foundations/color-light/spaces-gamuts">
         Color and light
       </a>
 
       <Separator />
 
-      <a data-sveltekit-reload href="/foundations/forms/buttons">Forms</a>
+      <a use:dismissPanel href="/foundations/forms/buttons">Forms</a>
 
       <Separator />
 
-      <a data-sveltekit-reload href="/foundations/sizing/viewport-units">Sizing</a>
+      <a use:dismissPanel href="/foundations/sizing/viewport-units">Sizing</a>
       <Separator />
 
-      <a data-sveltekit-reload href="/foundations/transitional-components/dialogs">
+      <a use:dismissPanel href="/foundations/transitional-components/dialogs">
         Transitional components
       </a>
 
@@ -135,6 +153,14 @@
         <span class="coming-soon">Coming soon</span>
       </div>
     </nav>
+
+    <div class="ancillary-links">
+      <a use:dismissPanel href="/release-notes" class="ancillary-link">Release notes</a>
+
+      <a target="_blank" href="https://davidwoolf.me" class="ancillary-link">
+        Made by David Woolf
+      </a>
+    </div>
   </div>
 </dialog>
 
@@ -161,37 +187,41 @@
   }
 
   .container {
+    animation-duration: var(--animation-duration, 0);
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     background-color: white;
     box-shadow: -1px 0px 26px -7px rgba(15, 23, 42, 0.15);
-    height: 100dvh;
+    block-size: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     position: absolute;
-    right: 0;
-    max-width: 90vw;
+    inset-inline-end: 0;
+    max-inline-size: 90vw;
     overflow: scroll;
     padding: 2rem;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    width: 30rem;
+    inline-size: 30rem;
   }
 
   nav {
     display: flex;
-    block-size: calc(100% - 5rem);
+    flex: 1 0 max-content;
     flex-direction: column;
-    margin-block-start: 2rem;
   }
 
   nav a,
   nav div {
     align-items: center;
+    block-size: 4.5rem;
     display: flex;
     color: var(--color-gray-800);
     font-size: var(--font-size-2xl);
     font-weight: 500;
-    height: 4.5rem;
     min-block-size: 3rem;
     outline: none;
+    transition: all 150ms ease;
   }
 
   nav div {
@@ -200,7 +230,11 @@
 
   nav span {
     font-size: 1rem;
-    margin: 0 0 0 auto;
+    margin-inline-start: auto;
+  }
+
+  nav a:hover {
+    opacity: 0.6;
   }
 
   a:focus-visible {
@@ -213,6 +247,7 @@
     block-size: 3rem;
     border-radius: 100%;
     display: flex;
+    flex: none;
     inline-size: 3rem;
     justify-content: center;
     margin-inline-start: auto;
@@ -223,6 +258,23 @@
     box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(198, 198, 231, 0.8);
   }
 
+  .ancillary-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .ancillary-links a {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: var(--color-gray-300);
+  }
+
+  .ancillary-links a:hover {
+    text-underline-offset: 4px;
+  }
+
   @media (min-width: 768px) {
     .container {
       padding: 3rem;
@@ -231,6 +283,12 @@
     nav {
       block-size: calc(100% - 6rem);
       margin-block-start: 3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    .container {
+      animation-duration: 0s;
     }
   }
 
