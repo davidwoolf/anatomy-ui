@@ -8,7 +8,7 @@
 
   <div>
     <a href="/foundations">
-      <span>Foundations</span>
+      Foundations
       <svg
         aria-hidden
         width="20"
@@ -23,6 +23,10 @@
     </a>
   </div>
 </section>
+
+<svelte:head>
+  <title>The anatomy of everyday UI</title>
+</svelte:head>
 
 <style>
   section {
@@ -76,34 +80,30 @@
   }
 
   a {
-    animation-name: pulse;
-    animation-duration: 10s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease;
     align-items: baseline;
-    border: 2px solid currentcolor;
-    color: var(--color-purple-400);
     border-radius: 9999px;
+    border: 2px solid var(--color-purple-400);
+    color: var(--color-purple-400);
     display: flex;
     font-size: var(--font-size-base);
     font-weight: 500;
+    inline-size: max-content;
     gap: 1rem;
-    width: max-content;
     padding: 0.75rem 1.5rem;
+    transition: all 75ms ease;
   }
 
   a:hover {
-    background-color: currentColor;
+    background-color: var(--color-purple-400);
+    color: white;
   }
 
   svg {
     position: relative;
     inset-block-start: 1px;
-    transition: all 75ms ease;
+    transition: all 75m ease;
   }
 
-  a:hover span,
   a:hover svg {
     color: white;
   }
@@ -143,28 +143,6 @@
 
     to {
       opacity: 1;
-    }
-  }
-
-  @keyframes pulse {
-    0% {
-      color: var(--color-purple-400);
-    }
-
-    25% {
-      color: var(--color-green-400);
-    }
-
-    50% {
-      color: var(--color-yellow-400);
-    }
-
-    75% {
-      color: var(--color-blue-400);
-    }
-
-    100% {
-      color: var(--color-purple-400);
     }
   }
 </style>
