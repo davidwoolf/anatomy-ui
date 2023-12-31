@@ -27,22 +27,23 @@
    *
    * @param {HTMLAnchorElement} _node
    */
-  function dismissPanel(_node) {
+  function dismissPanel(node) {
     function handleClick() {
       expanded = false;
     }
 
-    document.addEventListener("click", handleClick, true);
+    node.addEventListener("click", handleClick, true);
 
     return {
       destroy() {
-        document.removeEventListener("click", handleClick, true);
+        node.removeEventListener("click", handleClick, true);
       },
     };
   }
 
   onMount(function () {
     panel.addEventListener("click", (e) => {
+      console.log(e.target === panel);
       /**
        * enables dismissal when clicking the backdrop, which is technically
        * a part of the dialog itself. A sub container contains the styling of the "panel"
