@@ -13,6 +13,18 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2023-12-31</time>
+      </h2>
+
+      <ul>
+        <li>Fixed nav drawer on mobile</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2023-12-30</time>
       </h2>
 

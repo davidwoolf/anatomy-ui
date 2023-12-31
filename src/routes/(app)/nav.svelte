@@ -96,9 +96,11 @@
   <div
     class="container"
     bind:this={container}
-    style:animation-name={expanded ? "slideIn" : "slideOut"}
+    style:--animation-name={expanded ? "slideIn" : "slideOut"}
     style:--animation-duration={expanded ? "0.6s" : "0.4s"}
-    style:animation-timing-function={expanded ? "cubic-bezier(0.25, 1, 0.5, 1)" : "ease"}>
+    style:--animation-timing-function={expanded
+      ? "cubic-bezier(0.25, 1, 0.5, 1)"
+      : "ease"}>
     <button class="close-menu" on:click={closePanel} aria-label="Close site navigation">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -187,6 +189,8 @@
   }
 
   .container {
+    animation-name: var(--animation-name);
+    animation-timing-function: var(--animation-timing-function);
     animation-duration: var(--animation-duration, 0);
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
@@ -196,13 +200,12 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    position: absolute;
+    position: fixed;
     inset-inline-end: 0;
     max-inline-size: 90vw;
+    inline-size: 30rem;
     overflow: scroll;
     padding: 2rem;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    inline-size: 30rem;
   }
 
   nav {
@@ -214,12 +217,11 @@
   nav a,
   nav div {
     align-items: center;
-    block-size: 4.5rem;
+    block-size: 3.5rem;
     display: flex;
     color: var(--color-gray-800);
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     font-weight: 500;
-    min-block-size: 3rem;
     outline: none;
     transition: all 150ms ease;
   }
@@ -283,6 +285,12 @@
     nav {
       block-size: calc(100% - 6rem);
       margin-block-start: 3rem;
+    }
+
+    nav a,
+    nav div {
+      block-size: 4.5rem;
+      font-size: var(--font-size-2xl);
     }
   }
 
