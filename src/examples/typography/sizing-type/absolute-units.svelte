@@ -22,11 +22,11 @@
       ],
     },
     {
-      selector: "p",
+      selector: ".container p",
       value: [
         {
           property: "font-size",
-          value: "max(16px, 1rem)",
+          value: "max(16px, 1em)",
           type: "text",
         },
       ],

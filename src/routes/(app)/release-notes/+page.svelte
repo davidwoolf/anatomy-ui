@@ -13,6 +13,18 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2024-01-02</time>
+      </h2>
+
+      <ul>
+        <li>Interactive examples for Typography sections under "Foundations"</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2023-12-31</time>
       </h2>
 
