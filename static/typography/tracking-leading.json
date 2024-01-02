@@ -9,6 +9,7 @@
   },
   {
     "title": "Non-text based element spacing",
-    "file": "element-spacing.md"
+    "file": "element-spacing.md",
+    "component": "non-text-elements"
   }
 ]

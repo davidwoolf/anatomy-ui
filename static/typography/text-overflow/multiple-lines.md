@@ -4,12 +4,4 @@ To clip multiple lines of text, use the `-webkit-line-clamp` property, which i
 - `text-overflow` does nothing here and ellipses are always used
 - applying padding to the text with the line clamp value can create artifacts on clipped lines
 - text clipping is not based on any parent container dimensions, only the text's number of lines
-
-```css
-/* line clamp specific requirements */
-p {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-```
+- the parent container must have `overflow: hidden` applied OR a defined `height`.
