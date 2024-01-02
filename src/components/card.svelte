@@ -58,7 +58,7 @@
       src={image}
       alt="Placeholder for an example card." />
 
-    <h2>Book Summary</h2>
+    <h2>Book excerpt</h2>
 
     <div class="content">
       {#if columnNumber !== "0" && showHighlights.includes("gaps")}
@@ -74,8 +74,9 @@
       {/if}
 
       <p>
-        In the spring he sailed for Athens, and arrived at the island of Ios, now Ino,
-        where he fell extremely ill, and died.
+        Dorothy leaned her chin upon her hand and gazed thoughtfully at the Scarecrow. Its
+        head was a small sack stuffed with straw, with eyes, nose, and mouth painted on it
+        to represent a face.
       </p>
     </div>
   </div>

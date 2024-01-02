@@ -68,6 +68,9 @@
       },
     },
     typography: {
+      internationalization: {
+        direction: import("@examples/typography/internationalization/direction.svelte"),
+      },
       text: {
         "emphasis-importance": import(
           "@examples/typography/text/emphasis-importance.svelte"
@@ -75,6 +78,28 @@
         lists: import("@examples/typography/text/lists.svelte"),
         labels: import("@examples/typography/text/labels.svelte"),
         "address-time": import("@examples/typography/text/address-time.svelte"),
+      },
+      "sizing-type": {
+        "relative-units": import(
+          "@examples/typography/sizing-type/relative-units.svelte"
+        ),
+        "absolute-units": import(
+          "@examples/typography/sizing-type/absolute-units.svelte"
+        ),
+        "typographic-units": import(
+          "@examples/typography/sizing-type/typographic-units.svelte"
+        ),
+      },
+      "text-overflow": {
+        "single-line": import("@examples/typography/text-overflow/single-line.svelte"),
+        "multiple-lines": import(
+          "@examples/typography/text-overflow/multiple-lines.svelte"
+        ),
+      },
+      "tracking-leading": {
+        "non-text-elements": import(
+          "@examples/typography/tracking-leading/non-text-elements.svelte"
+        ),
       },
     },
     forms: {

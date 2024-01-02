@@ -4,11 +4,12 @@
 
 <div class="simple-card">
   <slot>
-    <h2 style:width>Book Summary</h2>
+    <h2 style:inline-size={width}>Book excerpt</h2>
 
-    <p style:width>
-      In the spring he sailed for Athens, and arrived at the island of Ios, now Ino, where
-      he fell extremely ill, and died.
+    <p style:inline-size={width}>
+      Dorothy leaned her chin upon her hand and gazed thoughtfully at the Scarecrow. Its
+      head was a small sack stuffed with straw, with eyes, nose, and mouth painted on it
+      to represent a face.
     </p>
   </slot>
 </div>
@@ -19,7 +20,7 @@
     border-radius: 1rem;
     border: 1px solid color-mix(in srgb, var(--color-gray-300), white 60%);
     padding: 1.5rem;
-    text-align: left;
+    text-align: initial;
   }
 
   :global(.simple-card h2) {
@@ -30,7 +31,7 @@
 
   :global(.simple-card p, .simple-card li) {
     font-size: var(--font-size-sm);
-    line-height: 145%;
+    /* line-height: 145%; */
   }
 
   :global(.simple-card ul) {

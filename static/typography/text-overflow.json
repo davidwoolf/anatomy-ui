@@ -1,10 +1,12 @@
 [
   {
     "title": "Trimming single line text",
-    "file": "single-line.md"
+    "file": "single-line.md",
+    "component": "single-line"
   },
   {
     "title": "Trimming multiple lines of text",
-    "file": "multiple-lines.md"
+    "file": "multiple-lines.md",
+    "component": "multiple-lines"
   }
 ]

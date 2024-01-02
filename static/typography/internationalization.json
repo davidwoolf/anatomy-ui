@@ -5,7 +5,8 @@
   },
   {
     "title": "Text direction and orientation",
-    "file": "direction.md"
+    "file": "direction.md",
+    "component": "direction"
   },
   {
     "title": "Multiple language support",
