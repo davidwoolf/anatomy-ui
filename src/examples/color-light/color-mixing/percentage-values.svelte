@@ -4,22 +4,22 @@
 
   let code = [
     {
-      selector: ".gradient",
+      selector: ".mixed-color",
       value: [
         {
-          property: "--hint-1",
-          value: "25%",
+          property: "--percentage-1",
+          value: "50%",
           type: "text",
         },
         {
-          property: "--hint-2",
-          value: "75%",
+          property: "--percentage-2",
+          value: "50%",
           type: "text",
         },
         {
-          property: "background",
+          property: "background-color",
           value:
-            "linear-gradient(to right, #9747ff, var(--hint-1), #f59e0b, var(--hint-2), #047857)",
+            "color-mix(in srgb, purple var(--percentage-1), yellow var(--percentage-2))",
           type: "static",
         },
       ],
@@ -31,8 +31,8 @@
   <svelte:fragment slot="preview">
     <div
       class="linear-gradient"
-      style:--hint-1={code[0].value[0].value}
-      style:--hint-2={code[0].value[1].value} />
+      style:--percentage-1={code[0].value[0].value}
+      style:--percentage-2={code[0].value[1].value} />
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
@@ -41,13 +41,10 @@
 
 <style>
   .linear-gradient {
-    background: linear-gradient(
-      to right,
-      #9747ff,
-      var(--hint-1),
-      #f59e0b,
-      var(--hint-2),
-      #047857
+    background: color-mix(
+      in srgb,
+      purple var(--percentage-1),
+      yellow var(--percentage-2)
     );
     border-radius: 0.5rem;
     height: 8rem;

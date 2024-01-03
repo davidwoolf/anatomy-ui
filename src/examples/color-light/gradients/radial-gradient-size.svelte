@@ -43,7 +43,7 @@
 <style>
   .radial-gradient {
     background: radial-gradient(var(--shape) var(--size), #fff, #9747ff);
-    border-radius: 100%;
+    border-radius: 0.5rem;
     height: 8rem;
     width: 12rem;
   }

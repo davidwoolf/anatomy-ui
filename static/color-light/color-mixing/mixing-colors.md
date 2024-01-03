@@ -26,10 +26,3 @@ color: color-mix(in hwb, blue, red);
 color: color-mix(in lch, blue, red);
 color: color-mix(in oklch, blue, red);
 ```
-
-Polar color spaces such as `hsl`, `hwb`, `lch`, and `oklch` also support all the hue interpolation keywords, indicating how to mix both colors:
-
-```css
-/* Example of hue interpolation in polar color spaces */
-color: color-mix(in hsl longer hue, blue, red);
-```

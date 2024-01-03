@@ -146,6 +146,20 @@
           "@examples/color-light/gradients/hue-interpolation.svelte"
         ),
       },
+      "color-mixing": {
+        "mixing-colors": import(
+          "@examples/color-light/color-mixing/mixing-colors.svelte"
+        ),
+        "hue-interpolation": import(
+          "@examples/color-light/color-mixing/hue-interpolation.svelte"
+        ),
+        "percentage-values": import(
+          "@examples/color-light/color-mixing/percentage-values.svelte"
+        ),
+        "alpha-channels": import(
+          "@examples/color-light/color-mixing/alpha-channels.svelte"
+        ),
+      },
     },
     "transitional-components": {},
     sizing: {},

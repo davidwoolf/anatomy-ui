@@ -41,8 +41,8 @@
 <style>
   .linear-gradient {
     background: linear-gradient(to right, var(--stop-1), var(--stop-2));
-    border-radius: 100%;
+    border-radius: 0.5rem;
     height: 8rem;
-    width: 12rem;
+    width: 8rem;
   }
 </style>
