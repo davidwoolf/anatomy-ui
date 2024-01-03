@@ -104,7 +104,7 @@
               {value.value}
             </textarea>
           {:else if value.type === "select"}
-            <div class="select" style:width="{value.value.length * 9 + 16}px">
+            <div class="select" style:min-width="{value.value.length * 9 + 16}px">
               <select
                 value={value.value}
                 on:change={(e) => {

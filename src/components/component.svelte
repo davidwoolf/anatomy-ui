@@ -117,11 +117,33 @@
         ),
       },
       gradients: {
+        "linear-color-stops": import(
+          "@examples/color-light/gradients/linear-color-stops.svelte"
+        ),
+        "linear-color-hints": import(
+          "@examples/color-light/gradients/linear-color-hints.svelte"
+        ),
+        "radial-gradient-shape": import(
+          "@examples/color-light/gradients/radial-gradient-shape.svelte"
+        ),
+        "radial-gradient-size": import(
+          "@examples/color-light/gradients/radial-gradient-size.svelte"
+        ),
+        "radial-gradient-position": import(
+          "@examples/color-light/gradients/radial-gradient-position.svelte"
+        ),
+        "conic-gradients": import(
+          "@examples/color-light/gradients/conic-gradients.svelte"
+        ),
         "repeating-functions": import(
           "@examples/color-light/gradients/repeating-functions.svelte"
         ),
         "repeating-tiling": import(
           "@examples/color-light/gradients/repeating-tiling.svelte"
+        ),
+        "color-spaces": import("@examples/color-light/gradients/color-spaces.svelte"),
+        "hue-interpolation": import(
+          "@examples/color-light/gradients/hue-interpolation.svelte"
         ),
       },
     },
