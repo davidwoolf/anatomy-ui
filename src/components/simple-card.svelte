@@ -1,8 +1,10 @@
 <script>
+  export let backgroundColor = "white";
+  export let color = "var(color-gray-800)";
   export let width = "auto";
 </script>
 
-<div class="simple-card">
+<div class="simple-card" style:background-color={backgroundColor} style:color>
   <slot>
     <h2 style:inline-size={width}>Book excerpt</h2>
 
@@ -16,7 +18,6 @@
 
 <style>
   .simple-card {
-    background-color: white;
     border-radius: 1rem;
     border: 1px solid color-mix(in srgb, var(--color-gray-300), white 60%);
     padding: 1.5rem;

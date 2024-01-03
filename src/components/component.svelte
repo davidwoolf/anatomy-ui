@@ -110,6 +110,12 @@
       },
     },
     "color-light": {
+      "system-colors": {
+        currentcolor: import("@examples/color-light/system-colors/currentcolor.svelte"),
+        "system-keywords": import(
+          "@examples/color-light/system-colors/system-keywords.svelte"
+        ),
+      },
       gradients: {
         "repeating-functions": import(
           "@examples/color-light/gradients/repeating-functions.svelte"
