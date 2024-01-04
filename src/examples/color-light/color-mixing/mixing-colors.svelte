@@ -4,7 +4,7 @@
 
   let code = [
     {
-      selector: ".mixed-color",
+      selector: "div",
       value: [
         {
           property: "--color-space",

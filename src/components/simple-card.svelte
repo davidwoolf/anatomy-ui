@@ -32,7 +32,7 @@
 
   :global(.simple-card p, .simple-card li) {
     font-size: var(--font-size-sm);
-    /* line-height: 145%; */
+    line-height: 145%;
   }
 
   :global(.simple-card ul) {

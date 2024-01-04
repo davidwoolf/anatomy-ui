@@ -1,0 +1,1 @@
+Multiple shadows can be specified with commas `,` and are stacked with the first shadow on top. If the number of shadows differ between animation states, a default “shadow” with 0 length values and a transparent color are used, which results in a consistent animation effect that doesn’t flicker shadows.

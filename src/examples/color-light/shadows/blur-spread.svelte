@@ -7,19 +7,18 @@
       selector: "div",
       value: [
         {
-          property: "--percentage-1",
-          value: "50%",
+          property: "--blur-radius",
+          value: "2px",
           type: "text",
         },
         {
-          property: "--percentage-2",
-          value: "50%",
+          property: "--spread-radius",
+          value: "0px",
           type: "text",
         },
         {
-          property: "background-color",
-          value:
-            "color-mix(in srgb, purple var(--percentage-1), yellow var(--percentage-2))",
+          property: "box-shadow",
+          value: "5px 5px var(--blur-radius) var(--spread-radius) black",
           type: "static",
         },
       ],
@@ -30,9 +29,9 @@
 <Example>
   <svelte:fragment slot="preview">
     <div
-      class="linear-gradient"
-      style:--percentage-1={code[0].value[0].value}
-      style:--percentage-2={code[0].value[1].value} />
+      class="shadow"
+      style:--blur-radius={code[0].value[0].value}
+      style:--spread-radius={code[0].value[1].value} />
   </svelte:fragment>
   <svelte:fragment slot="controls">
     <CSSEditor value={code} on:update={({ detail }) => (code = detail.text)} />
@@ -40,13 +39,9 @@
 </Example>
 
 <style>
-  .linear-gradient {
-    background: color-mix(
-      in srgb,
-      purple var(--percentage-1),
-      yellow var(--percentage-2)
-    );
-    border-radius: 0.5rem;
+  .shadow {
+    background-color: var(--color-purple-400);
+    box-shadow: 5px 5px var(--blur-radius) var(--spread-radius) black;
     height: 8rem;
     width: 8rem;
   }

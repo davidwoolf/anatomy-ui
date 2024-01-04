@@ -160,6 +160,29 @@
           "@examples/color-light/color-mixing/alpha-channels.svelte"
         ),
       },
+      shadows: {
+        coordinates: import("@examples/color-light/shadows/coordinates.svelte"),
+        "blur-spread": import("@examples/color-light/shadows/blur-spread.svelte"),
+        inset: import("@examples/color-light/shadows/inset.svelte"),
+        "text-shadows": import("@examples/color-light/shadows/text-shadows.svelte"),
+      },
+      "filters-blend-modes": {
+        blur: import("@examples/color-light/filters-blend-modes/blur.svelte"),
+        brightness: import("@examples/color-light/filters-blend-modes/brightness.svelte"),
+        contrast: import("@examples/color-light/filters-blend-modes/contrast.svelte"),
+        "drop-shadows": import(
+          "@examples/color-light/filters-blend-modes/drop-shadows.svelte"
+        ),
+        grayscale: import("@examples/color-light/filters-blend-modes/grayscale.svelte"),
+        "hue-rotate": import(
+          "@examples/color-light/filters-blend-modes/hue-rotate.svelte"
+        ),
+        invert: import("@examples/color-light/filters-blend-modes/invert.svelte"),
+        opacity: import("@examples/color-light/filters-blend-modes/opacity.svelte"),
+        saturate: import("@examples/color-light/filters-blend-modes/saturate.svelte"),
+        sepia: import("@examples/color-light/filters-blend-modes/sepia.svelte"),
+        backdrop: import("@examples/color-light/filters-blend-modes/backdrop.svelte"),
+      },
     },
     "transitional-components": {},
     sizing: {},

@@ -27,12 +27,12 @@
   {src}
   alt="Placeholder for examples"
   style:aspect-ratio={combinedRatio}
-  style:min-width={minWidth}
-  style:max-width={maxWidth}
-  style:min-height={minHeight}
-  style:max-height={maxHeight}
-  style:width
-  style:height />
+  style:min-inline-size={minWidth}
+  style:max-inline-size={maxWidth}
+  style:min-block-size={minHeight}
+  style:max-block-size={maxHeight}
+  style:inline-size={width}
+  style:block-size={height} />
 
 <style>
   img {
