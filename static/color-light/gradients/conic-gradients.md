@@ -8,13 +8,3 @@ background: conic-gradient(from <angle>, /* color stops */);
 background: conic-gradient(at <position>, /* color stops */);
 background: conic-gradient(from <angle> at <position>, /* color stops */);
 ```
-
-### Color stops
-
-Color stops in conic gradients are slightly different than color stops in linear and radial gradients, and are considered angular color stops[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient#angular-color-stop). Because a conic gradient rotates around a center origin point and back to itself, it takes up `360deg`. Each color stop can include any valid angle type _or_ percentage to denote how much of the gradient it takes up.
-
-```css
-/* syntax options for angle color stops */
-background: conic-gradient(/* angle and position */, red 180deg, blue);
-background: conic-gradient(/* angle and position */, red 50%, blue);
-```

@@ -1,11 +1,13 @@
 [
   {
     "title": "Current color",
-    "file": "current-color.md"
+    "file": "current-color.md",
+    "component": "currentcolor"
   },
   {
     "title": "System keywords",
-    "file": "system-colors.md"
+    "file": "system-keywords.md",
+    "component": "system-keywords"
   },
   {
     "title": "Color scheme preferences",
