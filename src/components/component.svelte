@@ -109,6 +109,11 @@
         affordances: import("@examples/forms/buttons/affordances.svelte"),
         "mixed-button-use": import("@examples/forms/buttons/mixed-button-use.svelte"),
         "reset-button": import("@examples/forms/buttons/reset-button.svelte"),
+        "form-validation": import("@examples/forms/buttons/form-validation.svelte"),
+        "omitting-labels": import("@examples/forms/buttons/omitting-labels.svelte"),
+        popups: import("@examples/forms/buttons/popups.svelte"),
+        toggles: import("@examples/forms/buttons/toggles.svelte"),
+        "custom-elements": import("@examples/forms/buttons/custom-elements.svelte"),
       },
     },
     "color-light": {

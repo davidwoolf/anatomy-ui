@@ -21,7 +21,8 @@
   },
   {
     "title": "Form validation",
-    "file": "validation.md"
+    "file": "form-validation.md",
+    "component": "form-validation"
   },
   {
     "title": "Content restrictions",
@@ -50,7 +51,8 @@
   },
   {
     "title": "Omitting labels",
-    "file": "missing-text.md"
+    "file": "omitting-labels.md",
+    "component": "omitting-labels"
   },
   {
     "title": "Disabled states",
@@ -58,14 +60,17 @@
   },
   {
     "title": "Popups",
-    "file": "popups.md"
+    "file": "popups.md",
+    "component": "popups"
   },
   {
     "title": "Toggles",
-    "file": "toggles.md"
+    "file": "toggles.md",
+    "component": "toggles"
   },
   {
     "title": "Custom elements",
-    "file": "custom-elements.md"
+    "file": "custom-elements.md",
+    "component": "custom-elements"
   }
 ]
