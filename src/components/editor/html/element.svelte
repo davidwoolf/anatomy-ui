@@ -3,120 +3,93 @@
   import Attributes from "./attributes.svelte";
   import Element from "./element.svelte";
   import Text from "@components/editor/text.svelte";
-  import Textarea from "@components/editor/textarea.svelte";
-  import Static from "@components/editor/static.svelte";
-  import { text } from "@sveltejs/kit";
 
   const dispatch = createEventDispatcher();
 
-  /**
-   * @typedef Nodes
-   * @property {string} [tag]
-   * @property {string} [text]
-   * @property {"text" | "textarea"} [editable]
-   * @property {{ name: string; value: string; editable: "text"}[]} [attributes]
-   * @property {Nodes[]} [nodes]
-   * */
+  /** @type {string} */
+  export let tag;
+  /** @type {Object} */
+  export let value;
 
-  /** @type {string | undefined} */
-  export let tag = undefined;
-  /** @type {{ name: string; value: string; editable: "text"}[]} */
-  export let attributes = [];
-  /** @type {Nodes[]} */
-  export let nodes = [];
+  function getSanitizedValue(value) {
+    const { attributes, tag, ...nodes } = value;
 
-  /**
-   *
-   * @param {any} value
-   */
-  function updateElement(value) {
-    dispatch("update", {
-      text: {
-        tag,
-        attributes,
-        nodes,
-        ...value,
-      },
-    });
+    return nodes;
   }
 </script>
 
 <div class="element">
-  {#if tag}
-    <span class="selector">
+  {#if value.attributes}
+    <div class="selector">
+      <span class="keyword">{"<"}</span>
+      {tag}
+    </div>
+
+    <Attributes
+      attributes={value.attributes}
+      closingTag={Object.values(getSanitizedValue(value)).length !== 0 ? ">" : "/>"}
+      on:update={({ detail }) => {
+        dispatch("update", {
+          text: {
+            attributes: {
+              ...value.attributes,
+              ...detail.text,
+            },
+          },
+        });
+      }} />
+  {:else}
+    <div class="selector">
       <span class="keyword">{"<"}</span>
       {tag}
 
-      {#if attributes.length}
-        <Attributes
-          {attributes}
-          on:update={({ detail }) =>
-            updateElement({
-              attributes: detail.text,
-            })} />
-      {/if}
-
-      {#if nodes.length}
+      {#if Object.values(getSanitizedValue(value)).length !== 0}
         <span class="keyword">{">"}</span>
       {:else}
         <span class="keyword">{"/>"}</span>
       {/if}
-    </span>
+    </div>
   {/if}
 
-  {#if nodes.length}
-    {#each nodes as node, index (index)}
-      {#if node.text}
-        <div class="inner-element">
-          {#if node.editable === "text"}
-            <Text
-              value={node.text}
-              on:update={({ detail }) =>
-                updateElement({
-                  nodes: nodes.map((item, itemIndex) => {
-                    if (itemIndex !== index) return item;
+  {#each Object.entries(value) as [key, children], index (index)}
+    {#if index !== 0}
+      <div class="spacer" />
+    {/if}
 
-                    return {
-                      ...item,
-                      text: detail.text,
-                    };
-                  }),
-                })} />
-          {:else if node.editable === "textarea"}
-            <Textarea
-              value={node.text}
-              on:update={({ detail }) =>
-                updateElement({
-                  nodes: nodes.map((item, itemIndex) => {
-                    if (itemIndex !== index) return item;
+    {#if key !== "text" && key !== "attributes" && key !== "tag"}
+      <div class="inner-element">
+        <Element
+          value={children}
+          tag={children.tag}
+          on:update={({ detail }) => {
+            dispatch("update", {
+              text: {
+                [key]: {
+                  ...children,
+                  ...detail.text,
+                },
+              },
+            });
+          }} />
+      </div>
+    {/if}
 
-                    return {
-                      ...item,
-                      text: detail.text,
-                    };
-                  }),
-                })} />
-          {:else}
-            <Static value={node.text} />
-          {/if}
-        </div>
-      {:else if node.nodes}
-        <div class="inner-element">
-          <Element
-            {...node}
-            on:update={({ detail }) => {
-              // @TODO this is hella broken
-            }} />
-        </div>
-      {:else}
-        <span class="selector">
-          <span class="keyword">{"</"}</span>
-          {tag}
-          <span class="keyword">{">"}</span>
-        </span>
-      {/if}
-    {/each}
+    {#if key === "text"}
+      <div class="inner-element">
+        <Text
+          value={children}
+          on:update={({ detail }) => {
+            dispatch("update", {
+              text: {
+                text: detail.text,
+              },
+            });
+          }} />
+      </div>
+    {/if}
+  {/each}
 
+  {#if Object.values(getSanitizedValue(value)).length !== 0}
     <span class="selector">
       <span class="keyword">{"</"}</span>
       {tag}
@@ -130,11 +103,13 @@
     margin-inline-start: 1rem;
   }
 
+  .element {
+    display: inline;
+  }
+
   .selector {
     color: var(--color-green-400);
     display: inline flex;
-    white-space: nowrap;
-    white-space-collapse: collapse;
   }
 
   .keyword {

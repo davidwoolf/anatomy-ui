@@ -4,17 +4,18 @@
   import SimpleCard from "@components/simple-card.svelte";
 
   let code = {
-    label: {
-      tag: "label",
-      span: {
-        tag: "span",
-        text: "First name:",
-      },
-      input: {
-        tag: "input",
+    form: {
+      tag: "form",
+      button: {
+        tag: "button",
         attributes: {
-          type: "text",
+          type: "button",
         },
+        text: "Don't submit the form",
+      },
+      button_2: {
+        tag: "button",
+        text: "Submit the form",
       },
     },
   };
@@ -23,10 +24,17 @@
 <Example>
   <svelte:fragment slot="preview">
     <SimpleCard>
-      <label>
-        <span>{code.label.span.text}</span>
-        <input type={code.label.input.attributes.type} placeholder="John Doe..." />
-      </label>
+      <form>
+        <button type={code.form.button.attributes.type}>
+          {code.form.button.text}
+        </button>
+
+        <button>
+          {code.form.button_2.text}
+        </button>
+      </form>
+
+      <address />
     </SimpleCard>
   </svelte:fragment>
   <svelte:fragment slot="controls">
@@ -35,15 +43,7 @@
 </Example>
 
 <style>
-  span {
-    display: block;
-    font-size: var(--font-size-sm);
-  }
-
-  input {
-    border: 1px solid var(--color-gray-300);
-    border-radius: 0.25rem;
-    font-size: var(--font-size-sm);
-    padding: 0 0.5rem;
+  button {
+    all: revert;
   }
 </style>

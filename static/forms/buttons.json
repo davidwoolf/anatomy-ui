@@ -5,7 +5,19 @@
   },
   {
     "title": "Form submissions",
-    "file": "submit.md"
+    "file": "submit.md",
+    "sections": [
+      {
+        "title": "Mixed button use in forms",
+        "text": "Since buttons default to a `type=\"submit\"`, adding buttons inside a form that should not submit the form must explicitly include `type=\"button\"` or `type=\"reset\"`.",
+        "component": "mixed-button-use"
+      },
+      {
+        "title": "Resetting values",
+        "text": "When using `type=\"reset\"` in a form, you can clear form values without any Javascript. It's generally not recommended to do this, but is a built-in button type nonetheless.",
+        "component": "reset-button"
+      }
+    ]
   },
   {
     "title": "Form validation",

@@ -4,35 +4,49 @@
 
   const dispatch = createEventDispatcher();
 
-  /** @type {{ name: string; value: string; editable: "text"}[]} */
-  export let attributes = [];
+  /** @type {Record<string, string | boolean>} */
+  export let attributes;
+
+  /** @type {string} */
+  export let closingTag;
 </script>
 
-{#each attributes as attribute, index (index)}
-  <span>
-    &nbsp;{attribute.name}
-    <span class="keyword">{"="}</span>
-    "
-  </span>
-  <Text
-    value={attribute.value}
-    on:update={({ detail }) => {
-      dispatch("update", {
-        text: attributes.map((item, itemIndex) => {
-          if (itemIndex !== index) return item;
+<div class="attributes">
+  {#each Object.entries(attributes) as [key, attribute], index (index)}
+    <div class="attribute">
+      &nbsp;
+      <span>{key}</span>
+      <span class="keyword">{"="}</span>
+      "<Text
+        value={attribute}
+        on:update={({ detail }) => {
+          dispatch("update", {
+            text: {
+              [key]: detail.text,
+            },
+          });
+        }} />"
 
-          return {
-            ...item,
-            value: detail.text,
-          };
-        }),
-      });
-    }} />"
-{/each}
+      {#if index === Object.entries(attributes).length - 1}
+        <div class="selector">
+          <span class="keyword">{closingTag}</span>
+        </div>
+      {/if}
+    </div>
+  {/each}
+</div>
 
 <style>
-  span {
+  .attributes {
+    min-width: max-content;
+  }
+
+  .attribute {
     display: flex;
+  }
+
+  span {
+    color: var(--color-green-400);
   }
 
   .keyword {

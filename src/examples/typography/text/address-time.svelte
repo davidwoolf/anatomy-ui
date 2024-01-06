@@ -3,43 +3,19 @@
   import HTMLEditor from "@components/editor/html/html.svelte";
   import SimpleCard from "@components/simple-card.svelte";
 
-  /**
-   * @typedef Nodes
-   * @property {string} [tag]
-   * @property {string} [text]
-   * @property {"text" | "textarea"} [editable]
-   * @property {{ name: string; value: string; editable: "text"}[]} [attributes]
-   * @property {Nodes[]} [nodes]
-   * */
-
-  /** @type {Nodes[]} */
-  let code = [
-    {
+  let code = {
+    address: {
       tag: "address",
-      nodes: [
-        {
-          text: "123 Beeker Street",
-          editable: "textarea",
-        },
-      ],
+      text: "123 Beeker Street",
     },
-    {
+    time: {
       tag: "time",
-      attributes: [
-        {
-          name: "datetime",
-          value: "2049-01-01T00:00:00",
-          editable: "text",
-        },
-      ],
-      nodes: [
-        {
-          text: "Jan 1, 2049 at 00:00",
-          editable: "text",
-        },
-      ],
+      text: "Jan 1, 2049 at 00:00",
+      attributes: {
+        datetime: "2049-01-01T00:00:00",
+      },
     },
-  ];
+  };
 </script>
 
 <Example>
@@ -47,12 +23,12 @@
     <SimpleCard>
       Address
       <address>
-        {code[0].nodes[0].text}
+        {code.address.text}
       </address>
 
       Time
-      <time datetime={code[1].attributes[0].value}>
-        {code[1].nodes[0].text}
+      <time datetime={code.time.attributes.datetime}>
+        {code.time.text}
       </time>
     </SimpleCard>
   </svelte:fragment>

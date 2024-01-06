@@ -107,6 +107,8 @@
         strategies: import("@examples/forms/buttons/strategies.svelte"),
         "focus-state": import("@examples/forms/buttons/focus-state.svelte"),
         affordances: import("@examples/forms/buttons/affordances.svelte"),
+        "mixed-button-use": import("@examples/forms/buttons/mixed-button-use.svelte"),
+        "reset-button": import("@examples/forms/buttons/reset-button.svelte"),
       },
     },
     "color-light": {
