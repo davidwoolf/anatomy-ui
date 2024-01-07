@@ -1,1 +1,0 @@
-For buttons without text labels, use the `aria-label` attribute to create a readable label. The label should match what would normally be visible to everyone, so avoid extraneous values like "Click to" here. Avoid using the `title` attribute as it is frequently inaccessible to screen readers and actors not using a mouse pointer.

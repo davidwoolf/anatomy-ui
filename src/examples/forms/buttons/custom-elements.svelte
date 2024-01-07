@@ -1,16 +1,15 @@
-<script>
+<script lang="ts">
   import Example from "@components/example.svelte";
   import HTMLEditor from "@components/editor/html/html.svelte";
   import SimpleCard from "@components/simple-card.svelte";
 
   let code = {
-    p: {
-      tag: "p",
-      strong: {
-        tag: "strong",
-        text: "Warning!",
+    div: {
+      tag: "div",
+      attributes: {
+        role: "button",
       },
-      text: "This action will delete all of your content.",
+      text: "I am clickable",
     },
   };
 </script>
@@ -18,10 +17,7 @@
 <Example>
   <svelte:fragment slot="preview">
     <SimpleCard>
-      <p>
-        <strong>{code.p.strong.text}</strong>
-        {code.p.text}
-      </p>
+      <div role={code.div.attributes.role}>{code.div.text}</div>
     </SimpleCard>
   </svelte:fragment>
   <svelte:fragment slot="controls">

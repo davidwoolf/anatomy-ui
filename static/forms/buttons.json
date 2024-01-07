@@ -5,11 +5,24 @@
   },
   {
     "title": "Form submissions",
-    "file": "submit.md"
+    "file": "submit.md",
+    "sections": [
+      {
+        "title": "Mixed button use in forms",
+        "text": "Since buttons default to a `type=\"submit\"`, adding buttons inside a form that should not submit the form must explicitly include `type=\"button\"` or `type=\"reset\"`.",
+        "component": "mixed-button-use"
+      },
+      {
+        "title": "Resetting values",
+        "text": "When using `type=\"reset\"` in a form, you can clear form values without any Javascript. It's generally not recommended to do this, but is a built-in button type nonetheless.",
+        "component": "reset-button"
+      }
+    ]
   },
   {
     "title": "Form validation",
-    "file": "validation.md"
+    "file": "form-validation.md",
+    "component": "form-validation"
   },
   {
     "title": "Content restrictions",
@@ -38,7 +51,8 @@
   },
   {
     "title": "Omitting labels",
-    "file": "missing-text.md"
+    "file": "omitting-labels.md",
+    "component": "omitting-labels"
   },
   {
     "title": "Disabled states",
@@ -46,14 +60,17 @@
   },
   {
     "title": "Popups",
-    "file": "popups.md"
+    "file": "popups.md",
+    "component": "popups"
   },
   {
     "title": "Toggles",
-    "file": "toggles.md"
+    "file": "toggles.md",
+    "component": "toggles"
   },
   {
     "title": "Custom elements",
-    "file": "custom-elements.md"
+    "file": "custom-elements.md",
+    "component": "custom-elements"
   }
 ]
