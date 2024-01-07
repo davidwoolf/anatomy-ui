@@ -19,7 +19,7 @@
 </script>
 
 <div class="element">
-  {#if value.attributes}
+  {#if "attributes" in value}
     <div class="selector">
       <span class="keyword">{"<"}</span>
       {tag}

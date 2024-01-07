@@ -27,6 +27,14 @@
 
 <style>
   button {
-    all: revert;
+    background-color: white;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+    border-radius: 0.5rem;
+    font-size: var(--font-size-sm);
+    padding: 0.25rem 0.5rem;
+  }
+
+  button[aria-pressed="true"] {
+    box-shadow: 0 1px 4px inset rgb(0 0 0 / 0.25);
   }
 </style>

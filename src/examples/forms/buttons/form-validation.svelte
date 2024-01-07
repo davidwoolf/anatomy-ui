@@ -17,15 +17,16 @@
           attributes: {
             name: "first_name",
             placeholder: "Enter a movie...",
+            required: "true",
             type: "text",
           },
         },
       },
       button: {
         tag: "button",
-        text: "reset field",
+        text: "submit",
         attributes: {
-          type: "reset",
+          type: "submit",
         },
       },
     },
@@ -36,7 +37,12 @@
   <svelte:fragment slot="preview">
     <SimpleCard>
       <div>
-        <form>
+        <form
+          on:submit={(e) => {
+            e.preventDefault();
+
+            alert("submissions are disabled for examples");
+          }}>
           <label>
             <span>{code.form.label.span.text}</span>
             <input {...code.form.label.input.attributes} />

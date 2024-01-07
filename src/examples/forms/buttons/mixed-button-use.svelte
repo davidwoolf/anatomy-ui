@@ -11,11 +11,11 @@
         attributes: {
           type: "button",
         },
-        text: "Don't submit the form",
+        text: "Regular button",
       },
       button_2: {
         tag: "button",
-        text: "Submit the form",
+        text: "Submit",
       },
     },
   };
@@ -24,7 +24,12 @@
 <Example>
   <svelte:fragment slot="preview">
     <SimpleCard>
-      <form>
+      <form
+        on:submit={(e) => {
+          e.preventDefault();
+
+          alert("submissions are disabled for examples");
+        }}>
         <button type={code.form.button.attributes.type}>
           {code.form.button.text}
         </button>
