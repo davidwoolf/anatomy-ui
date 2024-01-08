@@ -18,11 +18,11 @@ export async function load({ fetch, params, parent }) {
   const res = await fetch(`/${id}/${slug}.json`);
 
   if (res.status === 404 || !matchingSection) {
-    throw error(404, "page not found");
+    error(404, "page not found");
   }
 
   if (res.status !== 200) {
-    throw error(500, "something went wrong");
+    error(500, "something went wrong");
   }
 
   const nextSection = sections.findIndex((section) => section.slug === params.slug) + 1;
@@ -75,7 +75,7 @@ export async function load({ fetch, params, parent }) {
       const res = await fetch(`/${id}/${slug}/${file}`);
 
       if (res.status !== 200) {
-        throw error(500, `could not find file: ${id}/${slug}/${file}`);
+        error(500, `could not find file: ${id}/${slug}/${file}`);
       }
 
       const value = await res.text();

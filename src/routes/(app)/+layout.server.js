@@ -8,11 +8,11 @@ export async function load({ fetch }) {
   const res = await fetch(`/layout/sections.json`);
 
   if (res.status === 404) {
-    throw error(404, "page not found");
+    error(404, "page not found");
   }
 
   if (res.status !== 200) {
-    throw error(500, "something went wrong");
+    error(500, "something went wrong");
   }
 
   /** @type Array<{slug: string; title: string; description: string; component: string;}> */

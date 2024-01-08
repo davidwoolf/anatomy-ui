@@ -13,6 +13,30 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2024-01-08</time>
+      </h2>
+
+      <ul>
+        <li>Upgraded SvelteKit to 2.x</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
+        <time>2024-01-07</time>
+      </h2>
+
+      <ul>
+        <li>Interactive examples for Buttons sections under "Foundations"</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2024-01-02</time>
       </h2>
 
