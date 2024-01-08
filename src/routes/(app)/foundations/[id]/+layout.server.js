@@ -9,11 +9,11 @@ export async function load({ fetch, params }) {
   const res = await fetch(`/${id}/sections.json`);
 
   if (res.status === 404) {
-    throw error(404, "page not found");
+    error(404, "page not found");
   }
 
   if (res.status !== 200) {
-    throw error(500, "something went wrong");
+    error(500, "something went wrong");
   }
 
   /** @type Array<{slug: string; title: string; description: string; hidden?: boolean;}> */
