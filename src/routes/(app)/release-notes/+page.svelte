@@ -78,7 +78,7 @@
       </h2>
 
       <ul>
-        <li>Added content for "dynamic components" section under Foundations</li>
+        <li>Added content for "Transitional components" section under Foundations</li>
         <li>
           Interactive examples for repeating gradient functions, tiling gradients as
           background images
