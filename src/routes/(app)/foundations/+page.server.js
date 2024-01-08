@@ -8,7 +8,7 @@ export async function load({ fetch }) {
     "color-light",
     "forms",
     "sizing",
-    "transitional-components",
+    "dynamic-components",
   ];
 
   /**

@@ -27,7 +27,7 @@
   {
     "slug": "tooltips",
     "title": "Tooltips",
-    "description": "Reserved for non-interactive information, tooltips are the most ephemeral and temporary transitional component."
+    "description": "Reserved for non-interactive information, tooltips are the most ephemeral and temporary dynamic component."
   },
   {
     "slug": "disclosures",

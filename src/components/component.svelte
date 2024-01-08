@@ -191,7 +191,7 @@
         backdrop: import("@examples/color-light/filters-blend-modes/backdrop.svelte"),
       },
     },
-    "transitional-components": {},
+    "dynamic-components": {},
     sizing: {},
   };
 </script>

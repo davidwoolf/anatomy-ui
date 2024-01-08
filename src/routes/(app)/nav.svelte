@@ -138,8 +138,8 @@
       <a use:dismissPanel href="/foundations/sizing/viewport-units">Sizing</a>
       <Separator />
 
-      <a use:dismissPanel href="/foundations/transitional-components/dialogs">
-        Transitional components
+      <a use:dismissPanel href="/foundations/dynamic-components/dialogs">
+        dynamic components
       </a>
 
       <Separator />

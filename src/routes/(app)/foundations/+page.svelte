@@ -146,22 +146,22 @@
     <Separator />
 
     <Column column="1" span="3">
-      <Heading>Transitional components</Heading>
+      <Heading>Dynamic components</Heading>
     </Column>
 
     <Column column="5" span="12">
       <Text>
         <p>
-          Transitional components are a common interaction pattern, but are usually hard
-          to implement correctly while accounting for flexible design systems and
+          Dynamic components are a common interaction pattern, but are usually hard to
+          implement correctly while accounting for flexible design systems and
           accessibility concerns.
         </p>
       </Text>
 
       <ul class="nav">
-        {#each data["transitional-components"] as section}
+        {#each data["dynamic-components"] as section}
           <li>
-            <a href="/foundations/transitional-components/{section.slug}">
+            <a href="/foundations/dynamic-components/{section.slug}">
               {section.title}
             </a>
           </li>
