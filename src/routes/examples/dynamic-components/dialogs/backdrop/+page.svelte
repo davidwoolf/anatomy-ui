@@ -31,10 +31,10 @@
 
     if (params.get("background")) {
       background = params.get("background");
+
+      addBackdropCSS(background);
     }
   });
-
-  $: addBackdropCSS(background);
 </script>
 
 <div>
