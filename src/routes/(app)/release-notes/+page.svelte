@@ -18,6 +18,7 @@
 
       <ul>
         <li>Upgraded SvelteKit to 2.x</li>
+        <li>Interactive examples for Dynamic Components under "Foundations"</li>
       </ul>
     </div>
 

@@ -1,7 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import Attributes from "./attributes.svelte";
-  import Element from "./element.svelte";
   import Text from "@components/editor/text.svelte";
 
   const dispatch = createEventDispatcher();
@@ -58,7 +57,7 @@
 
     {#if key !== "text" && key !== "attributes" && key !== "tag"}
       <div class="inner-element">
-        <Element
+        <svelte:self
           value={children}
           tag={children.tag}
           on:update={({ detail }) => {

@@ -17,6 +17,7 @@
   },
   {
     "title": "Panels",
-    "file": "panels.md"
+    "file": "panels.md",
+    "component": "panels"
   }
 ]
