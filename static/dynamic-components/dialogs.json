@@ -1,7 +1,7 @@
 [
   {
     "title": "Element definition",
-    "file": "element.md"
+    "file": "definition.md"
   },
   {
     "title": "Modal vs modeless",
@@ -9,7 +9,8 @@
   },
   {
     "title": "Backdrop",
-    "text": "When setting a dialog as a modal, the backdrop between the dialog and background elements can be styled via the `::backdrop` pseudo selector."
+    "text": "When setting a dialog as a modal, the backdrop between the dialog and background elements can be styled via the `::backdrop` pseudo selector.",
+    "component": "backdrop"
   },
   {
     "title": "Animations",

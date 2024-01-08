@@ -15,4 +15,4 @@ At its most basic, using `<dialog>` in HTML isn’t much different than custom i
 </dialog>
 ```
 
-_Note: Do not include the `tabindex` attribute to `<dialog>` elements, they already handle focus trapping._
+_Note: Do not include the `tabindex` attribute on `<dialog>` elements as they already handle focus trapping._

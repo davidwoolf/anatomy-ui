@@ -191,7 +191,15 @@
         backdrop: import("@examples/color-light/filters-blend-modes/backdrop.svelte"),
       },
     },
-    "dynamic-components": {},
+    "dynamic-components": {
+      dialogs: {
+        definition: import("@examples/dynamic-components/dialogs/definition.svelte"),
+        backdrop: import("@examples/dynamic-components/dialogs/backdrop.svelte"),
+      },
+      modals: {
+        panels: import("@examples/dynamic-components/modals/panels.svelte"),
+      },
+    },
     sizing: {},
   };
 </script>

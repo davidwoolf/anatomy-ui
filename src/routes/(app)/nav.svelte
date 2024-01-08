@@ -139,7 +139,7 @@
       <Separator />
 
       <a use:dismissPanel href="/foundations/dynamic-components/dialogs">
-        dynamic components
+        Dynamic components
       </a>
 
       <Separator />
@@ -308,6 +308,26 @@
 
     to {
       opacity: 1s;
+    }
+  }
+
+  @keyframes -global-slideIn {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes -global-slideOut {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(100%);
     }
   }
 </style>

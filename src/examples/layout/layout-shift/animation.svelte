@@ -51,4 +51,36 @@
     display: flex;
     justify-content: center;
   }
+
+  @keyframes -global-transforms {
+    from {
+      transform: scale(80%);
+    }
+
+    to {
+      transform: scale(100%);
+    }
+  }
+
+  @keyframes -global-composites {
+    from {
+      inline-size: 80%;
+    }
+
+    to {
+      inline-size: 100%;
+    }
+  }
+
+  @media (min-width: 480px) {
+    @keyframes -global-composites {
+      from {
+        inline-size: 19.2rem;
+      }
+
+      to {
+        inline-size: 24rem;
+      }
+    }
+  }
 </style>
