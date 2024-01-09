@@ -73,7 +73,7 @@
   ];
 </script>
 
-<Example>
+<Example canPan={false} canScale={false}>
   <svelte:fragment slot="preview">
     <iframe
       loading="lazy"

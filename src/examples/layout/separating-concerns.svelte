@@ -39,7 +39,7 @@
 
 <Example>
   <svelte:fragment slot="preview">
-    <div class="container" style:max-width={code[0].value[0].value}>
+    <div class="container" style:width={code[0].value[0].value}>
       <div class="width">
         <span>
           {code[0].value[0].value}
@@ -67,7 +67,6 @@
 <style>
   .container {
     width: 24rem;
-    max-width: 100%;
   }
 
   /* highlights */

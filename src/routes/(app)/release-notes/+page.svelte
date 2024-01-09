@@ -13,6 +13,18 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2024-01-09</time>
+      </h2>
+
+      <ul>
+        <li>Added panning and scaling for examples</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2024-01-08</time>
       </h2>
 
