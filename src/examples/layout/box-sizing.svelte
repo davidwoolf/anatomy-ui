@@ -35,7 +35,7 @@
 
   afterUpdate(() => {
     if (box) {
-      width = box.getBoundingClientRect().width;
+      width = box.clientWidth;
     }
   });
 </script>

@@ -17,7 +17,7 @@
   ];
 </script>
 
-<Example>
+<Example canScale={false} canPan={false}>
   <svelte:fragment slot="preview">
     <div class="sticky-fixed">
       <iframe
