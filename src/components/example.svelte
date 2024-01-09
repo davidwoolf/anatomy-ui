@@ -18,8 +18,6 @@
    * @param {PointerEvent} e
    */
   function onCanvasDown(e) {
-    // document.body.style.overflow = "hidden";
-
     startingCoordinates = {
       x: e.clientX,
       y: e.clientY,
@@ -34,7 +32,6 @@
   }
 
   function onCanvasUp() {
-    // document.body.style.overflow = "auto";
     grabbing = false;
 
     transformX = transformX + (movingCoordinates.x - startingCoordinates.x);
@@ -50,8 +47,6 @@
    */
   function onCanvasMove(e) {
     if (!grabbing || !canPan) return;
-
-    // document.body.style.overflow = "hidden";
 
     movingCoordinates = {
       x: e.clientX,
