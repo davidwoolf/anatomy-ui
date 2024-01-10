@@ -54,7 +54,7 @@
       </Description>
 
       {#if data.next && !data.next?.hidden}
-        <a class="next-section" href={data.next.slug}>
+        <a class="next-section" href="/foundations/{data.id}/{data.next.slug}">
           {data.next.title}
           <svg
             width="12"
