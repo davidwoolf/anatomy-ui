@@ -8,7 +8,7 @@
 </div>
 
 <style>
-  @media (min-width: 1280px) {
+  @media (min-width: 1024px) {
     div {
       place-items: end;
       grid-column: var(--column-start) / span var(--column-span);

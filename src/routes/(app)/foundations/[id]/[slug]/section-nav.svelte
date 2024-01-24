@@ -4,7 +4,6 @@
   import AccordionItem from "@components/accordion/item.svelte";
   import AccordionContent from "@components/accordion/content.svelte";
   import Collapsible from "@components/collapsible/collapsible.svelte";
-  import CollapsibleTrigger from "@components/collapsible/trigger.svelte";
   import CollapsibleContent from "@components/collapsible/content.svelte";
   import { onMount } from "svelte";
 
@@ -36,19 +35,15 @@
   let navVisible = false;
 
   function onResize() {
-    if (window.matchMedia("(min-width: 768px)").matches) {
+    if (window.matchMedia("(min-width: 1024px)").matches) {
       navVisible = true;
-    } else {
-      navVisible = false;
     }
   }
 
   onMount(() => {
     window.addEventListener("resize", onResize);
 
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      navVisible = true;
-    }
+    onResize();
 
     return () => {
       window.removeEventListener("resize", onResize);
@@ -64,7 +59,7 @@
   <span class="title">
     <button
       on:click={() => {
-        if (!window.matchMedia("(min-width: 768px)").matches) {
+        if (!window.matchMedia("(min-width: 1024px)").matches) {
           navVisible = !navVisible;
         }
       }}>
@@ -204,7 +199,7 @@
     text-decoration: underline;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .title {
       font-size: var(--font-size-4xl);
       line-height: 1.75;
@@ -215,10 +210,6 @@
     }
 
     nav {
-      background-color: unset;
-      border-radius: unset;
-      margin: unset;
-      padding: unset;
       margin-block-start: 1.5rem;
     }
   }

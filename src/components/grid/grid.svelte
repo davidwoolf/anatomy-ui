@@ -10,7 +10,7 @@
     width: 100%;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1024px) {
     .grid {
       grid-auto-flow: dense;
       grid-template-columns: repeat(12, 1fr);

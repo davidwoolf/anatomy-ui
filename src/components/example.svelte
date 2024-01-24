@@ -263,7 +263,7 @@
     }
 
     .canvas {
-      aspect-ratio: unset;
+      aspect-ratio: 4 / 3;
       min-block-size: unset;
     }
 
@@ -278,16 +278,18 @@
   }
 
   @media (min-width: 768px) {
-    .controls {
-      padding: 2rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
     .container {
       aspect-ratio: 16 / 9;
       grid-template-columns: 1fr 16rem;
       grid-template-rows: 1fr;
+    }
+
+    .canvas {
+      aspect-ratio: unset;
+    }
+
+    .controls {
+      padding: 2rem;
     }
   }
 
