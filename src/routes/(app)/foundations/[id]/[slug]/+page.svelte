@@ -65,12 +65,31 @@
 
           <hr />
 
-          <a
-            class="report-issue"
-            target="_blank"
-            href={`https://github.com/davidwoolf/anatomy-everyday-ui-site/issues/new?title=${getTitle()}&body=${getDescription()}&labels=documentation`}>
-            report issue
-          </a>
+          <footer>
+            <a
+              class="report-issue"
+              target="_blank"
+              href={`https://github.com/davidwoolf/anatomy-everyday-ui-site/issues/new?title=${getTitle()}&body=${getDescription()}&labels=documentation`}>
+              report issue
+            </a>
+
+            {#if data.next && !data.next?.hidden}
+              <a class="next-section" href="/foundations/{data.id}/{data.next.slug}">
+                {data.next.title}
+                <svg
+                  width="12"
+                  height="9"
+                  viewBox="0 0 12 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1 4.5H10.6M10.6 4.5L6.45882 0.5M10.6 4.5L6.45882 8.5"
+                    stroke="currentcolor"
+                    stroke-linecap="round" />
+                </svg>
+              </a>
+            {/if}
+          </footer>
         </Text>
       </article>
     </Column>
@@ -80,3 +99,45 @@
 <svelte:head>
   <title>{data.title} — Foundations | AnatomyUI</title>
 </svelte:head>
+
+<style>
+  footer {
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .next-section {
+    align-items: center;
+    border: 2px solid color-mix(in srgb, var(--color-gray-300), white 50%);
+    border-radius: 9999px;
+    display: flex;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    inline-size: max-content;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    transition: all 75ms ease;
+  }
+
+  .next-section:hover {
+    background-color: color-mix(in srgb, var(--color-gray-300), white 50%);
+  }
+
+  .report-issue {
+    font-size: var(--font-size-sm);
+    display: block;
+    opacity: 0.6;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  @media (min-width: 640px) {
+    footer {
+      flex-direction: row;
+    }
+  }
+</style>

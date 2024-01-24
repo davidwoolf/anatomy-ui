@@ -33,7 +33,7 @@
   /** @type {string} */
   export let name;
 
-  let navVisible = false; //window.matchMedia("(min-width: 768px)").matches ? true : false;
+  let navVisible = false;
 
   function onResize() {
     if (window.matchMedia("(min-width: 768px)").matches) {
@@ -101,6 +101,9 @@
                   <li>
                     <a
                       on:click={() => {
+                        if (window.matchMedia("(min-width: 768px)").matches) {
+                          return;
+                        }
                         navVisible = false;
                       }}
                       style:--text-decoration={currentPage ===
@@ -138,9 +141,6 @@
     align-items: center;
     display: flex;
     gap: 0.5rem;
-  }
-
-  nav {
   }
 
   nav :global(.item) {
@@ -215,6 +215,7 @@
       border-radius: unset;
       margin: unset;
       padding: unset;
+      margin-block-start: 1.5rem;
     }
   }
 </style>

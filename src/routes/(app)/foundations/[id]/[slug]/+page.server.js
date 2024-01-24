@@ -17,6 +17,8 @@ export async function load({ fetch, params, parent }) {
   const matchingSection = sections[id].pages.find(
     (section) => section.slug === params.slug
   );
+  const nextSection =
+    sections[id].pages.findIndex((section) => section.slug === params.slug) + 1;
   const res = await fetch(`/foundations/${id}/${slug}.json`);
 
   if (res.status === 404 || !matchingSection) {
@@ -104,5 +106,6 @@ export async function load({ fetch, params, parent }) {
         };
       })
     ),
+    next: sections[id].pages[nextSection] ? sections[id].pages[nextSection] : undefined,
   };
 }
