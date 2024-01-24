@@ -1,6 +1,5 @@
-<script lang="ts">
-  import type { PageData } from "./$types";
-  export let data: PageData;
+<script>
+  export let data;
 
   import Grid from "@components/grid/grid.svelte";
   import Column from "@components/grid/column.svelte";
@@ -8,12 +7,6 @@
   import Separator from "@components/grid/separator.svelte";
   import Text from "@components/text/text.svelte";
 </script>
-
-<div class="breadcrumbs">
-  <ul>
-    <li>Foundations</li>
-  </ul>
-</div>
 
 <article>
   <Grid>
@@ -32,7 +25,7 @@
         </p>
       </Text>
       <ul class="nav">
-        {#each data.layout as section}
+        {#each data.sections.layout.pages as section}
           <li>
             <a href="/foundations/layout/{section.slug}">{section.title}</a>
           </li>
@@ -56,7 +49,7 @@
       </Text>
 
       <ul class="nav">
-        {#each data.typography as section}
+        {#each data.sections.typography.pages as section}
           <li>
             <a href="/foundations/typography/{section.slug}">{section.title}</a>
           </li>
@@ -81,7 +74,7 @@
       </Text>
 
       <ul class="nav">
-        {#each data["color-light"] as section}
+        {#each data.sections["color-light"].pages as section}
           <li>
             <a href="/foundations/color-light/{section.slug}">{section.title}</a>
           </li>
@@ -104,7 +97,7 @@
       </Text>
 
       <ul class="nav">
-        {#each data["forms"] as section}
+        {#each data.sections.forms.pages as section}
           <li>
             <a href="/foundations/forms/{section.slug}">{section.title}</a>
           </li>
@@ -131,7 +124,7 @@
       </Text>
 
       <ul class="nav">
-        {#each data["sizing"] as section}
+        {#each data.sections.sizing.pages as section}
           <li>
             <a href="/foundations/sizing/{section.slug}">{section.title}</a>
           </li>
@@ -159,7 +152,7 @@
       </Text>
 
       <ul class="nav">
-        {#each data["dynamic-components"] as section}
+        {#each data.sections["dynamic-components"].pages as section}
           <li>
             <a href="/foundations/dynamic-components/{section.slug}">
               {section.title}
@@ -200,22 +193,6 @@
 </svelte:head>
 
 <style>
-  .breadcrumbs {
-    display: flex;
-    font-size: 0.875rem;
-    padding: 0.25rem 1.5rem 0;
-  }
-
-  .breadcrumbs ul {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .breadcrumbs li {
-    opacity: 0.6;
-    text-transform: capitalize;
-  }
-
   .nav {
     column-count: 1;
     column-gap: 2rem;
@@ -258,10 +235,6 @@
   }
 
   @media (min-width: 1024px) {
-    .breadcrumbs {
-      padding: 0.25rem 2rem 0;
-    }
-
     article {
       padding: 6rem;
     }

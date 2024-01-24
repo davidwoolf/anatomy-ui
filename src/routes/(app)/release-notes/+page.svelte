@@ -13,6 +13,23 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2024-01-24</time>
+      </h2>
+
+      <ul>
+        <li>Added sidebar navigation for “Foundations” pages</li>
+        <li>
+          Changed content display logic to be more CSS driven, simplifying formatting
+          logic and making it more flexible for multiple use cases.
+        </li>
+        <li>Improved spacing and readability for headings</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2024-01-09</time>
       </h2>
 
@@ -30,7 +47,7 @@
 
       <ul>
         <li>Upgraded SvelteKit to 2.x</li>
-        <li>Interactive examples for Dynamic Components under "Foundations"</li>
+        <li>Interactive examples for Dynamic Components under “Foundations”</li>
       </ul>
     </div>
 
@@ -42,7 +59,7 @@
       </h2>
 
       <ul>
-        <li>Interactive examples for Buttons sections under "Foundations"</li>
+        <li>Interactive examples for Buttons sections under “Foundations”</li>
       </ul>
     </div>
 
@@ -54,7 +71,7 @@
       </h2>
 
       <ul>
-        <li>Interactive examples for Typography sections under "Foundations"</li>
+        <li>Interactive examples for Typography sections under “Foundations”</li>
       </ul>
     </div>
 
@@ -90,7 +107,7 @@
       </h2>
 
       <ul>
-        <li>Added content for "Transitional components" section under Foundations</li>
+        <li>Added content for “Transitional components” section under Foundations</li>
         <li>
           Interactive examples for repeating gradient functions, tiling gradients as
           background images
@@ -115,9 +132,9 @@
       </h2>
 
       <ul>
-        <li>Added content for "Typography" section under Foundations</li>
+        <li>Added content for “Typography” section under Foundations</li>
 
-        <li>Added content for "Color and light" section under Foundations</li>
+        <li>Added content for “Color and light” section under Foundations</li>
       </ul>
     </div>
 
@@ -130,7 +147,7 @@
 
       <ul>
         <li>
-          Added a "Report Issue" button every page, which creates a github issue template
+          Added a “Report Issue” button every page, which creates a github issue template
           for that link
         </li>
 
@@ -149,7 +166,7 @@
 
       <ul>
         <li>
-          Official launch with content and interactive examples for "Layouts" under
+          Official launch with content and interactive examples for “Layouts” under
           Foundations
         </li>
       </ul>

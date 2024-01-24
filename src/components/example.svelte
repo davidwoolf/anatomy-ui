@@ -67,7 +67,7 @@
   }
 </script>
 
-<div class="container">
+<div class="sandbox container">
   <div class="canvas">
     <div
       bind:this={canvas}
@@ -117,7 +117,6 @@
     overflow: hidden;
     position: relative;
     margin-inline: -1.5rem;
-    max-width: 52rem;
   }
 
   .canvas {

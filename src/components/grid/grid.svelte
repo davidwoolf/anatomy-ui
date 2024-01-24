@@ -1,6 +1,6 @@
-<section class="grid">
+<div class="grid">
   <slot />
-</section>
+</div>
 
 <style>
   .grid {

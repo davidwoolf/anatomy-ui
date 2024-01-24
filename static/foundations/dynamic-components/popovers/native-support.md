@@ -11,6 +11,6 @@ The above will open a popover when the button is triggered via a pointer event (
 
 In order to prevent z-index and overflow issues, elements using the `popover` attribute are added to the top layer of the document.[citation](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer) This is the same for the `<dialog>` element when shown in a modal context.
 
-## Differences between the dialog element and popover attribute
+### Differences between the dialog element and popover attribute
 
 A `<dialog>` is a semantic element that can be used to create modals or generic popovers. The popover attribute, on the other hand, is a concept describing how a piece of UI should appear and affect other elements.[citation](https://html.spec.whatwg.org/dev/popover.html#the-popover-attribute) The popover attribute can be used with any temporary, contextual UI including sub menus and toast notifications.

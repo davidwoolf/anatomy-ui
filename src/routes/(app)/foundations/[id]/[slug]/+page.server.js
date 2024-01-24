@@ -14,8 +14,12 @@ export async function load({ fetch, params, parent }) {
   const { sections } = await parent();
   const { id, slug } = params;
 
-  const matchingSection = sections.find((section) => section.slug === params.slug);
-  const res = await fetch(`/${id}/${slug}.json`);
+  const matchingSection = sections[id].pages.find(
+    (section) => section.slug === params.slug
+  );
+  const nextSection =
+    sections[id].pages.findIndex((section) => section.slug === params.slug) + 1;
+  const res = await fetch(`/foundations/${id}/${slug}.json`);
 
   if (res.status === 404 || !matchingSection) {
     error(404, "page not found");
@@ -24,8 +28,6 @@ export async function load({ fetch, params, parent }) {
   if (res.status !== 200) {
     error(500, "something went wrong");
   }
-
-  const nextSection = sections.findIndex((section) => section.slug === params.slug) + 1;
 
   /** @type Array<{ title?: string; text?: string; file?: string; component?: string; width?: string; sections?: Array<{ title: string; text: string; component?: string; }> }> */
   const content = await res.json();
@@ -72,7 +74,7 @@ export async function load({ fetch, params, parent }) {
     }
 
     if (file) {
-      const res = await fetch(`/${id}/${slug}/${file}`);
+      const res = await fetch(`/foundations/${id}/${slug}/${file}`);
 
       if (res.status !== 200) {
         error(500, `could not find file: ${id}/${slug}/${file}`);
@@ -104,6 +106,6 @@ export async function load({ fetch, params, parent }) {
         };
       })
     ),
-    next: sections[nextSection] ? sections[nextSection] : undefined,
+    next: sections[id].pages[nextSection] ? sections[id].pages[nextSection] : undefined,
   };
 }
