@@ -5,7 +5,7 @@
 </script>
 
 <header>
-  <a href="/">The anatomy of everyday UI</a>
+  <a href="/">Anatomy UI</a>
 
   <Nav />
 </header>
@@ -26,18 +26,19 @@
     background-color: white;
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem 1.5rem 0;
+    padding-block: 1.5rem 0;
+    padding-inline: 1.5rem;
   }
 
   header a {
     font-size: var(--font-size-lg);
     font-weight: 500;
-    letter-spacing: -0.01em;
   }
 
   @media (min-width: 1024px) {
     header {
-      padding: 1.5rem 2rem 0;
+      padding-block: 1.5rem 0;
+      padding-inline: 2rem;
     }
   }
 </style>
