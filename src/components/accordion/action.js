@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { getElementIndex, selectPrevious, selectNext, addListener } from "../_helpers.js";
 
 /**
  * @typedef Params
@@ -208,65 +209,4 @@ export function accordion(node, params) {
       triggerUnsubs.forEach((item) => item());
     },
   };
-}
-
-/**
- *
- * @param {Node} node
- * @param {Node} element
- * @returns {Node}
- */
-export function getDirectChild(node, element) {
-  if (!element.parentNode) {
-    return element;
-  }
-
-  if (element.parentNode === node) {
-    return element;
-  }
-
-  return getDirectChild(node, element.parentNode);
-}
-
-/**
- * @param {Element} node
- * @param {Node} element
- * */
-export function getElementIndex(node, element) {
-  const topLevelElement = getDirectChild(node, element);
-
-  return Array.from(node.children).findIndex((item) => {
-    return item === topLevelElement;
-  });
-}
-
-/**
- *
- * @param {HTMLCollection | NodeListOf<Element>} items
- * @param {number} current
- */
-export function selectPrevious(items, current) {
-  return current > 0 ? current - 1 : items.length - 1;
-}
-
-/**
- *
- * @param {HTMLCollection | NodeListOf<Element>} items
- * @param {number} current
- */
-export function selectNext(items, current) {
-  return current < items.length - 1 ? current + 1 : 0;
-}
-
-/**
- *
- * @param {Element | Window & typeof globalThis | null} element
- * @param {string} action
- * @param {any} listener
- */
-export function addListener(element, action, listener) {
-  if (!element) return () => undefined;
-
-  element.addEventListener(action, listener);
-  return () => element.removeEventListener(action, listener);
 }

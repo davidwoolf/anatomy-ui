@@ -62,7 +62,14 @@
     navVisible = value;
   }}>
   <span class="title">
-    <CollapsibleTrigger>
+    <button
+      on:click={() => {
+        if (window.matchMedia("(min-width: 768px)").matches) {
+          return;
+        }
+
+        navVisible = !navVisible;
+      }}>
       {name}
 
       <svg
@@ -74,7 +81,7 @@
         xmlns="http://www.w3.org/2000/svg">
         <path d="M1 0.5L6 5.5L1 10.5" stroke="currentColor" />
       </svg>
-    </CollapsibleTrigger>
+    </button>
   </span>
 
   <CollapsibleContent>

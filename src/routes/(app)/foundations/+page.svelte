@@ -193,22 +193,6 @@
 </svelte:head>
 
 <style>
-  .breadcrumbs {
-    display: flex;
-    font-size: 0.875rem;
-    padding: 0.25rem 1.5rem 0;
-  }
-
-  .breadcrumbs ul {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .breadcrumbs li {
-    opacity: 0.6;
-    text-transform: capitalize;
-  }
-
   .nav {
     column-count: 1;
     column-gap: 2rem;
@@ -251,10 +235,6 @@
   }
 
   @media (min-width: 1024px) {
-    .breadcrumbs {
-      padding: 0.25rem 2rem 0;
-    }
-
     article {
       padding: 6rem;
     }
