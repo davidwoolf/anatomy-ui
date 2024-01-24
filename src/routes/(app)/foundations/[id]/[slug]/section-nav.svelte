@@ -64,11 +64,9 @@
   <span class="title">
     <button
       on:click={() => {
-        if (window.matchMedia("(min-width: 768px)").matches) {
-          return;
+        if (!window.matchMedia("(min-width: 768px)").matches) {
+          navVisible = !navVisible;
         }
-
-        navVisible = !navVisible;
       }}>
       {name}
 
@@ -108,10 +106,9 @@
                   <li>
                     <a
                       on:click={() => {
-                        if (window.matchMedia("(min-width: 768px)").matches) {
-                          return;
+                        if (!window.matchMedia("(min-width: 768px)").matches) {
+                          navVisible = false;
                         }
-                        navVisible = false;
                       }}
                       style:--text-decoration={currentPage ===
                       `/foundations/${value.id}/${page.slug}`
