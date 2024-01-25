@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/examples/dynamic-components/dialogs/backdrop/+page.svelte";

@@ -1,0 +1,24 @@
+{
+	"/(app)": [],
+	"/": [],
+	"/examples": [],
+	"/examples/dynamic-components/dialogs/backdrop": [],
+	"/examples/dynamic-components/modals/panels": [],
+	"/examples/layout/layout-shift/font-fallbacks": [],
+	"/examples/layout/position/sticky-fixed": [],
+	"/(app)/foundations": [
+		"src/routes/(app)/foundations/+layout.server.js",
+		"src/routes/(app)/foundations/+layout.server.js"
+	],
+	"/(app)/foundations/[id]/[slug]": [
+		"src/routes/(app)/foundations/[id]/[slug]/+page.server.js",
+		"src/routes/(app)/foundations/+layout.server.js"
+	],
+	"/(app)/kit": [
+		"src/routes/(app)/kit/+page.server.js"
+	],
+	"/(app)/kit/components/[slug]": [
+		"src/routes/(app)/kit/components/[slug]/+page.server.js"
+	],
+	"/(app)/release-notes": []
+}
