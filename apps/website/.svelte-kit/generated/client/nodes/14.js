@@ -1,1 +1,0 @@
-export { default as component } from "../../../../src/routes/examples/layout/layout-shift/font-fallbacks/+page.svelte";

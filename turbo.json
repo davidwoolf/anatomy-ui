@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": [".svelte-kit/**", ".vercel/**"]
     },
     "clean": {
       "cache": false
@@ -16,6 +16,9 @@
     },
     "format": {
       "outputs": []
+    },
+    "preview": {
+      "persistent": true
     }
   }
 }

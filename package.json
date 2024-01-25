@@ -1,22 +1,25 @@
-
-
 {
-	"name": "anatomy-of-everyday-ui-site",
-	"version": "0.0.0",
-	"workspaces": [
+  "name": "anatomy-of-everyday-ui-site",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
     "apps/*",
     "packages/*"
   ],
-	"scripts": {
+  "scripts": {
     "build": "turbo run build",
-		"check": "turbo run check",
-		"check:watch": "turbo run check:watch",
+    "check": "turbo run check",
+    "check:watch": "turbo run check:watch",
     "dev": "turbo run dev",
     "format": "turbo run format",
     "lint": "turbo run lint",
-		"preview": "turbo run preview"
+    "preview": "turbo run preview"
   },
-	"devDependencies": {
-		"prettier": "^2.8.8"
-	}
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "@repo/eslint-config": "workspace:*",
+    "prettier-plugin-svelte": "^3.1.2",
+    "prettier": "^2.8.8",
+    "turbo": "^1.11.3"
+  }
 }
