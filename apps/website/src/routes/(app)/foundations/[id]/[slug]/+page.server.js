@@ -7,6 +7,7 @@ export async function load({ fetch, params, parent }) {
   marked.setOptions({
     highlight: function (code, language) {
       const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
+
       return hljs.highlight(code, { language: validLanguage }).value;
     },
   });
