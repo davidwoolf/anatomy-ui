@@ -13,6 +13,18 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2024-01-25</time>
+      </h2>
+
+      <ul>
+        <li>Converted project into a monorepo structure with Turborepo</li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2024-01-24</time>
       </h2>
 
