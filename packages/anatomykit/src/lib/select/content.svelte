@@ -1,6 +1,3 @@
-<!-- 
-  tabindex="-1"  
--->
 <div role="listbox" hidden>
   <slot />
 </div>

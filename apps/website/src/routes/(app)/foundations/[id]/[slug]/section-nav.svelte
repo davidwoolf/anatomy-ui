@@ -1,8 +1,11 @@
 <script>
-  import Accordion from "@components/accordion/accordion.svelte";
-  import AccordionTrigger from "@components/accordion/trigger.svelte";
-  import AccordionItem from "@components/accordion/item.svelte";
-  import AccordionContent from "@components/accordion/content.svelte";
+  import {
+    AccordionRoot,
+    AccordionTrigger,
+    AccordionItem,
+    AccordionContent,
+  } from "@anatomykit/svelte";
+
   import Collapsible from "@components/collapsible/collapsible.svelte";
   import CollapsibleContent from "@components/collapsible/content.svelte";
   import { onMount } from "svelte";
@@ -79,7 +82,7 @@
 
   <CollapsibleContent>
     <nav>
-      <Accordion value={open}>
+      <AccordionRoot value={open}>
         {#each Object.entries(data) as [_, value]}
           <AccordionItem class="item" value={value.id}>
             <AccordionTrigger class="trigger">
@@ -122,7 +125,7 @@
             </AccordionContent>
           </AccordionItem>
         {/each}
-      </Accordion>
+      </AccordionRoot>
     </nav>
   </CollapsibleContent>
 </Collapsible>
