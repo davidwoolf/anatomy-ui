@@ -1,16 +1,19 @@
-import { marked } from "marked";
+import { Marked } from "marked";
 import hljs from "highlight.js";
 import { error } from "@sveltejs/kit";
+import { markedHighlight } from "marked-highlight";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, params, parent }) {
-  marked.setOptions({
-    highlight: function (code, language) {
-      const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
-
-      return hljs.highlight(code, { language: validLanguage }).value;
-    },
-  });
+  const marked = new Marked(
+    markedHighlight({
+      langPrefix: "hljs language-",
+      highlight: function (code, language) {
+        const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
+        return hljs.highlight(code, { language: validLanguage }).value;
+      },
+    })
+  );
 
   const { sections } = await parent();
   const { id, slug } = params;
