@@ -5,10 +5,11 @@ export async function load({ params }) {
   try {
     const { slug } = params;
 
-    const res = await import(`../../../../../resources/components/${slug}.md`);
+    const post = await import(`../../../../../resources/kit/components/${slug}.md`);
 
     return {
-      content: res.default,
+      content: post.default,
+      meta: post.metadata,
       slug,
     };
   } catch (e) {

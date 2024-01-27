@@ -1,3 +1,8 @@
+---
+title: Accordion
+slug: accordion
+---
+
 # Accordion
 
 An accordion is a component

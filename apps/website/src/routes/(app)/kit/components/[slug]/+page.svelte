@@ -1,6 +1,6 @@
 <script>
   import Text from "@components/text/text.svelte";
-  import { onMount } from "svelte";
+
   export let data;
 </script>
 
