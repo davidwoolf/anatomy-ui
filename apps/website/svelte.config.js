@@ -2,6 +2,7 @@ import path from "path";
 import adapter from "@sveltejs/adapter-vercel";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex } from "mdsvex";
+import remarkCitations from "rehype-markdown-citations";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,6 +12,7 @@ const config = {
     vitePreprocess(),
     mdsvex({
       extensions: [".md"],
+      remarkPlugins: [remarkCitations],
     }),
   ],
   extensions: [".svelte", ".md"],

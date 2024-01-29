@@ -1,3 +1,0 @@
-The `<section>` element sits one level above `<div>` semantically, but is considered a catch all element when a more descriptive element like `<header>`, `<nav>`, or `<article>` doesn’t make sense. What differentiates `<section>` from `<div>` is that it semantically describes a standalone area of a document. 
-
-Because of this, it is highly recommended to include a heading level text element within every `<section>`.[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) If this feels heavy handed, then you most likely want to use a `<div>`.

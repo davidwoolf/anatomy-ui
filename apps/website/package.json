@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@anatomykit/svelte": "workspace:*",
+    "rehype-markdown-citations": "workspace:*",
     "highlight.js": "^11.9.0",
     "marked": "^5.1.2",
     "marked-highlight": "^2.1.0",

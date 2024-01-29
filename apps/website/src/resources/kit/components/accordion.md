@@ -40,13 +40,13 @@ pnpm i @anatomykit/svelte
 
 ### API
 
-| name         | type                     | default        |
-| ------------ | ------------------------ | -------------- |
-| type         | `single \| multiple`     | `"single"`     |
-| value        | `string \| string[]`     | —              |
-| defaultValue | `string \| string[]`     | —              |
-| onChange     | `function`               |                |
-| direction    | `horizontal \| vertical` | `"horizontal"` |
+| name         | type                       | default        |
+| ------------ | -------------------------- | -------------- |
+| type         | `single` \| `multiple`     | `"single"`     |
+| value        | `string` \| `string[]`     | —              |
+| defaultValue | `string` \| `string[]`     | —              |
+| onChange     | `function`                 |                |
+| direction    | `horizontal` \| `vertical` | `"horizontal"` |
 
 ---
 
@@ -59,7 +59,7 @@ For ultimate control, use the action primitive.
   import { accordion } from "@anatomykit/svelte/actions";
 </script>
 
-<div use:accordion="{{}}"></div>
+<div use:accordion="{{}}" />
 ```
 
 ---

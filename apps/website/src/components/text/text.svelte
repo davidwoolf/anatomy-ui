@@ -158,27 +158,28 @@
     inline-size: 100%;
   }
 
-  .component--text :global(.hljs-tag),
-  .component--text :global(.hljs-keyword),
-  .component--text :global(.hljs-built_in),
-  .component--text :global(.hljs-params) {
+  .component--text :global(.token.tag),
+  .component--text :global(.token.keyword),
+  .component--text :global(.token.built_in),
+  .component--text :global(.token.params) {
     color: color-mix(in srgb, var(--color-gray-300), black 20%);
   }
 
-  .component--text :global(.hljs-name),
-  .component--text :global(.hljs-attr),
-  .component--text :global(.hljs-selector-tag),
-  .component--text :global(.hljs-attribute) {
+  .component--text :global(.token.name),
+  .component--text :global(.token.tag),
+  .component--text :global(.token.attr),
+  .component--text :global(.token.selector-tag),
+  .component--text :global(.token.attribute) {
     color: var(--color-green-400);
   }
 
-  .component--text :global(.hljs-comment) {
+  .component--text :global(.token.comment) {
     color: color-mix(in srgb, var(--color-gray-300), black 20%);
   }
 
-  .component--text :global(.hljs-title),
-  .component--text :global(.hljs-string),
-  .component--text :global(.hljs-built_in) {
+  .component--text :global(.token.title),
+  .component--text :global(.token.string),
+  .component--text :global(.token.built_in) {
     color: var(--color-purple-400);
   }
 

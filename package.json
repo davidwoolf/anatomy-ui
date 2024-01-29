@@ -23,6 +23,7 @@
     "turbo": "^1.11.3"
   },
   "dependencies": {
-    "@anatomykit/svelte": "workspace:*"
+    "@anatomykit/svelte": "workspace:*",
+    "rehype-markdown-citations": "workspace:*"
   }
 }

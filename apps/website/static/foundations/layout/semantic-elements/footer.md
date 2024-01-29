@@ -1,1 +1,0 @@
-Similar to `<header>`, the `<footer>` element can be used both globally or within sections. When used globally, it has the [contentinfo](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/contentinfo_role) role.

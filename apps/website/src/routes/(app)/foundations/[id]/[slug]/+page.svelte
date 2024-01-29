@@ -10,7 +10,7 @@
   import SectionNav from "./section-nav.svelte";
 
   function getTitle() {
-    return `[Foundations] Issue with page: "${data.title}"`;
+    return `[Foundations] Issue with page: "${data.meta.title}"`;
   }
 
   function getDescription() {
@@ -33,7 +33,11 @@
     <Column column="4" span="9">
       <article>
         <Text>
-          <h1>{data.title}</h1>
+          <h1>{data.meta.title}</h1>
+
+          <svelte:component this={data.content} />
+
+          <!-- <h1>{data.title}</h1>
 
           {@html data.description}
 
@@ -61,7 +65,7 @@
                 {/if}
               {/each}
             {/if}
-          {/each}
+          {/each} -->
 
           <hr />
 
@@ -97,7 +101,7 @@
 </Container>
 
 <svelte:head>
-  <title>{data.title} — Foundations | AnatomyUI</title>
+  <title>{data.meta.title} — Foundations | AnatomyUI</title>
 </svelte:head>
 
 <style>

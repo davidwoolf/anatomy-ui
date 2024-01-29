@@ -1,12 +1,1 @@
-[{
-  "title": "Media and embedded content",
-  "text": "Use the `aspect-ratio` property in CSS to give media such as images, videos, and embedded content like `<iframe>` a concrete size before rendering. While height and width attributes directly on media elements have historically been used, the aspect-ratio property can inform overall dimensions without explicitly providing width and height values that might not translate well in responsive designs.\n\nIt can also be applied to multiple elements in one declaration, since attribute values will need to be defined on each element.",
-  "component": "media-embeds"
-}, {
-  "title": "Font sizing and fallbacks",
-  "file": "font-sizing.md"
-}, {
-  "title": "Animations",
-  "text": "Layout shift doesn’t just happen on page and asset load, it can also happen when animating elements using CSS properties that contribute to the overall DOM layout flow.\n\nAvoid animating properties like height and width, top and left and margin and padding when possible. Instead, use transform for animations as it doesn’t cause layout re-computations.",
-  "component": "animation"
-}]
+[]
