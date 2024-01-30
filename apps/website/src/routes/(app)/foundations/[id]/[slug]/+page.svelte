@@ -46,7 +46,7 @@
               report issue
             </a>
 
-            <!-- {#if data.next && !data.next?.hidden}
+            {#if data.next && !data.next?.hidden}
               <a class="next-section" href="/foundations/{data.id}/{data.next.slug}">
                 {data.next.title}
                 <svg
@@ -61,7 +61,7 @@
                     stroke-linecap="round" />
                 </svg>
               </a>
-            {/if} -->
+            {/if}
           </footer>
         </Text>
       </article>
