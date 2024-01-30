@@ -27,11 +27,11 @@ export function accordion(node, params) {
 	let enabled = false;
 	let defaultValue = params && 'defaultValue' in params ? params.defaultValue : undefined;
 	let value = params && 'value' in params ? params.value : undefined;
-	let matchingValue = Array.from(node.children).findIndex((node) => {
+	let matchingValue = Array.from(node.children).findIndex((child) => {
 		if (defaultValue) {
-			return node.getAttribute('data-value') === defaultValue;
+			return child.getAttribute('data-value') === defaultValue;
 		} else if (value) {
-			return node.getAttribute('data-value') === value;
+			return child.getAttribute('data-value') === value;
 		} else {
 			return false;
 		}
@@ -76,7 +76,7 @@ export function accordion(node, params) {
 			const triggerId = nanoid();
 			const contentId = nanoid();
 
-			if (index === 0) {
+			if (index === selected) {
 				element.setAttribute('data-state', 'open');
 
 				trigger.setAttribute('tabindex', '0');
@@ -158,23 +158,16 @@ export function accordion(node, params) {
 	/** @param {number} selected */
 	function updateChild(selected) {
 		const items = node.children;
-		const element = items[selected];
 
-		if (element.getAttribute('data-state') === 'open') {
-			element.setAttribute('data-state', 'closed');
-
-			element.querySelector('[role="region"]').setAttribute('hidden', '');
-		} else {
-			element.setAttribute('data-state', 'open');
-			element.querySelector('[role="region"]').removeAttribute('hidden');
-
-			Array.from(items)
-				.filter((item) => item !== element)
-				.forEach((item) => {
-					item.setAttribute('data-state', 'closed');
-					item.querySelector('[role="region"]').setAttribute('hidden', '');
-				});
-		}
+		Array.from(items).forEach((item, index) => {
+			if (index === selected) {
+				item.setAttribute('data-state', 'open');
+				item.querySelector('[role="region"]').removeAttribute('hidden');
+			} else {
+				item.setAttribute('data-state', 'closed');
+				item.querySelector('[role="region"]').setAttribute('hidden', '');
+			}
+		});
 	}
 
 	/** @param {number} selected */
@@ -203,6 +196,7 @@ export function accordion(node, params) {
 	return {
 		/** @param {Params} params */
 		update(params) {
+			console.log(params);
 			value = params && 'value' in params ? params.value : undefined;
 
 			let matchingValue = Array.from(node.children).findIndex((node) => {
