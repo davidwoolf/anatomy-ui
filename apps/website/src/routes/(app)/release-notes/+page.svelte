@@ -13,6 +13,26 @@
   <div class="stack">
     <div>
       <h2>
+        <time>2024-01-30</time>
+      </h2>
+
+      <ul>
+        <li>Replaced marked and highlight packages with MDsevX</li>
+        <li>
+          Consolidated all .json and .md files used for foundational content. Each section
+          is now one .md file powered by MDsevX
+        </li>
+        <li>
+          Removed original component file used to import all examples manually in favor of
+          inlined MDsevX imports
+        </li>
+      </ul>
+    </div>
+
+    <Separator />
+
+    <div>
+      <h2>
         <time>2024-01-25</time>
       </h2>
 
@@ -32,7 +52,7 @@
         <li>Added sidebar navigation for “Foundations” pages</li>
         <li>
           Changed content display logic to be more CSS driven, simplifying formatting
-          logic and making it more flexible for multiple use cases.
+          logic and making it more flexible for multiple use cases
         </li>
         <li>Improved spacing and readability for headings</li>
       </ul>
