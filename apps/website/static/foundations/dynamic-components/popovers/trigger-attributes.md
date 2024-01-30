@@ -1,1 +1,0 @@
-The trigger element that controls opening the popover (in this case, a button) should include the `aria-haspopup="dialog"` and `aria-controls="popover-id"` attributes (where “popover-id” matches the `id` attribute on the dialog itself). In addition, the `aria-expanded` attribute should be set to `true` or `false` depending on if the popover is open or not.

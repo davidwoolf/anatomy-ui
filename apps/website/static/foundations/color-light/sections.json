@@ -2,36 +2,36 @@
   {
     "slug": "spaces-gamuts",
     "title": "Spaces and gamuts",
-    "description": "Browsers today support many different color spaces and gamuts including Display P3, ProPhoto, XYZ, OKLAB, and OKLCH."
+    "description": ""
   },
   {
     "slug": "hue-interpolation",
     "title": "Hue interpolation",
-    "description": "Polar color spaces like HSL, HWL, LCH, and OKLCHcan define hue interpolation values of shorter hue, decreasing hue, longer hue, and increasing hue when mixing colors and creating gradients."
+    "description": ""
   },
   {
     "slug": "system-colors",
     "title": "System colors",
-    "description": "CSS includes many system colors, which inherit from the operating system and browser, along with reserved keywords, which inherit from colors defined on the current element or its ancestors."
+    "description": ""
   },
   {
     "slug": "gradients",
     "title": "Gradients",
-    "description": "CSS gradients are rendered as images, which impacts not only where they can be applied, but how they can be manipulated like other CSS images."
+    "description": ""
   },
   {
     "slug": "color-mixing",
     "title": "Color mixing",
-    "description": "Color mixing combines two colors and mixes them based on the preferred amount of each color, in addition to the color space and hue interpolation."
+    "description": ""
   },
   {
     "slug": "shadows",
     "title": "Shadows",
-    "description": "Shadows can be applied flexibly to any box or run of text, indicating depth and–when done consistently–a global lighting source. They can also be applied as inset to create cut-in effects."
+    "description": ""
   },
   {
     "slug": "filters-blend-modes",
     "title": "Filters and blend modes",
-    "description": "Filters and blend modes go beyond static colors, gradients, and shadows, dynamically interacting with interface elements and media items."
+    "description": ""
   }
 ]

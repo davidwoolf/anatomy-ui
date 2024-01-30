@@ -1,16 +1,1 @@
-[
-  {
-    "title": "Current color",
-    "file": "current-color.md",
-    "component": "currentcolor"
-  },
-  {
-    "title": "System keywords",
-    "file": "system-keywords.md",
-    "component": "system-keywords"
-  },
-  {
-    "title": "Color scheme preferences",
-    "file": "system-preferences.md"
-  }
-]
+[]

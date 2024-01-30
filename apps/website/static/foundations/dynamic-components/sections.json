@@ -2,22 +2,22 @@
   {
     "slug": "dialogs",
     "title": "Dialogs",
-    "description": "Dialogs are an overarching concept that can be narrowed to modals and popovers. Additionally, a dialog element exists to abstract common patterns usually implemented with a combination of HTML, CSS, and Javascript."
+    "description": ""
   },
   {
     "slug": "modals",
     "title": "Modals",
-    "description": "Modals are a type of blocking UI which requires action to be dismissed and are one of the most common dialog patterns implemented in software."
+    "description": ""
   },
   {
     "slug": "popovers",
     "title": "Popovers",
-    "description": "A popover is a type of contextual UI that can be described as modeless–the reason being that other interface elements in the document are still interactive while the popover is visible."
+    "description": ""
   },
   {
     "slug": "menus",
     "title": "Menus",
-    "description": "Menus are a specific type of popover used for lists of actionable buttons. Conceptually, they are the same as popovers but differ based on UI and accessibility requirements."
+    "description": ""
   },
   {
     "slug": "tabs",
@@ -27,7 +27,7 @@
   {
     "slug": "tooltips",
     "title": "Tooltips",
-    "description": "Reserved for non-interactive information, tooltips are the most ephemeral and temporary dynamic component."
+    "description": ""
   },
   {
     "slug": "disclosures",

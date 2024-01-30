@@ -1,1 +1,0 @@
-Multiple gradients can be specified in the `background` property with commas `,` and are stacked with the first gradient on top. And because gradients are simply `<image>` types, you can combine gradients with regular background image imports that use the `url(./path/to/image)` syntax.

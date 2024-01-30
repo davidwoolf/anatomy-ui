@@ -1,1 +1,0 @@
-Increasing hue calculations always go in a clockwise direction, while decreasing hue calculations always go in a counter-clockwise direction. This means both can mix colors using more or less of the color wheel, depending on the first and second color’s angle values.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/hue-interpolation-method#increasing)

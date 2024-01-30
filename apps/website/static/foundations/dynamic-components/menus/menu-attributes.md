@@ -1,1 +1,0 @@
-For the menu itself, include the `role="menu"` attribute, along with the `aria-labelledby` attribute, whose value should point to the `id` of the button that opens the menu. Finally, the `aria-orientation` should be `vertical` or `horizontal` depending on the primary layout of the menu items.

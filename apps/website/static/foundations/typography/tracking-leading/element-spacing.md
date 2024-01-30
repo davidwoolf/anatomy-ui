@@ -1,1 +1,0 @@
-Be careful when setting `line-height`, `letter-spacing`, or `word-spacing` on elements that contain styled inline or inline-block elements as their spacing will be affected as well.[citation](https://css-tricks.com/almanac/properties/w/word-spacing/)

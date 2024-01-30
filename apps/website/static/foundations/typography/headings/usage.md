@@ -1,3 +1,0 @@
-HTML includes `<h1>` through `<h6>`, each creating a block element. When using headings, avoid multiple `<h1>` elements. It's also important to not skip heading levels in distinctive sections of content; skipping from `<h1>` to `<h3>` without including an `<h2>` is considered bad practice.[citation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#usage_notes)
-
-Because headings are an important semantic device for understanding the structure of a page view, consider how you want to compose app content holistically and give yourself the tools to control this structure within reusable components.

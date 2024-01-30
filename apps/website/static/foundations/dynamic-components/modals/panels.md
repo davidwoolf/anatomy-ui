@@ -1,1 +1,0 @@
-As a UI pattern, panels are generally considered an extension of modals because of keyboard focus trapping, explicit dismissal requirements, and the use of a backdrop to separate the panel from other elements in the document. When treating panels this way, use all of the attributes required for regular modals as well.

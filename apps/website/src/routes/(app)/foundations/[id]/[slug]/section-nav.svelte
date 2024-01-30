@@ -135,13 +135,14 @@
     color: var(--color-purple-400);
     font-size: var(--font-size-2xl);
     font-weight: 500;
-    letter-spacing: -0.025em;
+
     line-height: 1;
   }
 
   .title :global(button) {
     align-items: center;
     display: flex;
+    letter-spacing: -0.025em;
     gap: 0.5rem;
   }
 

@@ -5,7 +5,6 @@
   import Grid from "@components/grid/grid.svelte";
   import Column from "@components/grid/column.svelte";
   import Text from "@components/text/text.svelte";
-  import Component from "@components/component.svelte";
   import Container from "@components/layout/container.svelte";
   import SectionNav from "./section-nav.svelte";
 
