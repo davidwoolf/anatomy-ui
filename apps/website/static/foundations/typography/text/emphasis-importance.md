@@ -1,1 +1,0 @@
-The `<em>` tag is for stress emphasis in a sentence structure while the `<strong>` tag is for text that is of significant importance. Because of this, it's probably rare that you would want to use `<em>` in interfaces for non-literary text. A good example of using `<strong>` is with alert style content.

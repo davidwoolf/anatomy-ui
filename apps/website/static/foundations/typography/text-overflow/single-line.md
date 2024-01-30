@@ -1,3 +1,0 @@
-Trimming text is usually applied to single lines and requires coordinating CSS’s `text-overflow`, `overflow`, and `white-space` properties. The `text-overflow` property does not handle clipping text, it only controls what should display when text has already been clipped. By default, this value is `clip`, but all modern browsers also support `ellipsis`.[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
-
-In order to actually clip text that is too long, use `overflow: hidden`, which must be applied to the text element itself. Additionally, the text cannot span multiple lines, and the css property `white-space: nowrap` must also be included.

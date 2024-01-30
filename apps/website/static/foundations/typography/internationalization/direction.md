@@ -1,3 +1,0 @@
-Avoid using the `direction` css property[citation](https://developer.mozilla.org/en-US/docs/Web/CSS/direction) and opt for the `dir` attribute instead. This can be applied to the entire document via the `<html>` element or on individual elements (for example, when displaying part of the text in another language).
-
-Additionally, use a combination of the `text-orientation` and `writing-mode` css properties to control how text is laid out. This is useful for languages that are read vertically and from right to left. The `writing-mode` property can be used to set text in vertical mode, which is required for the `text-orientation` property as it only works on vertical text.[citation](https://drafts.csswg.org/css-writing-modes/#text-orientation)

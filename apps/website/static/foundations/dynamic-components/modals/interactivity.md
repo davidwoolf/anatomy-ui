@@ -1,1 +1,0 @@
-Modals should trap keyboard focus, cycling through only the focusable elements within the modal itself. Elements outside of the modal should also be non-interactive for pointer devices (ie: mouse and touch) when the modal is active. When the modal conforms to an `alertdialog`, ensure that both “cancel” and “confirm” buttons are provided in addition to a regular X close button.

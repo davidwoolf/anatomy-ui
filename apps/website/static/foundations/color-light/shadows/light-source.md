@@ -1,3 +1,0 @@
-When creating depth using shadows, its important to keep lighting sources consistent and to use intensity differences to denote layers. All shadows should use either positive or negative coordinate values to denote the global light source (positive values being in the top left, negative values being the top or bottom right), while playing with the values of the x, y, blur, and spread radiuses. Smaller radiuses with lighter values indicate elements close the surface, while larger and darker values indicate elements farther away from the surface.
-
-Shadows can also be paired with gradients to reinforce light sources. This combination can be used to create more skeuomorphic UI elements.

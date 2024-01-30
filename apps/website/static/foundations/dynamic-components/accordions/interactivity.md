@@ -1,1 +1,0 @@
-When the accordion is focused, triggers should be navigable by tabbing or using the `Up` and `Down` arrow keys. Additionally, the `Home` and `End` keys can be used to jump the first or last trigger respectively.
