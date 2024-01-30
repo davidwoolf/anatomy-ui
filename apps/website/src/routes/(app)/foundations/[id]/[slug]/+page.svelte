@@ -36,36 +36,6 @@
 
           <svelte:component this={data.content} />
 
-          <!-- <h1>{data.title}</h1>
-
-          {@html data.description}
-
-          {#each data.content as row, index (index)}
-            <hr />
-
-            <h2>{row.title}</h2>
-
-            {#if row.text}
-              {@html row.text}
-            {/if}
-
-            {#if row.component}
-              <Component name={row.component} path={data.id} id={data.slug} />
-            {/if}
-
-            {#if row.sections}
-              {#each row.sections as section}
-                <h3>{section.title}</h3>
-
-                {@html section.text}
-
-                {#if section.component}
-                  <Component name={section.component} path={data.id} id={data.slug} />
-                {/if}
-              {/each}
-            {/if}
-          {/each} -->
-
           <hr />
 
           <footer>
@@ -76,7 +46,7 @@
               report issue
             </a>
 
-            {#if data.next && !data.next?.hidden}
+            <!-- {#if data.next && !data.next?.hidden}
               <a class="next-section" href="/foundations/{data.id}/{data.next.slug}">
                 {data.next.title}
                 <svg
@@ -91,7 +61,7 @@
                     stroke-linecap="round" />
                 </svg>
               </a>
-            {/if}
+            {/if} -->
           </footer>
         </Text>
       </article>
