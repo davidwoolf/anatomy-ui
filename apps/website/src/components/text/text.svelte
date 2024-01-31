@@ -132,7 +132,6 @@
 
   .component--text :global(:is(h2, h3, p, li, td) code) {
     background-color: var(--color-gray-100);
-
     color: var(--color-accent, var(--color-purple-400));
     border-radius: 0.25rem;
     font-family: var(--font-mono);

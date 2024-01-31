@@ -1,7 +1,6 @@
 <script>
   import Example from "@components/example.svelte";
   import Card from "@components/card.svelte";
-  import Number from "@components/editing/number.svelte";
   import CSSEditor from "@components/css-editor.svelte";
 
   let code = [
