@@ -11,18 +11,17 @@
   import { onMount } from "svelte";
 
   /**
-   * @typedef Section
+   * @typedef Page
    * @property {string} slug
    * @property {string} title
-   * @property {string} description
-   * @property {boolean?} hidden
+   * @property {boolean} [hidden]
    */
 
   /**
    * @typedef Data
    * @property {string} id
    * @property {string} name
-   * @property {Section[]} pages
+   * @property {Page[]} [pages]
    */
 
   /** @type {Record<string, Data>} */
@@ -83,7 +82,7 @@
   <CollapsibleContent>
     <nav>
       <AccordionRoot value={open}>
-        {#each Object.entries(data) as [_, value]}
+        {#each Object.entries(data).filter(([_, value]) => "pages" in value) as [_, value]}
           <AccordionItem class="item" value={value.id}>
             <AccordionTrigger class="trigger">
               {value.name.replaceAll("-", " ")}
@@ -98,29 +97,31 @@
               </svg>
             </AccordionTrigger>
 
-            <AccordionContent>
+            <AccordionContent class="content">
               <ul>
-                {#each value.pages as page}
-                  <li>
-                    <a
-                      on:click={() => {
-                        if (!window.matchMedia("(min-width: 768px)").matches) {
-                          navVisible = false;
-                        }
-                      }}
-                      style:--text-decoration={currentPage ===
-                      `/foundations/${value.id}/${page.slug}`
-                        ? "underline"
-                        : "inherit"}
-                      aria-current={currentPage ===
-                      `/foundations/${value.id}/${page.slug}`
-                        ? "page"
-                        : false}
-                      href="/foundations/{value.id}/{page.slug}">
-                      {page.title}
-                    </a>
-                  </li>
-                {/each}
+                {#if value.pages}
+                  {#each value.pages as page}
+                    <li>
+                      <a
+                        on:click={() => {
+                          if (!window.matchMedia("(min-width: 768px)").matches) {
+                            navVisible = false;
+                          }
+                        }}
+                        style:--text-decoration={currentPage ===
+                        `/foundations/${value.id}/${page.slug}`
+                          ? "underline"
+                          : "inherit"}
+                        aria-current={currentPage ===
+                        `/foundations/${value.id}/${page.slug}`
+                          ? "page"
+                          : false}
+                        href="/foundations/{value.id}/{page.slug}">
+                        {page.title}
+                      </a>
+                    </li>
+                  {/each}
+                {/if}
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -132,10 +133,9 @@
 
 <style>
   .title {
-    color: var(--color-purple-400);
+    color: var(--color-accent);
     font-size: var(--font-size-2xl);
     font-weight: 500;
-
     line-height: 1;
   }
 
@@ -190,7 +190,7 @@
     transform: rotate(90deg);
   }
 
-  a {
+  nav :global(.content a) {
     color: color-mix(in srgb, var(--color-gray-800), transparent 20%);
     display: block;
     font-weight: 400;
@@ -199,7 +199,7 @@
     text-decoration: var(--text-decoration, none);
   }
 
-  a:hover {
+  nav :global(.content a:hover) {
     text-decoration: underline;
   }
 

@@ -40,7 +40,7 @@ export async function load({ fetch }) {
    * @property {string} slug
    * @property {string} title
    * @property {string} description
-   * @property {boolean?} hidden
+   * @property {boolean} [hidden]
    */
 
   /**

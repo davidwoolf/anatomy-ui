@@ -25,7 +25,7 @@
 
   /**
    *
-   * @param {HTMLAnchorElement} _node
+   * @param {HTMLAnchorElement} node
    */
   function dismissPanel(node) {
     function handleClick() {
