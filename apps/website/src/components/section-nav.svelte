@@ -14,7 +14,7 @@
    * @typedef Page
    * @property {string} slug
    * @property {string} title
-   * @property {boolean?} hidden
+   * @property {boolean} [hidden]
    */
 
   /**
@@ -82,24 +82,24 @@
   <CollapsibleContent>
     <nav>
       <AccordionRoot value={open}>
-        {#each Object.entries(data) as [_, value]}
+        {#each Object.entries(data).filter(([_, value]) => "pages" in value) as [_, value]}
           <AccordionItem class="item" value={value.id}>
-            {#if value.pages}
-              <AccordionTrigger class="trigger">
-                {value.name.replaceAll("-", " ")}
+            <AccordionTrigger class="trigger">
+              {value.name.replaceAll("-", " ")}
 
-                <svg
-                  width="7"
-                  height="11"
-                  viewBox="0 0 7 11"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 0.5L6 5.5L1 10.5" stroke="currentColor" />
-                </svg>
-              </AccordionTrigger>
+              <svg
+                width="7"
+                height="11"
+                viewBox="0 0 7 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0.5L6 5.5L1 10.5" stroke="currentColor" />
+              </svg>
+            </AccordionTrigger>
 
-              <AccordionContent class="content">
-                <ul>
+            <AccordionContent class="content">
+              <ul>
+                {#if value.pages}
                   {#each value.pages as page}
                     <li>
                       <a
@@ -121,13 +121,9 @@
                       </a>
                     </li>
                   {/each}
-                </ul>
-              </AccordionContent>
-            {:else}
-              <a href={value.id} class="trigger">
-                {value.name.replaceAll("-", " ")}
-              </a>
-            {/if}
+                {/if}
+              </ul>
+            </AccordionContent>
           </AccordionItem>
         {/each}
       </AccordionRoot>
@@ -140,7 +136,6 @@
     color: var(--color-accent);
     font-size: var(--font-size-2xl);
     font-weight: 500;
-
     line-height: 1;
   }
 

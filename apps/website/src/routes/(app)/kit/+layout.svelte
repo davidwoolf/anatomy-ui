@@ -89,33 +89,27 @@
   };
 </script>
 
-<Container>
-  <Grid>
-    <Column column="1" span="2">
-      <aside>
-        <!-- open={data.id}
-        data={data.sections}
-        currentPage="/kit/{data.id}/{data.slug}"  -->
-        <SectionNav name="AnatomyKit" open="" data={pages} currentPage="" />
-      </aside>
-    </Column>
+<div>
+  <Container>
+    <Grid>
+      <Column column="1" span="2">
+        <aside>
+          <!-- open={data.id}
+          data={data.sections}
+          currentPage="/kit/{data.id}/{data.slug}"  -->
+          <SectionNav name="AnatomyKit" open="" data={pages} currentPage="" />
+        </aside>
+      </Column>
 
-    <Column column="4" span="9">
-      <slot />
-    </Column>
-  </Grid>
-</Container>
+      <Column column="4" span="9">
+        <slot />
+      </Column>
+    </Grid>
+  </Container>
+</div>
 
 <style>
-  :global(:root) {
+  div {
     --color-accent: var(--color-red-400);
-  }
-
-  .anatomykit {
-    color: var(--color-red-400);
-    font-size: var(--font-size-4xl);
-    font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1.75;
   }
 </style>

@@ -74,10 +74,6 @@
 </svelte:head>
 
 <style>
-  :global(:root) {
-    --color-accent: var(--color-purple-400);
-  }
-
   footer {
     align-items: center;
     display: flex;
