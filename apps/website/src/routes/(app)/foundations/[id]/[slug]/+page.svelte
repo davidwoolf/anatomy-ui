@@ -6,7 +6,7 @@
   import Column from "@components/grid/column.svelte";
   import Text from "@components/text/text.svelte";
   import Container from "@components/layout/container.svelte";
-  import SectionNav from "./section-nav.svelte";
+  import SectionNav from "@components/section-nav.svelte";
 
   function getTitle() {
     return `[Foundations] Issue with page: "${data.meta.title}"`;
@@ -74,6 +74,10 @@
 </svelte:head>
 
 <style>
+  :global(:root) {
+    --color-accent: var(--color-purple-400);
+  }
+
   footer {
     align-items: center;
     display: flex;

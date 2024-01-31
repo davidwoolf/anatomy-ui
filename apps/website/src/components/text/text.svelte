@@ -132,7 +132,8 @@
 
   .component--text :global(:is(h2, h3, p, li, td) code) {
     background-color: var(--color-gray-100);
-    color: var(--color-purple-400);
+
+    color: var(--color-accent, var(--color-purple-400));
     border-radius: 0.25rem;
     font-family: var(--font-mono);
     font-size: 0.8125em;
@@ -184,7 +185,7 @@
   .component--text :global(.token.function),
   .component--text :global(.token.attr-value),
   .component--text :global(.token.operator) {
-    color: var(--color-purple-400);
+    color: var(--color-accent, var(--color-purple-400));
   }
 
   @media (min-width: 768px) {

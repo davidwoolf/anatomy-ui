@@ -11,10 +11,9 @@
   import { onMount } from "svelte";
 
   /**
-   * @typedef Section
+   * @typedef Page
    * @property {string} slug
    * @property {string} title
-   * @property {string} description
    * @property {boolean?} hidden
    */
 
@@ -22,7 +21,7 @@
    * @typedef Data
    * @property {string} id
    * @property {string} name
-   * @property {Section[]} pages
+   * @property {Page[]} [pages]
    */
 
   /** @type {Record<string, Data>} */
@@ -85,44 +84,50 @@
       <AccordionRoot value={open}>
         {#each Object.entries(data) as [_, value]}
           <AccordionItem class="item" value={value.id}>
-            <AccordionTrigger class="trigger">
-              {value.name.replaceAll("-", " ")}
+            {#if value.pages}
+              <AccordionTrigger class="trigger">
+                {value.name.replaceAll("-", " ")}
 
-              <svg
-                width="7"
-                height="11"
-                viewBox="0 0 7 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 0.5L6 5.5L1 10.5" stroke="currentColor" />
-              </svg>
-            </AccordionTrigger>
+                <svg
+                  width="7"
+                  height="11"
+                  viewBox="0 0 7 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 0.5L6 5.5L1 10.5" stroke="currentColor" />
+                </svg>
+              </AccordionTrigger>
 
-            <AccordionContent>
-              <ul>
-                {#each value.pages as page}
-                  <li>
-                    <a
-                      on:click={() => {
-                        if (!window.matchMedia("(min-width: 768px)").matches) {
-                          navVisible = false;
-                        }
-                      }}
-                      style:--text-decoration={currentPage ===
-                      `/foundations/${value.id}/${page.slug}`
-                        ? "underline"
-                        : "inherit"}
-                      aria-current={currentPage ===
-                      `/foundations/${value.id}/${page.slug}`
-                        ? "page"
-                        : false}
-                      href="/foundations/{value.id}/{page.slug}">
-                      {page.title}
-                    </a>
-                  </li>
-                {/each}
-              </ul>
-            </AccordionContent>
+              <AccordionContent class="content">
+                <ul>
+                  {#each value.pages as page}
+                    <li>
+                      <a
+                        on:click={() => {
+                          if (!window.matchMedia("(min-width: 768px)").matches) {
+                            navVisible = false;
+                          }
+                        }}
+                        style:--text-decoration={currentPage ===
+                        `/foundations/${value.id}/${page.slug}`
+                          ? "underline"
+                          : "inherit"}
+                        aria-current={currentPage ===
+                        `/foundations/${value.id}/${page.slug}`
+                          ? "page"
+                          : false}
+                        href="/foundations/{value.id}/{page.slug}">
+                        {page.title}
+                      </a>
+                    </li>
+                  {/each}
+                </ul>
+              </AccordionContent>
+            {:else}
+              <a href={value.id} class="trigger">
+                {value.name.replaceAll("-", " ")}
+              </a>
+            {/if}
           </AccordionItem>
         {/each}
       </AccordionRoot>
@@ -132,7 +137,7 @@
 
 <style>
   .title {
-    color: var(--color-purple-400);
+    color: var(--color-accent);
     font-size: var(--font-size-2xl);
     font-weight: 500;
 
@@ -190,7 +195,7 @@
     transform: rotate(90deg);
   }
 
-  a {
+  nav :global(.content a) {
     color: color-mix(in srgb, var(--color-gray-800), transparent 20%);
     display: block;
     font-weight: 400;
@@ -199,7 +204,7 @@
     text-decoration: var(--text-decoration, none);
   }
 
-  a:hover {
+  nav :global(.content a:hover) {
     text-decoration: underline;
   }
 
